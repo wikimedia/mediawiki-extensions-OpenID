@@ -25,6 +25,7 @@
 	margin: 3px;
 	float: left;
 	background: #fff no-repeat top left;
+	background-size: 100px 60px;
 }
 .openid_small_btn {
 	width: 24px;
@@ -33,6 +34,7 @@
 	margin: 3px;
 	float: left;
 	background: #fff no-repeat top left;
+	background-size: 24px 24px;
 }	
 
 .openid_selected {

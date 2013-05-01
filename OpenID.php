@@ -29,7 +29,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-define( 'MEDIAWIKI_OPENID_VERSION', '2.01 20130209' );
+define( 'MEDIAWIKI_OPENID_VERSION', '3.122 20130418' );
 
 $path = dirname( __FILE__ );
 set_include_path( implode( PATH_SEPARATOR, array( $path ) ) . PATH_SEPARATOR . get_include_path() );
@@ -37,23 +37,46 @@ set_include_path( implode( PATH_SEPARATOR, array( $path ) ) . PATH_SEPARATOR . g
 # CONFIGURATION VARIABLES
 
 /**
- * Whether to hide the "Login with OpenID link" link; set to true if you already
- * have this link in your skin.
+ * Only allow login with OpenID.
+ * Default: true
  */
-$wgHideOpenIDLoginLink = false;
+$wgOpenIDLoginOnly = true;
 
 /**
- * Location of the OpenID login logo. You can copy this to your server if you
- * want.
+ * If true, user accounts on this wiki can be used as OpenIDs on other
+ * sites. This is called "OpenID Provider" (or "OpenID Server") mode.
+ *
+ * @deprecated $wgOpenIDClientOnly since E:OpenID v3.12. Use $wgOpenIDConsumerAndAlsoProvider with inverted logic instead
  */
-$wgOpenIDLoginLogoUrl = $wgScriptPath . '/extensions/OpenID/skin/icons/openid-inputicon.png';
+$wgOpenIDConsumerAndAlsoProvider = true;
 
 /**
- * Whether to show the OpenID identity URL on a user's home page. Possible
- * values are 'always', 'never' (default), or 'user'.
+ * If true, users can use their OpenID identity provided by this site A
+ * as OpenID for logins to other sites B
+ * even when users logged in on site A with OpenID.
+ *
+ * Some users might want to do that for vanity purposes or whatever.
+ */
+$wgOpenIDAllowServingOpenIDUserAccounts = true;
+
+/**
+ * Whether to hide the "Login with OpenID link" link:
+ * set to true if you already have this link in your skin.
+ */
+$wgOpenIDHideOpenIDLoginLink = false;
+
+/**
+ * Location (fully specified Url) of a small OpenID logo.
+ * When set to false (default), the built-in standard logo is used.
+ */
+$wgOpenIDSmallLogoUrl = false;
+
+/**
+ * Whether to show the OpenID identity URL on a user's home page.
+ * Possible values are 'always', 'never' (default), or 'user'.
  * 'user' lets the user decide in their preferences.
  */
-$wgOpenIDShowUrlOnUserPage = 'never';
+$wgOpenIDShowUrlOnUserPage = 'user';
 
 /**
  * These are trust roots that we don't bother asking users whether the trust
@@ -77,8 +100,10 @@ $wgOpenIDServerStoreType = 'file';
 /**
  * If the store type is set to 'file', this is is the name of a directory to
  * store the data in.
+ *
+ * false defaults to "$wgTmpDirectory/$wgDBname/openid-server-store"
  */
-$wgOpenIDServerStorePath = "/tmp/$wgDBname/openidserver/";
+$wgOpenIDServerStorePath = false;
 
 /**
  * Defines the trust root for this server
@@ -174,8 +199,10 @@ $wgOpenIDConsumerStoreType = 'file';
 /**
  * If the store type is set to 'file', this is is the name of a
  * directory to store the data in.
+ *
+ * false defaults to "$wgTmpDirectory/$wgDBname/openid-consumer-store"
  */
-$wgOpenIDConsumerStorePath = "/tmp/$wgDBname/openidconsumer/";
+$wgOpenIDConsumerStorePath = false;
 
 /**
  * Expiration time for the OpenID cookie. Lets the user re-authenticate
@@ -184,37 +211,12 @@ $wgOpenIDConsumerStorePath = "/tmp/$wgDBname/openidconsumer/";
  */
 $wgOpenIDCookieExpiration = 365 * 24 * 60 * 60;
 
-/**
- * Only allow login with OpenID. Careful -- this means everybody!
- */
-$wgOpenIDOnly = false;
-
-/**
- * If true, user accounts on this wiki *cannot* be used as OpenIDs on other
- * sites.
- */
-$wgOpenIDClientOnly = false;
-
 /*
  * The fractional part after /Special:OpenIDServer/
  * when the server shall show the selection (login) form
  *
  */
 $wgOpenIDIdentifierSelect = "id";
-
-/**
- * Allow to use User pages as OpenIDs even if user is using OpenID already
- *
- * If true, users can use their user page URLs of this site A as OpenID
- * on another site B even if user is using OpenID on A already.
- *
- * Some users might want to do that for vanity purposes or whatever.
- *
- * https://bugzilla.wikimedia.org/show_bug.cgi?id=18635
- * If false, prevent serving OpenID accounts (TODO list item; done)
- *
- */
-$wgOpenIDAllowServingOpenIDUserAccounts = true;
 
 /**
  * When merging accounts with the UserMerge and Delete extension,
@@ -227,6 +229,29 @@ $wgOpenIDMergeOnAccountMerge = false;
  * If true, will show provider icons instead of the text.
  */
 $wgOpenIDShowProviderIcons = true;
+
+/**
+ * When used as OpenID provider, you can optionally define a template for a
+ * customized fully specified url (CFSU) as identity url for delegation.
+ * This allows differently looking "nice OpenID urls" in addition to the
+ * generic urls /User:Username and /Special:OpenIDIdentifier/<id> .
+ *
+ * The CFSU template must contain a placeholder string "{ID}".
+ *
+ * The placeholder is substituted with the authenticated user's internal ID
+ * during the OpenID authentication process.
+ *
+ * To make this working you need also to set up a suited rewrite rule
+ * in your web server which redirects the CFSU with the replaced user id
+ * to Special:OpenIDIdentifier/<id>.
+ *
+ * The default value is computed internally as
+ *
+ * $wgOpenIDIdentifiersURL =
+ * str_replace( "$1", "Special:OpenIDIdentifier/{ID}", $wgServer . $wgArticlePath );
+ *
+ */
+$wgOpenIDIdentifiersURL = "";
 
 # New options
 $wgDefaultUserOptions['openid-hide'] = 0;
@@ -265,9 +290,12 @@ $wgExtensionMessagesFiles['OpenID'] = $dir . 'OpenID.i18n.php';
 $wgExtensionMessagesFiles['OpenIDAlias'] = $dir . 'OpenID.alias.php';
 
 $wgAutoloadClasses['OpenIDHooks'] = $dir . 'OpenID.hooks.php';
+$wgAutoloadClasses['SpecialOpenIDCreateAccount'] = $dir . 'OpenID.hooks.php';
+$wgAutoloadClasses['SpecialOpenIDUserLogin'] = $dir . 'OpenID.hooks.php';
 
 # Autoload common parent with utility methods
 $wgAutoloadClasses['SpecialOpenID'] = $dir . 'SpecialOpenID.body.php';
+$wgAutoloadClasses['SpecialOpenIDIdentifier'] = $dir . 'SpecialOpenIDIdentifier.body.php';
 
 $wgAutoloadClasses['SpecialOpenIDLogin'] = $dir . 'SpecialOpenIDLogin.body.php';
 $wgAutoloadClasses['SpecialOpenIDConvert'] = $dir . 'SpecialOpenIDConvert.body.php';
@@ -283,6 +311,8 @@ $wgAutoloadClasses['Auth_OpenID_CheckIDRequest'] = OpenIDGetServerPath();
 
 $wgAutoloadClasses['MediaWikiOpenIDDatabaseConnection'] = $dir . 'DatabaseConnection.php';
 $wgAutoloadClasses['MediaWikiOpenIDMemcachedStore'] = $dir . 'MemcachedStore.php';
+
+$wgSpecialPages['OpenIDIdentifier'] = 'SpecialOpenIDIdentifier';
 
 $wgHooks['PersonalUrls'][] = 'OpenIDHooks::onPersonalUrls';
 $wgHooks['BeforePageDisplay'][] = 'OpenIDHooks::onBeforePageDisplay';

@@ -4,6 +4,11 @@ require_once( 'Auth/OpenID/MemcachedStore.php' );
 
 class MediaWikiOpenIDMemcachedStore extends Auth_OpenID_MemcachedStore {
 
+	/**
+	 * @var BagOStuff
+	 */
+	protected $connection;
+
 	function __construct( $connection ) {
 		$this->connection = $connection;
 	}

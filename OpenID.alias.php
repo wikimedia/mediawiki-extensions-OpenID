@@ -83,6 +83,7 @@ $specialPageAliases['ja'] = array(
 	'OpenIDLogin' => array( 'OpenIDログイン', 'ＯｐｅｎＩＤログイン' ),
 	'OpenIDConvert' => array( 'OpenID変換', 'ＯｐｅｎＩＤ変換' ),
 	'OpenIDServer' => array( 'OpenIDサーバー', 'ＯｐｅｎＩＤサーバー' ),
+	'OpenIDDashboard' => array( 'OpenIDダッシュボード' ),
 );
 
 /** Korean (한국어) */
@@ -198,11 +199,23 @@ $specialPageAliases['vi'] = array(
 	'OpenIDLogin' => array( 'Đăng_nhập_OpenID' ),
 	'OpenIDConvert' => array( 'Đổi_OpenID' ),
 	'OpenIDServer' => array( 'Máy_chủ_OpenID' ),
+	'OpenIDXRDS' => array( 'XRDS_OpenID' ),
+	'OpenIDDashboard' => array( 'Bảng_điều_khiển_OpenID' ),
 );
 
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'OpenIDLogin' => array( 'OpenID登录' ),
-	'OpenIDConvert' => array( '转换OpenID' ),
+	'OpenIDConvert' => array( 'OpenID转换', '转换OpenID' ),
 	'OpenIDServer' => array( 'OpenID服务器' ),
+	'OpenIDXRDS' => array( 'OpenIDXRDS' ),
+	'OpenIDDashboard' => array( 'OpenID状态面板' ),
+);
+
+/** Traditional Chinese (中文（繁體）‎) */
+$specialPageAliases['zh-hant'] = array(
+	'OpenIDLogin' => array( 'OpenID登入' ),
+	'OpenIDConvert' => array( '轉換OpenID' ),
+	'OpenIDServer' => array( 'OpenID伺服器' ),
+	'OpenIDDashboard' => array( 'OpenID狀態板' ),
 );

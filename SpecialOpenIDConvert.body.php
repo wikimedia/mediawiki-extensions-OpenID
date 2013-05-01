@@ -20,6 +20,7 @@
  *
  * @file
  * @author Evan Prodromou <evan@prodromou.name>
+ * @author Thomas Gries
  * @ingroup Extensions
  */
 
@@ -34,12 +35,12 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 	}
 
 	function execute( $par ) {
-		global $wgRequest, $wgUser, $wgOut;
+		global $wgRequest, $wgUser;
 
 		if ( !$this->userCanExecute( $wgUser ) ) {
-                	$this->displayRestrictionError();
-        	        return;
-	        }
+			$this->displayRestrictionError();
+			return;
+		}
 
 		$this->setHeaders();
 
@@ -104,7 +105,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 	}
 
 	function form() {
-		global $wgOut, $wgUser, $wgOpenIDShowProviderIcons;
+		global $wgOut, $wgOpenIDShowProviderIcons;
 
 		$wgOut->addModules( $wgOpenIDShowProviderIcons ? 'ext.openid.icons' : 'ext.openid.plain' );
 
@@ -168,8 +169,8 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 					'onsubmit' => 'openid.update()'
 				)
 			) .
-			Xml::fieldset( wfMsg( 'openidconvertoraddmoreids' ) ) .
-			Xml::openElement( 'p' ) . wfMsg( 'openidconvertinstructions' ) . Xml::closeElement( 'p' ) .
+			Xml::fieldset( wfMessage( 'openidconvertoraddmoreids' )->text() ) .
+			Xml::openElement( 'p' ) . wfMessage( 'openidconvertinstructions' )->text() . Xml::closeElement( 'p' ) .
 			$largeButtonsHTML .
 			'<div id="openid_input_area">' .
 			$formsHTML .
@@ -180,7 +181,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 	}
 
 	function delete() {
-		global $wgUser, $wgOut, $wgRequest, $wgOpenIDOnly;
+		global $wgUser, $wgOut, $wgRequest, $wgOpenIDLoginOnly;
 
 		$openid = $wgRequest->getVal( 'url' );
 		$user = self::getUserFromUrl( $openid );
@@ -190,7 +191,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			return;
 		}
 
-		$wgOut->setPageTitle( wfMsg( 'openiddelete' ) );
+		$wgOut->setPageTitle( wfMessage( 'openiddelete' )->text() );
 
 		# Check if the user is removing it's last OpenID url
 		$urls = self::getUserOpenIDInformation( $wgUser );
@@ -198,7 +199,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			if ( $wgUser->mPassword == '' ) {
 				$wgOut->showErrorPage( 'openiderror', 'openiddeleteerrornopassword' );
 				return;
-			} elseif ( $wgOpenIDOnly ) {
+			} elseif ( $wgOpenIDLoginOnly ) {
 				$wgOut->showErrorPage( 'openiderror', 'openiddeleteerroropenidonly' );
 				return;
 			}
@@ -208,7 +209,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			&& $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ), $openid ) ) {
 
 			$ret = self::removeUserUrl( $wgUser, $openid );
-			$wgOut->addWikiMsg( $ret ? 'openiddelete-sucess' : 'openiddelete-error' );
+			$wgOut->addWikiMsg( $ret ? 'openiddelete-success' : 'openiddelete-error' );
 			return;
 		}
 
@@ -221,9 +222,9 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 					'method' => 'post'
 				)
 			) .
-			Xml::submitButton( wfMsg( 'openiddelete-button' ) ) . "\n" .
+			Xml::submitButton( wfMessage( 'openiddelete-button' )->text() ) . "\n" .
 			Html::Hidden( 'url', $openid ) . "\n" .
-			Html::Hidden( 'wpEditToken', $wgUser->editToken( $openid ) ) . "\n" .
+			Html::Hidden( 'wpEditToken', $wgUser->getEditToken( $openid ) ) . "\n" .
 			Xml::closeElement( 'form' )
 		);
 	}
@@ -298,13 +299,11 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 
 			$this->loginSetCookie( $openid_url );
 
-			$wgOut->setPageTitle( wfMsg( 'openidconvertsuccess' ) );
+			$wgOut->setPageTitle( wfMessage( 'openidconvertsuccess' )->text() );
 			$wgOut->setRobotPolicy( 'noindex,nofollow' );
 			$wgOut->setArticleRelated( false );
 			$wgOut->addWikiMsg( 'openidconvertsuccesstext', $openid_url );
 			$wgOut->returnToMain();
-
 		}
-
 	}
 }

@@ -1,6 +1,28 @@
 CHANGES
 =======
 
+3.122 20130418  code cosmetics
+3.121 20130417  code cosmetics
+3.12  20130402  breaking change renamed $wgOpenIDClientOnly to $wgOpenIDConsumerAndAlsoProvider
+                and inverting its logic accordingly
+3.11  20130401  code cosmetics
+3.10  20130318  renamed $wgOpenIDOnly to $wgOpenIDLoginOnly
+3.09  20130318  hotfix typo $wgOpenIDOnlyClient vs. $wgOpenIDClientOnly
+3.08  20130318  SpecialOpenIDIdentifier only shows the name for visiting user
+                otherwise only the User ID, or an error if invalid User ID
+3.07  20130316  (bug 46052) make storage methods obeying and using $wgTmpDirectory
+3.06  20130312  fix bug46006 correct use of $wgExtensionAssetsPath after setup
+                changed $wgOpenIDLoginLogoUrl to $wgOpenIDSmallLogoUrl
+3.05  20130311  show OpenID icons also in the table of associated OpenIDs in OpenID preferences
+3.04  20130310  fix bug45323 add deletion of trusted sites to OpenID Preferences
+3.03  20130310  fix bug45928 change deprecated wgAllowRealName to wgHiddenPrefs checks
+3.02  20130309  when used as Provider, show the own OpenID in OpenID preference tab
+                fix bug 45322 show own OpenID as subtitle on own userpage (user option)
+3.01  20130309  fixed a regression which stopped optional userinfo updating from OpenID
+3.00  20130308  delegate /User:Username to /Special:OpenIDIdentifier/<userid>
+2.06  20130305  fix bug45515 OpenID server lost trust information when Preferences were saved
+2.05  20130304  fix bug45586 preference tab got now section headers
+2.03  20130227  fix bug45323 preference tab "OpenID" shows list of "trust" records
 2.01  20130209  fix to allow identity selection bug44416
                 fix bug40068, bug40067 $wgOpenIDConsumerForce
                 changed default value $wgOpenIDShowProviderIcons = true;

@@ -53,7 +53,7 @@ Status: 2.01 20130209
 + be aware of user deletions done by extension UserMerge and Delete (and others)
   https://bugzilla.wikimedia.org/show_bug.cgi?id=28993
 + allow user to set or reset a password in case of
-  !$wgOpenIDClientOnly && $wgOpenIDOnly
+  !$wgOpenIDClientOnly && $wgOpenIDLoginOnly
   (https://bugzilla.wikimedia.org/show_bug.cgi?id=29027)
   = case Server/OpenID-Only
 + Execute MediaWiki hook 'AddNewAccount' when new account is added

@@ -20,6 +20,7 @@
  *
  * @file
  * @author Evan Prodromou <evan@prodromou.name>
+ * @author Thomas Gries
  * @ingroup Extensions
  */
 
@@ -56,6 +57,7 @@ class SpecialOpenID extends SpecialPage {
 			} else {
 				$lb = wfGetLBFactory()->newMainLB();
 				$db = new MediaWikiOpenIDDatabaseConnection( $lb->getConnection( DB_MASTER ) );
+
 				switch( $wgDBtype ) {
 				case 'mysql':
 					require_once( 'Auth/OpenID/MySQLStore.php' );
@@ -77,6 +79,10 @@ class SpecialOpenID extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param $xri string
+	 * @return string
+	 */
 	function xriBase( $xri ) {
 		if ( substr( $xri, 0, 6 ) == 'xri://' ) {
 			return substr( $xri, 6 );
@@ -85,10 +91,18 @@ class SpecialOpenID extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param $xri string
+	 * @return string
+	 */
 	function xriToUrl( $xri ) {
 		return 'http://xri.net/' . SpecialOpenID::xriBase( $xri );
 	}
 
+	/**
+	 * @param $openid string
+	 * @return string
+	 */
 	static function OpenIDToUrl( $openid ) {
 		/* ID is either an URL already or an i-name */
 		if ( Auth_Yadis_identifierScheme( $openid ) == 'XRI' ) {
@@ -98,6 +112,10 @@ class SpecialOpenID extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param $openid_url string
+	 * @return String
+	 */
 	function interwikiExpand( $openid_url ) {
 		# try to make it into a title object
 		$nt = Title::newFromText( $openid_url );
@@ -112,8 +130,15 @@ class SpecialOpenID extends SpecialPage {
 
 	# Login, Finish
 
+	/**
+	 * @return Auth_OpenID_Consumer
+	 */
 	function getConsumer() {
-		global $wgOpenIDConsumerStoreType, $wgOpenIDConsumerStorePath;
+		global $wgOpenIDConsumerStoreType, $wgOpenIDConsumerStorePath, $wgTmpDirectory, $wgDBname;
+
+		if ( !$wgOpenIDConsumerStorePath ) {
+			$wgOpenIDConsumerStorePath = $wgTmpDirectory . DIRECTORY_SEPARATOR . $wgDBname . DIRECTORY_SEPARATOR . "openid-consumer-store/";
+		}
 
 		$store = $this->getOpenIDStore(
 			$wgOpenIDConsumerStoreType,
@@ -124,6 +149,10 @@ class SpecialOpenID extends SpecialPage {
 		return new Auth_OpenID_Consumer( $store );
 	}
 
+	/**
+	 * @param $openid_url string
+	 * @return bool
+	 */
 	function canLogin( $openid_url ) {
 		global $wgOpenIDConsumerDenyByDefault, $wgOpenIDConsumerAllow, $wgOpenIDConsumerDeny;
 
@@ -167,6 +196,10 @@ class SpecialOpenID extends SpecialPage {
 		return $canLogin;
 	}
 
+	/**
+	 * @param $url string
+	 * @return bool
+	 */
 	function isLocalUrl( $url ) {
 		global $wgServer, $wgArticlePath;
 
@@ -174,9 +207,13 @@ class SpecialOpenID extends SpecialPage {
 		$pattern = str_replace( '$1', '(.*)', $pattern );
 		$pattern = str_replace( '?', '\?', $pattern );
 
-		return preg_match( '|^' . $pattern . '$|', $url );
+		return (bool)preg_match( '|^' . $pattern . '$|', $url );
 	}
 
+	/**
+	 * @param $openid_url string
+	 * @param $finish_page
+	 */
 	function login( $openid_url, $finish_page ) {
 		global $wgOpenIDTrustRoot, $wgOut;
 
@@ -347,6 +384,10 @@ class SpecialOpenID extends SpecialPage {
 		wfRestoreWarnings();
 	}
 
+	/**
+	 * @param $par string|Title|bool
+	 * @return string
+	 */
 	function scriptUrl( $par = false ) {
 		global $wgServer, $wgScript;
 
@@ -370,13 +411,20 @@ class SpecialOpenID extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param $openid
+	 */
 	function loginSetCookie( $openid ) {
 		global $wgRequest, $wgOpenIDCookieExpiration;
 		$wgRequest->response()->setcookie( 'OpenID', $openid, time() +  $wgOpenIDCookieExpiration );
 	}
 
-	# Find the user with the given openid
-	# return the registered OpenID urls and registration timestamps (if available)
+	/**
+	 * Find the user with the given openid
+	 *
+	 * @param $user
+	 * @return array return the registered OpenID urls and registration timestamps (if available)
+	 */
 	public static function getUserOpenIDInformation( $user ) {
 		$openid_urls_registration = array();
 
@@ -397,6 +445,10 @@ class SpecialOpenID extends SpecialPage {
 		return $openid_urls_registration;
 	}
 
+	/**
+	 * @param $openid string
+	 * @return null|User
+	 */
 	public static function getUserFromUrl( $openid ) {
 		$dbr = wfGetDB( DB_SLAVE );
 
@@ -414,6 +466,10 @@ class SpecialOpenID extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param $user User
+	 * @param $url string
+	 */
 	public static function addUserUrl( $user, $url ) {
 		$dbw = wfGetDB( DB_MASTER );
 
@@ -426,9 +482,13 @@ class SpecialOpenID extends SpecialPage {
 			),
 			__METHOD__
 		);
-
 	}
 
+	/**
+	 * @param $user User
+	 * @param $url string
+	 * @return bool
+	 */
 	public static function removeUserUrl( $user, $url ) {
 		$dbw = wfGetDB( DB_MASTER );
 

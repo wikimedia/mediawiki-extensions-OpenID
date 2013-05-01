@@ -20,6 +20,7 @@
  *
  * @file
  * @author Evan Prodromou <evan@prodromou.name>
+ * @author Thomas Gries
  * @ingroup Extensions
  */
 
@@ -39,21 +40,21 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 	# $par is a user name
 
 	function execute( $par ) {
-		global $wgOut, $wgOpenIDClientOnly;
+		global $wgOut, $wgOpenIDConsumerAndAlsoProvider;
 
 		# No server functionality if this site is only a client
 		# Note: special page is un-registered if this flag is set,
 		# so it'd be unusual to get here.
 
-		if ( $wgOpenIDClientOnly ) {
-			wfHttpError( 404, "Not Found", wfMsg( 'openidclientonlytext' ) );
+		if ( !$wgOpenIDConsumerAndAlsoProvider ) {
+			wfHttpError( 404, "Not Found", wfMessage( 'openidclientonlytext' )->text() );
 			return;
 		}
 
 		// XRDS preamble XML.
 		$xml_template = array(
 			'<?xml version="1.0" encoding="UTF-8"?' . '>',
-			'<xrds:XRDS xmlns:xrds="xri://\$xrds" xmlns:openid="http://openid.net/xmlns/1.0" xmlns="xri://$xrd*($v*2.0)">',
+			'<xrds:XRDS xmlns:xrds="xri://$xrds" xmlns:openid="http://openid.net/xmlns/1.0" xmlns="xri://$xrd*($v*2.0)">',
 			'<XRD>',
 		);
 
@@ -62,7 +63,7 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 /*		pre-version-2.00 behaviour: OpenID Server was only supported for existing userpages
 
 		if ( !$par ) {
-			wfHttpError( 404, "Not Found", wfMsg( 'openidnousername' ) );
+			wfHttpError( 404, "Not Found", wfMessage( 'openidnousername' )->text() );
 			return;
 		}
 */
@@ -71,7 +72,7 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 /*		pre-version-2.00 behaviour: OpenID Server was only supported for existing userpages
 
 		if ( !$user || $user->getID() == 0 ) {
-			wfHttpError( 404, "Not Found", wfMsg( 'openidbadusername' ) );
+			wfHttpError( 404, "Not Found", wfMessage( 'openidbadusername' )->text() );
 			return;
 		}
 */

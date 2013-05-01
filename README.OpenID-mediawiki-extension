@@ -1,5 +1,8 @@
 MediaWiki OpenID extension README.OpenID-mediawiki-extension file
 version 1.004 20120427
+
+### FIXME: UPDATE TO VERSION 3.x REQUIRED TG 20130310
+
 Homepage and manual http://www.mediawiki.org/wiki/Extension:OpenID
 
 Please check OpenID.setup.php for the current program version number
@@ -313,14 +316,14 @@ LocalSettings.php file. Please read carefully.
   respectively. The path will be automatically created if it doesn't
   exist at runtime.
 
-* $wgHideOpenIDLoginLink -- boolean that says whether or not to hide
+* $wgOpenIDHideOpenIDLoginLink -- boolean that says whether or not to hide
   the OpenID login link in the personal URLs. Typically you'd use this
   if you've already got some other method for showing the OpenID login
   link, like in your skin. Note that it will *not* prevent login if
   the user navigates to Special:OpenIDLogin directly; it's simply
   cosmetic. This is mostly a backwards-compatibility option.
 
-* $wgOpenIDLoginLogoUrl -- Url of the OpenID login logo. Defaults to
+* $wgOpenIDSmallLogoUrl -- Url of the OpenID login logo. Defaults to
   'http://www.openid.net/login-bg.gif', but you may want to move it to
   a local URL, or an URL on a CDN, if that kind of thing floats your
   boat.
@@ -329,7 +332,7 @@ LocalSettings.php file. Please read carefully.
   on a user's home page. Possible values are 'always', 'never', or 'user'
   (lets the user decide). Default is 'user'.
 
-* $wgOpenIDOnly -- defaults to false. With this enabled, users can
+* $wgOpenIDLoginOnly -- defaults to false. With this enabled, users can
   ''only'' log in with OpenID.
 
 * $wgOpenIDClientOnly -- defaults to false. With this enabled, users
@@ -378,7 +381,7 @@ The other setting allows user pages of this MediaWiki to serve as OpenID
 identities on another OpenID-aware site:
 
 require( "$IP/extensions/OpenID/OpenID.php" );
-$wgOpenIDOnly = true;
+$wgOpenIDLoginOnly = true;
 $wgOpenIDAllowServingOpenIDUserAccounts = true;
 
 // Implicit group for all visitors

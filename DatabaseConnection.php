@@ -4,6 +4,11 @@ require_once( 'Auth/OpenID/DatabaseConnection.php' );
 
 class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 
+	/**
+	 * @var DatabaseBase
+	 */
+	protected $db;
+
 	function __construct( $db ) {
 		$this->db = $db;
 	}
@@ -19,7 +24,7 @@ class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 	}
 
 	function query( $sql, $params = array() ) {
-		return $this->db->safeQuery( $sql, $params );
+		return $this->db->safeQuery( $sql, $params ); // FIXME: Where is safeQuery defined?
 	}
 
 	function begin() {
@@ -37,10 +42,12 @@ class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 	function getOne( $sql, $params = array() ) {
 		$res = $this->query( $sql, $params );
 
-		if ( !$res instanceof ResultWrapper )
+		if ( !$res instanceof ResultWrapper ) {
 			return $res;
-		if ( !$res->numRows() )
+		}
+		if ( !$res->numRows() ) {
 			return false;
+		}
 
 		$row = $res->fetchRow();
 		if ( $row !== false ) {
@@ -54,10 +61,12 @@ class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 	function getRow( $sql, $params = array() ) {
 		$res = $this->query( $sql, $params );
 
-		if ( !$res instanceof ResultWrapper )
+		if ( !$res instanceof ResultWrapper ) {
 			return $res;
-		if ( !$res->numRows() )
+		}
+		if ( !$res->numRows() ) {
 			return false;
+		}
 
 		$row = $res->fetchRow();
 		$res->free();
@@ -67,10 +76,12 @@ class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 	function getAll( $sql, $params = array() ) {
 		$res = $this->query( $sql, $params );
 
-		if ( !$res instanceof ResultWrapper )
+		if ( !$res instanceof ResultWrapper ) {
 			return $res;
-		if ( !$res->numRows() )
+		}
+		if ( !$res->numRows() ) {
 			return false;
+		}
 
 		$ret = array();
 		foreach ( $res as $row ) {

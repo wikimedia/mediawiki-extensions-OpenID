@@ -1,6 +1,6 @@
 <?php
 
-require_once( 'Auth/OpenID/DatabaseConnection.php' );
+require_once( 'lib/php-openid/Auth/OpenID/DatabaseConnection.php' );
 
 class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 

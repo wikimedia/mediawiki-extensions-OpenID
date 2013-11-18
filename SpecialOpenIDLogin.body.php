@@ -27,7 +27,7 @@
 if ( !defined( 'MEDIAWIKI' ) )
   exit( 1 );
 
-require_once( "Auth/Yadis/XRI.php" );
+require_once( "lib/php-openid/Auth/Yadis/XRI.php" );
 
 class SpecialOpenIDLogin extends SpecialOpenID {
 

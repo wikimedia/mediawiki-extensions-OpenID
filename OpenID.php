@@ -371,7 +371,7 @@ $wgExtensionCredits['other'][] = array(
 );
 
 function OpenIDGetServerPath() {
-	$rel = 'Auth/OpenID/Server.php';
+	$rel = 'lib/php-openid/Auth/OpenID/Server.php';
 
 	foreach ( explode( PATH_SEPARATOR, get_include_path() ) as $pe ) {
 		$full = $pe . DIRECTORY_SEPARATOR . $rel;

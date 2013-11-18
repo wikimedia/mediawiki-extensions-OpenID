@@ -22,118 +22,145 @@
 class OpenIDProvider {
 	/**
 	 * Properties about this provider
-	 * @var string
+	 * @var string providerName
+	 * @var string small|large largeOrSmallProvider
+	 * @var string labeltext
+	 * @var string OpenID url;
 	 */
-	protected $id, $name, $label, $url;
+	protected $providerName, $largeOrSmallProvider, $label, $url;
 
-	public function __construct( $id, $name, $label, $url ) {
-		$this->id = $id;
-		$this->name = $name;
+	public function __construct( $providerName, $largeOrSmallProvider, $label, $url ) {
+		$this->providerName = $providerName;
+		$this->largeOrSmallProvider = $largeOrSmallProvider;
 		$this->label = $label;
 		$this->url = $url;
 	}
 
 	/**
-	 * Get the HTML for the OpenID provider buttons
-	 * @param $classSize String Size for the openid_ class, either large or small
+	 * @return boolean
+	 */
+	public function isLargeProvider() {
+		return $this->largeOrSmallProvider === 'large';
+	}
+
+	/**
 	 * @return string
 	 */
-	private function getButtonHTML( $classSize ) {
+	public function providerName() {
+		return $this->providerName;
+	}
+
+	/**
+	 * Get the HTML for the OpenID provider buttons
+	 * @return string
+	 */
+	public function getButtonHTML() {
 		global $wgOpenIDShowProviderIcons;
 
+		$class = $this->isLargeProvider() ? 'large' : 'small';
 		if ( $wgOpenIDShowProviderIcons ) {
-			return '<a id="openid_provider_' . $this->id . '_icon" title="' . $this->name . '"' .
-			' href="javascript: openid.show(\'' . $this->id . '\');"' .
-			' class="openid_' . $classSize . '_btn' .
-			( $this->id == 'openid' ? ' openid_selected' : '' ) . '"></a>';
+			return Html::element( 'a',
+				array(
+					'id' => 'openid_provider_' . $this->providerName . '_icon',
+					'title' => $this->providerName,
+					'href' => 'javascript:openid.show(\'' . $this->providerName . '\');',
+					'class' => "openid_{$class}_btn"
+				)
+			);
 		} else {
-			return '<a id="openid_provider_' . $this->id . '_link" title="' . $this->name . '"' .
-			' href="javascript: openid.show(\'' . $this->id . '\');"' .
-			' class="openid_' . $classSize . '_link' .
-			( $this->id == 'openid' ? ' openid_selected' : '' ) . '">' . $this->name . '</a>';
+			return Html::element( 'a',
+				array(
+					'id' => 'openid_provider_' . $this->providerName . '_link',
+					'title' => $this->providerName,
+					'href' => 'javascript:openid.show(\'' . $this->providerName . '\');',
+					'class' => "openid_{$class}_link"
+				),
+				$this->providerName
+			);
 		}
-	}
 
-	/**
-	 * @return string
-	 */
-	public function getLargeButtonHTML() {
-		return $this->getButtonHTML( 'large' );
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSmallButtonHTML() {
-		return $this->getButtonHTML( 'small' );
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getLoginFormHTML() {
-		$html = '<div id="provider_form_' . $this->id . '"' .
-			( $this->id == 'openid' ? '' : ' style="display:none"' ) . '>' .
-			'<div><label for="openid_url">' . $this->label . '</label></div>';
+		global $wgRequest, $wgOpenIDDefaultProviderName;
+		$param_id = 'openid_provider_param_' . $this->providerName;
+		$html = Html::element( 'input',
+			array(
+				'type' => 'hidden',
+				'id' => 'openid_provider_url_' . $this->providerName,
+				'value' => $this->url
+			)
+		);
 
-		if ( $this->id == 'openid' ) {
-			global $wgRequest;
-			$url = htmlspecialchars( $wgRequest->getCookie( 'OpenID', null, '' ) );
-			$html .= '<input type="text" name="openid_url" id="openid_url" size="45" value="' . $url . '" />';
-			$html .= Xml::submitButton( wfMessage( 'userlogin' )->text() );
+
+		if ( strpos( $this->url, '{' ) === false ) {
+			$inputHtml = '';
 		} else {
-			$html .= '<input type="hidden" id="openid_provider_url_' . $this->id . '" value="' . $this->url . '" />';
-			if ( strpos( $this->url, '{' ) === false ) {
-				$html .= '<input type="hidden" id="openid_provider_param_' . $this->id . '" size="25" value="" />';
-			} else {
-				$html .= '<input type="text" id="openid_provider_param_' . $this->id . '" size="25" value="" />';
-			}
-			$html .= Xml::submitButton( wfMessage( 'userlogin' )->text() );
+			$inputHtml = Html::element( 'input',
+				array(
+					'type' => 'text',
+					'id' => $param_id,
+					'size' => '25',
+					'value' => htmlspecialchars( $wgRequest->getCookie( "_{$param_id}", null, '' ) )
+				)
+			);
 		}
-		$html .= '</div>';
-
+		// this class hides all the forms by default
+		$class = 'openid_provider_form';
+		if ( $wgOpenIDDefaultProviderName == $this->providerName ) {
+			// mark this as default provider so JS can find it
+			$class .= " openid_default_provider";
+		}
+		$html .= Html::rawElement( 'div',
+			array(
+				'id' => 'provider_form_' . $this->providerName,
+				'class' => $class,
+				'style' => 'display:none;',
+				'data-provider-name' => $this->providerName
+			),
+			Html::rawElement( 'label', null, $this->label . '<br />' . $inputHtml ) .
+			Xml::submitButton( wfMessage( 'userlogin' )->text() )
+		);
 		return $html;
 	}
 
-	/**
-	 * Get the list of major OpenID providers
-	 * @return array of OpenIDProvider
-	 */
-	public static function getLargeProviders() {
-		return  array(
-			new self( 'openid', 'OpenID', wfMessage( 'openid-provider-label-openid' )->text(),
-				'{URL}' ),
-			new self( 'google', 'Google', wfMessage( 'openid-provider-label-google' )->text(),
-				'https://www.google.com/accounts/o8/id' ),
-			new self( 'yahoo', 'Yahoo', wfMessage( 'openid-provider-label-yahoo' )->text(),
-				'http://yahoo.com/' ),
-			new self( 'aol', 'AOL', wfMessage( 'openid-provider-label-aol' )->text(),
-				'http://openid.aol.com/{username}' ),
-		);
-	}
 
 	/**
-	 * Get a list of lesser-known OpenID providers
+	 * Get the list of major OpenID providers
+	 *
+	 * @param $largeOrSmallProvider OPTIONAL; when specified as 'large' or 'small' return only those providers
 	 * @return array of OpenIDProvider
 	 */
-	public static function getSmallProviders() {
-		return array(
-			new self( 'myopenid', 'MyOpenID', wfMessage( 'openid-provider-label-other-username', 'MyOpenID' )->text(),
-				'http://{username}.myopenid.com/' ),
-			new self( 'livejournal', 'LiveJournal', wfMessage( 'openid-provider-label-other-username', 'LiveJournal' )->text(),
-				'http://{username}.livejournal.com/' ),
-			new self( 'vox', 'VOX', wfMessage( 'openid-provider-label-other-username', 'VOX' )->text(),
-				'http://{username}.vox.com/' ),
-			new self( 'blogger', 'Blogger', wfMessage( 'openid-provider-label-other-username', 'Blogger' )->text(),
-				'http://{username}.blogspot.com/' ),
-			new self( 'flickr', 'Flickr', wfMessage( 'openid-provider-label-other-username', 'Flickr' )->text(),
-				'http://flickr.com/photos/{username}/' ),
-			new self( 'verisign', 'Verisign', wfMessage( 'openid-provider-label-other-username', 'Verisign' )->text(),
-				'http://{username}.pip.verisignlabs.com/' ),
-			new self( 'vidoop', 'Vidoop', wfMessage( 'openid-provider-label-other-username', 'Vidoop' )->text(),
-				'http://{username}.myvidoop.com/' ),
-			new self( 'claimid', 'ClaimID', wfMessage( 'openid-provider-label-other-username', 'ClaimID' )->text(),
-				'http://claimid.com/{username}' )
-		);
+	public static function getProviders( $largeOrSmallProvider = null ) {
+		global $wgOpenIDProviders;
+
+		$ret = array();
+
+		foreach ( $wgOpenIDProviders as $providerName => $provider ) {
+			if ( isset( $provider['label'] ) ) {
+				// fixed, non-localized label string
+				$label = $provider['label'];
+			} elseif ( wfMessage( 'openid-provider-label-' . strtolower( $providerName ) )->exists() ) {
+					$label = wfMessage( 'openid-provider-label-' . strtolower( $providerName ) )->text();
+			} else {
+					$label = wfMessage( 'openid-provider-label-other-username', array( $providerName ) )->text();
+			}
+			$provider = new self( $providerName,
+				$provider['large-provider'] ? 'large' : 'small',
+				$label,
+				$provider['openid-url']
+			);
+			if ( $largeOrSmallProvider === null
+				|| $largeOrSmallProvider == $provider->largeOrSmallProvider ) {
+				$ret[] = $provider;
+			}
+		}
+
+		return $ret;
+
 	}
+
 }

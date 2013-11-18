@@ -1,11 +1,8 @@
-MediaWiki OpenID extension README.OpenID-mediawiki-extension file
-version 1.004 20120427
+MediaWiki OpenID extension README
+version 3.43 20131103
 
-### FIXME: UPDATE TO VERSION 3.x REQUIRED TG 20130310
-
-Homepage and manual http://www.mediawiki.org/wiki/Extension:OpenID
-
-Please check OpenID.setup.php for the current program version number
+Homepage and manual
+http://www.mediawiki.org/wiki/Extension:OpenID
 
 This is the README file for the OpenID extension for MediaWiki software. The
 extension is only useful if you've got a MediaWiki installation; it can only be
@@ -65,83 +62,47 @@ Thomas Gries
 
 == Pre-requisites ==
 
-This software has been tested with MediaWiki 1.19 rev. 88135
+Always use latest MediaWiki and latest OpenID versions.
 
-The software depends on the OpenIDEnabled.com PHP library for OpenID
-https://github.com/Wikinaut/php-openid/tree/mw-extension-openid which in turn
-depends on the OpenIDEnabled.com PHP library for YADIS. This package is called 
-"php-openid library". Information: the original homepage for it was 
-http://www.openidenabled.com/php-openid/ but this is not maintained any more.
+This software has been tested with all versions MediaWiki 1.19 rev. 88135
+until MediaWiki 1.22alpha.
 
-The step of downloading and installing is automated by running "make" 
-in your extensions folder.
+The software depends on the PHP library for OpenID
+https://github.com/openid/php-openid
 
-There are also some required PHP extensions; see the OpenIDEnabled documentation
-for details. This software has been tested with the gmp, curl, and xml PHP 
-extensions installed, and it's recommended that you install them, too.
+Information: the original homepage for the library was
+http://www.openidenabled.com/php-openid/ but this page not maintained any more.
+
+This software requires PHP being installed with gmp, mcrypt, curl, openssl, xml
+and certain other extensions. See http://www.mediawiki.org/wiki/Extension:OpenID
+for details.
 
 /* FIXME: */
 Note that some versions of MediaWiki overwrite the PHP library path in
-LocalSettings.php. You may need to add the path to your PHP library directory
-to the $path variable, like "/usr/share/php" or "/usr/local/share/php".
+LocalSettings.php. Perhaps you may need to add the path to your PHP library
+directory to the $path variable, like "/usr/share/php" or "/usr/local/share/php".
 
 == Installation ==
-
-The repository downloader can be accessed by:
-
-   http://www.mediawiki.org/wiki/Special:ExtensionDistributor/OpenID
-
-To install the MediaWiki extension, download the MediaWiki extension tarball
-to your extensions subdirectory $IP/extensions of your MediaWiki installation,
-$IP being the directory of your LocalSettings.php, and untar the package to
-the subdirectory $IP/extensions/OpenID.
-
-The following examples shows the step for extension revision r######:
-
-   cd $IP/extensions
-   wget http://upload.wikimedia.org/ext-dist/OpenID-trunk-r#####.tar.gz
-   tar -xzf http://upload.wikimedia.org/ext-dist/OpenID-trunk-r#####.tar.gz
-
-Remark:
 
 Note that the software currently depends on having all its code in the "OpenID"
 sub-directory; naming it "OpenID-Test" or "newextension1" or whatever
 won't work.
 
-A makefile is included which now automates the second step, the installation of
-the php-openid library (MediaWiki OpenID depends on the OpenIDEnabled.com PHP
-library for OpenID, which in turn depends on the OpenIDEnabled.com PHP library
-for YADIS).
-
-Download and patch of openid library:
-
-	cd $IP/extensions/OpenID
-	make
-
-The makefile downloads the openid-php library from 
-https://github.com/Wikinaut/php-openid/tree/mw-extension-openid .
-    
-Version 0.3 and below of this extension used a different database structure
-that was pretty inefficient. If you installed this extension before, you should
-copy the optionToTable.php script to your MediaWiki "maintenance" directory and
-run it from the command line. This will copy the OpenID mappings from the user
-table to the new table (but it doesn't erase the old data... just in case).
-
 In your MediaWiki LocalSettings.php, add the following line some place towards
 the bottom of the file:
 
-	require_once( "$IP/extensions/OpenID/OpenID.setup.php" );
+   require_once( "$IP/extensions/OpenID/OpenID.php" );
 
-Run update.php script in in your MediaWiki maintenance folder to conditionally 
+Run update.php script in in your MediaWiki maintenance folder to conditionally
 create a new table in MediaWiki database as required by the OpenID extension:
 
-	cd $IP/maintenance
-	php update.php
+   cd $IP/maintenance
+   php update.php
 
 Theoretically it should work out of the box, but you'll almost definitely want
 to set the trust root and access controls (see Configuration below).
 
-== Upgrade ==
+== Upgrade from OpenID versions before 3.x ==
 
 '''This is an incompatible upgrade to the previous version of the MediaWiki
 OpenID library.''' In particular, the interfaces of the openidenabled.com
@@ -150,15 +111,12 @@ backwards compatibility with the 1.x versions of the library.
 
 To upgrade, you'll need to do at least the following:
 
-* Install the 2.x version of the openidenabled.com PHP OpenID library.
-* Check that your consumer and server stores are correct. I got tired of
-  maintaining the MemcStore that nobody seemed to want, so if you used that, you
-  need to use the filestore now. See below for how to configure it.
-* Change your require_once line in LocalSettings.php to use the .setup.php file.
-* 'openidlogininstructions' is now wikitext, not HTML. If you've customized it,
-  you may need to re-customize it. Also, it's now shown '''below''' the login
-  box, so if you say ''the box below'', you may want to change that to ''the box
-  above''.
+* Install the latest version of the PHP OpenID library
+  https://github.com/openid/php-openid
+* Check that your consumer and server stores are correct. The original maintainer
+  got tired of maintaining the MemcStore that nobody seemed to want, so if you
+  used that, you need to use the filestore now. See below for how to configure it.
+* Change your require_once line in LocalSettings.php to use the openid.php file.
 * The extension has been converted to use a clumsy and perverse OOP-like
   structure, with one class per special page. Most function names have been
   changed to methods of these classes. If you used them, look around for their
@@ -215,10 +173,8 @@ love with this convenient, useful feature. You may get hurt.
 == Using a MediaWiki account as an OpenID ==
 
 To log in to other sites with your MediaWiki account, your OpenID
-identity URL is the full URL of your MediaWiki user page. So, for
-example, the author's identity URL is:
-
-	 http://wikitravel.org/en/User:Evan
+identity URL is the full URL of your MediaWiki user page or the generic
+login page with a URL like http://www.example.org/wiki/Special:OpenIDServer/id .
 
 When you use this OpenID with another site, logging in should take you
 to the wiki site. You may need to enter your password if you're not
@@ -237,6 +193,11 @@ user page for a fake account created for an OpenID login as an OpenID
 itself.
 
 == Configuration ==
+
+FIXME
+THIS SECTION IS NOT UP TO DATE
+PLEASE VISIT http://www.mediawiki.org/wiki/Extension:OpenID
+FOR UP-TO-DATE INFORMATION
 
 The administrator can configure these variables in the
 LocalSettings.php file. Please read carefully.
@@ -265,11 +226,39 @@ LocalSettings.php file. Please read carefully.
   OpenIDs you want to deny access to. This is mostly useful for
   servers that are known to be bad. Example: "#^(http://)?example.com/#".
 
-* $wgOpenIDConsumerForce -- a single provider which will always be used,
-  bypassing the selection dialog and manual entry.  Useful for team wikis
-  using a provider such as Google Apps for Your Domain.
-  
-* $wgOpenIDUseEmailAsNickname -- designed for use with the above, parse 
+* $wgOpenIDForcedProvider -- (null or string) a name of a supported provider,
+  or a fully qualified url of the Id selection page of an arbitrary provider,
+  which will always be used, aka "forced provider".
+
+  Setting this value bypasses the extension's selection dialog and manual entry.
+  It is useful for team wikis using a fixed (hard-coded) provider such as
+  Google, or another MediaWiki as OpenID Provider for logging in to your wiki.
+
+* $wgOpenIDProviders -- (array) names and parameters of OpenID Providers, which
+  are supported by the extension.
+
+  The format is
+
+  array( 'providername' => array( <provider-parameters> ) )
+
+  Respected keys for provider parameters are:
+
+   * 'openid-url': the url of the openid provider may contain '{username}' in
+     order to display a form requesting a username that will be substitutde
+     into the url before attempting authentication.
+
+   * 'large-provider': if true it will be displayed in the large buttons
+     otherwise will be displayed in the small buttons
+
+   * 'label': If set this exact string will be the label when the provider is
+     selected. If not present a localization message with a key of the
+     'openid-provider-label-$providerName' is used.
+
+* $wgOpenIDDefaultProviderName -- (null or string) Defaults to null.
+  The provider name in $wgOpenIDProviders that will be shown preselected
+  as default to new users who never selected an provider before.
+
+* $wgOpenIDUseEmailAsNickname -- designed for use with the above, parse
   the e-mail address provided by your provider and use the user component
   as the MediaWiki username.
 
@@ -288,9 +277,9 @@ LocalSettings.php file. Please read carefully.
 * $wgOpenIDAllowAutomaticUsername
   defaults to true; when first-time logging in with OpenID, show option
   to choose and to allow an automatically generated username
-    
-* $wgOpenIDTrustEmailAddress -- trust the e-mail address sent by the 
-  provider and don't require it to be verified.  If false (the default), 
+
+* $wgOpenIDTrustEmailAddress -- trust the e-mail address sent by the
+  provider and don't require it to be verified.  If false (the default),
   all new users will be required to validate their e-mail address.
 
 * $wgOpenIDServerForceAllowTrust -- an array of regular expressions
@@ -323,7 +312,8 @@ LocalSettings.php file. Please read carefully.
   the user navigates to Special:OpenIDLogin directly; it's simply
   cosmetic. This is mostly a backwards-compatibility option.
 
-* $wgOpenIDSmallLogoUrl -- Url of the OpenID login logo. Defaults to
+* $wgOpenIDLoginLogoUrl ($wgOpenIDSmallLogoUrl until v3.05)
+  -- Url of the OpenID login logo. Defaults to a built-in logo like
   'http://www.openid.net/login-bg.gif', but you may want to move it to
   a local URL, or an URL on a CDN, if that kind of thing floats your
   boat.
@@ -332,10 +322,12 @@ LocalSettings.php file. Please read carefully.
   on a user's home page. Possible values are 'always', 'never', or 'user'
   (lets the user decide). Default is 'user'.
 
-* $wgOpenIDLoginOnly -- defaults to false. With this enabled, users can
+* $wgOpenIDLoginOnly ($wgOpenIDOnly until 3.09)
+  -- defaults to false. With this enabled, users can
   ''only'' log in with OpenID.
 
-* $wgOpenIDClientOnly -- defaults to false. With this enabled, users
+* $wgOpenIDConsumerAndAlsoProvider ($wgOpenIDClientOnly until version 3.11)
+  -- defaults to false. With this enabled, users
   cannot use their accounts on the local wiki as OpenIDs on another
   site. Sucks for users, but some admins have emailed me about not
   wanting the responsibility of being an OpenID server, so this flag
@@ -349,7 +341,7 @@ LocalSettings.php file. Please read carefully.
 
   False prevents the serving of User page URLs as OpenID accounts
   on other sites.
-  
+
   Remark:
 
   User page urls can (currently) only act as OpenID if the user page really
@@ -391,6 +383,7 @@ $wgGroupPermissions['*'    ]['edit']            = false;
 $wgGroupPermissions['*'    ]['createpage']      = false;
 $wgGroupPermissions['*'    ]['createtalk']      = false;
 
+
 Example 2:
 
 The following setting configures a MediaWiki so that anyone can create an
@@ -418,12 +411,6 @@ $wgOpenIDAllowManualUsername = true;
 $wgOpenIDProposeUsernameFromSREG = false;
 $wgOpenIDAllowAutomaticUsername = false;
 
-== Translation ==
-
-The user interface strings for this extension are configurable and all start
-with "openid". See OpenID.i18n.php for details. Translation is done via
-translatewiki.net, as usual.
-
 == OpenID services ==
 
 These are some of the OpenID services I tested this extension with;
@@ -447,47 +434,5 @@ Product: MediaWiki extensions, Component: OpenID in bugzilla via
 
    http://preview.tinyurl.com/openid-filebug
 
-== TODO ==
-
-* Code review http://preview.tinyurl.com/openid-codereview
-* Move TODO file and things below into Bugzilla
-
-The TODO file in this distribution has stuff I think needs to be
-todone; + marks show things I've already done, and - shows things
-that are yet to be done.
-
-The big changes for the future:
-
-* Configure some stuff through Special:Preferences or a dedicated
-  control panel
-* Auto-login if you've logged in before with an OpenID, and are logged
-  into that account now
-
 == CHANGES ==
-* 1.004 links to preferences tabs corrected
-* 1.003 changed system text openidalreadyloggedintext
-* 1.002 added missing system text 'right-openid-converter-access'
-* 1.001 convenience release with download of the version for PHP 5.3.x
-	from https://github.com/Wikinaut/php-openid/tree/mw-extension-openid
-* 1.000 release version
-* 0.947 using jQuery closure for redirect
-* 0.946 fixed the problem of broken automatic redirect to OpenID provider login
-        replaced hookEvent() by	jQuery( document ).ready( submitOpenIDForm )
-* 0.945 improved Makefile: added the SHA1 checksum of php-openid library.tar.gz
-* 0.944 improved the Makefile by adding a test if "patch" (program) exists
-        some users reported that this is not standard in all distrubtions
-* 0.942 code cosmetic db schema updater
-* 0.940 changed database schema updater; tested for MySQL
-* 0.939 function name changes
-* 0.938 list uoi_user_registration timestamp if present in openid-preference tab
-* 0.937 added uoi_user_registration timestamp field (bug30623)
-* 0.934 fixes
-  bug 29543 After logging in with OpenID, user page link in the personal toolbar
-  pt portlet) still has the User:IP link (needs refresh to link to
-  User:Username)
-* [http://svn.wikimedia.org/viewvc/mediawiki/tags/extensions/OpenID/REL_0_8_4/ 0.8.4] (April 16, 2009) - Added provider buttons to the OpenID login page with optional icons ($wgOpenIDShowProviderIcons)
-* [http://svn.wikimedia.org/viewvc/mediawiki/tags/extensions/OpenID/REL_0_8_4_1/ 0.8.4.1] (April 16, 2009) - Post-release fix to broken icon on user's page.
-* 0.9.1 fixes for PHP > 5.3.x; fixed bugs
-  bug 27419 OpenID extension: disallow new account creation for those users without "createaccount" permission
-  bug 27581 3 new OpenID login page parameters: $wgOpenIDAllowManualUsername, AllowAutomaticUsername, ProposeUsernameFromSREG
-  bug 18635 Allow to use User pages as OpenIDs even if user is using OpenID already
+see file CHANGES

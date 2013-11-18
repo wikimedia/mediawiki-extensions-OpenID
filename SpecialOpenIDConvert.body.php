@@ -31,11 +31,22 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class SpecialOpenIDConvert extends SpecialOpenID {
 
 	function __construct() {
-		parent::__construct( 'OpenIDConvert', 'openid-converter-access' );
+		global $wgOpenIDForcedProvider;
+		$listed = !is_string( $wgOpenIDForcedProvider );
+		parent::__construct( 'OpenIDConvert', 'openid-converter-access', $listed );
 	}
 
 	function execute( $par ) {
-		global $wgRequest, $wgUser;
+		global $wgRequest, $wgUser, $wgOut, $wgOpenIDForcedProvider;
+
+		if ( is_string( $wgOpenIDForcedProvider ) ) {
+			$wgOut->showErrorPage(
+				'openiderror',
+				'openid-error-openid-convert-not-allowed-forced-provider',
+				array( $wgOpenIDForcedProvider )
+			);
+			return;
+		}
 
 		if ( !$this->userCanExecute( $wgUser ) ) {
 			$this->displayRestrictionError();
@@ -68,10 +79,16 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 	}
 
 	function convert( $openid_url ) {
-		global $wgUser, $wgOut;
+		global $wgUser, $wgOut, $wgRequest;
+
+		if ( !$wgUser->matchEditToken( $wgRequest->getVal( 'openidConvertToken' ), 'openidConvertToken' ) ) {
+			$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
+			return;
+		}
 
 		# Expand Interwiki
 		$openid_url = $this->interwikiExpand( $openid_url );
+		wfDebug( "OpenID: Attempting conversion with url: $openid_url\n" );
 
 		# Is this ID allowed to log in?
 		if ( !$this->canLogin( $openid_url ) ) {
@@ -100,83 +117,117 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			return;
 		}
 
-		# If we're OK to here, let the user go log in
+		// If we're OK to here, let the user go log in
 		$this->login( $openid_url, SpecialPage::getTitleFor( 'OpenIDConvert', 'Finish' ) );
 	}
 
-	function form() {
-		global $wgOut, $wgOpenIDShowProviderIcons;
+	public static function renderProviderIcons( &$inputFormHTML, &$largeButtonsHTML, &$smallButtonsHTML ) {
+			global $wgOpenIDShowProviderIcons;
+			//The loginFormHTML that each provider generates and the
+			//accompanying openid.js code relies on there being a
+			//hidden input 'openid_url'
+			$inputFormHTML .= Html::element( 'input',
+				array(
+					'type' => 'hidden',
+					'id' => 'openid_url',
+					'name' => 'openid_url'
+				)
+			);
 
-		$wgOut->addModules( $wgOpenIDShowProviderIcons ? 'ext.openid.icons' : 'ext.openid.plain' );
-
-		$formsHTML = '';
-
-		$largeButtonsHTML = '<div id="openid_large_providers">';
-
-		foreach ( OpenIDProvider::getLargeProviders() as $provider ) {
-			$largeButtonsHTML .= $provider->getLargeButtonHTML();
-			$formsHTML .= $provider->getLoginFormHTML();
-		}
-
-		$largeButtonsHTML .= '</div>';
-
-		$smallButtonsHTML = '';
-
-		if ( $wgOpenIDShowProviderIcons ) {
-
-			$smallButtonsHTML .= '<div id="openid_small_providers_icons">';
-
-			foreach ( OpenIDProvider::getSmallProviders() as $provider ) {
-				$smallButtonsHTML .= $provider->getSmallButtonHTML();
-				$formsHTML .= $provider->getLoginFormHTML();
+			$largeButtons = '';
+			foreach ( OpenIDProvider::getProviders( 'large' ) as $provider ) {
+				$largeButtons .= $provider->getButtonHTML();
+				$inputFormHTML .= $provider->getLoginFormHTML();
 			}
 
-			$smallButtonsHTML .= '</div>';
+			$largeButtonsHTML = Html::rawElement( 'div',
+				array( 'id' => 'openid_large_providers' ),
+				$largeButtons
+			);
 
-		} else {
+			$smallButtonsHTML = '';
 
-			$smallButtonsHTML .= '<div id="openid_small_providers_links">';
-			$smallButtonsHTML .= '<ul class="openid_small_providers_block">';
-			$small = OpenIDProvider::getSmallProviders();
+			if ( $wgOpenIDShowProviderIcons ) {
 
-			$i = 0;
-			$break = true;
-
-			foreach ( $small as $provider ) {
-
-				if ( $break && $i > count( $small ) / 2 ) {
-					$smallButtonsHTML .= '</ul><ul class="openid_small_providers_block">';
-					$break = false;
+				$smallButtons = '';
+				foreach ( OpenIDProvider::getProviders( 'small' ) as $provider ) {
+					$smallButtons .= $provider->getButtonHTML();
+					$inputFormHTML .= $provider->getLoginFormHTML();
 				}
 
-				$smallButtonsHTML .= '<li>' . $provider->getSmallButtonHTML() . '</li>';
+				$smallButtonsHTML = Html::rawElement( 'div',
+					array( 'id' => 'openid_small_providers_icons' ),
+					$smallButtons
+				);
 
-				$formsHTML .= $provider->getLoginFormHTML();
-				$i++;
+			} else {
+
+				$smallButtons = '<ul class="openid_small_providers_block">';
+				$smallProviders = OpenIDProvider::getProviders( 'small' );
+
+				$i = 0;
+				$break = true;
+
+				foreach ( $smallProviders as $provider ) {
+					if ( $break && $i > count( $smallProviders ) / 2 ) {
+						$smallButtons .= '</ul><ul class="openid_small_providers_block">';
+						$break = false;
+					}
+					$smallButtons .= Html::rawElement( 'li',
+						array(),
+						$provider->getButtonHTML()
+					);
+
+					$inputFormHTML .= $provider->getLoginFormHTML();
+					$i++;
+				}
+
+				$smallButtons .= '</ul>';
+
+				$smallButtonsHTML .= Html::rawElement( 'div',
+					array( 'id' => 'openid_small_providers_links' ),
+					$smallButtons
+				);
+
 			}
 
-			$smallButtonsHTML .= '</ul>';
-			$smallButtonsHTML .= '</div>';
+			return;
 
 		}
 
+
+	function form() {
+		global $wgOut, $wgUser, $wgOpenIDShowProviderIcons;
+
+		$inputFormHTML = '';
+
+		$largeButtonsHTML = '';
+		$smallButtonsHTML = '';
+		self::renderProviderIcons( $inputFormHTML, $largeButtonsHTML, $smallButtonsHTML );
+
+		$wgOut->addModules( $wgOpenIDShowProviderIcons ? 'ext.openid.icons' : 'ext.openid.plain' );
 		$wgOut->addHTML(
-			Xml::openElement( 'form',
+			Html::rawElement( 'form',
 				array(
 					'id' => 'openid_form',
 					'action' => $this->getTitle()->getLocalUrl(),
 					'method' => 'post',
 					'onsubmit' => 'openid.update()'
-				)
-			) .
-			Xml::fieldset( wfMessage( 'openidconvertoraddmoreids' )->text() ) .
-			Xml::openElement( 'p' ) . wfMessage( 'openidconvertinstructions' )->text() . Xml::closeElement( 'p' ) .
-			$largeButtonsHTML .
-			'<div id="openid_input_area">' .
-			$formsHTML .
-			'</div>' .
-			$smallButtonsHTML .
-			Xml::closeElement( 'fieldset' ) . Xml::closeElement( 'form' )
+				),
+				Xml::fieldset( wfMessage( 'openidconvertoraddmoreids' )->text() ) .
+				Html::element( 'p',
+					array(),
+					wfMessage( 'openidconvertinstructions' )->text()
+				) .
+				$largeButtonsHTML .
+				Html::rawElement( 'div',
+					array( 'id' => 'openid_input_area' ),
+					$inputFormHTML
+				) .
+				$smallButtonsHTML .
+				Xml::closeElement( 'fieldset' ) .
+				Html::Hidden( 'openidConvertToken' , $wgUser->getEditToken( 'openidConvertToken' ) )
+			)
 		);
 	}
 
@@ -206,7 +257,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 		}
 
 		if ( $wgRequest->wasPosted()
-			&& $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ), $openid ) ) {
+			&& $wgUser->matchEditToken( $wgRequest->getVal( 'openidDeleteToken' ), $openid ) ) {
 
 			$ret = self::removeUserUrl( $wgUser, $openid );
 			$wgOut->addWikiMsg( $ret ? 'openiddelete-success' : 'openiddelete-error' );
@@ -222,9 +273,9 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 					'method' => 'post'
 				)
 			) .
-			Xml::submitButton( wfMessage( 'openiddelete-button' )->text() ) . "\n" .
-			Html::Hidden( 'url', $openid ) . "\n" .
-			Html::Hidden( 'wpEditToken', $wgUser->getEditToken( $openid ) ) . "\n" .
+			Xml::submitButton( wfMessage( 'openiddelete-button' )->text() ) .
+			Html::Hidden( 'url', $openid ) .
+			Html::Hidden( 'openidDeleteToken', $wgUser->getEditToken( $openid ) ) .
 			Xml::closeElement( 'form' )
 		);
 	}

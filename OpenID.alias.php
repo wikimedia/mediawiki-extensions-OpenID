@@ -5,6 +5,7 @@
  * @file
  * @ingroup Extensions
  */
+// @codingStandardsIgnoreFile
 
 $specialPageAliases = array();
 
@@ -45,9 +46,9 @@ $specialPageAliases['de'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'OpenIDLogin' => array( 'KewtışêOpenID' ),
-	'OpenIDConvert' => array( 'VurnayışêOpenID' ),
-	'OpenIDServer' => array( 'ArdenêOpenID' ),
+	'OpenIDLogin' => array( 'KewtışéOpenID' ),
+	'OpenIDConvert' => array( 'VırnayışéOpenID' ),
+	'OpenIDServer' => array( 'ArdenéOpenID' ),
 );
 
 /** Finnish (suomi) */
@@ -83,7 +84,7 @@ $specialPageAliases['ja'] = array(
 	'OpenIDLogin' => array( 'OpenIDログイン', 'ＯｐｅｎＩＤログイン' ),
 	'OpenIDConvert' => array( 'OpenID変換', 'ＯｐｅｎＩＤ変換' ),
 	'OpenIDServer' => array( 'OpenIDサーバー', 'ＯｐｅｎＩＤサーバー' ),
-	'OpenIDDashboard' => array( 'OpenIDダッシュボード' ),
+	'OpenIDDashboard' => array( 'OpenIDダッシュボード', 'ＯｐｅｎＩＤダッシュボード' ),
 );
 
 /** Korean (한국어) */
@@ -119,6 +120,7 @@ $specialPageAliases['mk'] = array(
 	'OpenIDLogin' => array( 'НајаваСоOpenID' ),
 	'OpenIDConvert' => array( 'ПретворањеНаOpenID' ),
 	'OpenIDServer' => array( 'ОпслужувачНаOpenID' ),
+	'OpenIDXRDS' => array( 'OpenIDXRDS' ),
 	'OpenIDDashboard' => array( 'КонтролнаТаблаНаOpenID' ),
 );
 

@@ -54,7 +54,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function execute( $par ) {
-		global $wgOut, $wgOpenIDConsumerAndAlsoProvider, $wgOpenIDIdentifierSelect;
+		global $wgOut, $wgOpenIDConsumerAndAlsoProvider, $wgOpenIDIdentifierSelect, $wgRequest, $wgUser;
 
 		$this->setHeaders();
 
@@ -84,7 +84,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			) );
 
 			$rt = SpecialPage::getTitleFor( 'OpenIDXRDS', $wgOpenIDIdentifierSelect );
-			$xrdsUrl = $rt->getFullURL( '', false, PROTO_CURRENT  );
+			$xrdsUrl = $rt->getFullURL( '', false, PROTO_CANONICAL  );
 
 			$out->addMeta( 'http:X-XRDS-Location', $xrdsUrl );
 			$this->getRequest()->response()->header( 'X-XRDS-Location: ' . $xrdsUrl );
@@ -111,6 +111,10 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		case 'login':
 
+			wfDebug( "OpenID: SpecialOpenIDServer/Login. You should not pass this point.\n" );
+			$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
+			return;
+
 			list( $request, $sreg ) = $this->FetchValues();
 			$result = $this->serverLogin( $request );
 			if ( $result ) {
@@ -125,6 +129,11 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			break;
 
 		case 'trust':
+
+			if ( !$wgUser->matchEditToken( $wgRequest->getVal( 'openidTrustFormToken' ), 'openidTrustFormToken' ) ) {
+				$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
+				return;
+			}
 
 			list( $request, $sreg ) = $this->FetchValues();
 			$result = $this->Trust( $request, $sreg );
@@ -220,7 +229,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	function Url() {
 		$nt = SpecialPage::getTitleFor( 'OpenIDServer' );
 		if ( isset( $nt ) ) {
-			return $nt->getFullURL();
+			return $nt->getFullURL( '', false, PROTO_CANONICAL );
 		} else {
 			return null;
 		}
@@ -261,7 +270,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$local_identity = str_replace( '{ID}', $user->getID(), $wgOpenIDIdentifiersURL );
 		} else {
 			$local_identity = SpecialPage::getTitleFor( 'OpenIDIdentifier', $user->getID() );
-			$local_identity = $local_identity->getFullURL();
+			$local_identity = $local_identity->getFullURL( '', false, PROTO_CANONICAL );
 		}
 
 		return $local_identity;
@@ -345,7 +354,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				);
 				$title = SpecialPage::getTitleFor( 'Userlogin' );
 
-				$url = $title->getFullURL( $query, false, PROTO_CURRENT );
+				$url = $title->getFullURL( $query, false, PROTO_CANONICAL );
 				$wgOut->redirect( $url );
 				return null;
 			}
@@ -556,7 +565,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		$wgOut->setPageTitle( wfMessage( 'openid-trusted-sites-delete-confirmation-page-title' )->text() );
 
 		if ( $wgRequest->wasPosted()
-			&& $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ), $trustedSiteToBeDeleted ) ) {
+			&& $wgUser->matchEditToken( $wgRequest->getVal( 'openidDeleteTrustedSiteToken' ), $trustedSiteToBeDeleted ) ) {
 
 			if ( $trustedSiteToBeDeleted === "*" ) {
 
@@ -591,7 +600,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			) .
 			Xml::submitButton( wfMessage( 'openid-trusted-sites-delete-confirmation-button-text' )->text() ) . "\n" .
 			Html::Hidden( 'url', $trustedSiteToBeDeleted ) . "\n" .
-			Html::Hidden( 'wpEditToken', $wgUser->getEditToken( $trustedSiteToBeDeleted ) ) . "\n" .
+			Html::Hidden( 'openidDeleteTrustedSiteToken', $wgUser->getEditToken( $trustedSiteToBeDeleted ) ) . "\n" .
 			Xml::closeElement( 'form' )
 		);
 	}
@@ -626,8 +635,11 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$user->setRealName( $value );
 			return true;
 		case 'email':
-			# FIXME: deal with validation
-			$user->setEmail( $value );
+			if ( Sanitizer::validateEmail( $value ) ) {
+				$user->setEmail( $value );
+			} else {
+				$user->setEmail( "" );
+			}
 			return true;
 		 case 'language':
 			$user->setOption( 'language', $value );
@@ -683,7 +695,12 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function LoginForm( $request, $msg = null ) {
+	// is this really used by someone ?
 		global $wgOut, $wgUser;
+
+		wfDebug( "OpenID: SpecialOpenIDServer.body::LoginForm. You should not pass this point.\n" );
+		$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
+		return;
 
 		$url = $request->identity;
 		$name = $this->UrlToUserName( $url );
@@ -799,9 +816,10 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		$sk = $wgUser->getSkin();
 
 		$wgOut->addHTML( "<p>{$instructions}</p>" .
-						'<form action="' . $sk->makeSpecialUrl( 'OpenIDServer/Trust' ) . '" method="POST">' .
-						'<input name="wpAllowTrust" type="checkbox" value="on" checked="checked" id="wpAllowTrust">' .
-						'<label for="wpAllowTrust">' . $allow . '</label><br />' );
+			'<form action="' . $sk->makeSpecialUrl( 'OpenIDServer/Trust' ) . '" method="POST">' .
+			'<input name="wpAllowTrust" type="checkbox" value="on" checked="checked" id="wpAllowTrust">' .
+			'<label for="wpAllowTrust">' . $allow . '</label><br />'
+		);
 
 		$fields = array_filter( array_unique( array_merge( $sreg['optional'], $sreg['required'] ) ),
 							   array( $this, 'ValidField' ) );
@@ -834,8 +852,10 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 			$wgOut->addHTML( '</table>' );
 		}
-
-		$wgOut->addHTML( "<input type='submit' name='wpOK' value='{$ok}' /> <input type='submit' name='wpCancel' value='{$cancel}' /></form>" );
+		$wgOut->addHTML( "<input type='submit' name='wpOK' value='{$ok}' /> <input type='submit' name='wpCancel' value='{$cancel}' />" .
+			Html::Hidden( 'openidTrustFormToken', $wgUser->getEditToken( 'openidTrustFormToken' ) ) . "\n" .
+			"</form>"
+		);
 		return null;
 	}
 
@@ -896,6 +916,11 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		# it must start with our server, case doesn't matter
 
+		// Remove the protocol if $wgServer is protocol-relative.
+		if ( substr( $wgServer, 0, 2 ) == '//' ) {
+			$url = substr( $url, strpos( $url, ':' ) + 1 );
+		}
+
 		if ( strpos( strtolower( $url ), strtolower( $wgServer ) ) !== 0 ) {
 			return null;
 		}
@@ -938,6 +963,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	 * @return String
 	 */
 	function serverUrl() {
-		return $this->getTitle()->getFullURL( '', false, PROTO_CURRENT );
+		return $this->getTitle()->getFullURL( '', false, PROTO_CANONICAL );
 	}
 }

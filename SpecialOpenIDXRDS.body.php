@@ -80,14 +80,14 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 
 		if ( $user && $user->getID() != 0 ) {
 			$user_title = $user->getUserPage();
-			$user_url = $user_title->getFullURL();
+			$user_url = $user_title->getFullURL( '', false, PROTO_CANONICAL );
 		} else {
 			$user_url = "";
 		}
 
 		// Generate the OpenID server endpoint URL.
 		$server_title = SpecialPage::getTitleFor( 'OpenIDServer' );
-		$server_url = $server_title->getFullURL();
+		$server_url = $server_title->getFullURL( '', false, PROTO_CANONICAL );
 
 		// Define array of Yadis services to be included in
 		// the XRDS output.

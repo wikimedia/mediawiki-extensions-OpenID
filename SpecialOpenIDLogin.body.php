@@ -41,7 +41,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 * @param $par String or null
 	 */
 	function execute( $par ) {
-		global $wgRequest, $wgUser, $wgOpenIDConsumerForce;
+		global $wgRequest, $wgUser, $wgOpenIDForcedProvider, $wgOpenIDProviders;
 
 		$this->setHeaders();
 
@@ -66,17 +66,62 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				$this->setReturnTo( $wgRequest->getText( 'returnto' ), $wgRequest->getVal( 'returntoquery' ) );
 			}
 
-			$openid_url = $wgRequest->getText( 'openid_url' );
+			// if a forced OpenID provider is specified, bypass
+			// the form and any openid_url in the request.
+
+			$skipTokenTestBecauseForcedProvider = false;
+
+			if ( is_string( $wgOpenIDForcedProvider ) ) {
+
+				if ( array_key_exists( $wgOpenIDForcedProvider, $wgOpenIDProviders ) ) {
+
+					$url = $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-url'];
+					wfDebug( "OpenID: wgOpenIDForcedProvider $wgOpenIDForcedProvider defined => $url\n" );
+
+					// make sure that the associated provider Url does not contain {username} placeholder
+					// and try to use an optional openid-selection-url from the $wgOpenIDProviders array
+					if ( strpos( $url, '{username}' ) === false ) {
+						$skipTokenTestBecauseForcedProvider = true;
+						$openid_url = $url;
+					} else {
+						if ( isset ( $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'] ) ) {
+							$skipTokenTestBecauseForcedProvider = true;
+							$openid_url = $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'];
+						} else {
+							wfDebug( "OpenID: Error: wgOpenIDForcedProvider $wgOpenIDForcedProvider defined, but wgOpenIDProviders array has an invalid provider Url. Must not contain a username placeholder!\n");
+							$this->showErrorPage( 'openid-error-wrong-force-provider-setting', array( $wgOpenIDForcedProvider ) );
+							return;
+						}
+					}
+
+				} else {
+
+					// a fully qualified URL is given
+					$skipTokenTestBecauseForcedProvider = true;
+					$openid_url = $wgOpenIDForcedProvider;
+
+				}
+
+			} else {
+
+				$openid_url = $wgRequest->getText( 'openid_url' );
+
+			}
 
 			if ( !is_null( $openid_url ) && strlen( $openid_url ) > 0 ) {
-				$this->login( $openid_url, $this->getTitle( 'Finish' ) );
-		 	} elseif ( !is_null ( $wgOpenIDConsumerForce ) ) {
-		 		// if a forced OpenID provider specified, bypass the form
-		 		$this->login( $wgOpenIDConsumerForce, $this->getTitle( 'Finish' ) );
+				$this->login( $openid_url, $this->getTitle( 'Finish' ), $skipTokenTestBecauseForcedProvider );
 			} else {
 				$this->providerSelectionLoginForm();
 			}
 		}
+	}
+
+	/**
+	 * Displays an error message
+	 */
+	function showErrorPage( $msg, $params = array() ) {
+		global $wgUser, $wgOut;
+		$wgOut->showErrorPage( 'openiderror', $msg, $params );
 	}
 
 	/**
@@ -97,67 +142,42 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 * Displays the main provider selection login form
 	 */
 	function providerSelectionLoginForm() {
-		global $wgOut, $wgOpenIDShowProviderIcons, $wgOpenIDLoginOnly;
+		global $wgOut, $wgOpenIDShowProviderIcons, $wgOpenIDLoginOnly, $wgOpenIDForcedProvider;
 
-		$wgOut->addModules( $wgOpenIDShowProviderIcons ? 'ext.openid.icons' : 'ext.openid.plain' );
-
-		$formsHTML = '';
-
-		$largeButtonsHTML = '<div id="openid_large_providers">';
-		foreach ( OpenIDProvider::getLargeProviders() as $provider ) {
-			$largeButtonsHTML .= $provider->getLargeButtonHTML();
-			$formsHTML .= $provider->getLoginFormHTML();
-		}
-		$largeButtonsHTML .= '</div>';
-
+		$inputFormHTML = '';
+		$largeButtonsHTML = '';
 		$smallButtonsHTML = '';
-		if ( $wgOpenIDShowProviderIcons ) {
-			$smallButtonsHTML .= '<div id="openid_small_providers_icons">';
-			foreach ( OpenIDProvider::getSmallProviders() as $provider ) {
-				$smallButtonsHTML .= $provider->getSmallButtonHTML();
-				$formsHTML .= $provider->getLoginFormHTML();
-			}
-			$smallButtonsHTML .= '</div>';
+
+		if ( get_class( $wgOpenIDForcedProvider ) == 'OpenIDProvider' ) {
+			$inputFormHTML .= $wgOpenIDForcedProvider->getLoginFormHTML();
 		} else {
-			$smallButtonsHTML .= '<div id="openid_small_providers_links">';
-			$smallButtonsHTML .= '<ul class="openid_small_providers_block">';
-			$small = OpenIDProvider::getSmallProviders();
-
-			$i = 0;
-			$break = true;
-			foreach ( $small as $provider ) {
-				if ( $break && $i > count( $small ) / 2 ) {
-					$smallButtonsHTML .= '</ul><ul class="openid_small_providers_block">';
-					$break = false;
-				}
-
-				$smallButtonsHTML .= '<li>' . $provider->getSmallButtonHTML() . '</li>';
-
-				$formsHTML .= $provider->getLoginFormHTML();
-				$i++;
-			}
-			$smallButtonsHTML .= '</ul>';
-			$smallButtonsHTML .= '</div>';
+			SpecialOpenIDConvert::renderProviderIcons( $inputFormHTML, $largeButtonsHTML, $smallButtonsHTML );
 		}
 
+		LoginForm::setLoginToken();
+		$wgOut->addModules( $wgOpenIDShowProviderIcons ? 'ext.openid.icons' : 'ext.openid.plain' );
 		$wgOut->addHTML(
-			Xml::openElement( 'form',
+			Html::rawElement( 'form',
 				array(
 					'id' => 'openid_form',
 					'action' => $this->getTitle()->getLocalUrl(),
 					'method' => 'post',
 					'onsubmit' => 'openid.update()'
-				)
-			) .
-			Xml::fieldset( wfMessage( 'openid-login-or-create-account' )->text() ) .
-			$largeButtonsHTML .
-			'<div id="openid_input_area">' .
-			$formsHTML .
-			'</div>' .
-			$smallButtonsHTML .
-			Xml::closeElement( 'fieldset' ) . Xml::closeElement( 'form' )
+				),
+				Xml::fieldset( wfMessage( 'openid-login-or-create-account' )->text() ) .
+				$largeButtonsHTML .
+				Html::rawElement( 'div',
+					array( 'id' => 'openid_input_area' ),
+					$inputFormHTML
+				) .
+				$smallButtonsHTML .
+				Xml::closeElement( 'fieldset' ) .
+				Html::Hidden( 'openidProviderSelectionLoginToken', LoginForm::getLoginToken() )
+			)
 		);
+
 		$wgOut->addWikiMsg( 'openidlogininstructions' );
+
 		if ( $wgOpenIDLoginOnly ) {
 			$wgOut->addWikiMsg( 'openidlogininstructions-openidloginonly' );
 		} else {
@@ -190,13 +210,13 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 					'action' => $this->getTitle( 'ChooseName' )->getLocalUrl(),
 					'method' => 'POST'
 				)
-			) . "\n" .
+			) .
 			Xml::fieldset( wfMessage( 'openidchooselegend' )->text(),
 				false,
 				array(
 					'id' => 'mw-openid-choosename'
 				)
-			) . "\n" .
+			) .
 			Xml::openElement( 'table' )
 		);
 		$def = false;
@@ -225,14 +245,20 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 				if ( array_key_exists( $oidAttr, $sreg ) ) {
 					$checkName = 'wpUpdateUserInfo' . $oidAttr;
-					$oidAttributes[] = Xml::tags( 'li', array(),
-						Xml::check( $checkName, false, array( 'id' => $checkName ) ) .
+					$oidAttributes[] = Xml::tags( 'li',
+						array(),
+						Xml::check( $checkName,
+							false,
+							array(
+								'id' => $checkName
+							)
+						) .
 						Xml::tags( 'label',
 							array(
 								'for' => $checkName
 							),
 							wfMessage( "openid$oidAttr" )->text() . wfMessage( 'colon-separator' )->escaped() .
-							Xml::tags( 'i',
+							Xml::element( 'i',
 								array(),
 								$sreg[$oidAttr]
 							)
@@ -245,7 +271,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			if ( count( $oidAttributes ) > 0 ) {
 				$oidAttributesUpdate = "<br />\n" .
 					wfMessage( 'openidupdateuserinfo' )->text() . "\n" .
-					Xml::tags( 'ul', array(), implode( "\n", $oidAttributes ) );
+					Xml::tags( 'ul',
+						array(),
+						implode( "\n", $oidAttributes )
+					);
 			}
 
 			$wgOut->addHTML(
@@ -254,20 +283,32 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 					array(
 						'class' => 'mw-label'
 					),
-					Xml::radio( 'wpNameChoice', 'existing', !$def, array( 'id' => 'wpNameChoiceExisting' ) )
-				) . "\n" .
+					Xml::radio( 'wpNameChoice',
+						'existing',
+						!$def,
+						array(
+							'id' => 'wpNameChoiceExisting'
+						)
+					)
+				) .
 				Xml::tags( 'td',
 					array(
 						'class' => 'mw-input'
 					),
-					Xml::label( wfMessage( 'openidchooseexisting' )->text(), 'wpNameChoiceExisting' ) . "<br />\n" .
-					wfMessage( 'openidchooseusername' )->text() . "\n" .
-					Xml::input( 'wpExistingName', 16, $name, array( 'id' => 'wpExistingName' ) ) . "\n" .
-					wfMessage( 'openidchoosepassword' )->text() . "\n" .
-					Xml::password( 'wpExistingPassword' ) . "\n" .
-					$oidAttributesUpdate . "\n"
-				) . "\n" .
-				Xml::closeElement( 'tr' ) . "\n"
+					Xml::label( wfMessage( 'openidchooseexisting' )->text(), 'wpNameChoiceExisting' ) . "<br />" .
+					wfMessage( 'openidchooseusername' )->text() .
+					Xml::input( 'wpExistingName',
+						16,
+						$name,
+						array(
+							'id' => 'wpExistingName'
+						)
+					) .
+					wfMessage( 'openidchoosepassword' )->text() .
+					Xml::password( 'wpExistingPassword' ) .
+					$oidAttributesUpdate
+				) .
+				Xml::closeElement( 'tr' )
 			);
 			$def = true;
 		} // $wgOpenIDAllowExistingAccountSelection
@@ -299,7 +340,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 							),
 							Xml::label( wfMessage( 'openidchoosenick', $sreg['nickname'] )->escaped(), 'wpNameChoiceNick' )
 						) .
-						Xml::closeElement( 'tr' ) . "\n"
+						Xml::closeElement( 'tr' )
 					);
 				}
 
@@ -309,8 +350,9 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 					$fullname = $sreg['fullname'];
 				}
 
-				if ( array_key_exists( 'http://axschema.org/namePerson/first', $ax ) || array_key_exists( 'http://axschema.org/namePerson/last', $ax ) ) {
-					$fullname = $ax['http://axschema.org/namePerson/first'][0] . " " . $ax['http://axschema.org/namePerson/last'][0];
+				$axName = $this->getAXUserName( $ax );
+				if ( $axName !== null ) {
+					$fullname = $axName;
 				}
 
 				if ( $fullname && $this->userNameOK( $fullname ) ) {
@@ -334,7 +376,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 							),
 							Xml::label( wfMessage( 'openidchoosefull', $fullname )->escaped(), 'wpNameChoiceFull' )
 						) .
-						Xml::closeElement( 'tr' ) . "\n"
+						Xml::closeElement( 'tr' )
 					);
 					$def = true;
 				}
@@ -361,7 +403,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 							),
 							Xml::label( wfMessage( 'openidchooseurl', $idname )->text(), 'wpNameChoiceUrl' )
 						) .
-						Xml::closeElement( 'tr' ) . "\n"
+						Xml::closeElement( 'tr' )
 					);
 					$def = true;
 				}
@@ -388,7 +430,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 						),
 						Xml::label( wfMessage( 'openidchooseauto', $this->automaticName( $sreg ) )->escaped(), 'wpNameChoiceAuto' )
 					) .
-						Xml::closeElement( 'tr' ) . "\n"
+					Xml::closeElement( 'tr' )
 					);
 			}
 
@@ -421,30 +463,32 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 						)
 					)
 				) .
-				Xml::closeElement( 'tr' ) . "\n"
+				Xml::closeElement( 'tr' )
 				);
 			}
 
 		} // These are only available if all visitors are allowed to create accounts
 
+		LoginForm::setLoginToken();
+
 		# These are always available
 		$wgOut->addHTML(
-			Xml::openElement( 'tr' ) . "\n" .
-			Xml::element( 'td',
+			Xml::openElement( 'tr' ) .
+			Xml::tags( 'td',
 				array(),
 				''
-			) . "\n" .
+			) .
 			Xml::tags( 'td',
 				array(
 					'class' => 'mw-submit'
 				),
 				Xml::submitButton( wfMessage( 'userlogin' )->text(), array( 'name' => 'wpOK' ) ) .
 				Xml::submitButton( wfMessage( 'cancel' )->text(), array( 'name' => 'wpCancel' ) )
-			) . "\n" .
-			Xml::closeElement( 'tr' ) . "\n" .
-
+			) .
+			Xml::closeElement( 'tr' ) .
 			Xml::closeElement( 'table' ) .
 			Xml::closeElement( 'fieldset' ) .
+			Html::Hidden( 'openidChooseNameBeforeLoginToken', LoginForm::getLoginToken() ) .
 			Xml::closeElement( 'form' )
 		);
 	}
@@ -454,6 +498,11 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 */
 	function chooseName() {
 		global $wgRequest, $wgUser, $wgOut;
+
+		if ( LoginForm::getLoginToken() != $wgRequest->getVal( 'openidChooseNameBeforeLoginToken' ) ) {
+			$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
+			return;
+		}
 
 		list( $openid, $sreg, $ax ) = $this->fetchValues();
 		if ( is_null( $openid ) ) {
@@ -577,18 +626,26 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$user = self::getUserFromUrl( $openid );
 
 			if ( $user instanceof User ) {
+
 				$this->updateUser( $user, $sreg, $ax ); # update from server
 				$wgUser = $user;
 				$this->displaySuccessLogin( $openid );
+
 			} else {
+
 				// if we are hardcoding nickname, and a valid e-mail address was returned, create a user with this name
 				if ( $wgOpenIDUseEmailAsNickname ) {
+
 					$name = $this->getNameFromEmail( $openid, $sreg, $ax );
+
 					if ( !empty( $name ) && $this->userNameOk( $name ) ) {
+
 						$wgUser = $this->createUser( $openid, $sreg, $ax, $name );
 						$this->displaySuccessLogin( $openid );
 						return;
+
 					}
+
 				}
 
 				$this->saveValues( $openid, $sreg, $ax );
@@ -619,27 +676,34 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		// E-mail
 		if ( $this->updateOption( 'email', $user, $force ) ) {
 			// first check SREG, then AX; if both, AX takes higher priority
-			if ( array_key_exists( 'email', $sreg ) ) {
+			$email = false;
+
+			if ( array_key_exists( 'email', $sreg )
+				&& Sanitizer::validateEmail( $sreg['email'] ) ) {
 				$email = $sreg['email'];
 			}
-			if ( array_key_exists ( 'http://axschema.org/contact/email', $ax ) ) {
+
+			if ( isset ( $ax['http://axschema.org/contact/email'][0] )
+				 && Sanitizer::validateEmail( $ax['http://axschema.org/contact/email'][0] ) ) {
 				$email = $ax['http://axschema.org/contact/email'][0];
 			}
+
 			if ( $email ) {
-				// If email changed, then email a confirmation mail
+
+				// send a confirmation mail if email has changed
+
 				if ( $email != $user->getEmail() ) {
-					$user->setEmail( $email );
+
 					if ( $wgOpenIDTrustEmailAddress ) {
+						$user->setEmail( $email );
 						$user->confirmEmail();
 					} else {
-						$user->invalidateEmail();
-						if ( $wgEmailAuthentication && $email != '' ) {
-							$result = $user->sendConfirmationMail();
-							if ( WikiError::isError( $result ) ) {
-								$wgOut->addWikiMsg( 'mailerror', $result->getMessage() );
-							}
+						$status = $user->setEmailWithConfirmation( $email );
+						if ( !$status->isOK() ) {
+							$wgOut->addWikiMsg( 'mailerror', $result->getMessage() );
 						}
 					}
+
 				}
 			}
 		}
@@ -652,10 +716,9 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				$user->setRealName( $sreg['fullname'] );
 			}
 
-			if ( array_key_exists( 'http://axschema.org/namePerson/first', $ax )
-				|| array_key_exists( 'http://axschema.org/namePerson/last', $ax ) ) {
-
-				$user->setRealName( $ax['http://axschema.org/namePerson/first'][0] . " " . $ax['http://axschema.org/namePerson/last'][0] );
+			$axName = $this->getAXUserName( $ax );
+			if ( $axName !== null ) {
+				$user->setRealName( $axName );
 			}
 
 		}
@@ -861,20 +924,29 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	function getNameFromEmail( $openid, $sreg, $ax ) {
 
 		# return the part before the @ in the e-mail address;
-		# look at AX, then SREG.
-		if ( array_key_exists ( 'http://axschema.org/contact/email', $ax ) ) {
-			$addr = explode( "@", $ax['http://axschema.org/contact/email'][0] );
-			if ( $addr ) {
-				return $addr[0];
-			}
-		}
+		# look first at SREG, then AX
 
-		if ( array_key_exists( 'email', $sreg ) ) {
+		if ( array_key_exists( 'email', $sreg )
+			&& Sanitizer::validateEmail( $sreg['email'] ) ) {
+
 			$addr = explode( "@", $sreg['email'] );
 			if ( $addr ) {
 				return $addr[0];
 			}
+
 		}
+
+		if ( isset( $ax['http://axschema.org/contact/email'][0] )
+			&& Sanitizer::validateEmail( $ax['http://axschema.org/contact/email'][0] ) ) {
+
+			$addr = explode( "@", $ax['http://axschema.org/contact/email'][0] );
+
+			if ( $addr ) {
+				return $addr[0];
+			}
+
+		}
+
 	}
 
 	/**
@@ -970,6 +1042,27 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		global $wgReservedUsernames;
 		return ( 0 == User::idFromName( $name ) &&
 				!in_array( $name, $wgReservedUsernames ) );
+	}
+
+	/**
+	 * Get the full user name (first and last name) or only last or first name
+	 * whatever is available from the ax array (if exists)
+	 * @param $ax
+	 * @return mixed|null|string
+	 */
+	function getAXUserName( $ax ) {
+		$axName = '';
+		if ( isset( $ax['http://axschema.org/namePerson/first'][0] ) ) {
+			$axName = $ax['http://axschema.org/namePerson/first'][0];
+		}
+		if ( isset( $ax['http://axschema.org/namePerson/last'][0] ) ) {
+			if ( strlen( $axName ) ) {
+				$axName = $axName . ' ' . $ax['http://axschema.org/namePerson/last'][0];
+			} else {
+				$axName = $ax['http://axschema.org/namePerson/last'][0];
+			}
+		}
+		return ( strlen( $axName ) ? $axName : null );
 	}
 
 	# Session stuff

@@ -94,7 +94,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 		$out  = $this->show( 'OpenID ' . wfMessage( 'version-software-version' )->text(), MEDIAWIKI_OPENID_VERSION );
 		$out .= $this->show( 'MediaWiki ' . wfMessage( 'version-software-version' )->text(), SpecialVersion::getVersion() );
 		$out .= $this->show( '$wgOpenIDLoginOnly', $wgOpenIDLoginOnly );
-		$out .= $this->show( '$wgOpenIDConsumerAndAlsoProvider', $wgOpenIDClientAndProviderMode );
+		$out .= $this->show( '$wgOpenIDConsumerAndAlsoProvider', $wgOpenIDConsumerAndAlsoProvider );
 		$out .= $this->show( '$wgOpenIDAllowServingOpenIDUserAccounts', $wgOpenIDAllowServingOpenIDUserAccounts );
 		$out .= $this->show( '$wgOpenIDTrustEmailAddress', $wgOpenIDTrustEmailAddress );
 		$out .= $this->show( '$wgOpenIDAllowExistingAccountSelection', $wgOpenIDAllowExistingAccountSelection );

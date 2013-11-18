@@ -29,7 +29,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-define( 'MEDIAWIKI_OPENID_VERSION', '3.122 20130418' );
+define( 'MEDIAWIKI_OPENID_VERSION', '3.43 20131103' );
 
 $path = dirname( __FILE__ );
 set_include_path( implode( PATH_SEPARATOR, array( $path ) ) . PATH_SEPARATOR . get_include_path() );
@@ -131,10 +131,108 @@ $wgOpenIDConsumerAllow = array();
 $wgOpenIDConsumerDeny = array();
 
 /**
- * Force this server to only allow authentication against one server;
- * hides the selection form entirely.
+ * Force this server to only allow authentication against one server
+ * and hide the selection form entirely.
+ *
+ * @param string|null $wgOpenIDForcedProvider Name of hard-coded provider, or fully qualified Provider Id selection page Url
+ *
+ * null:                          (default) show the extension's OpenID provider selection screen based on internal $wgOpenIDProviders list
+ *
+ * (string) fully qualified Url:  a fully qualified Url to the Providers' Id selection page
+ *                                use "http://mediawiki-provider-server/wiki/Special:OpenIDServer/id"
+ *                                in case you want to force the use of another mediawiki-provider-server (not this wiki!) as OpenID provider
+ *
+ * (string) OpenID provider Name: use data for provider "Name" from the internal $wgOpenIDProviders list
+ *
  */
-$wgOpenIDConsumerForce = null;
+$wgOpenIDForcedProvider = null;
+
+
+/**
+ * The provider to select by default for a user who never selected a provider before
+ *
+ * @param string|null $wgOpenIDDefaultProviderName Name of provider in $wgOpenIDProviders to select by default
+ *
+ * null:                         (default) Don't select any provider by default
+ *
+ * (string) OpenIdProvider Name: select provider "Name" from the internal $wgOpenIDProviders list
+ */
+$wgOpenIDDefaultProviderName = null;
+
+
+/**
+ * List of supported OpenID Providers
+ *
+ * Names and parameters of supported OpenID Providers
+ * OpenID provider names are the keys.
+ *
+ * Example of an array element:
+ *
+ *  'Verisign' => array(
+ *
+ *    // whether the provider is a large (true) or small one (false)
+ *    'large-provider' => false,
+ *
+ *     // Provider OpenID, {username} placeholder is replaced
+ *    'openid-url' => 'http://{username}.pip.verisignlabs.com/',
+ *
+ *    // Provider Url which allows then the selection of a specific Id
+ *    'openid-selection-url' => 'http://pip.verisignlabs.com/',
+ *   )
+ *
+ * Provider icons:
+ * have to be supplied locally in directoy $wgExtensionAssets/OpenID/skin/icons
+ *
+ * The provider icon files need to have canonical filenames like
+ * <ProviderName>_large.png (example Google_large.png)
+ * <ProviderName>_small.png (example Versign_small.png)
+ *
+ * @param $wgOpenIDProviders Array: names and parameters of supported OpenID Providers
+ *
+ */
+$wgOpenIDProviders = array(
+	'OpenID' => array(
+		'large-provider' => true,
+		'openid-url' => '{URL}'
+	),
+	'Google' => array(
+		'large-provider' => true,
+		'openid-url' => 'https://www.google.com/accounts/o8/id'
+	),
+	'Yahoo' => array(
+		'large-provider' => true,
+		'openid-url' => 'http://yahoo.com/'
+	),
+	'AOL' => array(
+		'large-provider' => true,
+		'openid-url' => 'http://openid.aol.com/{username}'
+	),
+	'MyOpenID' => array(
+		'large-provider' => false,
+		'openid-url' => 'http://{username}.myopenid.com/'
+	),
+	'LiveJournal' => array(
+		'large-provider' => false,
+		'openid-url' => 'http://{username}.livejournal.com/'
+	),
+	'Blogger' => array(
+		'large-provider' => false,
+		'openid-url' => 'http://{username}.blogspot.com/'
+	),
+	'Flickr' => array(
+		'large-provider' => false,
+		'openid-url' => 'http://flickr.com/photos/{username}/'
+	),
+	'Verisign' => array(
+		'large-provider' => false,
+		'openid-url' => 'https://{username}.pip.verisignlabs.com/',
+		'openid-selection-url' => 'https://pip.verisignlabs.com/'
+	),
+	'ClaimID' => array(
+		'large-provider' => false,
+		'openid-url' => 'http://claimid.com/{username}'
+	)
+);
 
 /**
  * when creating a new account or associating an existing account with OpenID:
@@ -169,7 +267,7 @@ $wgOpenIDAllowNewAccountname = true;
  * When your OpenID is http://me.yahoo.com/my.name and your e-mail address is
  * my.name@yahoo.com, then "my.name" will be used for account creation.
  *
- * This works well with $wgOpenIDConsumerForce where all users have a unique
+ * This works well with $wgOpenIDForcedProvider where all users have a unique
  * e-mail address at the same domain.
  *
  * The e-mail address associated with the OpenID identity becomes
@@ -254,12 +352,12 @@ $wgOpenIDShowProviderIcons = true;
 $wgOpenIDIdentifiersURL = "";
 
 # New options
-$wgDefaultUserOptions['openid-hide'] = 0;
-$wgDefaultUserOptions['openid-update-on-login-nickname'] = false;
-$wgDefaultUserOptions['openid-update-on-login-email'] = false;
-$wgDefaultUserOptions['openid-update-on-login-fullname'] = false;
-$wgDefaultUserOptions['openid-update-on-login-language'] = false;
-$wgDefaultUserOptions['openid-update-on-login-timezone'] = false;
+$wgDefaultUserOptions['openid-show-openid'] = true;
+$wgDefaultUserOptions['openid-userinfo-update-on-login-nickname'] = false;
+$wgDefaultUserOptions['openid-userinfo-update-on-login-email'] = false;
+$wgDefaultUserOptions['openid-userinfo-update-on-login-fullname'] = false;
+$wgDefaultUserOptions['openid-userinfo-update-on-login-language'] = false;
+$wgDefaultUserOptions['openid-userinfo-update-on-login-timezone'] = false;
 
 # END CONFIGURATION VARIABLES
 
@@ -319,7 +417,6 @@ $wgHooks['BeforePageDisplay'][] = 'OpenIDHooks::onBeforePageDisplay';
 $wgHooks['ArticleViewHeader'][] = 'OpenIDHooks::onArticleViewHeader';
 $wgHooks['SpecialPage_initList'][] = 'OpenIDHooks::onSpecialPage_initList';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'OpenIDHooks::onLoadExtensionSchemaUpdates';
-
 $wgHooks['DeleteAccount'][] = 'OpenIDHooks::onDeleteAccount';
 $wgHooks['MergeAccountFromTo'][] = 'OpenIDHooks::onMergeAccountFromTo';
 
@@ -337,6 +434,8 @@ $wgAvailableRights[] = 'openid-dashboard-admin';
 # $wgGroupPermissions['user']['openid-dashboard-access'] = true;
 
 # allow users to add or convert OpenIDs to their accounts
+# but only if we do not enforce the use of a certain provider
+# if $wgOpenIDForcedProvider is set, the permission is set false
 $wgGroupPermissions['user']['openid-converter-access'] = true;
 
 # allow sysops to read access the dashboard and

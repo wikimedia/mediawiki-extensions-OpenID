@@ -122,7 +122,7 @@ class SpecialOpenID extends SpecialPage {
 		# If it's got an iw, return that
 		if ( !is_null( $nt ) && !is_null( $nt->getInterwiki() )
 			&& strlen( $nt->getInterwiki() ) > 0 ) {
-			return $nt->getFullUrl();
+			return $nt->getFullUrl( '', false, PROTO_CANONICAL );
 		} else {
 			return $openid_url;
 		}
@@ -201,9 +201,9 @@ class SpecialOpenID extends SpecialPage {
 	 * @return bool
 	 */
 	function isLocalUrl( $url ) {
-		global $wgServer, $wgArticlePath;
+		global $wgCanonicalServer, $wgArticlePath;
 
-		$pattern = $wgServer . $wgArticlePath;
+		$pattern = $wgCanonicalServer . $wgArticlePath;
 		$pattern = str_replace( '$1', '(.*)', $pattern );
 		$pattern = str_replace( '?', '\?', $pattern );
 
@@ -214,12 +214,26 @@ class SpecialOpenID extends SpecialPage {
 	 * @param $openid_url string
 	 * @param $finish_page
 	 */
-	function login( $openid_url, $finish_page ) {
-		global $wgOpenIDTrustRoot, $wgOut;
+	function login( $openid_url, $finish_page, $skipTokenTestBecauseForcedProvider = false ) {
+		global $wgOut, $wgUser, $wgRequest, $wgOpenIDTrustRoot;
+
+		// Check whether an login or a convert token is present
+
+		// Token test is skipped in the specific case that the wiki is set up to use a forced provider.
+		// This login function is then called internally in the same web request.
+		// In this case, for example when directly coming from the login link on the MainPage, we don't have any pre-login token
+
+		if ( !$skipTokenTestBecauseForcedProvider
+			&& ( LoginForm::getLoginToken() !== $wgRequest->getVal( 'openidProviderSelectionLoginToken' ) )
+			&& !( $wgUser->matchEditToken( $wgRequest->getVal( 'openidConvertToken' ), 'openidConvertToken' ) ) ) {
+
+			$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
+			return;
+		}
 
 		# If it's an interwiki link, expand it
-
 		$openid_url = $this->interwikiExpand( $openid_url );
+		wfDebug( "OpenID: Attempting login with url: $openid_url\n" );
 
 		# Check if the URL is allowed
 
@@ -231,8 +245,8 @@ class SpecialOpenID extends SpecialPage {
 		if ( !is_null( $wgOpenIDTrustRoot ) ) {
 			$trust_root = $wgOpenIDTrustRoot;
 		} else {
-			global $wgScriptPath, $wgServer;
-			$trust_root = $wgServer . $wgScriptPath;
+			global $wgScriptPath, $wgCanonicalServer;
+			$trust_root = $wgCanonicalServer . $wgScriptPath;
 		}
 
 		wfSuppressWarnings();
@@ -252,42 +266,24 @@ class SpecialOpenID extends SpecialPage {
 
 		// Handle failure status return values.
 		if ( !$auth_request ) {
-			wfDebug( "OpenID: no auth_request\n" );
-			$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
+			wfDebug( "OpenID: no auth_request for {$openid_url}\n" );
+			$wgOut->showErrorPage(
+				'openiderror',
+				'openid-error-no-auth',
+				array( $openid_url )
+			);
 			return;
 		}
 
-/*
-		FIXME
-
-		THIS DOES NOT WORK: THE TWO POST ARGUMENTS ARE NOT CHANGED
-		I DO NOT KNOW WHAT I MADE WRONG HERE
-
-		WORKAROUND: SEE BELOW BEFORE FORM SUBMISSION
-
-		// ask the Server to show identifier selection form
-		// https://developers.google.com/accounts/docs/OpenID#Parameters
-
-		$auth_request->message->setArg(
-			Auth_OpenID_OPENID_NS,
-			"identity",
-			"http://specs.openid.net/auth/2.0/identifier_select"
-		);
-
-		$auth_request->message->setArg(
-			Auth_OpenID_OPENID_NS,
-			"claimed_id",
-			"http://specs.openid.net/auth/2.0/identifier_select"
-		);
-
-		$auth_request->message->updateArgs(
-			Auth_OpenID_OPENID_NS,
-			array(
-				"identity" => "http://specs.openid.net/auth/2.0/identifier_select",
-				"claimed_id" => "http://specs.openid.net/auth/2.0/identifier_select",
-			)
-		);
-*/
+		if ( Auth_OpenID::isFailure( $auth_request ) ) {
+			wfDebug( "OpenID: auth_request failure for {$openid_url}:\n" . print_r( $auth_request, true ) ."\n" );
+			$wgOut->showErrorPage(
+				'openiderror',
+				'openid-error-server-response',
+				array( $openid_url, "{$auth_request->message} (status: {$auth_request->status})." )
+			);
+			return;
+		}
 
 		# Check the processed URLs, too
 
@@ -364,6 +360,7 @@ class SpecialOpenID extends SpecialPage {
 			if ( Auth_OpenID::isFailure( $form_html ) ) {
 				displayError( 'Could not redirect to server: ' . $form_html->message );
 			} else {
+
 				$wgOut->addWikiMsg( 'openidautosubmit' );
 				$wgOut->addHTML( $form_html );
 
@@ -389,7 +386,6 @@ class SpecialOpenID extends SpecialPage {
 	 * @return string
 	 */
 	function scriptUrl( $par = false ) {
-		global $wgServer, $wgScript;
 
 		if ( !is_object( $par ) ) {
 			$nt = $this->getTitle( $par );
@@ -397,12 +393,13 @@ class SpecialOpenID extends SpecialPage {
 			$nt = $par;
 		}
 
-		if ( !is_null( $nt ) ) {
-			$dbkey = wfUrlencode( $nt->getPrefixedDBkey() );
-			return "{$wgServer}{$wgScript}?title={$dbkey}";
-		} else {
+		if ( $nt === null ) {
 			return '';
 		}
+
+		// adding a dummy parameter forces a canonical url which we need
+		return $nt->getFullURL( array( 'dummy' => 'x'), false, PROTO_CANONICAL );
+
 	}
 
 	protected function setupSession() {
@@ -478,7 +475,7 @@ class SpecialOpenID extends SpecialPage {
 			array(
 				'uoi_user' => $user->getId(),
 				'uoi_openid' => $url,
-				'uoi_user_registration' => wfTimestamp( TS_MW )
+				'uoi_user_registration' => $dbw->timestamp()
 			),
 			__METHOD__
 		);

@@ -71,7 +71,7 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 				&& !$wgOpenIDAllowServingOpenIDUserAccounts )
 			) {
 				$serverTitle = SpecialPage::getTitleFor( 'OpenIDServer' );
-				$serverUrl = $serverTitle->getFullURL();
+				$serverUrl = $serverTitle->getFullURL( '', false, PROTO_CANONICAL );
 				$wgOut->addLink( array( 'rel' => 'openid.server', 'href' => $serverUrl ) );
 				$wgOut->addLink( array( 'rel' => 'openid2.provider', 'href' => $serverUrl ) );
 				if ( $delegate ) {
@@ -80,7 +80,7 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 					$wgOut->addLink( array( 'rel' => 'openid2.local_id', 'href' => $local_identity ) );
 				}
 				$rt = SpecialPage::getTitleFor( 'OpenIDXRDS', $user->getName() );
-				$xrdsUrl = $rt->getFullURL();
+				$xrdsUrl = $rt->getFullURL( '', false, PROTO_CANONICAL );
 				$wgOut->addMeta( 'http:X-XRDS-Location', $xrdsUrl );
 				header( 'X-XRDS-Location: ' . $xrdsUrl );
 
@@ -89,7 +89,7 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 			if ( ( $user->getID() === $wgUser->getID() )
 				&& ( $user->getID() != 0 )
 				&& ( $wgOpenIDShowUrlOnUserPage === 'always'
-					|| ( ( $wgOpenIDShowUrlOnUserPage === 'user' ) && !$wgUser->getOption( 'openid-hide-openid' ) ) )
+					|| ( ( $wgOpenIDShowUrlOnUserPage === 'user' ) && $wgUser->getOption( 'openid-show-openid' ) ) )
 			) {
 				$wgOut->setSubtitle( "<span class='subpages'>" .
 					OpenIDHooks::getOpenIDSmallLogoUrlImageTag() .

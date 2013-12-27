@@ -354,7 +354,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 				$query = array(
 					'wpName' => $otherName,
-					'returnto' => $this->getTitle( 'Continue' )->getPrefixedURL(),
+					'returnto' => $this->getPageTitle( 'Continue' )->getPrefixedURL(),
 				);
 				$title = SpecialPage::getTitleFor( 'Userlogin' );
 
@@ -593,7 +593,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		$wgOut->addHtml(
 			Xml::openElement( 'form',
 				array(
-					'action' => $this->getTitle( 'DeleteTrustedSite' )->getLocalUrl(),
+					'action' => $this->getPageTitle( 'DeleteTrustedSite' )->getLocalUrl(),
 					'method' => 'post'
 				)
 			) .
@@ -962,6 +962,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	 * @return String
 	 */
 	function serverUrl() {
-		return $this->getTitle()->getFullURL( '', false, PROTO_CANONICAL );
+		return $this->getPageTitle()->getFullURL( '', false, PROTO_CANONICAL );
 	}
 }

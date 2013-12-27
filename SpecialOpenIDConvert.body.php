@@ -269,7 +269,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			Html::rawElement( 'form',
 				array(
 					'id' => 'openid_form',
-					'action' => $this->getTitle()->getLocalUrl(),
+					'action' => $this->getPageTitle()->getLocalUrl(),
 					'method' => 'post',
 					'onsubmit' => 'openid.update()'
 				),
@@ -336,7 +336,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 		$wgOut->addHtml(
 			Xml::openElement( 'form',
 				array(
-					'action' => $this->getTitle( 'Delete' )->getLocalUrl(),
+					'action' => $this->getPageTitle( 'Delete' )->getLocalUrl(),
 					'method' => 'post'
 				)
 			) .

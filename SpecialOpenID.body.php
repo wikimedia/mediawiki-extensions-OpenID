@@ -378,7 +378,7 @@ class SpecialOpenID extends SpecialPage {
 	function scriptUrl( $par = false ) {
 
 		if ( !is_object( $par ) ) {
-			$nt = $this->getTitle( $par );
+			$nt = $this->getPageTitle( $par );
 		} else {
 			$nt = $par;
 		}

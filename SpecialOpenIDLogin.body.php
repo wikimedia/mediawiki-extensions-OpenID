@@ -118,7 +118,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 
 			if ( !is_null( $openid_url ) && strlen( $openid_url ) > 0 ) {
-				$this->login( $openid_url, $this->getTitle( 'Finish' ), $skipTokenTestBecauseForcedProvider );
+				$this->login( $openid_url, $this->getPageTitle( 'Finish' ), $skipTokenTestBecauseForcedProvider );
 			} else {
 				$this->providerSelectionLoginForm();
 			}
@@ -163,7 +163,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			Html::rawElement( 'form',
 				array(
 					'id' => 'openid_form',
-					'action' => $this->getTitle()->getLocalUrl(),
+					'action' => $this->getPageTitle()->getLocalUrl(),
 					'method' => 'post',
 					'onsubmit' => 'openid.update()'
 				),
@@ -218,7 +218,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		$wgOut->addHTML(
 			Xml::openElement( 'form',
 				array(
-					'action' => $this->getTitle( 'ChooseName' )->getLocalUrl(),
+					'action' => $this->getPageTitle( 'ChooseName' )->getLocalUrl(),
 					'method' => 'POST'
 				)
 			) .

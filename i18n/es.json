@@ -13,7 +13,8 @@
 			"Sanbec",
 			"Translationista",
 			"Vivaelcelta",
-			"XalD"
+			"XalD",
+			"Macofe"
 		]
 	},
 	"openid-desc": "Permite a los usuarios iniciar sesión en el wiki con un [//openid.net/ OpenID]. Si esto está activado en el wiki, también pueden utilizar su URL de cuenta de usuario de este wiki como OpenID para iniciar sesión en otros sitios web que utilicen OpenID",
@@ -89,13 +90,13 @@
 	"prefs-openid-show-openid": "Ocultar tu OpenID en tu página de usuario, si inicias sesión con OpenID.",
 	"prefs-openid-userinfo-update-on-login": "Actualización de información de usuario de OpenID",
 	"prefs-openid-trusted-sites": "Sitios de confianza",
-	"openid-userinfo-update-on-login-label": "Actualizar la siguiente información desde mi perfil OpenID cada vez que inicie sesión:",
+	"openid-userinfo-update-on-login-label": "Campos de información de perfil de usuario que se actualizarán automáticamente desde OpenID persona cada vez que inicies sesión:",
 	"openid-associated-openids-label": "Los OpenID asociados a tu cuenta:",
 	"openid-urls-url": "Dirección URL",
 	"openid-urls-action": "Acción",
 	"openid-urls-registration": "Fecha y hora de registro",
 	"openid-urls-delete": "Eliminar",
-	"openid-add-url": "Añadir un OpenID nuevo",
+	"openid-add-url": "Añadir un OpenID nuevo a tu cuenta",
 	"openid-trusted-sites-table-header-column-url": "Sitios de confianza",
 	"openid-trusted-sites-table-header-column-action": "Acción",
 	"openid-trusted-sites-delete-link-action-text": "Eliminar",

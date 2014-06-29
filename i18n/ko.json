@@ -42,7 +42,7 @@
 	"openidserverlogininstructions": "$2 사용자로서 $1 문서에 비밀번호를 입력하여 $3에 요청하세요. (사용자의 OpenID URL)",
 	"openidtrustinstructions": "$1과 데이터를 공유하려면 체크하세요.",
 	"openidallowtrust": "$1 사용자가 이 사용자 계정을 허용합니다.",
-	"openidnopolicy": "사이트가 개인정보 정책을 지정하지 않았습니다.",
+	"openidnopolicy": "사이트가 개인 정보 정책을 지정하지 않았습니다.",
 	"openidpolicy": "자세한 사항은 <a target=\"_new\" href=\"$1\">개인 정보 보호 정책</a>을 참고하세요.",
 	"openidoptional": "선택 사항",
 	"openidrequired": "필수",

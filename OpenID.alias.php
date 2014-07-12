@@ -60,6 +60,14 @@ $specialPageAliases['fi'] = array(
 	'OpenIDServer' => array( 'OpenID-palvelin' ),
 );
 
+/** Hebrew (עברית) */
+$specialPageAliases['he'] = array(
+	'OpenIDLogin' => array( 'כניסה_ב־OpenID' ),
+	'OpenIDConvert' => array( 'המרת_OpenID' ),
+	'OpenIDServer' => array( 'שרת_OpenID' ),
+	'OpenIDDashboard' => array( 'לוח_בקרה_של_OpenID' ),
+);
+
 /** Haitian (Kreyòl ayisyen) */
 $specialPageAliases['ht'] = array(
 	'OpenIDLogin' => array( 'KoneksyonOpenID' ),

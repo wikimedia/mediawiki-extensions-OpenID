@@ -3,7 +3,8 @@
 		"authors": [
 			"Baonguyen21022003",
 			"Minh Nguyen",
-			"Vinhtantran"
+			"Vinhtantran",
+			"Trần Nguyễn Minh Huy"
 		]
 	},
 	"openid-desc": "Đăng nhập vào wiki dùng [//openid.net/ OpenID] và đăng nhập vào các website nhận OpenID dùng tài khoản wiki",
@@ -71,8 +72,8 @@
 	"openiddelete": "Xóa OpenID",
 	"openiddelete-text": "Khi bấm nút “{{int:openiddelete-button}}”, bạn sẽ dời OpenID $1 khỏi tài khoản của bạn.\nBạn sẽ không đăng nhập được dùng OpenID này.",
 	"openiddelete-button": "Xác nhận",
-	"openiddeleteerrornopassword": "Bạn không có thể xóa tất cả các OpenID của bạn vì tài khoản thiếu mật khẩu. Nếu không có OpenID thì bạn không thể đăng nhập được.",
-	"openiddeleteerroropenidonly": "Bạn không có thể xóa tất cả các OpenID của bạn vì bạn chỉ được phép đăng nhập dùng OpenID. Nếu không có OpenID thì bạn không thể đăng nhập được.",
+	"openiddeleteerrornopassword": "Bạn không thể xóa tất cả các OpenID của bạn vì tài khoản thiếu mật khẩu. Nếu không có OpenID thì bạn không thể đăng nhập được.",
+	"openiddeleteerroropenidonly": "Bạn không thể xóa tất cả các OpenID của bạn vì bạn chỉ được phép đăng nhập dùng OpenID. Nếu không có OpenID thì bạn không thể đăng nhập được.",
 	"openiddelete-success": "Đã dời OpenID thành công khỏi tài khoản của bạn.",
 	"openiddelete-error": "Đã gặp lỗi khi dời OpenID khỏi tài khoản của bạn.",
 	"openid-openids-were-not-merged": "Các OpenID không được hợp nhất lúc khi hợp nhất các tài khoản người dùng.",

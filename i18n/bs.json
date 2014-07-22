@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"CERminator"
+			"CERminator",
+			"KWiki"
 		]
 	},
 	"openid-desc": "Prijava na wiki sa [//openid.net/ OpenID] i prijava na druge stranice koje podržavaju OpenID sa wiki korisničkim računom",
@@ -59,7 +60,7 @@
 	"openidlogininstructions": "{{SITENAME}} podržava [//openid.net/ OpenID] standard za jedinstvenu prijavu između web sajtova.\nOpenID omogućuje da se prijavite na mnoge različite web stranice bez korištenja različitih šifri za svaku od njih.\n(Pogledajte [//en.wikipedia.org/wiki/OpenID članak na Wikipediji o OpenID-u] za više informacija.)\n\nPostoji mnogo [http://wiki.openid.net/Public_OpenID_providers javnih provajdera za OpenID], i možda već imate neki račun na drugom servisu koji podržava OpenID.",
 	"openidupdateuserinfo": "Ažuriraj moje lične informacije:",
 	"openiddelete": "Obriši OpenID",
-	"openiddelete-text": "Klikanjem na dugme \"{{int:openiddelete-button}}\" uklonićete OpenID $1 sa vašeg računa.\nNećete više biti u mogućnosti da se prijavite s ovim OpenID.",
+	"openiddelete-text": "Klikanjem na dugme \"{{int:openiddelete-button}}\" uklonit ćete OpenID $1 s Vašeg računa.\nNećete se više biti u mogućnosti prijaviti s ovim OpenID.",
 	"openiddelete-button": "Potvrdi",
 	"openiddeleteerrornopassword": "Ne možete obrisati sve vaše OpenID jer vaš račun nema šifre.\nNeće se moći prijaviti bez OpenID.",
 	"openiddeleteerroropenidonly": "Ne možete obrisati sve vaše OpenID jer vam je omogućeno da se prijavite samo sa OpenID.\nBez OpenId nećete moći da se prijavite.",

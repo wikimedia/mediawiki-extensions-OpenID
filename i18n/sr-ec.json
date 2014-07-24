@@ -53,5 +53,6 @@
 	"openid-urls-url": "Адреса",
 	"openid-urls-action": "Радња",
 	"openid-urls-registration-date-time": "$1",
-	"openid-urls-delete": "Обриши"
+	"openid-urls-delete": "Обриши",
+	"action-openid-login-with-openid": "пријављивање путем OpenID-ја"
 }

@@ -14,7 +14,8 @@
 			"Yanmiao liu",
 			"Yfdyh000",
 			"Hudafu",
-			"Mywood"
+			"Mywood",
+			"Impersonator 1"
 		]
 	},
 	"openid-desc": "让用户可使用一个[//openid.net/ OpenID]来登录到这个wiki。如果启用相关设置，还可以使用他们在此wiki上用户帐号URL作为OpenID来登录到其他接受OpenID的网站。",
@@ -24,6 +25,7 @@
 	"openid-identifier-page-text-user": "此页面是用户“$1”的标识符。",
 	"openid-identifier-page-text-different-user": "此页面是用户ID $1的标识符。",
 	"openid-identifier-page-text-no-such-local-openid": "这是一个无效的本地OpenID标识符。",
+	"openid-server-identity-page-text": "这是用于OpenID身份验证的技术性服务器。此页面没有其他用途。",
 	"openidxrds": "Yadis文件",
 	"openidconvert": "OpenID转换",
 	"openiderror": "OpenID错误",

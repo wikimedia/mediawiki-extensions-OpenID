@@ -12,7 +12,8 @@
 			"Shangkuanlc",
 			"Simon Shek",
 			"Waihorace",
-			"Wrightbus"
+			"Wrightbus",
+			"LNDDYL"
 		]
 	},
 	"openid-desc": "使用者請以 [//openid.net/ OpenID] 登入此 wiki網站，以及使用 wiki 用戶帳號登入到其他接受 OpenID 的網站",
@@ -24,13 +25,13 @@
 	"openidconvert": "OpenID 轉換器",
 	"openiderror": "OpenID錯誤",
 	"openid-error-openid-consumer-mode-disabled": "您不能經由OpenID登陸此wiki，因為OpenID消費者模式被禁用。",
-	"openiderrortext": "在驗證 OpenID 地址時出現了一個錯誤。",
+	"openiderrortext": "在驗證 OpenID 網址時出現了一個錯誤。",
 	"openidconfigerror": "OpenID 配置出錯",
 	"openidconfigerrortext": "這個 wiki 的 OpenID 儲存設定是無效的。\n請通知[[Special:ListUsers/sysop|管理員]]。",
 	"openidpermission": "OpenID 的權限錯誤",
 	"openidpermissiontext": "您提供的 OpenID 不允許在本服務器上登入。",
 	"openidcancel": "驗證已取消",
-	"openidcanceltext": "OpenID 地址驗證被取消。",
+	"openidcanceltext": "OpenID 網址驗證被取消。",
 	"openidfailure": "驗證失敗",
 	"openidfailuretext": "OpenID 地址驗證失敗。錯誤資訊：「$1」",
 	"openidsuccess": "驗證成功",
@@ -67,7 +68,7 @@
 	"openidalreadyloggedin": "您已經登入。",
 	"openidalreadyloggedintext": "'''您已經登錄，$1！'''\n\n您可以在您的設置的[[Special:Preferences#mw-prefsection-openid|OpenID 選項卡]]中管理（查看、刪除和進一步添加）OpenID。",
 	"openidnousername": "沒有指定用戶名。",
-	"openidbadusername": "指定的用戶名是錯誤的。",
+	"openidbadusername": "指定的使用者名稱是錯誤的。",
 	"openidautosubmit": "本頁包含的表單在啟用 JavaScript 的情況下可以自動提交。\n如果沒有自動提交，請按「Continue」（繼續）按鈕。",
 	"openidclientonlytext": "你不能在其他站點上使用這個 wiki 的帳號作為 OpenID。",
 	"openidloginlabel": "OpenID 網址",
@@ -105,7 +106,7 @@
 	"openid-provider-label-google": "以您的 Google 帳戶登入",
 	"openid-provider-label-yahoo": "以您的 Yahoo 帳戶登入",
 	"openid-provider-label-aol": "輸入你的 AOL 螢幕名稱",
-	"openid-provider-label-other-username": "輸入你的 $1 用戶名",
+	"openid-provider-label-other-username": "輸入你的 $1 使用者名稱",
 	"openid-provider-selection-button-login": "經由OpenID登陸",
 	"openid-provider-selection-button-create-account": "經由OpenID創建賬戶",
 	"openid-provider-selection-button-convert": "轉換或添加OpenID",
@@ -117,7 +118,7 @@
 	"openid-dashboard-title": "OpenID 儀錶板",
 	"openid-dashboard-title-admin": "OpenID 儀錶板（管理員）",
 	"openid-dashboard-introduction": "當前 OpenID 的擴展設置（[$1 help|$1 幫助]）",
-	"openid-dashboard-number-openid-users": "擁有 OpenID 的用戶數",
+	"openid-dashboard-number-openid-users": "擁有 OpenID 的使用者數",
 	"openid-dashboard-number-openids-in-database": "OpenID 的數量（總數）",
-	"openid-dashboard-number-users-without-openid": "沒有 OpenID 的用戶數"
+	"openid-dashboard-number-users-without-openid": "沒有 OpenID 的使用者數"
 }

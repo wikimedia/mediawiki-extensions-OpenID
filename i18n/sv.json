@@ -32,7 +32,7 @@
 	"openid-error-server-response": "Ett fel uppstod under verifieringen av OpenID-URL:en $1.\n\nServerns svar var: ''$2''",
 	"openid-error-request-forgery": "Ett fel uppstod: en ogiltig nyckel hittades.",
 	"openid-error-wrong-force-provider-setting": "Ett internt fel inträffade: Ett inkorrekt URL-värde har hittats för den tvingade leverantören \"$1\".",
-	"openid-error-openid-convert-not-allowed-forced-provider": "Det är inte möjligt att koppla ytterligare OpenID till ditt konto, eftersom du kan bara använda den ''\"tvingade\"'' OpenID-leverantören \"$1\" för inloggningar på denna wiki.",
+	"openid-error-openid-convert-not-allowed-forced-provider": "Det är inte möjligt att koppla ytterligare OpenID till ditt konto, eftersom du bara kan använda den ''\"tvingade\"'' OpenID-leverantören \"$1\" för inloggningar på denna wiki.",
 	"openidconfigerror": "Konfigurationsfel med OpenID",
 	"openidconfigerrortext": "Lagringkonfigurationen för OpenID på den här wikin är ogiltig.\nVar god konsultera en [[Special:ListUsers/sysop|administratör]].",
 	"openidpermission": "Behörighetsfel med OpenID",

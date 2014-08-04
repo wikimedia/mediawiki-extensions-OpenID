@@ -57,7 +57,7 @@
 	"openidchooseauto": "自動生成的名稱（$1）",
 	"openidchoosemanual": "您選擇的名稱：",
 	"openidchooseexisting": "本維基已經存在的帳號：",
-	"openidchooseusername": "用戶名：",
+	"openidchooseusername": "使用者名稱：",
 	"openidchoosepassword": "密碼：",
 	"openidconvertinstructions": "本表單可以將您的用戶帳號修改為 OpenID 地址。",
 	"openidconvertoraddmoreids": "轉換到 OpenID 或加入另一個 OpenID URL",

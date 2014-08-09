@@ -31,6 +31,7 @@
 	"openiderror": "OpenID错误",
 	"openid-error-openid-consumer-mode-disabled": "您不能使用OpenID登陆此wiki，因为OpenID消费者模式被禁用。",
 	"openiderrortext": "在验证OpenID地址时出现了一个错误。",
+	"openid-error-server-response": "验证OpenID URL $1时出错。服务器响应：“$2”",
 	"openid-error-request-forgery": "出错：找到无效密钥。",
 	"openidconfigerror": "OpenID配置出错",
 	"openidconfigerrortext": "OpenID存储配置对此wiki是无效的。\n请联系[[Special:ListUsers/sysop|管理员]]。",

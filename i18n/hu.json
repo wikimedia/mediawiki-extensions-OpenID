@@ -5,7 +5,8 @@
 			"Dj",
 			"Glanthor Reviol",
 			"Tgr",
-			"Misibacsi"
+			"Misibacsi",
+			"Csega"
 		]
 	},
 	"openid-desc": "Bejelentkezés [//openid.net/ OpenID] azonosítóval, és más OpenID-kompatibilis weboldalak használata a wikis azonosítóval",
@@ -77,7 +78,7 @@
 	"openid-urls-action": "Művelet",
 	"openid-urls-registration": "Regisztráció ideje",
 	"openid-urls-delete": "Törlés",
-	"openid-add-url": "Egy új OpenID hozzáadása fiókjához",
+	"openid-add-url": "Egy új OpenID hozzáadása fiókodhoz",
 	"openid-login-or-create-account": "Bejelentkezés vagy új felhasználói fiók létrehozása",
 	"openid-provider-label-openid": "OpenID URL megadása",
 	"openid-provider-label-google": "Bejelentkezés a Google felhasználói fiókoddal",

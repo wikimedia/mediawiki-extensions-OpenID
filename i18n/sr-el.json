@@ -3,7 +3,8 @@
 		"authors": [
 			"Ex13",
 			"Michaello",
-			"Rancher"
+			"Rancher",
+			"Milicevic01"
 		]
 	},
 	"openidserver": "OpenID server",
@@ -52,5 +53,6 @@
 	"openid-urls-url": "Adresa",
 	"openid-urls-action": "Radnja",
 	"openid-urls-registration-date-time": "$1",
-	"openid-urls-delete": "Obriši"
+	"openid-urls-delete": "Obriši",
+	"action-openid-login-with-openid": "prijavljivanje putem OpenID-ja"
 }

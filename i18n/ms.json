@@ -4,7 +4,8 @@
 			"Anakmalaysia",
 			"Aurora",
 			"Aviator",
-			"Diagramma Della Verita"
+			"Diagramma Della Verita",
+			"Pizza1016"
 		]
 	},
 	"openid-desc": "Membolehkan pengguna untuk log masuk ke dalam wiki dengan [//openid.net/ OpenID]. Jika dihidupkan pada wiki, pengguna juga obleh menggunakan URL akaun penggunanya di wiki ini sebagai OpenID untuk log masuk ke dalam tapak web lain yang sedia OpenID",
@@ -114,12 +115,12 @@
 	"specialpages-group-openid": "Laman-laman perkhidmatan dan maklumat status OpenID",
 	"right-openid-converter-access": "Boleh menambahkan atau menukarkan akaun mereka untuk menggunakan identiti OpenID",
 	"right-openid-dashboard-access": "Akses piawai ke dalam papan pemuka OpenID",
-	"right-openid-dashboard-admin": "Akses pentadbir ke dalam papan pemuka OpenID",
+	"right-openid-dashboard-admin": "Akses penyelia ke papan pemuka OpenID",
 	"action-openid-converter-access": "menambah atau menukar akaun anda untuk menggunakan identiti OpenID",
 	"action-openid-dashboard-access": "mengakses papan pemuka OpenID",
 	"action-openid-dashboard-admin": "mengakses papan pemuka penyelia OpenID",
 	"openid-dashboard-title": "Papan pemuka OpenID",
-	"openid-dashboard-title-admin": "Papan Pemuka OpenID (pentadbir)",
+	"openid-dashboard-title-admin": "Papan pemuka OpenID (penyelia)",
 	"openid-dashboard-introduction": "Tetapan sambungan OpenID semasa ([$1 bantuan])",
 	"openid-dashboard-number-openid-users": "Bilangan pengguna dengan OpenID",
 	"openid-dashboard-number-openids-in-database": "Bilangan OpenID (jumlah)",

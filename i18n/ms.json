@@ -22,7 +22,7 @@
 	"openiderrortext": "Berlaku ralat ketika pengesahan URL OpenID.",
 	"openid-error-request-forgery": "Berlakunya ralat: dijumpainya token yang tidak sah.",
 	"openidconfigerror": "Ralat konfigurasi OpenID",
-	"openidconfigerrortext": "Konfigurasi storan OpenID bagi wiki ini tidak sah.\nSila hubungi [[Special:ListUsers/sysop|pentadbir]].",
+	"openidconfigerrortext": "Konfigurasi penyimpanan OpenID bagi wiki ini tidak sah.\nSila hubungi seorang [[Special:ListUsers/sysop|penyelia]].",
 	"openidpermission": "Ralat keizinan OpenID",
 	"openidpermissiontext": "OpenID yang anda berikan tidak dibenarkan untuk mengakses pelayan ini.",
 	"openidcancel": "Pengesahan telah dibatalkan",

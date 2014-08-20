@@ -6,7 +6,8 @@
 			"Herr Kriss",
 			"Maikking",
 			"Matma Rex",
-			"Sp5uhe"
+			"Sp5uhe",
+			"Alan ffm"
 		]
 	},
 	"openid-desc": "Logowanie się do wiki z użyciem [//openid.net/ OpenID], oraz logowanie się do innych witryn używających OpenID z użyciem konta użytkownika z wiki",
@@ -86,6 +87,8 @@
 	"openid-add-url": "Dodaj nowe OpenID do swojego konta",
 	"openid-trusted-sites-table-header-column-url": "Zaufane witryny",
 	"openid-trusted-sites-delete-link-action-text": "Usuń",
+	"openid-trusted-sites-delete-all-link-action-text": "Usuń wszystkie zaufane witryny",
+	"openid-trusted-sites-delete-confirmation-page-title": "Usuwanie zaufanych witryn",
 	"openid-trusted-sites-delete-confirmation-button-text": "Potwierdź",
 	"openid-local-identity": "Twój OpenID:",
 	"openid-login-or-create-account": "Zaloguj się lub utwórz nowe konto",
@@ -97,10 +100,14 @@
 	"openid-provider-label-other-username": "Wprowadź swoją nazwę użytkownika $1",
 	"openid-provider-selection-button-login-or-create-account": "Zaloguj lub utwórz konto korzystając z OpenID",
 	"openid-provider-selection-button-login": "Zaloguj używając OpenID",
+	"openid-provider-selection-button-create-account": "Utwórz konto za pomocą OpenID",
 	"specialpages-group-openid": "OpenID – strony diagnostyczne i statusu",
 	"right-openid-converter-access": "Można dodać lub przystosować ich konto do używania tożsamości OpenID",
 	"right-openid-dashboard-access": "Standardowy dostęp do zarządzania OpenID",
 	"right-openid-dashboard-admin": "Administracyjny dostęp do zarządzania OpenID",
+	"action-openid-dashboard-access": "dostęp do panelu OpenID",
+	"action-openid-dashboard-admin": "dostęp do panelu administratora OpenID",
+	"action-openid-login-with-openid": "Zaloguj używając OpenID",
 	"openid-dashboard-title": "Zarządzanie OpenID",
 	"openid-dashboard-title-admin": "Zarządzanie OpenID (administrator)",
 	"openid-dashboard-introduction": "Bieżące ustawienia rozszerzenia OpenID ([$1 pomoc])",

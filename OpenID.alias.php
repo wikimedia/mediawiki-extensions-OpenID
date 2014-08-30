@@ -228,7 +228,7 @@ $specialPageAliases['zh-hans'] = array(
 /** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
 	'OpenIDLogin' => array( 'OpenID登入' ),
-	'OpenIDConvert' => array( '轉換OpenID' ),
+	'OpenIDConvert' => array( 'OpenID轉換' ),
 	'OpenIDServer' => array( 'OpenID伺服器' ),
 	'OpenIDDashboard' => array( 'OpenID狀態板' ),
 );

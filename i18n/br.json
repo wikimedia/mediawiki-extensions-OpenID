@@ -78,6 +78,7 @@
 	"openid-urls-registration": "Deiziad enskrivañ",
 	"openid-urls-delete": "Dilemel",
 	"openid-add-url": "Ouzhpennañ un OpenID nevez",
+	"openid-trusted-sites-table-header-column-action": "Ober",
 	"openid-trusted-sites-delete-link-action-text": "Dilemel",
 	"openid-trusted-sites-delete-confirmation-button-text": "Kadarnaat",
 	"openid-login-or-create-account": "Kevreañ pe krouiñ ur gont nevez",
@@ -86,6 +87,9 @@
 	"openid-provider-label-yahoo": "Kevreañ dre ho kont Yahoo",
 	"openid-provider-label-aol": "Ebarzhit hoc'h anv AOL",
 	"openid-provider-label-other-username": "Ebarzhit hoc'h anv implijer $1",
+	"openid-provider-selection-button-create-account": "Krouiñ ur gont gant OpenID",
+	"action-openid-create-account-with-openid": "krouiñ ur gont gant OpenID",
 	"openid-dashboard-number-openid-users": "Niver a implijerien gant OpenID",
-	"openid-dashboard-number-openids-in-database": "Niver a OpenIDoù (hollad)"
+	"openid-dashboard-number-openids-in-database": "Niver a OpenIDoù (hollad)",
+	"openid-dashboard-number-users-without-openid": "Niver a implijerien hep OpenID"
 }

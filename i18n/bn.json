@@ -7,10 +7,10 @@
 			"Wikitanvir"
 		]
 	},
-	"openidlogin": "ওপেনআইডি-এর সাহায্য লগইন",
+	"openidlogin": "প্রবেশ করুন / ওপেনআইডিসহ অ্যাকাউন্ট তৈরি করুন",
 	"openidserver": "ওপেনআইডি সার্ভার",
 	"openidxrds": "ইয়াদিস ফাইল",
-	"openiderror": "নিশ্চিতকরণ ত্রুটি",
+	"openiderror": "ওপেনআইডি ত্রুটি",
 	"openidconfigerror": "ওপেন আইডি কনফিগারেশন ত্রুটি",
 	"openidpermission": "ওপেনআইডি অনুমতি ত্রুটি",
 	"openidcancel": "নিশ্চিতকরণ বাতিল করা হয়েছে",

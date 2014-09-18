@@ -81,7 +81,7 @@
 	"openidautosubmit": "若您已開啟 JavaScript，本頁面的表單會自動送出。\n若未自動送出，請點選 \"繼續\" 按鈕。",
 	"openidclientonlytext": "您無法於其他網站使用此 Wiki 的帳號做為 OpenID。",
 	"openidloginlabel": "OpenID URL",
-	"openidlogininstructions": "{{SITENAME}} 支持使用 [//openid.net/ OpenID] 做為單一登入(SSO)的標準協定。\nOpenID 可讓您使用一組帳號密碼登入不同的網站。\n(請參考 [//en.wikipedia.org/wiki/OpenID 維基百科的 OpenID 的文章] 以取得更多資訊)\n目前已有許多 [//openid.net/get/ OpenID 的提供者]，您可能已經在其他服務上使用過 OpenID 帳號。",
+	"openidlogininstructions": "{{SITENAME}} 支持使用 [//openid.net/ OpenID] 做為單一登入(SSO)的標準協定。\nOpenID 可讓您使用一組帳號密碼登入不同的網站。\n(請參考 [//zh.wikipedia.org/wiki/OpenID 維基百科的 OpenID 條目] 以取得更多資訊)\n目前已有許多 [//openid.net/get/ OpenID 的提供者]，您可能已經在其他服務上使用過 OpenID 帳號。",
 	"openidlogininstructions-openidloginonly": "{{SITENAME}} ''僅'' 允許使用 OpenID 登入。",
 	"openidlogininstructions-passwordloginallowed": "如果您已帳號 {{SITENAME}}  的帳號，您可以像往常般使用您的使用者名稱與密碼 [[Special:UserLogin|登入]]。\n若要使用 OpenID，您可在您登入之後 [[Special:OpenIDConvert|轉換您的帳號為 OpenID]]。",
 	"openidupdateuserinfo": "更新我的個人資訊：",

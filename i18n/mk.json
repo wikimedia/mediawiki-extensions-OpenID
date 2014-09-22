@@ -114,7 +114,7 @@
 	"openid-provider-label-aol": "Внесете го вашето име на AOL",
 	"openid-provider-label-wmflabs": "Најавете се со вашата сметка на Wmflabs",
 	"openid-provider-label-other-username": "Внесете го вашето $1 корисничко име",
-	"openid-provider-selection-button-login-or-create-account": "Најава / регистрација со OpenID",
+	"openid-provider-selection-button-login-or-create-account": "Најава / направи сметка со OpenID",
 	"openid-provider-selection-button-login": "Најава со OpenID",
 	"openid-provider-selection-button-create-account": "Направи сметка со OpenID",
 	"openid-provider-selection-button-convert": "Претвори или додај OpenID",

@@ -30,7 +30,7 @@
 	"openidconfigerrortext": "پیکربندی ذخیره‌سازی ایجاد حساب کاربری برای این ویکی، نامعتبر است.\nلطفاً با یک [[Special:ListUsers/sysop|administrator]] مشورت کنید.",
 	"openidpermission": "خطای مجوزهای ایجاد حساب",
 	"openidpermissiontext": "حساب کابری که ایجاد کرده‌اید برای ورود به سرور مجاز نیست.",
-	"openidcancel": "تأیید کنسل شده",
+	"openidcancel": "فسخ تأیید",
 	"openidcanceltext": "تأیید یوآر‌ال ایجاد حساب کاربری لغو شد.",
 	"openidfailure": "تأیید ناموفق",
 	"openidfailuretext": "تأیید یوآر‌ال ایجاد حساب کاربری انجام نشد.\nپیام خطا: \"$1\"",

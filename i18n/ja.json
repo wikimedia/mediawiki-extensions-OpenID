@@ -8,7 +8,8 @@
 			"Schu",
 			"Shirayuki",
 			"Whym",
-			"青子守歌"
+			"青子守歌",
+			"Rxy"
 		]
 	},
 	"openid-desc": "[//openid.net/ OpenID] でウィキにログインできるようにする。\nこれをウィキで有効にすると、ウィキの利用者アカウントの URL を OpenID として他の OpenID 対応サイトにもログインできる",

@@ -9,7 +9,7 @@
 	"openidserver": "OpenID-ის სერვერი",
 	"openidxrds": "Yadis ფაილი",
 	"openidconvert": "OpenID-ის კონვერტორი",
-	"openiderror": "დადასტურების შეცდომა",
+	"openiderror": "OpenID-ის შეცდომა",
 	"openiderrortext": "OpenID-ის URL-ის შემოწმებისას მოხდა შეცდომა.",
 	"openidconfigerror": "OpenID-ის კონფიგურაციის შეცდომა",
 	"openidconfigerrortext": "OpenID-ის საცავის კონფიგურაცია ამ ვიკისათვის არასწორია.\nგთხოვთ, მიმართეთ [[Special:ListUsers/sysop|ადმინისტრატორს]].",

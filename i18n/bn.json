@@ -4,7 +4,8 @@
 			"Aftab1995",
 			"Bellayet",
 			"Ehsanulhb",
-			"Wikitanvir"
+			"Wikitanvir",
+			"Aftabuzzaman"
 		]
 	},
 	"openidlogin": "প্রবেশ করুন / ওপেনআইডিসহ অ্যাকাউন্ট তৈরি করুন",
@@ -30,7 +31,7 @@
 	"openidchoosenick": "আপনার ডাকনাম ($1)",
 	"openidchoosefull": "আপনার আসল নাম ($1)",
 	"openidchooseusername": "ব্যবহারকারী নাম:",
-	"openidchoosepassword": "শব্দচাবি:",
+	"openidchoosepassword": "পাসওয়ার্ড:",
 	"openidconvertsuccess": "সফলভাবে ওপেনআইডিতে রূপান্তর করা হয়েছে",
 	"openiddelete-button": "নিশ্চিত করুন",
 	"openid-urls-action": "অ্যাকশন",

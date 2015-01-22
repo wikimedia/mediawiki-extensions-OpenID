@@ -6,7 +6,8 @@
 			"Rcdeboer",
 			"SPQRobin",
 			"Siebrand",
-			"Tjcool007"
+			"Tjcool007",
+			"Robin0van0der0vliet"
 		]
 	},
 	"openid-desc": "Aanmelden bij de wiki met een [//openid.net/ OpenID] en aanmelden bij andere websites die OpenID ondersteunen met een wikigebruiker",
@@ -94,7 +95,7 @@
 	"openid-show-openid-url-on-userpage-always": "Uw OpenID wordt altijd weergegeven op uw gebruikerspagina als u die bezoekt.",
 	"openid-show-openid-url-on-userpage-never": "Uw OpenID wordt nooit weergegeven op uw gebruikerspagina.",
 	"openid-userinfo-update-on-login-label": "Velden van uw gebruikersprofiel die iedere keer dat u aanmeldt worden bijgewerkt vanuit uw OpenID-persona:",
-	"openid-associated-openids-label": "Aan uw gebruiker gekoppelde OpenID's:",
+	"openid-associated-openids-label": "Aan uw account gekoppelde OpenID's:",
 	"openid-urls-url": "URL",
 	"openid-urls-action": "Handeling",
 	"openid-urls-registration": "Registratietijd",

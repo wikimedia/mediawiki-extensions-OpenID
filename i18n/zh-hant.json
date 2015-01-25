@@ -50,7 +50,7 @@
 	"openidtrustinstructions": "請勾選，若您欲與 $1 共用資料。",
 	"openidallowtrust": "允許 $1 信任此使用者帳號。",
 	"openidnopolicy": "網站尚未設定隱私政策。",
-	"openidpolicy": "請參考 <a target=\"_new\" href=\"$1\">隱私政策</a> 以取得更多資訊。",
+	"openidpolicy": "請參考<a target=\"_new\" href=\"$1\">隱私政策</a>以取得更多資訊。",
 	"openidoptional": "選填",
 	"openidrequired": "必填",
 	"openidnickname": "暱稱",

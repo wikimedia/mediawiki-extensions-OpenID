@@ -4,7 +4,8 @@
 			"EugeneZelenko",
 			"Jim-by",
 			"Wizardist",
-			"Zedlik"
+			"Zedlik",
+			"Red Winged Duck"
 		]
 	},
 	"openid-desc": "Уваход ў {{GRAMMAR:вінавальны|{{SITENAME}}}} з дапамогай [//openid.net/ OpenID], а так сама ў іншыя сайты, якія падтрымліваюць OpenID з вікі-рахунка",
@@ -12,7 +13,7 @@
 	"openidserver": "Сэрвэр OpenID",
 	"openidxrds": "Файл Yadis",
 	"openidconvert": "Канвэртар OpenID",
-	"openiderror": "Памылка праверкі",
+	"openiderror": "Памылка OpenID",
 	"openiderrortext": "Пад час праверкі адрасу OpenID узьнікла памылка.",
 	"openidconfigerror": "Памылка ў канфігурацыі OpenID",
 	"openidconfigerrortext": "Канфігурацыя сховішча OpenID у {{GRAMMAR:месны|{{SITENAME}}}} — няслушная.\nКалі ласка, зьвярніцеся да [[Special:ListUsers/sysop|адміністратараў]].",

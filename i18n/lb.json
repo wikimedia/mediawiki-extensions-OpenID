@@ -87,10 +87,12 @@
 	"openid-provider-label-google": "Loggt Iech mat Ärem Goggle-Benotzerkont an",
 	"openid-provider-label-yahoo": "Loggt Iech mat Ärem Yahoo-Benotzerkont an",
 	"openid-provider-label-aol": "Gitt Ären AOL Numm un",
+	"openid-provider-label-wmflabs": "Aloggen mat Ärem Wmflabs-Benotzerkont",
 	"openid-provider-label-other-username": "Gitt Äre(n) $1 Benotzernumm un",
 	"openid-provider-selection-button-login": "Alogge mat OpenID",
 	"action-openid-login-with-openid": "alogge mat OpenID",
 	"action-openid-create-account-with-openid": "e Benotzerkont mat OpenID uleeën",
 	"openid-dashboard-number-openid-users": "Zuel vun de Benotzer mat OpenID",
+	"openid-dashboard-number-openids-in-database": "Zuel vun OpenIDs (Total)",
 	"openid-dashboard-number-users-without-openid": "Zuel vun de Benotzer ouni OpenID"
 }

@@ -74,7 +74,7 @@
 	"openiddelete-error": "Адбылася памылка пад час выдаленьня OpenID з Вашага рахунку.",
 	"openid-openids-were-not-merged": "Рахункі OpenID ня былі аб’яднаныя падчас аб’яднаныя рахункаў.",
 	"prefs-openid-show-openid": "Хаваць Ваш адрас OpenID на Вашай старонцы ўдзельніка, калі Вы ўвайшлі з дапамогай OpenID.",
-	"openid-userinfo-update-on-login-label": "Абнаўляць наступную інфармацыю з OpenID кожны раз, калі я уваходжу ў сыстэму:",
+	"openid-userinfo-update-on-login-label": "Палі профілю ўдзельніка, якія будуць аўтаматычна абнаўляцца з OpenID кожны раз па ўваходзе ў сыстэму:",
 	"openid-associated-openids-label": "OpenID зьвязаныя з Вашым рахункам:",
 	"openid-urls-action": "Дзеяньне",
 	"openid-urls-registration": "Час рэгістрацыі",

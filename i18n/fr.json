@@ -40,7 +40,7 @@
 	"openidcancel": "Vérification annulée",
 	"openidcanceltext": "La vérification de l’adresse OpenID a été annulée.",
 	"openidfailure": "Échec de la vérification",
-	"openidfailuretext": "La vérification de l’adresse OpenID a échouée. Message d’erreur : « $1 »",
+	"openidfailuretext": "La vérification de l’adresse OpenID a échoué. Message d’erreur : « $1 »",
 	"openidsuccess": "Vérification réussie",
 	"openidsuccesstext": "'''La vérification de l’adresse OpenID est réussie et vous êtes identifié en tant qu'utilisateur $1.'''\n\nVotre OpenID est $2.\n\nCet OpenID et d'autres optionnels peuvent être gérés dans l'[[Special:Preferences#mw-prefsection-openid|onglet OpenID]] de vos préférences.<br />\nUn mot de passe facultatif de compte peut être ajouté dans votre [[Special:Preferences#mw-prefsection-personal|profil utilisateur]].",
 	"openidusernameprefix": "Utilisateur OpenID",

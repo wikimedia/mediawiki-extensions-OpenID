@@ -55,7 +55,7 @@
 	"openidrequired": "必填",
 	"openidnickname": "暱稱",
 	"openidfullname": "真實姓名",
-	"openidemail": "電郵地址",
+	"openidemail": "電子郵件地址",
 	"openidlanguage": "語言",
 	"openidtimezone": "時區",
 	"openidchooselegend": "使用者名稱與帳號選項",

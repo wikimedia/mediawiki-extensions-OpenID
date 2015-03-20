@@ -1,3 +1,9 @@
+(function () {
+var conf = mw.config.get([
+	'wgCookiePrefix',
+	'wgScript'
+]);
+
 var openid = window.openid = {
 
 	current: 'OpenID',
@@ -21,7 +27,7 @@ var openid = window.openid = {
 
 	update: function () {
 
-		$.cookie( wgCookiePrefix + '_openid_provider', openid.current, { 'path': wgScript, 'expires': 365 } );
+		$.cookie( conf.wgCookiePrefix + '_openid_provider', openid.current, { 'path': conf.wgScript, 'expires': 365 } );
 		var url = $( '#openid_provider_url_' + openid.current ).val(),
 			param_id = 'openid_provider_param_' + openid.current,
 			param = $('#' + param_id).val();
@@ -33,7 +39,7 @@ var openid = window.openid = {
 		}
 
 		if ( param !== null ) {
-			$.cookie( wgCookiePrefix + '_' + param_id, param, { 'path': wgScript, 'expires': 365 } );
+			$.cookie( conf.wgCookiePrefix + '_' + param_id, param, { 'path': conf.wgScript, 'expires': 365 } );
 			url = url.replace( /{.*}/, param );
 		}
 
@@ -45,7 +51,7 @@ var openid = window.openid = {
 
 		$( '#openid_form' ).submit( openid.update );
 
-		var provider = $.cookie( wgCookiePrefix + '_openid_provider' ) ||
+		var provider = $.cookie( conf.wgCookiePrefix + '_openid_provider' ) ||
 			$( '.openid_default_provider' ).data( 'provider-name' );
 
 		if ( provider ) {
@@ -57,3 +63,4 @@ var openid = window.openid = {
 };
 
 $( document ).ready( openid.init );
+}() );

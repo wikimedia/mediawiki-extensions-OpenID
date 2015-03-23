@@ -19,7 +19,7 @@
 			"Wikinaut"
 		]
 	},
-	"openid-desc": "{{desc|name=Open ID|url=http://www.mediawiki.org/wiki/Extension:OpenID}}",
+	"openid-desc": "{{desc|name=Open ID|url=https://www.mediawiki.org/wiki/Extension:OpenID}}",
 	"openididentifier": "{{doc-special|OpenIDIdentifier|unlisted=1}}",
 	"openidlogin": "Used as page title in Special:OpenIDLogin.",
 	"openidserver": "Used as page title of Special:OpenIDServer.",

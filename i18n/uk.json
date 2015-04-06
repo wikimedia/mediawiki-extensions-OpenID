@@ -10,7 +10,8 @@
 			"NickK",
 			"Prima klasy4na",
 			"Ата",
-			"Тест"
+			"Тест",
+			"Piramidion"
 		]
 	},
 	"openid-desc": "Вхід у вікі за допомогою [//openid.net/ OpenID], а також вхід на інші сайти, що підтримують OpenID за допомогою акаунта в вікі",
@@ -128,7 +129,7 @@
 	"openid-provider-selection-button-create-account": "Створити обліковий запис з OpenID",
 	"openid-provider-selection-button-convert": "Перетворити або додати OpenID",
 	"specialpages-group-openid": "Службові сторіки OpenID та інформація про статус",
-	"right-openid-converter-access": "Можливість додавати або конвертувати свій обліковий запис для використання OpenID",
+	"right-openid-converter-access": "можливість додавати або конвертувати свій обліковий запис для використання OpenID",
 	"right-openid-dashboard-access": "Стандартний доступ до панелі OpenID",
 	"right-openid-dashboard-admin": "Доступ адміністратора до панелі OpenID",
 	"right-openid-login-with-openid": "Можна увійти з OpenID",

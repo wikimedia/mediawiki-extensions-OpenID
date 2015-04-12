@@ -6,11 +6,12 @@
 			"Hamilton Abreu",
 			"Luckas",
 			"ZehRique",
-			"555"
+			"555",
+			"TheEduGobi"
 		]
 	},
 	"openid-desc": "Autentique-se no wiki com um [//openid.net/ OpenID], e autentique-se em outros sítios que usem OpenID com uma conta de usuário wiki",
-	"openidlogin": "Autenticação com OpenID",
+	"openidlogin": "Entrar / criar conta com OpenID",
 	"openidserver": "Servidor OpenID",
 	"openidxrds": "Arquivo Yadis",
 	"openidconvert": "Conversor de OpenID",

@@ -76,7 +76,7 @@
 	"openidalreadyloggedintext": "'''Du bist bereits angemeldet, $1.'''\n\nDu kannst diese und weitere OpenIDs unter dem Reiter [[Special:Preferences#mw-prefsection-openid|OpenID]] deiner Kontoeinstellungen verwalten (ansehen, löschen sowie weitere hinzufügen).",
 	"openidnousername": "Kein Benutzername angegeben.",
 	"openidbadusername": "Falscher Benutzername angegeben.",
-	"openidautosubmit": "Diese Seite enthält ein Formular, das automatisch übertragen wird, wenn JavaSkript aktiviert ist. Falls nicht, klicke bitte auf „Continue“ (Weiter).",
+	"openidautosubmit": "Diese Seite enthält ein Formular, das automatisch übertragen wird, wenn JavaScript aktiviert ist. Falls nicht, klicke bitte auf „Continue“ (Weiter).",
 	"openidclientonlytext": "Du kannst Benutzerkonten dieses Wiki nicht als OpenID für andere Seiten verwenden.",
 	"openidloginlabel": "OpenID-URL",
 	"openidlogininstructions": "{{SITENAME}} unterstützt den [//openid.net/ OpenID-Standard] für eine einheitliche Anmeldung auf mehreren Websites.\nOpenID meldet dich bei vielen unterschiedlichen Websites an, ohne dass du für jede ein separates Passwort verwenden musst.\n(Mehr Informationen hierzu bietet der [//de.wikipedia.org/wiki/OpenID Wikipedia-Artikel zu OpenID].)\nEs gibt viele [//openid.net/get/ OpenID-Provider] und möglicherweise verfügst du bereits über ein OpenID-Benutzerkonto bei einer anderen Website.",

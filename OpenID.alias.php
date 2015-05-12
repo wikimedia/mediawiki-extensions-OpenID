@@ -27,7 +27,7 @@ $specialPageAliases['ar'] = array(
 	'OpenIDDashboard' => array( 'سبورة_الهوية_المفتوحة' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'OpenIDLogin' => array( 'دخول_Open_ID' ),
 	'OpenIDConvert' => array( 'تحويل_Open_ID' ),

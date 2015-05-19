@@ -14,7 +14,8 @@
 			"Translationista",
 			"Vivaelcelta",
 			"XalD",
-			"Macofe"
+			"Macofe",
+			"Ryo567"
 		]
 	},
 	"openid-desc": "Permite a los usuarios iniciar sesión en el wiki con un [//openid.net/ OpenID]. Si esto está activado en el wiki, también pueden utilizar su URL de cuenta de usuario de este wiki como OpenID para iniciar sesión en otros sitios web que utilicen OpenID",
@@ -97,12 +98,17 @@
 	"openid-urls-registration": "Fecha y hora de registro",
 	"openid-urls-delete": "Eliminar",
 	"openid-add-url": "Añadir un OpenID nuevo a tu cuenta",
+	"openid-trusted-sites-label": "Páginas web de confianza y donde has utilizado tu OpenID para iniciar sesiónː",
 	"openid-trusted-sites-table-header-column-url": "Sitios de confianza",
 	"openid-trusted-sites-table-header-column-action": "Acción",
 	"openid-trusted-sites-delete-link-action-text": "Eliminar",
 	"openid-trusted-sites-delete-all-link-action-text": "Eliminar todos los sitios de confianza",
 	"openid-trusted-sites-delete-confirmation-page-title": "Eliminación de sitio de confianza",
+	"openid-trusted-sites-delete-confirmation-question": "Al hacer clic en el botón \"{{int:openid-trusted-sites-delete-confirmation-button-text}}\", eliminarás \"$1\" de la lista de páginas web de confianza.",
+	"openid-trusted-sites-delete-all-confirmation-question": "Al hacer clic en el botón \"{{int:openid-trusted-sites-delete-confirmation-button-text}}\", eliminarás todas las páginas web de confianza de tu perfil.",
 	"openid-trusted-sites-delete-confirmation-button-text": "Confirmar",
+	"openid-trusted-sites-delete-confirmation-success-text": "\"$1\" ha sido eliminado con éxito de la lista de páginas web de confianza.",
+	"openid-trusted-sites-delete-all-confirmation-success-text": "Todas las páginas web de confianza que tenías han sido eliminadas con éxito de tu perfil de usuario.",
 	"openid-local-identity": "Tu OpenID:",
 	"openid-login-or-create-account": "Iniciar sesión o crear una cuenta nueva",
 	"openid-provider-label-openid": "Introduce la URL de OpenID",

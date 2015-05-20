@@ -98,7 +98,7 @@
 	"openid-urls-registration": "Fecha y hora de registro",
 	"openid-urls-delete": "Eliminar",
 	"openid-add-url": "Añadir un OpenID nuevo a tu cuenta",
-	"openid-trusted-sites-label": "Páginas web de confianza y donde has utilizado tu OpenID para iniciar sesiónː",
+	"openid-trusted-sites-label": "Páginas web de confianza y donde has utilizado tu OpenID para iniciar sesión:",
 	"openid-trusted-sites-table-header-column-url": "Sitios de confianza",
 	"openid-trusted-sites-table-header-column-action": "Acción",
 	"openid-trusted-sites-delete-link-action-text": "Eliminar",

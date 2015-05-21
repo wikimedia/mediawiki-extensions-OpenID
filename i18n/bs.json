@@ -23,7 +23,7 @@
 	"openidsuccess": "Provjera uspješna",
 	"openidsuccesstext": "'''Uspješna provjera i prijava kao korisnika $1'''.\n\nVaš OpenID je $2 .\n\nOvaj i daljnji OpenIDevi, te neobavezna šifra računa, može biti postavljena u vašim [[Special:Preferences|postavkama]].",
 	"openidusernameprefix": "OpenIDKorisnik",
-	"openidserverlogininstructions": "$3 zahtijeca da unesete Vašu šifru za vašu $2 korisničku stranicu $1 (Ovo je vaš OpenID URL).",
+	"openidserverlogininstructions": "$3 zahtijeva da unesete šifru za vašu $2 korisničku stranicu $1 (Ovo je vaš OpenID URL).",
 	"openidtrustinstructions": "Provjerite da li želite dijeliti podatke sa $1.",
 	"openidallowtrust": "Omogući $1 da vjeruje ovom korisničkom računu.",
 	"openidnopolicy": "Sajt nema napisana pravila privatnosti.",

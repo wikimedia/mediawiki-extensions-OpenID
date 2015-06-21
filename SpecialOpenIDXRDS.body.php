@@ -137,4 +137,8 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 			)
 		);
 	}
+
+	protected function getGroupName() {
+		return 'openid';
+	}
 }

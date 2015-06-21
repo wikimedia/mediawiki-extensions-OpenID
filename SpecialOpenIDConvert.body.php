@@ -424,4 +424,8 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			$wgOut->returnToMain();
 		}
 	}
+
+	protected function getGroupName() {
+		return 'openid';
+	}
 }

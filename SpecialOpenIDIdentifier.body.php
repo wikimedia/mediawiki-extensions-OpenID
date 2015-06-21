@@ -103,4 +103,8 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 			}
 		}
 	}
+
+	protected function getGroupName() {
+		return 'openid';
+	}
 }

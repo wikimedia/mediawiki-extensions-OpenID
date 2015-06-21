@@ -1170,4 +1170,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		$_SESSION['openid_consumer_returnto'] = $returnto;
 		$_SESSION['openid_consumer_returntoquery'] = $returntoquery;
 	}
+
+	protected function getGroupName() {
+		return 'openid';
+	}
 }

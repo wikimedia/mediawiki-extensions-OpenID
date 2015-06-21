@@ -8,7 +8,7 @@
 class OpenIDHooks {
 
 	public static function onSpecialPage_initList( &$specialPagesList ) {
-		global $wgOpenIDLoginOnly, $wgSpecialPageGroups, $wgUser;
+		global $wgOpenIDLoginOnly, $wgUser;
 
 		# redirect all special login pages to our own OpenID login pages
 		# but only for entitled users
@@ -57,7 +57,6 @@ class OpenIDHooks {
 		foreach ( $addOpenIDSpecialPagesList as $sp ) {
 			$key = 'OpenID' . $sp;
 			$specialPagesList[$key] = 'SpecialOpenID' . $sp;
-			$wgSpecialPageGroups[$key] = 'openid';
 		}
 
 		return true;

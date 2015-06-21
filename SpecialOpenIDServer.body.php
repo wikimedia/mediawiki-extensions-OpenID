@@ -964,4 +964,8 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	function serverUrl() {
 		return $this->getPageTitle()->getFullURL( '', false, PROTO_CANONICAL );
 	}
+
+	protected function getGroupName() {
+		return 'openid';
+	}
 }

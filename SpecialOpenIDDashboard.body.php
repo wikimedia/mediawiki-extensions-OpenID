@@ -162,4 +162,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 		return $OpenIDUserCount;
 	}
 
+	protected function getGroupName() {
+		return 'openid';
+	}
 }

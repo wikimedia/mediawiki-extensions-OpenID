@@ -10,7 +10,7 @@
 	"openidserver": "OpenID опслужувач",
 	"openid-identifier-page-text-user": "Оваа страница е назнака на корисникот „$1“",
 	"openid-identifier-page-text-different-user": "Страницава е назнаката на корисникот со назнака $1.",
-	"openid-identifier-page-text-no-such-local-openid": "Ова е неважечка локална OpenID-назнака.",
+	"openid-identifier-page-text-no-such-local-openid": "Ова е неважечка месна OpenID-назнака.",
 	"openid-server-identity-page-text": "Ова е техничка страница на опслужувачот на OpenID што се однесува на започнувањето на заверката. Страницата нема друга цел.",
 	"openidxrds": "Yadis податотека",
 	"openidconvert": "OpenID претворач",

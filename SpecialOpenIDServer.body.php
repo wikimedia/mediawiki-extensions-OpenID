@@ -791,7 +791,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$wgUser = $user;
 			wfSetupSession();
 			$wgUser->SetCookies();
-			wfRunHooks( 'UserLoginComplete', array( &$wgUser ) );
+			Hooks::run( 'UserLoginComplete', array( &$wgUser ) );
 			return false;
 		}
 	}

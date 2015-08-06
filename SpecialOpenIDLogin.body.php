@@ -823,7 +823,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 		# Run any hooks; ignore results
 		$inject_html = '';
-		wfRunHooks( 'UserLoginComplete', array( &$wgUser, &$inject_html ) );
+		Hooks::run( 'UserLoginComplete', array( &$wgUser, &$inject_html ) );
 
 		# Set a cookie for later check-immediate use
 
@@ -869,7 +869,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$wgUser = $user;
 
 			# new user account: not opened by mail
-   			wfRunHooks( 'AddNewAccount', array( $user, false ) );
+			Hooks::run( 'AddNewAccount', array( $user, false ) );
 			$user->addNewUserLogEntry();
 
 			# Update site stats

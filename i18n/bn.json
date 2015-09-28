@@ -42,5 +42,5 @@
 	"openid-provider-label-google": "আপনার গুগল অ্যাকাউন্ট ব্যবহার করে প্রবেশ করুন",
 	"openid-provider-label-yahoo": "আপনার ইয়াহু অ্যাকাউন্ট ব্যবহার করে প্রবেশ করুন",
 	"openid-provider-label-aol": "আপনার এওএল স্ক্রিননাম প্রবেশ করান",
-	"openid-provider-label-other-username": "আপনার $1 ব্যবহাকারী নাম প্রবেশ করান"
+	"openid-provider-label-other-username": "আপনার $1 ব্যবহারকারী নাম প্রবেশ করান"
 }

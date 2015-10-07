@@ -3,7 +3,8 @@
 		"authors": [
 			"Asiri wiki",
 			"Singhalawap",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Susith Chandira Gts"
 		]
 	},
 	"openidlogin": "OpenID සමඟ පිවිසෙන්න / ගිණුමක් තනන්න",
@@ -45,6 +46,7 @@
 	"openid-urls-url": "URL",
 	"openid-urls-action": "කාර්යය",
 	"openid-urls-registration": "ලියාපදිංචි වූ වේලාව",
+	"openid-urls-registration-date-time": "$1",
 	"openid-urls-delete": "මකන්න",
 	"openid-add-url": "නව OpenID එක් කරන්න",
 	"openid-login-or-create-account": "පිවිසෙන්න හෝ නව ගිණුමක් තනන්න",

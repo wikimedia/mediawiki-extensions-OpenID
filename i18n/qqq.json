@@ -76,7 +76,7 @@
 	"openidconvertsuccesstext": "Used as page body.\n\nThe page title for this message is {{msg-mw|Openidconvertsuccess}}.\n\nParameters:\n* $1 - OpenID URL",
 	"openid-convert-already-your-openid-text": "Warning text in case a user tried to add an OpenID which is already associated to their account.\n\nParameters:\n* $1 – the conflicting (already associated) OpenID",
 	"openid-convert-other-users-openid-text": "Warning text in case a user tried to add an OpenID which is already associated with an account of another user.\n\nParameters:\n* $1 - the conflicting, already associated OpenID",
-	"openidalreadyloggedin": "",
+	"openidalreadyloggedin": "Used as page title",
 	"openidalreadyloggedintext": "Parameters:\n* $1 - a username",
 	"openidnousername": "Used as error message. (Commented out at this time.)",
 	"openidbadusername": "Used as error message. (Commented out at this time.)",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"CERminator",
-			"KWiki"
+			"KWiki",
+			"Srdjan m"
 		]
 	},
 	"openid-desc": "Prijava na wiki sa [//openid.net/ OpenID] i prijava na druge stranice koje podržavaju OpenID sa wiki korisničkim računom",
@@ -10,7 +11,7 @@
 	"openidserver": "OpenID server",
 	"openidxrds": "Yadis datoteka",
 	"openidconvert": "OpenID pretvarač",
-	"openiderror": "Greška pri provjeri",
+	"openiderror": "OpenID greška",
 	"openiderrortext": "Desila se greška pri provjeri OpenID URL adrese.",
 	"openidconfigerror": "Greška OpenID postavki",
 	"openidconfigerrortext": "OpenID konfiguracija spremanja za ovaj wiki je nevaljana.\nMolimo konsultujte se sa [[Special:ListUsers/sysop|administratorom]].",
@@ -38,7 +39,7 @@
 	"openidchooselegend": "Odabir korisničkog imena i računa",
 	"openidchooseinstructions": "Svi korisnici trebaju imati nadimak;\nmožete odabrati jedan sa opcijama ispod.",
 	"openidchoosenick": "Vaš nadimak ($1)",
-	"openidchoosefull": "Vaše puno ime ($1)",
+	"openidchoosefull": "Vaše pravo ime ($1)",
 	"openidchooseurl": "Ime uzeto sa Vašeg OpenID ($1)",
 	"openidchooseauto": "Automatski generisano ime ($1)",
 	"openidchoosemanual": "Naziv po Vašem izboru:",

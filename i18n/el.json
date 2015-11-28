@@ -6,7 +6,8 @@
 			"Kiriakos",
 			"Omnipaedista",
 			"ZaDiak",
-			"Glavkos"
+			"Glavkos",
+			"Protnet"
 		]
 	},
 	"openid-desc": "Συνδεθείτε στο wiki με ένα [//openid.net/ OpenID], και συνδεθείτε σε άλλους ιστοτόπους που λαμβάνουν υπόψη το OpenID με ένα λογαριασμό χρήστη wiki",
@@ -81,6 +82,6 @@
 	"openid-provider-label-openid": "Εισαγωγή URL του OpenID σας",
 	"openid-provider-label-google": "Σύνδεση χρησιμοποιώντας τον Google λογαριασμό σας",
 	"openid-provider-label-yahoo": "Σύνδεση χρησιμοποιώντας τον Yahoo λογαριασμό σας",
-	"openid-provider-label-aol": "Εισάγετε το AOL όνομα οθόνης σας",
+	"openid-provider-label-aol": "Εισαγάγετε το εμφανιζόμενο όνομα που έχετε στην AOL",
 	"openid-provider-label-other-username": "Εισαγωγή του δικού σας $1 ονόματος χρήστη"
 }

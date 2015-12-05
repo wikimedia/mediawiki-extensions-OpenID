@@ -37,7 +37,7 @@
 	"openidemail": "इमेल पत्ता",
 	"openidlanguage": "भाषा",
 	"openidtimezone": "वेळक्षेत्र",
-	"openidchooseinstructions": "सर्व सदस्यांना टोपणनाव असणे आवश्यक आहे;\nतुम्ही खाली दिलेल्या नावांमधून एक निवडू शकता.",
+	"openidchooseinstructions": "सर्व सदस्यांना टोपणनाव असणे आवश्यक आहे;\nआपण खाली दिलेल्या नावांमधून एक निवडू शकता.",
 	"openidchoosefull": "तुमचे पूर्ण नाव ($1)",
 	"openidchooseurl": "तुमच्या ओपनID मधून घेतलेले नाव ($1)",
 	"openidchooseauto": "एक आपोआप तयार झालेले नाव ($1)",

@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Erikoo"
+			"Erikoo",
+			"Ninjastrikers"
 		]
 	},
 	"openidoptional": "ရွေးပိုင်ခွင့်",
 	"openidrequired": "လိုအပ်သည်",
 	"openidnickname": "Nickname အမည်",
-	"openidfullname": "အမည် အပြည့်အစုံ",
+	"openidfullname": "အမည်ရင်း",
 	"openidemail": "အီးမေး လိပ်စာ",
 	"openidlanguage": "ဘာသာ",
 	"openid-provider-label-google": "Google အကောင့် အသုံးပြု၍ Login ဝင်ရန်",

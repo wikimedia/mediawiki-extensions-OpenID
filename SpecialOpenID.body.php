@@ -33,6 +33,9 @@ require_once( "Auth/OpenID/AX.php" );
 require_once( "Auth/OpenID/FileStore.php" );
 
 class SpecialOpenID extends SpecialPage {
+	public function doesWrites() {
+		return true;
+	}
 
 	function getOpenIDStore( $storeType, $prefix, $options ) {
 		global $wgOut, $wgMemc, $wgDBtype;

@@ -7,7 +7,8 @@
 			"SPQRobin",
 			"Siebrand",
 			"Tjcool007",
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Robin van der Vliet"
 		]
 	},
 	"openid-desc": "Aanmelden bij de wiki met een [//openid.net/ OpenID] en aanmelden bij andere websites die OpenID ondersteunen met een wikigebruiker",
@@ -74,7 +75,7 @@
 	"openidautosubmit": "Deze pagina bevat een formulier dat automatisch wordt verzonden als JavaScript is ingeschaked.\nAls dat niet werkt, klik dan op de knop \"Continue\" (Doorgaan).",
 	"openidclientonlytext": "U kunt gebruikers van deze wiki niet als OpenID gebruiken op een andere site.",
 	"openidloginlabel": "OpenID URL",
-	"openidlogininstructions": "{{SITENAME}} ondersteunt de standaard [//openid.net/ OpenID] voor maar een keer hoeven aanmelden voor meerdere websites.\nMet OpenID kunt u aanmelden bij veel verschillende websites zonder voor iedere site opnieuw een wachtwoord te moeten opgeven.\nZie het [//nl.wikipedia.org/wiki/OpenID Wikipedia-artikel over OpenID] voor meer informatie.\nEr zijn veel [http://wiki.openid.net/Public_OpenID_providers OpenID-providers] en wellicht hebt u al een gebruiker voor OpenID bij een andere dienst.",
+	"openidlogininstructions": "{{SITENAME}} ondersteunt de standaard [//openid.net/ OpenID] voor maar een keer hoeven aanmelden voor meerdere websites.\nMet OpenID kunt u aanmelden bij veel verschillende websites zonder voor iedere site opnieuw een wachtwoord te moeten opgeven.\nZie het [//nl.wikipedia.org/wiki/OpenID Wikipediapagina over OpenID] voor meer informatie.\nEr zijn veel [http://wiki.openid.net/Public_OpenID_providers OpenID-providers] en wellicht hebt u al een gebruiker voor OpenID bij een andere dienst.",
 	"openidlogininstructions-openidloginonly": "Bij {{SITENAME}} kunt u zich ''alleen'' aanmelden via OpenID.",
 	"openidlogininstructions-passwordloginallowed": "Als u al een gebruiker hebt bij op {{SITENAME}}, kunt u [[Special:UserLogin|aanmelden]] met uw gebruikersnaam en wachtwoord zoals gewoonlijk.\nOm in de toekomst OpenID te gebruiken, kunt u uw [[Special:OpenIDConvert|gebruiker omzetten naar OpenID]] nadat u bent aangemeld.",
 	"openidupdateuserinfo": "Mijn persoonlijke gegevens bijwerken:",

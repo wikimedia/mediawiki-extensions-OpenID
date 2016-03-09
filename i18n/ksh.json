@@ -46,7 +46,7 @@
 	"openidchoosepassword": "Paßwoot:",
 	"openidconvertinstructions": "He kanns De Ding Aanmeldung als ene Metmaacher esu aanpasse, dat De en <i lang=\"en\">OpenID</i> <i lang=\"en\">URL</i> bruche kanns.\nDo kanns och noch mih <i lang=\"en\">OpenID</i> <i lang=\"en\">URLs</i> dobei donn.",
 	"openidconvertoraddmoreids": "Op <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"„offe Edäntefekazjuhn“ — en zäntrahle Manihr för ennzelogge\">OpenID</i> ömschtälle, udder en <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"„offe Edäntefekazjuhn“ — en zäntrahle Manihr för ennzelogge\">OpenID</i>_<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Uniform Ressource Locator\">URL</i> dobei donn",
-	"openidconvertsuccess": "De Aanpaßong aan <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"„offe Edäntefekazjuhn“ — en zäntrahle Manihr för ennzelogge\">OpenID</i> hät jeklapp",
+	"openidconvertsuccess": "De Aanpaßong aan <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"„offe Edäntefekazjuhn“ — en zäntrahle Manihr för ennzelogge\">OpenID</i> es jedonn",
 	"openidconvertsuccesstext": "Do häß Ding <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"„offe Edäntefekazjuhn“ — en zäntrahle Manihr för ennzelogge\">OpenID</i> jez ömjewandelt noh $1.",
 	"openid-convert-already-your-openid-text": "Dat es ald Ding OpenID.",
 	"openid-convert-other-users-openid-text": "Dat wämm anders sing OpenID.",

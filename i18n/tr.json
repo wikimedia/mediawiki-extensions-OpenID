@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Joseph",
-			"Suelnur"
+			"Suelnur",
+			"Sayginer"
 		]
 	},
 	"openid-desc": "Vikiye bir [//openid.net/ OpenID] ile giriş yapın, ve diğer OpenID kullanan web sitelerine bir viki kullanıcı hesabıyla giriş yapın.",
@@ -48,7 +49,7 @@
 	"openidconvertinstructions": "Bu form bir OpenID URLsi kullanmak ya da daha fazla OpenID URLsi eklemek için kullanıcı hesabınızı değiştirmenizi sağlar.",
 	"openidconvertoraddmoreids": "OpenID'ye dönüştürün ya da başka bir OpenID URLsi ekleyin",
 	"openidconvertsuccess": "OpenIDye başarıyla dönüştürüldü",
-	"openidconvertsuccesstext": "OpenIDnizi başarıyla $1'e dönüştürdünüz.",
+	"openidconvertsuccesstext": "OpenID'nizi $1'e dönüştürdünüz.",
 	"openid-convert-already-your-openid-text": "Bu zaten sizin OpenIDniz.",
 	"openid-convert-other-users-openid-text": "Bu bir başkasının OpenIDsi.",
 	"openidalreadyloggedin": "'''Zaten oturum açtınız, $1!'''\n\nEğer gelecekte de oturum açmak için OpenID kullanmak isterseniz, [[Special:OpenIDConvert|hesabınızı OpenID kullanmak için dönüştürebilirsiniz]].",

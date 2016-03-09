@@ -32,7 +32,7 @@
 	"openidchoosefull": "আপনার আসল নাম ($1)",
 	"openidchooseusername": "ব্যবহারকারী নাম:",
 	"openidchoosepassword": "পাসওয়ার্ড:",
-	"openidconvertsuccess": "সফলভাবে ওপেনআইডিতে রূপান্তর করা হয়েছে",
+	"openidconvertsuccess": "ওপেনআইডিতে রূপান্তরিত হয়েছে",
 	"openiddelete-button": "নিশ্চিত করুন",
 	"openid-urls-action": "অ্যাকশন",
 	"openid-urls-delete": "অপসারণ",

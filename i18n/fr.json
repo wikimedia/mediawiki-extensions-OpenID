@@ -12,7 +12,8 @@
 			"PiRSquared17",
 			"Sherbrooke",
 			"Verdy p",
-			"Zetud"
+			"Zetud",
+			"Orlodrim"
 		]
 	},
 	"openid-desc": "Se connecter au wiki avec [//openid.net/ OpenID] et se connecter à d’autres sites internet OpenID avec un compte utilisateur du wiki.",
@@ -69,7 +70,7 @@
 	"openidconvertinstructions": "Ce formulaire vous permet de changer votre compte utilisateur pour utiliser une adresse OpenID ou ajouter des adresses OpenID supplémentaires.",
 	"openidconvertoraddmoreids": "Convertir vers OpenID ou ajouter une autre adresse OpenID",
 	"openidconvertsuccess": "Converti avec succès vers OpenID",
-	"openidconvertsuccesstext": "Vous avez converti avec succès votre OpenID vers $1.",
+	"openidconvertsuccesstext": "Vous avez converti votre OpenID vers $1.",
 	"openid-convert-already-your-openid-text": "L’OpenID $1 est déjà associé à votre compte.",
 	"openid-convert-other-users-openid-text": "$1 est l’OpenID de quelqu’un d’autre. Vous ne pouvez pas utiliser l’OpenID d’un autre utilisateur.",
 	"openidalreadyloggedin": "Vous êtes déjà connecté.",
@@ -88,7 +89,7 @@
 	"openiddelete-button": "Confirmer",
 	"openiddeleteerrornopassword": "Vous ne pouvez pas supprimer tous vos OpenID parce que votre compte n'a pas de mot de passe.\nVous ne pourriez pas vous connecter sans un OpenID.",
 	"openiddeleteerroropenidonly": "Vous ne pouvez pas supprimer tous vos OpenID parce que vous ne pouvez vous connecter qu'avec OpenID.\nVous ne pourriez pas vous connecter sans un OpenID.",
-	"openiddelete-success": "L'OpenID a été supprimé avec succès de votre compte.",
+	"openiddelete-success": "L'OpenID a été supprimé de votre compte.",
 	"openiddelete-error": "Une erreur est survenue pendant la suppression de l'OpenID de votre compte.",
 	"openid-openids-were-not-merged": "Les OpenID n'ont pas été fusionnés lors de la fusion des comptes d'utilisateurs.",
 	"prefs-openid-show-openid": "Cacher votre OpenID sur votre page utilisateur, si vous vous connectez avec OpenID.",
@@ -115,8 +116,8 @@
 	"openid-trusted-sites-delete-confirmation-question": "En cliquant sur le bouton « {{int:openid-trusted-sites-delete-confirmation-button-text}} », vous supprimerez « $1 » de la liste de vos sites de confiance.",
 	"openid-trusted-sites-delete-all-confirmation-question": "En cliquant sur le bouton « {{int:openid-trusted-sites-delete-confirmation-button-text}} », vous supprimerez tous les sites de confiance de votre profil utilisateur.",
 	"openid-trusted-sites-delete-confirmation-button-text": "Confirmer",
-	"openid-trusted-sites-delete-confirmation-success-text": "« $1 » a bien été supprimé de la liste de vos sites de confiance.",
-	"openid-trusted-sites-delete-all-confirmation-success-text": "Tous les sites auxquels vous faisiez auparavant confiance ont bien été supprimés de votre profil utilisateur.",
+	"openid-trusted-sites-delete-confirmation-success-text": "« $1 » a été supprimé de la liste de vos sites de confiance.",
+	"openid-trusted-sites-delete-all-confirmation-success-text": "Tous les sites auxquels vous faisiez auparavant confiance ont été supprimés de votre profil utilisateur.",
 	"openid-local-identity": "Votre OpenID :",
 	"openid-login-or-create-account": "Se connecter ou créer un nouveau compte",
 	"openid-provider-label-openid": "Entrez votre URL OpenID",

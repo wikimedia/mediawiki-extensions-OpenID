@@ -73,7 +73,7 @@
 	"openiddelete-button": "Zapisz",
 	"openiddeleteerrornopassword": "Nie można usunąć wszystkich OpenID ponieważ konto nie ma ustalonego hasła.\nNie będziesz mógł zalogować się bez OpenID.",
 	"openiddeleteerroropenidonly": "Nie możesz usunąć wszystkich OpenID, ponieważ logować się możesz jedynie korzystając z OpenID.\nNie będziesz mógł się zalogować bez OpenID.",
-	"openiddelete-success": "OpenID został pomyślnie usunięty z Twojego konta.",
+	"openiddelete-success": "OpenID został usunięty z twojego konta.",
 	"openiddelete-error": "Wystąpił błąd podczas usuwania powiązania Twojego konta z OpenID.",
 	"openid-openids-were-not-merged": "OpenID nie zostały połączone w trakcie scalania kont użytkownika.",
 	"prefs-openid-show-openid": "Ukryj mój adres URL OpenID na stronie użytkownika, jeśli zaloguję się za pomocą OpenID.",

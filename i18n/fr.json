@@ -13,7 +13,8 @@
 			"Sherbrooke",
 			"Verdy p",
 			"Zetud",
-			"Orlodrim"
+			"Orlodrim",
+			"Wladek92"
 		]
 	},
 	"openid-desc": "Se connecter au wiki avec [//openid.net/ OpenID] et se connecter à d’autres sites internet OpenID avec un compte utilisateur du wiki.",
@@ -69,7 +70,7 @@
 	"openidchoosepassword": "Mot de passe :",
 	"openidconvertinstructions": "Ce formulaire vous permet de changer votre compte utilisateur pour utiliser une adresse OpenID ou ajouter des adresses OpenID supplémentaires.",
 	"openidconvertoraddmoreids": "Convertir vers OpenID ou ajouter une autre adresse OpenID",
-	"openidconvertsuccess": "Converti avec succès vers OpenID",
+	"openidconvertsuccess": "Converti vers OpenID",
 	"openidconvertsuccesstext": "Vous avez converti votre OpenID vers $1.",
 	"openid-convert-already-your-openid-text": "L’OpenID $1 est déjà associé à votre compte.",
 	"openid-convert-other-users-openid-text": "$1 est l’OpenID de quelqu’un d’autre. Vous ne pouvez pas utiliser l’OpenID d’un autre utilisateur.",

@@ -4,7 +4,8 @@
 			"Baonguyen21022003",
 			"Minh Nguyen",
 			"Vinhtantran",
-			"Trần Nguyễn Minh Huy"
+			"Trần Nguyễn Minh Huy",
+			"Dinhxuanduyet"
 		]
 	},
 	"openid-desc": "Đăng nhập vào wiki dùng [//openid.net/ OpenID] và đăng nhập vào các website nhận OpenID dùng tài khoản wiki",
@@ -55,7 +56,7 @@
 	"openidconvertinstructions": "Mẫu này cho phép bạn thay đổi tài khoản người dùng của bạn để sử dụng một địa chỉ URL OpenID hay thêm địa chỉ OpenID.",
 	"openidconvertoraddmoreids": "Chuyển đổi OpenID hay thêm địa chỉ OpenID",
 	"openidconvertsuccess": "Đã chuyển đổi sang OpenID thành công",
-	"openidconvertsuccesstext": "Bạn đã chuyển đổi OpenID của bạn sang $1 thành công.",
+	"openidconvertsuccesstext": "Bạn đã chuyển đổi OpenID của bạn sang $1.",
 	"openid-convert-already-your-openid-text": "OpenID $1 đang được liên kết với tài khoản của bạn.",
 	"openid-convert-other-users-openid-text": "$1 là OpenID của một người khác. Bạn không thể sử dụng OpenID của người dùng khác.",
 	"openidalreadyloggedin": "Bạn đã đăng nhập rồi.",

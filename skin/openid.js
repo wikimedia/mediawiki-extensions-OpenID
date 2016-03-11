@@ -1,4 +1,4 @@
-(function () {
+( function ( $, mw ) {
 var conf = mw.config.get([
 	'wgCookiePrefix',
 	'wgScript'
@@ -63,4 +63,4 @@ var openid = window.openid = {
 };
 
 $( document ).ready( openid.init );
-}() );
+}( jQuery, mediaWiki ) );

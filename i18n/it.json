@@ -96,6 +96,7 @@
 	"openid-trusted-sites-delete-confirmation-page-title": "Cancellazione siti attendibili",
 	"openid-trusted-sites-delete-confirmation-button-text": "Conferma",
 	"openid-trusted-sites-delete-confirmation-success-text": "\"$1\" è stato rimosso dall'elenco dei siti fidati.",
+	"openid-trusted-sites-delete-all-confirmation-success-text": "Tutti i siti in precedenza di fiducia sono stati rimossi dal tuo profilo utente.",
 	"openid-local-identity": "Il tuo OpenID:",
 	"openid-login-or-create-account": "Entra o crea una nuova utenza",
 	"openid-provider-label-openid": "Inserisci l'URL del tuo OpenID",

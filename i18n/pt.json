@@ -9,7 +9,8 @@
 			"Malafaya",
 			"SandroHc",
 			"Waldir",
-			"Nemo bis"
+			"Nemo bis",
+			"Vitorvicentevalente"
 		]
 	},
 	"openid-desc": "Autentique-se na wiki com um [//openid.net/ OpenID] e autentique-se noutros sites que usem OpenID com uma conta de utilizador wiki",
@@ -54,8 +55,8 @@
 	"openidchoosepassword": "Palavra-chave:",
 	"openidconvertinstructions": "Este formulário permite-lhe alterar a sua conta de utilizador para usar uma URL OpenID ou adicionar mais URLs OpenID.",
 	"openidconvertoraddmoreids": "Converter para OpenID ou adicionar outra URL OpenID",
-	"openidconvertsuccess": "Convertido para OpenID com sucesso",
-	"openidconvertsuccesstext": "Converteu com sucesso o seu OpenID para $1.",
+	"openidconvertsuccess": "Convertido para OpenID",
+	"openidconvertsuccesstext": "Converteu o seu OpenID para $1.",
 	"openid-convert-already-your-openid-text": "Esse já é o seu OpenID.",
 	"openid-convert-other-users-openid-text": "Esse é o OpenID de outra pessoa.",
 	"openidalreadyloggedin": "Já está autenticado.",

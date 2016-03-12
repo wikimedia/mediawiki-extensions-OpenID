@@ -82,28 +82,32 @@ directory to the $path variable, like "/usr/share/php" or "/usr/local/share/php"
 
 See https://www.mediawiki.org/wiki/Extension:OpenID#Installation
 
-The software currently depends on having all its code in the /OpenID
-sub-directory; renaming it to "OpenID-Test" or something else won't work!
+Download from https://www.mediawiki.org/wiki/Special:ExtensionDistributor/OpenID
+
+Save it in the folder OpenID inside extensions folder.
+
+Looks like this mediawiki directory then extensions/OpenID/
 
 In your MediaWiki LocalSettings.php, add the following line some place towards
 the bottom of the file:
 
    require_once( "$IP/extensions/OpenID/OpenID.php" );
 
-Install the Auth subdirectory of the required OpenID PHP library in
-$IP/extensions/OpenID/Auth as explained in the following.
+Then run composer update from inside OpenID folder.
 
 Run the update.php script in in your MediaWiki maintenance folder
 $IP/maintenance to create a new table in the MediaWiki database which is used
 by the OpenID extension:
 
-cd $IP/extensions/OpenID
-git clone git://github.com/openid/php-openid.git
-mv php-openid/Auth/ Auth
-rm -r php-openid
-cd $IP/maintenance# php update.php
-
 It should work out of the box, but perhaps you want to fine-tune the extension.
+
+== Upgrade from OpenID versions before 4.5 ==
+
+You must install version 4.5 first to do the next step.
+
+You will have to do composer update from within this folder OpenID.
+
+If you don't the extension will now fail since it wont look for the Auth folder anymore.
 
 == Upgrade from OpenID versions before 3.x ==
 

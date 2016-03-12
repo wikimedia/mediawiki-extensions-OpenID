@@ -29,7 +29,15 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-define( 'MEDIAWIKI_OPENID_VERSION', '4.4.0 20140401' );
+if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI == true ) {
+	if ( file_exists(  __DIR__ . '/../../vendor/autoload.php' ) ) {
+		include_once __DIR__ . '/../../vendor/autoload.php';
+	}
+} elseif ( file_exists(  __DIR__ . '/vendor/autoload.php' ) ) {
+	include_once __DIR__ . '/vendor/autoload.php';
+}
+
+define( 'MEDIAWIKI_OPENID_VERSION', '4.5.0 20160312' );
 
 $path = dirname( __FILE__ );
 set_include_path( implode( PATH_SEPARATOR, array( $path ) ) . PATH_SEPARATOR . get_include_path() );
@@ -401,9 +409,6 @@ $wgAutoloadClasses['SpecialOpenIDDashboard'] = $dir . 'SpecialOpenIDDashboard.bo
 # UI class
 $wgAutoloadClasses['OpenIDProvider'] = $dir . 'OpenIDProvider.body.php';
 
-# Gets stored in the session, needs to be verified before our setup
-$wgAutoloadClasses['Auth_OpenID_CheckIDRequest'] = OpenID::OpenIDGetServerPath();
-
 $wgAutoloadClasses['MediaWikiOpenIDDatabaseConnection'] = $dir . 'DatabaseConnection.php';
 $wgAutoloadClasses['MediaWikiOpenIDMemcachedStore'] = $dir . 'MemcachedStore.php';
 
@@ -537,19 +542,6 @@ class OpenID {
 		}
 
 		return $trust_root;
-
-	}
-
-	static function OpenIDGetServerPath() {
-		$rel = 'Auth/OpenID/Server.php';
-
-		foreach ( explode( PATH_SEPARATOR, get_include_path() ) as $pe ) {
-			$full = $pe . DIRECTORY_SEPARATOR . $rel;
-			if ( file_exists( $full ) ) {
-				return $full;
-			}
-		}
-		return $rel;
 
 	}
 

@@ -5,7 +5,8 @@
 			"Meno25",
 			"Orango",
 			"OsamaK",
-			"Uwe"
+			"Uwe",
+			"Maroen1990"
 		]
 	},
 	"openid-desc": "سجل الدخول للويكي [//openid.net/ بهوية مفتوحة]، وسجل الدخول لمواقع الوب الأخرى التي تعترف بالهوية المفتوحة بحساب مستخدم ويكي",
@@ -50,7 +51,7 @@
 	"openidchoosepassword": "كلمة السر:",
 	"openidconvertinstructions": "هذه الاستمارة تتيح لك تغيير حساب مستخدمك لتستخدم مسار هوية مفتوحة أو لاضافة المزيد من مسارات هويات مفتوحة.",
 	"openidconvertoraddmoreids": "حوّل إلى OpenID أو أضف عنوان OpenID آخر",
-	"openidconvertsuccess": "تم التحول بنجاح إلى الهوية المفتوحة",
+	"openidconvertsuccess": "تم التحول إلى الهوية المفتوحة",
 	"openidconvertsuccesstext": "أنت حولت بنجاح هويتك المفتوحة إلى $1.",
 	"openid-convert-already-your-openid-text": "هذه بالفعل هويتك المفتوحة.",
 	"openid-convert-other-users-openid-text": "هذه هي الهوية المفتوحة لشخص آخر.",
@@ -67,7 +68,7 @@
 	"openiddelete-button": "أكّد",
 	"openiddeleteerrornopassword": "لا يمكنك إزالة كل هوياتك المفتوحة لعدم وجود كلمة سر لحسابك.\nلن تتمكن من الولوج بدون هوية مفتوحة.",
 	"openiddeleteerroropenidonly": "لا يمكنك إزالة كل هوياتك المفتوحة لأنه يسمح لك بالدخول عبر هوية مفتوحة فقط.\nلن تتمكن من الولوج بدون هوية مفتوحة.",
-	"openiddelete-success": "أزيلت الهوية المفتوحة بنجاح من حسابك.",
+	"openiddelete-success": "أزيلت الهوية المفتوحة  من حسابك.",
 	"openiddelete-error": "صودف خطأ أثناء إزالة الهوية المفتوحة من حسابك.",
 	"prefs-openid": "هوية مفتوحة",
 	"prefs-openid-show-openid": "أخفِ مسار هويتك المفتوحة من صفحتك الشخصية، إذا سجلت الدخول بالهوية المفتوحة.",

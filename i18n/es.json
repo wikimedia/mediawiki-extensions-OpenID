@@ -66,7 +66,7 @@
 	"openidchoosepassword": "Contraseña:",
 	"openidconvertinstructions": "Este formulario te permite cambiar tu cuenta de usuario para usar una URL de OpenID o agregar más URLs de OpenID.",
 	"openidconvertoraddmoreids": "Convertir a OpenID o añadir otra URL OpenID",
-	"openidconvertsuccess": "Convertido exitosamente a OpenID",
+	"openidconvertsuccess": "Convertido a OpenID",
 	"openidconvertsuccesstext": "Has convertido tu OpenID a $1.",
 	"openid-convert-already-your-openid-text": "El OpenID $1 ya está asociado a tu cuenta.",
 	"openid-convert-other-users-openid-text": "$1 es el OpenID de otro. No puedes usar el OpenID de otro usuario.",

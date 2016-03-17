@@ -15,7 +15,8 @@
 			"Vivaelcelta",
 			"XalD",
 			"Macofe",
-			"Ryo567"
+			"Ryo567",
+			"Matiia"
 		]
 	},
 	"openid-desc": "Permite a los usuarios iniciar sesión en el wiki con un [//openid.net/ OpenID]. Si esto está activado en el wiki, también pueden utilizar su URL de cuenta de usuario de este wiki como OpenID para iniciar sesión en otros sitios web que utilicen OpenID",
@@ -114,7 +115,7 @@
 	"openid-trusted-sites-delete-all-confirmation-question": "Al hacer clic en el botón \"{{int:openid-trusted-sites-delete-confirmation-button-text}}\", eliminarás todas las páginas web de confianza de tu perfil.",
 	"openid-trusted-sites-delete-confirmation-button-text": "Confirmar",
 	"openid-trusted-sites-delete-confirmation-success-text": "Se eliminó «$1» de la lista de sitios de confianza.",
-	"openid-trusted-sites-delete-all-confirmation-success-text": "Todas las páginas web de confianza que tenías han sido eliminadas con éxito de tu perfil de usuario.",
+	"openid-trusted-sites-delete-all-confirmation-success-text": "Todas las páginas web de confianza que tenías han sido eliminadas de tu perfil de usuario.",
 	"openid-local-identity": "Tu OpenID:",
 	"openid-login-or-create-account": "Iniciar sesión o crear una cuenta nueva",
 	"openid-provider-label-openid": "Escribe el URL de tu OpenID",

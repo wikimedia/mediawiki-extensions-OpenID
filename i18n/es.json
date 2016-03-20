@@ -87,7 +87,7 @@
 	"openiddelete-button": "Confirmar",
 	"openiddeleteerrornopassword": "No puedes eliminar todos tus OpenID porque tu cuenta no tiene contraseña.\nNo podrás iniciar sesión sin un OpenID.",
 	"openiddeleteerroropenidonly": "No puedes eliminar todos tus OpenID porque solo se puede iniciar sesión con OpenID.\nNo podrás iniciar sesión sin un OpenID.",
-	"openiddelete-success": "El OpenID fue eliminado exitosamente de tu cuenta.",
+	"openiddelete-success": "El OpenID fue eliminado de tu cuenta.",
 	"openiddelete-error": "Ocurrió un error al eliminar el OpenID de tu cuenta.",
 	"openid-openids-were-not-merged": "El(los) OpenID(s) no se fusionaron cuando se fusionaban las cuentas de usuario.",
 	"prefs-openid-show-openid": "Ocultar tu OpenID en tu página de usuario, si inicias sesión con OpenID.",

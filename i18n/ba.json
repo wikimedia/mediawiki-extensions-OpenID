@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Haqmar"
+			"Haqmar",
+			"Айсар"
 		]
 	},
 	"openidoptional": "Теләккә күрә",
@@ -10,5 +11,7 @@
 	"openidfullname": "Тулы исем",
 	"openidemail": "Электрон почта адресы",
 	"openidlanguage": "Тел",
-	"openidtimezone": "Ваҡыт бүлкәте"
+	"openidtimezone": "Ваҡыт бүлкәте",
+	"openidconvertsuccess": "OpenID итеп үҙгәртелде",
+	"openiddelete-success": "Һеҙҙең иҫәп яҙманан OpenID алынды."
 }

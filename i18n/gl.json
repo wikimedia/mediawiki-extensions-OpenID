@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
 	"openid-desc": "Acceder ao sistema do wiki cun [//openid.net/ OpenID] e acceder a outras páxinas web OpenID cunha conta de usuario dun wiki",
@@ -58,8 +59,8 @@
 	"openidchoosepassword": "Contrasinal:",
 	"openidconvertinstructions": "Este formulario permítelle cambiar a súa conta de usuario para usar un enderezo URL de OpenID ou engadir máis enderezos URL de OpenID.",
 	"openidconvertoraddmoreids": "Converter a OpenID ou engadir outro enderezo URL de OpenID",
-	"openidconvertsuccess": "Convertiuse con éxito a OpenID",
-	"openidconvertsuccesstext": "Converteu con éxito o seu OpenID a $1.",
+	"openidconvertsuccess": "Convertido a OpenID",
+	"openidconvertsuccesstext": "Converteu o seu OpenID a $1.",
 	"openid-convert-already-your-openid-text": "O OpenID $1 xa está asociado á súa conta.",
 	"openid-convert-other-users-openid-text": "$1 é o OpenID doutra persoa. Non pode usar o OpenID doutro usuario.",
 	"openidalreadyloggedin": "Xa está identificado.",
@@ -78,7 +79,7 @@
 	"openiddelete-button": "Confirmar",
 	"openiddeleteerrornopassword": "Non pode borrar todos os seus OpenID porque a súa conta non ten contrasinal.\nNon podería conectarse sen un OpenID.",
 	"openiddeleteerroropenidonly": "Non pode borrar todos os seus OpenID porque non se pode conectar máis que con OpenID.\nNon podería conectarse sen un OpenID.",
-	"openiddelete-success": "O OpenID foi eliminado con éxito da súa conta.",
+	"openiddelete-success": "O OpenID foi eliminado da súa conta.",
 	"openiddelete-error": "Houbo un erro ao eliminar o OpenID da súa conta.",
 	"openid-openids-were-not-merged": "Os OpenID non se fusionaron ao mesturar as contas de usuario.",
 	"prefs-openid-show-openid": "Enderezo URL do OpenID na súa páxina de usuario",
@@ -105,8 +106,8 @@
 	"openid-trusted-sites-delete-confirmation-question": "Ao premer no botón \"{{int:openid-trusted-sites-delete-confirmation-button-text}}\" eliminará \"$1\" da lista de sitios de confianza.",
 	"openid-trusted-sites-delete-all-confirmation-question": "Ao premer no botón \"{{int:openid-trusted-sites-delete-confirmation-button-text}}\" eliminará todos os sitios de confianza do seu perfil de usuario.",
 	"openid-trusted-sites-delete-confirmation-button-text": "Confirmar",
-	"openid-trusted-sites-delete-confirmation-success-text": "\"$1\" eliminouse correctamente da lista de sitios de confianza.",
-	"openid-trusted-sites-delete-all-confirmation-success-text": "Elimináronse correctamente do seu perfil de usuario todos os sitios nos que confiaba anteriormente.",
+	"openid-trusted-sites-delete-confirmation-success-text": "\"$1\" eliminouse da lista de sitios de confianza.",
+	"openid-trusted-sites-delete-all-confirmation-success-text": "Elimináronse do seu perfil de usuario todos os sitios nos que confiaba anteriormente.",
 	"openid-local-identity": "O seu OpenID:",
 	"openid-login-or-create-account": "Acceder ou crear unha conta nova",
 	"openid-provider-label-openid": "Insira o enderezo URL do seu OpenID",

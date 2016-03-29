@@ -9,7 +9,8 @@
 			"Shirayuki",
 			"Whym",
 			"青子守歌",
-			"Rxy"
+			"Rxy",
+			"2nd-player"
 		]
 	},
 	"openid-desc": "[//openid.net/ OpenID] でウィキにログインできるようにする。\nこれをウィキで有効にすると、ウィキの利用者アカウントの URL を OpenID として他の OpenID 対応サイトにもログインできる",
@@ -76,6 +77,7 @@
 	"openidloginlabel": "OpenID URL",
 	"openidlogininstructions": "{{SITENAME}} はウェブサイト間でのシングルサインオンのための [//openid.net/ OpenID] 規格に対応しています。OpenID によって、個別のパスワードを使用することなく、たくさんのさまざまなウェブサイトにログインできるようになります(より詳しい情報は[//ja.wikipedia.org/wiki/OpenID ウィキペディアの OpenID についての記事]を参照してください)。\n多くの [//openid.net/get/ OpenID プロバイダー]が存在するため、OpenID が有効なアカウントを別のサービスで既に保持しているかもしれません。",
 	"openidlogininstructions-openidloginonly": "OpenID で{{SITENAME}}''のみ''にログインできます。",
+	"openidlogininstructions-passwordloginallowed": "既に{{SITENAME}}のアカウントをお持ちであれば、通常通り利用者名とパスワードを使って[[Special:UserLogin|ログイン]]することができます。\n\n将来 OpenID の機能を使用したい場合は、通常通りにログインした後[[Special:OpenIDConvert|あなたのアカウントを OpenID に移行する]]ことができます。",
 	"openidupdateuserinfo": "自分の個人情報を更新:",
 	"openiddelete": "OpenID の削除",
 	"openiddelete-text": "「{{int:openiddelete-button}}」ボタンをクリックすると、アカウントから OpenID「$1」を除去します。\n以降、この OpenID を使用してのログインができなくなります。",

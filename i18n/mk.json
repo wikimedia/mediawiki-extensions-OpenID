@@ -22,7 +22,7 @@
 	"openid-error-request-forgery": "Се појави грешка: пронајдена е неважечка шифра.",
 	"openid-error-wrong-force-provider-setting": "Се појави внатрешна грешка: пронајдена е неисправна вердност на URL за наметнатиот услужник „$1“.",
 	"openid-error-openid-convert-not-allowed-forced-provider": "Не можете да поврзувате повеќе OpenID-ја со сметката бидејќи можете да го користите само ''„наметнатиот“'' услужник за OpenID „$1“ за најавите на ова вики.",
-	"openidconfigerror": "Грешка со конфигурацијата на OpenID",
+	"openidconfigerror": "Грешка со поставката на OpenID",
 	"openidconfigerrortext": "Складишните посатвки на OpenID за ова вики се погрешни.\nКонсултирајте [[Special:ListUsers/sysop|администратор]].",
 	"openidpermission": "Грешка при дозволување на OpenID",
 	"openidpermissiontext": "На внесениот OpenID не му е дозволено најавување на овој опслужувач.",

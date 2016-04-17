@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Meursault2004"
+			"Meursault2004",
+			"NoiX180"
 		]
 	},
 	"openidxrds": "Berkas Yadis",
@@ -21,5 +22,5 @@
 	"openidchoosefull": "Jeneng pepak panjenengan ($1)",
 	"openidchooseauto": "Jeneng ($1) sing digawé sacara otomatis",
 	"openidchoosemanual": "Jeneng miturut pilihan panjenengan:",
-	"openidchoosepassword": "Tembung sandhi:"
+	"openidchoosepassword": "Tembung wadi:"
 }

@@ -6,7 +6,8 @@
 			"Orango",
 			"OsamaK",
 			"Uwe",
-			"Maroen1990"
+			"Maroen1990",
+			"Sonic N800"
 		]
 	},
 	"openid-desc": "سجل الدخول للويكي [//openid.net/ بهوية مفتوحة]، وسجل الدخول لمواقع الوب الأخرى التي تعترف بالهوية المفتوحة بحساب مستخدم ويكي",
@@ -57,7 +58,7 @@
 	"openid-convert-other-users-openid-text": "هذه هي الهوية المفتوحة لشخص آخر.",
 	"openidalreadyloggedin": "أنت مسجل الدخول بالفعل.",
 	"openidnousername": "لا اسم مستخدم تم تحديده.",
-	"openidbadusername": "اسم المستخدم المحدد سيء.",
+	"openidbadusername": "اسم المستخدم المحدد سيئ.",
 	"openidautosubmit": "هذه الصفحة تحتوى على إستمارة ينبغى أن يتم إرسالها تلقائيا لو أن الجافاسكريبت مفعلة لديك.\nإن لم تكن، جرب زر \"Continue\".",
 	"openidclientonlytext": "لا يمكنك استخدام حسابات هذه الويكي كهوية مفتوحة على موقع آخر.",
 	"openidloginlabel": "مسار الهوية المفتوحة",

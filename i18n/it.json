@@ -28,7 +28,7 @@
 	"openidpermissiontext": "L'accesso a questo server non è consentito all'OpenID indicato.",
 	"openidcancel": "Verifica annullata",
 	"openidcanceltext": "La verifica dell'URL OpenID è stata annullata.",
-	"openidfailure": "Verifica fallita",
+	"openidfailure": "Verifica non riuscita",
 	"openidfailuretext": "La verifica dell'URL OpenID è fallita. Messaggio di errore: \"$1\"",
 	"openidsuccess": "Verifica effettuata",
 	"openidsuccesstext": "'''La verifica è stata effettuata con successo ed ora sei connesso come utente $1'''.\n\nIl tuo OpenID è $2.\n\nQuesto ed altri OpenID opzionali possono essere gestiti dalla [[Special:Preferences#mw-prefsection-openid|scheda OpenID]] nelle tue preferenze.<br />\nÈ possibile aggiungere una password opzionale dal tuo [[Special:Preferences#mw-prefsection-personal|profilo utente]].",

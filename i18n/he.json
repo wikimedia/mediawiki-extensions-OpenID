@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Rotemliss",
-			"YaronSh"
+			"YaronSh",
+			"Guycn2"
 		]
 	},
 	"openid-desc": "כניסה לחשבון בוויקי באמצעות [//openid.net/ OpenID], והתחברות לאתרים נוספים הפועלים עם OpenID באמצעות חשבון משתמש בוויקי",
@@ -92,9 +93,12 @@
 	"openid-provider-label-aol": "כתבו את כינוי המסך שלכם ב־AOL",
 	"openid-provider-label-other-username": "כתבו את שם המשתמש שלכם ב־$1",
 	"specialpages-group-openid": "דפי שירות ומידע על המצב של OpenID",
-	"right-openid-converter-access": "יכול להוסיף או להמיר את החשבון לשימוש בזהויות OpenId",
+	"right-openid-converter-access": "הוספה או המרה של חשבון המשתמש עצמו לשימוש בזהויות OpenID",
 	"right-openid-dashboard-access": "גישה רגילה ללוח הבקרה של OpenID",
 	"right-openid-dashboard-admin": "גישת מפעיל ללוח הבקרה של OpenID",
+	"right-openid-login-with-openid": "כניסה לחשבון עם OpenID",
+	"right-openid-create-account-with-openid": "יצירת חשבונות עם OpenID",
+	"right-openid-create-account-without-openid": "יצירת חשבונות באופן ידני ללא OpenID",
 	"openid-dashboard-title": "לוח הבקרה של OpenID",
 	"openid-dashboard-title-admin": "לוח הבקרה של OpenID (מפעיל)",
 	"openid-dashboard-introduction": "הגדרות נוכחיות של OpenID ([$1 עזרה])",

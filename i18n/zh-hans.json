@@ -89,7 +89,7 @@
 	"openiddelete": "删除OpenID",
 	"openiddelete-text": "通过点击“{{int:openiddelete-button}}”按钮，您将从您的账户中移除OpenID“$1”。您将不再能够使用这个OpenID登录。",
 	"openiddelete-button": "确认",
-	"openiddeleteerrornopassword": "不得删除全部OpenID，否则您的账户将无密码保护。\n没有OpenID您将无法登录。",
+	"openiddeleteerrornopassword": "您不能删除您所有的OpenID，因为您没有密码。在没有OpenID的情况下您将不能再登录。",
 	"openiddeleteerroropenidonly": "您不能删除您所有的OpenID，因为您只被允许使用OpenID登录。您无法在没有OpenID的情况下登录。",
 	"openiddelete-success": "OpenID已从您的账户中移除。",
 	"openiddelete-error": "在移除你的OpenID的时候出现了一个错误。",

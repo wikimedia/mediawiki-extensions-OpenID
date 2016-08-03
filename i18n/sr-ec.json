@@ -40,7 +40,7 @@
 	"openidchoosepassword": "Лозинка:",
 	"openidconvertsuccess": "Претварање у OpenID је успело",
 	"openidconvertsuccesstext": "Успешно сте претворили свој OpenID у $1.",
-	"openid-convert-already-your-openid-text": "OpenID је већ повезан са Вашим налогом.",
+	"openid-convert-already-your-openid-text": "OpenID $1 је већ повезан са Вашим налогом.",
 	"openid-convert-other-users-openid-text": "$1 OpenID припада неком другом.\nНе можете користити OpenID другог корисника.",
 	"openidnousername": "Нисте навели корисничко име.",
 	"openidbadusername": "Наведено је неисправно корисничко име.",

@@ -5,7 +5,8 @@
 			"KuboF",
 			"Lucas",
 			"Michawiki",
-			"Yekrats"
+			"Yekrats",
+			"Robin van der Vliet"
 		]
 	},
 	"openid-desc": "Ensaluti la vikion kun [//openid.net/ identigo OpenID], kaj ensaluti aliajn retejon uzantajn OpenID kun vikia uzula konto",
@@ -46,7 +47,7 @@
 	"openidchooseauto": "Automate generita nomo ($1)",
 	"openidchoosemanual": "Nomo de via elekto:",
 	"openidchooseexisting": "Ekzistanta konto en ĉi tiu vikio",
-	"openidchooseusername": "Salutnomo:",
+	"openidchooseusername": "Uzantnomo:",
 	"openidchoosepassword": "Pasvorto:",
 	"openidconvertinstructions": "Ĉi tiu paĝo permesas al vi ŝanĝi vian uzulan konton por uzi URL-on OpenID aŭ aldoni pliajn OpenID-URL-ojn.",
 	"openidconvertoraddmoreids": "Konverti al OpenID aŭ aldoni alian OpenID-URL-on",

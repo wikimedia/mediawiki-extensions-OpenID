@@ -71,7 +71,7 @@
 	"openid-convert-already-your-openid-text": "$1 OpenID는 이미 계정에 연결되어 있습니다.",
 	"openid-convert-other-users-openid-text": "$1은(는) 다른 사용자의 OpenID입니다.\n다른 사용자의 OpenID를 사용할 수 없습니다.",
 	"openidalreadyloggedin": "이미 로그인했습니다.",
-	"openidalreadyloggedintext": "'''$1 계정으로 이미 로그인했습니다!'''\n\n사용자 환경 설정의 [[Special:Preferences#mw-prefsection-openid|OpenID 탭]]에서 OpenID를 관리(보기, 삭제, 추가)할 수 있습니다.",
+	"openidalreadyloggedintext": "'''$1님으로 이미 로그인했습니다!'''\n\n사용자 환경 설정의 [[Special:Preferences#mw-prefsection-openid|OpenID 탭]]에서 OpenID를 관리(보기, 삭제, 추가)할 수 있습니다.",
 	"openidnousername": "사용자 이름을 지정하지 않았습니다.",
 	"openidbadusername": "지정한 사용자 이름이 잘못되었습니다.",
 	"openidautosubmit": "자바 스크립트가 허용된 경우 자동으로 데이터가 전송됩니다.\n만약 자동으로 되지 않는다면 \"계속\" 버튼을 눌러주세요.",

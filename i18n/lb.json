@@ -48,7 +48,7 @@
 	"openidchoosepassword": "Passwuert:",
 	"openidconvertinstructions": "Mat dësem Formulaire kënnt dir Äre Benotzerkont ännere fir eng OpenID URL ze benotzen oder méi OpenID URL'en derbäizesetzen.",
 	"openidconvertoraddmoreids": "An en OpenID ëmwandelen oder eng aner OpenID URL derbäisetzen",
-	"openidconvertsuccess": "An en OpenID-Benotzerkont ëmgewandelt",
+	"openidconvertsuccess": "An eng OpenID ëmgewandelt",
 	"openidconvertsuccesstext": "Dir hutt Är OpenID op $1 ëmgewandelt.",
 	"openid-convert-already-your-openid-text": "D'OpenID $1 ass scho mat Ärem Benotzerkont verbonn.",
 	"openid-convert-other-users-openid-text": "$1 ass engem anere seng OpenID. Dir kënnt d'OpenID vun engem anere Benotzer benotzen.",

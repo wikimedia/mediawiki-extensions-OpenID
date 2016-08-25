@@ -43,7 +43,7 @@
 	"openidchoosepassword": "Senhal :",
 	"openidconvertinstructions": "Aqueste formulari vos permet de cambiar vòstre compte d'utilizaire per utilizar una adreça OpenID o apondre d'adreças OpenID suplementàrias.",
 	"openidconvertoraddmoreids": "Convertir cap a OpenID o apondre una autra adreça OpenID",
-	"openidconvertsuccess": "Convertit amb succès cap a OpenID",
+	"openidconvertsuccess": "Convertit cap a OpenID",
 	"openidconvertsuccesstext": "Avètz convertit amb succès vòstra OpenID cap a $1.",
 	"openid-convert-already-your-openid-text": "L’OpenID $1 es ja associat a vòstre compte.",
 	"openid-convert-other-users-openid-text": "$1 es l’OpenID de qualqu’un mai. Podètz pas utilizar l’OpenID d’un autre utilizaire.",

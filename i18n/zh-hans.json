@@ -73,7 +73,7 @@
 	"openidconvertoraddmoreids": "转换到OpenID或添加另一个OpenID地址",
 	"openidconvertsuccess": "已转换为OpenID",
 	"openidconvertsuccesstext": "您已经将您的OpenID转化为$1。",
-	"openid-convert-already-your-openid-text": "OpenID$1已经关联至你的账户。",
+	"openid-convert-already-your-openid-text": "OpenID$1已经关联至您的账户。",
 	"openid-convert-other-users-openid-text": "$1是别人的OpenID。您不能使用他人的OpenID。",
 	"openidalreadyloggedin": "您已经登录了。",
 	"openidalreadyloggedintext": "'''您已经登录，$1！'''\n\n您可以在您的设置的[[Special:Preferences#mw-prefsection-openid|OpenID 选项卡]]中管理（查看、删除和进一步添加）OpenID。",

@@ -116,7 +116,7 @@
 	"openid-trusted-sites-delete-all-link-action-text": "删除所有受信网站",
 	"openid-trusted-sites-delete-confirmation-page-title": "受信网站删除",
 	"openid-trusted-sites-delete-confirmation-question": "点击“{{int:openid-trusted-sites-delete-confirmation-button-text}}”按钮，您便会从您的受信网站列表中删除“$1”。",
-	"openid-trusted-sites-delete-all-confirmation-question": "点击“{{int:openid-trusted-sites-delete-confirmation-button-text}}”按钮，你便会从你的用户资料中移除所有受信网站。",
+	"openid-trusted-sites-delete-all-confirmation-question": "点击“{{int:openid-trusted-sites-delete-confirmation-button-text}}”按钮，您便会从您的用户资料中移除所有受信网站。",
 	"openid-trusted-sites-delete-confirmation-button-text": "确认",
 	"openid-trusted-sites-delete-confirmation-success-text": "“$1”已从您的受信网站列表中移除。",
 	"openid-trusted-sites-delete-all-confirmation-success-text": "您之前信任的所有网站都已从您的用户资料中移除。",

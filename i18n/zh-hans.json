@@ -99,7 +99,7 @@
 	"prefs-openid-associated-openids": "您登陆至{{SITENAME}}的OpenID",
 	"prefs-openid-trusted-sites": "受信网站",
 	"prefs-openid-local-identity": "您登陆至其他网站的OpenID",
-	"openid-show-openid-url-on-userpage-user": "在你的用户页显示你的OpenID URL。",
+	"openid-show-openid-url-on-userpage-user": "在您的用户页显示您的OpenID URL。",
 	"openid-show-openid-url-on-userpage-always": "您访问您的用户页时将会一直显示您的OpenID。",
 	"openid-show-openid-url-on-userpage-never": "您的OpenID永远不会显示在您的用户页上。",
 	"openid-userinfo-update-on-login-label": "每次登陆时都会从OpenID个人信息系统更新的用户信息栏：",
@@ -122,7 +122,7 @@
 	"openid-trusted-sites-delete-all-confirmation-success-text": "您之前信任的所有网站都已从您的用户资料中移除。",
 	"openid-local-identity": "您的OpenID：",
 	"openid-login-or-create-account": "登录或创建新账号",
-	"openid-provider-label-openid": "输入你的OpenID URL",
+	"openid-provider-label-openid": "输入您的OpenID URL",
 	"openid-provider-label-google": "使用你的Google账号登录",
 	"openid-provider-label-yahoo": "使用你的Yahoo账号登录",
 	"openid-provider-label-aol": "输入你的AOL屏幕名称",
@@ -151,5 +151,5 @@
 	"openid-dashboard-number-openid-users": "拥有 OpenID 的用户数",
 	"openid-dashboard-number-openids-in-database": "OpenID 的数量（总数）",
 	"openid-dashboard-number-users-without-openid": "没有 OpenID 的用户数",
-	"openid-empty-param-error": "请分别填写你的用户名和你的OpenID URL。"
+	"openid-empty-param-error": "请分别填写您的用户名和您的OpenID URL。"
 }

@@ -4,7 +4,8 @@
 			"Ex13",
 			"Michaello",
 			"Rancher",
-			"Milicevic01"
+			"Milicevic01",
+			"Сербијана"
 		]
 	},
 	"openidserver": "OpenID server",
@@ -24,7 +25,7 @@
 	"openidrequired": "Obavezno",
 	"openidnickname": "Nadimak",
 	"openidfullname": "Pravo ime",
-	"openidemail": "E-pošta",
+	"openidemail": "Imejl adresa",
 	"openidlanguage": "Jezik",
 	"openidtimezone": "Vremenska zona",
 	"openidchooselegend": "Odabir korisničkog imena i naloga",

@@ -53,7 +53,7 @@
 	"openidchooseexisting": "Uma conta existente nesta wiki",
 	"openidchooseusername": "Nome de utilizador:",
 	"openidchoosepassword": "Palavra-passe:",
-	"openidconvertinstructions": "Este formulário permite-lhe alterar a sua conta de utilizador para usar um URL OpenID ou adicionar mais URL OpenID.",
+	"openidconvertinstructions": "Este formulário permite-lhe alterar a sua conta de utilizador para usar um URL OpenID ou adicionar outros URL OpenID.",
 	"openidconvertoraddmoreids": "Converter para OpenID ou adicionar outro URL OpenID",
 	"openidconvertsuccess": "Convertido para OpenID",
 	"openidconvertsuccesstext": "Converteu o seu OpenID para $1.",

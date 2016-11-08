@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dalibor Bosits",
-			"Ex13"
+			"Ex13",
+			"SpeedyGonsales"
 		]
 	},
 	"openid-desc": "Prijava na wiki s [//openid.net/ OpenID] i prijava na druge stranice koje podržavaju OpenID s wiki suradničkim računom",
@@ -44,7 +45,7 @@
 	"openidchoosemanual": "Ime po Vašem izboru:",
 	"openidchooseexisting": "Postojeći račun na ovom wiki",
 	"openidchooseusername": "Suradničko ime:",
-	"openidchoosepassword": "Lozinka:",
+	"openidchoosepassword": "Zaporka:",
 	"openidconvertinstructions": "Ovaj obrazac Vam omogućuje da promijenite Vaš suradničkii račun za upotrebu URL OpenID ili da dodate više OpenID URLova",
 	"openidconvertoraddmoreids": "Pretvorite u OpenID ili dodajte drugi OpenID URL",
 	"openidconvertsuccess": "Uspješno pretvoreno u OpenID",

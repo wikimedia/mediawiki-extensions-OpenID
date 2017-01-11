@@ -67,7 +67,7 @@
 	"openiddelete-button": "Confirmar",
 	"openiddeleteerrornopassword": "Tu non pote deler tote tu OpenIDs proque tu conto non ha un contrasigno.\nIl esserea impossibile aperir un session sin OpenID.",
 	"openiddeleteerroropenidonly": "Tu non pote deler tote tu OpenIDs proque tu ha le permission de authenticar te solmente con OpenID.\nIl esserea impossibile aperir un session sin OpenID.",
-	"openiddelete-success": "Le OpenID ha essite removite de tu conto con successo.",
+	"openiddelete-success": "Le OpenID ha essite removite de tu conto.",
 	"openiddelete-error": "Un error occurreva durante le remotion del OpenID de tu conto.",
 	"openid-openids-were-not-merged": "Solmente le contos de usator, non le OpenID(s), ha essite fusionate.",
 	"prefs-openid-show-openid": "Celar tu OpenID in tu pagina de usator, si tu aperi un session con OpenID.",

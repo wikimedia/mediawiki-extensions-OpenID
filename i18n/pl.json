@@ -86,6 +86,7 @@
 	"openid-urls-delete": "Usuń",
 	"openid-add-url": "Dodaj nowe OpenID do swojego konta",
 	"openid-trusted-sites-table-header-column-url": "Zaufane witryny",
+	"openid-trusted-sites-table-header-column-action": "Działanie",
 	"openid-trusted-sites-delete-link-action-text": "Usuń",
 	"openid-trusted-sites-delete-all-link-action-text": "Usuń wszystkie zaufane witryny",
 	"openid-trusted-sites-delete-confirmation-page-title": "Usuwanie zaufanych witryn",

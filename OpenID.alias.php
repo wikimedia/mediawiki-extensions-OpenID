@@ -16,6 +16,7 @@ $specialPageAliases['en'] = array(
 	'OpenIDServer' => array( 'OpenIDServer' ),
 	'OpenIDXRDS' => array( 'OpenIDXRDS' ),
 	'OpenIDDashboard' => array( 'OpenIDDashboard' ),
+	'OpenIDIdentifier' => array( 'OpenIDIdentifier' ),
 );
 
 /** Arabic (العربية) */

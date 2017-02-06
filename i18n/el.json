@@ -18,7 +18,7 @@
 	"openiderror": "OpenID σφάλμα",
 	"openiderrortext": "Προέκυψε ένα σφάλμα κατά τη διάρκεια της επιβεβαίωσης του OpenID URL σας.",
 	"openidconfigerror": "Σφάλμα διαμόρφωσης OpenID",
-	"openidconfigerrortext": "Η διαμόρφωση αποθήκευσης OpenID για αυτό το wiki είναι μη έγκυρη.\nΠαρακαλώ συμβουλευθείτε έναν [[Special:ListUsers/sysop|διαχειριστή]].",
+	"openidconfigerrortext": "Η διαμόρφωση αποθήκευσης του OpenID για αυτό το wiki είναι μη έγκυρη.\nΠαρακαλούμε συμβουλευθείτε κάποιο [[Special:ListUsers/sysop|διαχειριστή]].",
 	"openidpermission": "Σφάλμα αδειών OpenID",
 	"openidpermissiontext": "Το OpenID που παρείχες δεν είναι επιτρεπτό να συνδεθεί σε αυτόν τον εξυπηρετητή.",
 	"openidcancel": "Η επαλήθευση ακυρώθηκε",

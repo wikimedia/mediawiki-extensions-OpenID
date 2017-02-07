@@ -3,7 +3,8 @@
 		"authors": [
 			"Erdemaslancan",
 			"Gorizon",
-			"Mirzali"
+			"Mirzali",
+			"Gırd"
 		]
 	},
 	"openidoptional": "Opsiyonel",
@@ -20,5 +21,6 @@
 	"prefs-openid-show-openid": "Grey OPENID perda karberda şımad",
 	"openid-urls-url": "URL",
 	"openid-urls-action": "Kerdış",
-	"openid-urls-delete": "Bestere"
+	"openid-urls-delete": "Bestere",
+	"openid-trusted-sites-table-header-column-action": "Kerdış"
 }

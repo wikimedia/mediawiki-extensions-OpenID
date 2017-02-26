@@ -21,7 +21,7 @@
 	"openidcancel": "Gwiriekadur nullet",
 	"openidcanceltext": "Nullet eo bet ar gwiriekadenn eus ar chomlec'h OpenID.",
 	"openidfailure": "C'hwitet eo ar gwiriadur",
-	"openidfailuretext": "C'hwitet eo bet gwiriekadenn ar chomlec'h OpenID. Kemennadenn fazi : \"$1\"",
+	"openidfailuretext": "N'eus ket bet gallet gwiriañ URL an OpenID. Kemennadenn fazi : \"$1\"",
 	"openidsuccess": "Gwiriet pep tra ervat",
 	"openidsuccesstext": "'''Gwiriet eo bet an troaù ervat, kevreet oc'h evel $1'''.\n\n$2 eo hoc'h OpenID.\n\nGallout a rit merañ an OpenID-mañ ha re all diret dre an ivinell [[Special:Preferences#mw-prefsection-openid|OpenID]] en ho Penndibaboù.<br />\nGallout a rit ouzhpennañ ur ger-tremen kont diret en ho [[Special:Preferences#mw-prefsection-personal|profil implijer]].",
 	"openidusernameprefix": "Implijer OpenID",

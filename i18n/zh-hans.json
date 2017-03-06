@@ -105,7 +105,7 @@
 	"openid-userinfo-update-on-login-label": "每次登陆时都会从OpenID个人信息系统更新的用户信息栏：",
 	"openid-associated-openids-label": "和您的账号关联的OpenID：",
 	"openid-urls-url": "URL",
-	"openid-urls-action": "动作",
+	"openid-urls-action": "操作",
 	"openid-urls-registration": "注册时间",
 	"openid-urls-delete": "删除",
 	"openid-add-url": "向您的账户添加一个新的OpenID",

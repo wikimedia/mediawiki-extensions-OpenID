@@ -5,5 +5,7 @@
 		]
 	},
 	"openidchooseusername": "Icinikasowin:",
-	"openidchoosepassword": "Pitakesinahotiso:"
+	"openidchoosepassword": "Pitakesinahotiso:",
+	"openid-urls-delete": "Wepina",
+	"openid-trusted-sites-delete-link-action-text": "Wepina"
 }

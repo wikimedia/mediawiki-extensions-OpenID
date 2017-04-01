@@ -51,7 +51,7 @@
 	"openidconvertinstructions": "Гэта форма дазваляе выкарыстоўваць для Вашага рахунку адрас OpenID альбо дадаць іншыя адрасы OpenID.",
 	"openidconvertoraddmoreids": "Канвэртаваць у OpenID альбо дадаць іншы адрас OpenID",
 	"openidconvertsuccess": "Пераўтварэньне ў OpenID",
-	"openidconvertsuccesstext": "Вы пасьпяхова пераўтварылі Ваш OpenID у $1.",
+	"openidconvertsuccesstext": "Вы пераўтварылі ваш OpenID у $1.",
 	"openid-convert-already-your-openid-text": "OpenID $1 ужо зьвязаны з вашым рахункам.",
 	"openid-convert-other-users-openid-text": "$1 — чужы OpenID.\nВы ня можаце выкарыстоўваць OpenID іншага ўдзельніка.",
 	"openidalreadyloggedin": "Вы ўжо ўвайшлі.",

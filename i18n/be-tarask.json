@@ -70,7 +70,7 @@
 	"openiddelete-button": "Пацьвердзіць",
 	"openiddeleteerrornopassword": "Вы ня можаце выдаліць усе Вашыя OpenID, таму што Ваш рахунак ня мае паролю.\nВы ня зможаце ўвайсьці ў сыстэму без OpenID.",
 	"openiddeleteerroropenidonly": "Вы ня можаце выдаліць усе Вашыя OpenID, таму што Вам дазволена ўваходзіць у сыстэму толькі праз OpenID.\nВы ня зможаце ўвайсьці ў сыстэму без OpenID.",
-	"openiddelete-success": "OpenID быў пасьпяхова выдалены з Вашага рахунку.",
+	"openiddelete-success": "OpenID быў выдалены з вашага рахунку.",
 	"openiddelete-error": "Адбылася памылка пад час выдаленьня OpenID з Вашага рахунку.",
 	"openid-openids-were-not-merged": "Рахункі OpenID ня былі аб’яднаныя падчас аб’яднаныя рахункаў.",
 	"prefs-openid-show-openid": "Хаваць Ваш адрас OpenID на Вашай старонцы ўдзельніка, калі Вы ўвайшлі з дапамогай OpenID.",

@@ -16,7 +16,8 @@
 			"XalD",
 			"Macofe",
 			"Ryo567",
-			"Matiia"
+			"Matiia",
+			"Indiralena"
 		]
 	},
 	"openid-desc": "Permite a los usuarios iniciar sesión en el wiki con un [//openid.net/ OpenID]. Si esto está activado en el wiki, también pueden utilizar su URL de cuenta de usuario de este wiki como OpenID para iniciar sesión en otros sitios web que utilicen OpenID",
@@ -47,7 +48,7 @@
 	"openidtrustinstructions": "Comprueba si quieres compartir datos con $1.",
 	"openidallowtrust": "Permitir a $1 confiar en esta cuenta de usuario.",
 	"openidnopolicy": "El sitio no ha especificado una política de privacidad.",
-	"openidpolicy": "Comprueba la <a target=\"_new\" href=\"$1\">política de privacidad</a> para mayor información.",
+	"openidpolicy": "Revisa la <a target=\"_new\" href=\"$1\">política de privacidad</a> para mayor información.",
 	"openidoptional": "Opcional",
 	"openidrequired": "Obligatorio",
 	"openidnickname": "Apodo",

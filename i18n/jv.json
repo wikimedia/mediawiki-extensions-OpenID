@@ -6,7 +6,7 @@
 		]
 	},
 	"openidxrds": "Berkas Yadis",
-	"openiderror": "Kaluputan vérifikasi",
+	"openiderror": "Masalah OpenID",
 	"openidcancel": "Vérifikasi dibatalaké",
 	"openidfailure": "Vérifikasi gagal",
 	"openidtrustinstructions": "Mangga dipriksa yèn panjenengan péngin mbagi data karo $1.",
@@ -15,11 +15,11 @@
 	"openidoptional": "Opsional",
 	"openidrequired": "Diperlokaké",
 	"openidnickname": "Jeneng sesinglon",
-	"openidfullname": "Jeneng jangkep",
+	"openidfullname": "Jeneng asli",
 	"openidemail": "Alamat e-mail",
 	"openidlanguage": "Basa",
 	"openidchooseinstructions": "Kabèh panganggo prelu jeneng sesinglon;\npanjenengan bisa milih salah siji saka opsi ing ngisor iki.",
-	"openidchoosefull": "Jeneng pepak panjenengan ($1)",
+	"openidchoosefull": "Jeneng asliné panjenengan ($1)",
 	"openidchooseauto": "Jeneng ($1) sing digawé sacara otomatis",
 	"openidchoosemanual": "Jeneng miturut pilihan panjenengan:",
 	"openidchoosepassword": "Tembung wadi:"

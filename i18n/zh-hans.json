@@ -92,7 +92,7 @@
 	"openiddeleteerrornopassword": "您不能删除您所有的OpenID，因为您没有密码。在没有OpenID的情况下您将不能再登录。",
 	"openiddeleteerroropenidonly": "您不能删除您所有的OpenID，因为您只被允许使用OpenID登录。您无法在没有OpenID的情况下登录。",
 	"openiddelete-success": "OpenID已从您的账户中移除。",
-	"openiddelete-error": "在移除你的OpenID的时候出现了一个错误。",
+	"openiddelete-error": "在移除您的OpenID的时候出现了一个错误。",
 	"openid-openids-were-not-merged": "合并用户帐号时，OpenID 没有被合并。",
 	"prefs-openid-show-openid": "OpenID登录时，在用户页隐藏OpenID。",
 	"prefs-openid-userinfo-update-on-login": "OpenID 用户信息更新",

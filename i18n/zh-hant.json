@@ -14,7 +14,8 @@
 			"Waihorace",
 			"Wrightbus",
 			"LNDDYL",
-			"Cwlin0416"
+			"Cwlin0416",
+			"A2093064"
 		]
 	},
 	"openid-desc": "使用者可以使用 [//openid.net/ OpenID] 登入此 Wiki。\n若 Wiki 開啟此功能，使用者也可使用其在此 Wiki 的使用者帳號 URL 登入其他支援  OpenID 的網站",
@@ -30,7 +31,7 @@
 	"openiderror": "OpenID 錯誤",
 	"openid-error-openid-consumer-mode-disabled": "此 Wiki 的 OpenID Consumer 模式已關閉，您無法使用 OpenID 登入此 Wiki。",
 	"openiderrortext": "驗證 OpenID URL 時發生錯誤。",
-	"openid-error-no-auth": "驗證 OpenID URL $1 時發生未指定認証回應/請求的錯誤。",
+	"openid-error-no-auth": "驗證 OpenID URL $1 時發生未指定認證回應/請求的錯誤。",
 	"openid-error-server-response": "驗證 OpenID URL $1 時發生錯誤。\n\n伺服器回應： ''$2''",
 	"openid-error-request-forgery": "發生錯誤：無效的密鑰。",
 	"openid-error-wrong-force-provider-setting": "發生內部錯誤：發現指定的 Provider URL \"$1\" 不正確。",

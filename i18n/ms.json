@@ -5,15 +5,16 @@
 			"Aurora",
 			"Aviator",
 			"Diagramma Della Verita",
-			"Pizza1016"
+			"Pizza1016",
+			"Jeluang Terluang"
 		]
 	},
 	"openid-desc": "Membolehkan pengguna untuk log masuk ke dalam wiki dengan [//openid.net/ OpenID]. Jika dihidupkan pada wiki, pengguna juga obleh menggunakan URL akaun penggunanya di wiki ini sebagai OpenID untuk log masuk ke dalam tapak web lain yang sedia OpenID",
 	"openididentifier": "Pengenalpastian OpenID",
 	"openidlogin": "Log masuk / buka akaun dengan OpenID",
 	"openidserver": "Pelayan OpenID",
-	"openid-identifier-page-text-user": "Halaman ini adalah pengenalpastian untuk pengguna \"$1\".",
-	"openid-identifier-page-text-different-user": "Halaman ini adalah pengenalpastian untuk ID pengguna \"$1\".",
+	"openid-identifier-page-text-user": "Halaman ini ialah pengenalpastian untuk pengguna \"$1\".",
+	"openid-identifier-page-text-different-user": "Halaman ini ialah pengenalpastian untuk ID pengguna \"$1\".",
 	"openid-identifier-page-text-no-such-local-openid": "Pengenalpastian OpenID setempat ini tidak sah.",
 	"openid-server-identity-page-text": "Ini ialah halaman pelayan teknikal OpenID untuk memulakan penentusahan OpenID tanpa sebarang tujuan lain.",
 	"openidxrds": "Fail Yadis",
@@ -59,7 +60,7 @@
 	"openidconvertsuccess": "Berjaya ditukar ke OpenID",
 	"openidconvertsuccesstext": "Anda telah berjaya menukar OpenID ke $1.",
 	"openid-convert-already-your-openid-text": "OpenID $1 sudah dikaitkan dengan akaun anda. Tiada perlunya menambahkannya semula.",
-	"openid-convert-other-users-openid-text": "$1 adalah OpenID orang lain. Anda tidak boleh menggunakan OpenID pengguna lain.",
+	"openid-convert-other-users-openid-text": "$1 ialah OpenID orang lain.\n\nAnda tidak boleh menggunakan OpenID pengguna lain.",
 	"openidalreadyloggedin": "Anda sudah log masuk.",
 	"openidalreadyloggedintext": "'''Anda sudah log masuk, $1!'''\n\nAnda boleh menguruskan (lihat, hapuskan, tambahkan lagi) OpenID dalam [[Special:Preferences#mw-prefsection-openid|tab OpenID]] dalam keutamaan anda.",
 	"openidnousername": "Nama pengguna tidak dinyatakan.",

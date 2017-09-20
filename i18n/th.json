@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Passawuth"
+			"Passawuth",
+			"Ans"
 		]
 	},
-	"openidemail": "อีเมล"
+	"openidemail": "อีเมล",
+	"openidtimezone": "เขตเวลา"
 }

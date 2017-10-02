@@ -6,7 +6,8 @@
 			"Glanthor Reviol",
 			"Tgr",
 			"Misibacsi",
-			"Csega"
+			"Csega",
+			"Tacsipacsi"
 		]
 	},
 	"openid-desc": "Bejelentkezés [//openid.net/ OpenID] azonosítóval, és más OpenID-kompatibilis weboldalak használata a wikis azonosítóval",
@@ -36,7 +37,7 @@
 	"openidrequired": "Kötelező",
 	"openidnickname": "Felhasználónév",
 	"openidfullname": "Teljes név",
-	"openidemail": "E-mail cím:",
+	"openidemail": "E-mail-cím:",
 	"openidlanguage": "Nyelv",
 	"openidtimezone": "Időzóna",
 	"openidchooselegend": "Felhasználónév és fiók választás",

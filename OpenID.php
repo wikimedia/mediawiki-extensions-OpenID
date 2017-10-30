@@ -391,7 +391,6 @@ $wgExtensionCredits['other'][] = array(
 $dir = $path . '/';
 
 $wgMessagesDirs['OpenID'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['OpenID'] = $dir . 'OpenID.i18n.php';
 $wgExtensionMessagesFiles['OpenIDAlias'] = $dir . 'OpenID.alias.php';
 
 $wgAutoloadClasses['OpenIDHooks'] = $dir . 'OpenID.hooks.php';

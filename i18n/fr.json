@@ -14,7 +14,8 @@
 			"Verdy p",
 			"Zetud",
 			"Orlodrim",
-			"Wladek92"
+			"Wladek92",
+			"Urhixidur"
 		]
 	},
 	"openid-desc": "Se connecter au wiki avec [//openid.net/ OpenID] et se connecter à d’autres sites internet OpenID avec un compte utilisateur du wiki.",
@@ -93,13 +94,13 @@
 	"openiddelete-success": "L'OpenID a été supprimé de votre compte.",
 	"openiddelete-error": "Une erreur est survenue pendant la suppression de l'OpenID de votre compte.",
 	"openid-openids-were-not-merged": "Les OpenID n'ont pas été fusionnés lors de la fusion des comptes d'utilisateurs.",
-	"prefs-openid-show-openid": "Cacher votre OpenID sur votre page utilisateur, si vous vous connectez avec OpenID.",
+	"prefs-openid-show-openid": "Masquer votre OpenID sur votre page d’utilisateur, si vous vous connectez avec OpenID.",
 	"prefs-openid-userinfo-update-on-login": "Mise à jour des informations utilisateur de OpenID",
 	"prefs-openid-associated-openids": "Vos OpenIDs pour vous connecter à {{SITENAME}}",
 	"prefs-openid-trusted-sites": "Sites de confiance",
 	"prefs-openid-local-identity": "Votre OpenID pour vous connecter à d’autres sites",
 	"openid-show-openid-url-on-userpage-user": "Afficher votre URL d’OpenID sur votre page utilisateur.",
-	"openid-show-openid-url-on-userpage-always": "Votre OpenID est toujours affiché sur votre page utilisateur quand vous la visitez.",
+	"openid-show-openid-url-on-userpage-always": "Votre OpenID est toujours affiché sur votre page d’utilisateur quand vous la visitez.",
 	"openid-show-openid-url-on-userpage-never": "Votre OpenID n’est jamais affiché sur votre page utilisateur.",
 	"openid-userinfo-update-on-login-label": "Champs d’information du profil utilisateur qui seront mis à jour automatiquement depuis votre personne OpenID chaque fois que vous vous connecterez:",
 	"openid-associated-openids-label": "OpenID associées avec votre compte :",

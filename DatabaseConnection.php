@@ -5,7 +5,7 @@ require_once( 'Auth/OpenID/DatabaseConnection.php' );
 class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 
 	/**
-	 * @var DatabaseBase
+	 * @var \Wikimedia\Rdbms\IDatabase
 	 */
 	protected $db;
 

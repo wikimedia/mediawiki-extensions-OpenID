@@ -7,10 +7,12 @@
 			"Luckas",
 			"ZehRique",
 			"555",
-			"TheEduGobi"
+			"TheEduGobi",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"openid-desc": "Autentique-se no wiki com um [//openid.net/ OpenID], e autentique-se em outros sítios que usem OpenID com uma conta de usuário wiki",
+	"openididentifier": "Identificador OpenID",
 	"openidlogin": "Entrar / criar conta com OpenID",
 	"openidserver": "Servidor OpenID",
 	"openidxrds": "Arquivo Yadis",

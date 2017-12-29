@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Garas",
-			"Hugo.arg"
+			"Hugo.arg",
+			"Manvydasz"
 		]
 	},
-	"openiderror": "Tikrinimo klaida",
+	"openiderror": "OpenID klaida",
 	"openidnickname": "Slapyvardis",
-	"openidfullname": "Visas vardas",
+	"openidfullname": "Tikras vardas",
 	"openidemail": "El. pašto adresas",
 	"openidlanguage": "Kalba",
 	"openidchoosepassword": "Slaptažodis:"

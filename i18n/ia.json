@@ -5,7 +5,7 @@
 			"McDutchie"
 		]
 	},
-	"openid-desc": "Aperir un session in le wiki con [//openid.net/ OpenID], e aperir un session in altere sitos web usante OpenID con un conto de usator del wiki",
+	"openid-desc": "Permitte que usatores aperi session in le wiki con un [//openid.net/ OpenID].\nSi isto es activate sur le wiki, le usator pote etiam usar su URL de conto de iste wiki como OpenID pro aperir session in altere sitos web que usa OpenID.",
 	"openidlogin": "Aperir session / crear conto con OpenID",
 	"openidserver": "Servitor OpenID",
 	"openidxrds": "File Yadis",
@@ -70,9 +70,9 @@
 	"openiddelete-success": "Le OpenID ha essite removite de tu conto.",
 	"openiddelete-error": "Un error occurreva durante le remotion del OpenID de tu conto.",
 	"openid-openids-were-not-merged": "Solmente le contos de usator, non le OpenID(s), ha essite fusionate.",
-	"prefs-openid-show-openid": "Celar tu OpenID in tu pagina de usator, si tu aperi un session con OpenID.",
+	"prefs-openid-show-openid": "URL de OpenID sur tu pagina de usator",
 	"openid-userinfo-update-on-login-label": "Ecce le informationes de profilo que essera actualisate automaticamente ab le personage OpenID cata vice que tu aperi un session:",
-	"openid-associated-openids-label": "OpenIDs associate con tu conto:",
+	"openid-associated-openids-label": "OpenIDs associate a tu conto:",
 	"openid-urls-action": "Action",
 	"openid-urls-registration": "Hora de registration",
 	"openid-urls-delete": "Deler",

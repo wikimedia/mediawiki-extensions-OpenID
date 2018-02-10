@@ -147,7 +147,6 @@ class SpecialOpenIDDashboard extends SpecialPage {
 
 
 	function getOpenIDUsers ( $distinctusers = '' ) {
-		wfProfileIn( __METHOD__ );
 		$distinct = ( $distinctusers == 'distinctusers' ) ? 'COUNT(DISTINCT uoi_user)' : 'COUNT(*)' ;
 
 		$dbr = wfGetDB( DB_SLAVE );
@@ -158,7 +157,6 @@ class SpecialOpenIDDashboard extends SpecialPage {
 			__METHOD__,
 			null
 		);
-		wfProfileOut( __METHOD__ );
 		return $OpenIDUserCount;
 	}
 

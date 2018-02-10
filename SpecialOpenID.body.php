@@ -24,6 +24,8 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\MediaWikiServices;
+
 # FIXME: for login(); figure out better way to share this code
 # between Login and Convert
 
@@ -58,7 +60,7 @@ class SpecialOpenID extends SpecialPage {
 				require_once( 'Auth/OpenID/SQLiteStore.php' );
 				return new Auth_OpenID_SQLiteStore( $db );
 			} else {
-				$lb = wfGetLBFactory()->newMainLB();
+				$lb = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->newMainLB();
 				$db = new MediaWikiOpenIDDatabaseConnection( $lb->getConnection( DB_MASTER ) );
 
 				switch( $wgDBtype ) {

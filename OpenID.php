@@ -385,7 +385,7 @@ $wgExtensionCredits['other'][] = array(
 	'author' => array( 'Evan Prodromou', 'Sergey Chernyshev', 'Alexandre Emsenhuber', 'Thomas Gries' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:OpenID',
 	'descriptionmsg' => 'openid-desc',
-	'license-name' => 'GPL-2.0+',
+	'license-name' => 'GPL-2.0-or-later',
 );
 
 $dir = $path . '/';

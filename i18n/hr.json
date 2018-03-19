@@ -3,7 +3,8 @@
 		"authors": [
 			"Dalibor Bosits",
 			"Ex13",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"Bugoslav"
 		]
 	},
 	"openid-desc": "Prijava na wiki s [//openid.net/ OpenID] i prijava na druge stranice koje podržavaju OpenID s wiki suradničkim računom",
@@ -73,7 +74,7 @@
 	"openid-urls-action": "Radnja",
 	"openid-urls-delete": "Izbriši",
 	"openid-add-url": "Dodaj novi OpenID",
-	"openid-login-or-create-account": "Prijavite se ili napravite novi račun",
+	"openid-login-or-create-account": "Prijavite se ili stvorite novi račun",
 	"openid-provider-label-openid": "Unesite Vaš OpenID URL",
 	"openid-provider-label-google": "Prijava putem Vašeg Google računa",
 	"openid-provider-label-yahoo": "Prijava putem Vašeg Yahoo računa",

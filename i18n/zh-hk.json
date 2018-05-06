@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"LNDDYL",
+			"Liuxinyu970226"
+		]
+	},
+	"openidnopolicy": "網站尚未設定私隱政策。",
+	"openidpolicy": "請參考<a target=\"_new\" href=\"$1\">私隱政策</a>以取得更多資訊。",
+	"openidchooseusername": "用戶名稱："
+}

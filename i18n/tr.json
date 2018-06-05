@@ -3,15 +3,22 @@
 		"authors": [
 			"Joseph",
 			"Suelnur",
-			"Sayginer"
+			"Sayginer",
+			"Hedda"
 		]
 	},
 	"openid-desc": "Vikiye bir [//openid.net/ OpenID] ile giriş yapın, ve diğer OpenID kullanan web sitelerine bir viki kullanıcı hesabıyla giriş yapın.",
-	"openidlogin": "OpenID ile giriş yapın",
+	"openididentifier": "OpenID Tanımlayıcısı",
+	"openidlogin": "OpenID ile giriş yap / hesap oluştur",
 	"openidserver": "OpenID sunucusu",
+	"openid-identifier-page-text-user": "Bu sayfa \"$1\" kullanıcısı için belirleyicidir.",
+	"openid-identifier-page-text-different-user": "Bu sayfa, $1 kullanıcı kimliği için tanımlayıcıdır.",
+	"openid-identifier-page-text-no-such-local-openid": "Bu geçersiz bir yerel OpenID tanımlayıcısıdır.",
+	"openid-server-identity-page-text": "Bu, OpenID kimlik doğrulamasını başlatmak için teknik bir OpenID sunucu sayfasıdır.\nSayfanın başka amacı yoktur.",
 	"openidxrds": "Yadis dosyası",
 	"openidconvert": "OpenID çeviricisi",
-	"openiderror": "Doğrulama hatası",
+	"openiderror": "OpenID hatası",
+	"openid-error-openid-consumer-mode-disabled": "OpenID alıcı modu devre dışı bırakıldığı için bu viki'ye OpenID ile giriş yapamazsınız.",
 	"openiderrortext": "OpenID adresi doğrulanırken bir hata oluştu.",
 	"openidconfigerror": "OpenID yapılandırma hatası",
 	"openidconfigerrortext": "Bu viki için OpenID depolama yapılandırması geçersiz.\nLütfen bir [[Special:ListUsers/sysop|yöneticiye]] danışın.",

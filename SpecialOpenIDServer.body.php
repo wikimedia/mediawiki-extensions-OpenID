@@ -510,7 +510,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 	static function GetUserTrustArray( $user ) {
 		$trust_array = array();
-		$trust_str = FormatJSON::decode( $user->getOption( 'openid_trust' ) );
+		$trust_str = FormatJson::decode( $user->getOption( 'openid_trust' ) );
 		if ( strlen( $trust_str ) > 0 ) {
 			$trust_records = explode( "\x1E", $trust_str );
 			foreach ( $trust_records as $record ) {
@@ -547,7 +547,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$trust_records[] = $record;
 		}
 		$trust_str = implode( "\x1E", $trust_records );
-		$user->setOption( 'openid_trust', FormatJSON::encode( $trust_str ) );
+		$user->setOption( 'openid_trust', FormatJson::encode( $trust_str ) );
 	}
 
 	static function ValidField( $name ) {

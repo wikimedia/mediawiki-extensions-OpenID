@@ -289,8 +289,8 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	 */
 	static function getLocalIdentityLink( $user ) {
 		return Xml::element( 'a',
-				[ 'href' => ( SpecialOpenIDServer::getLocalIdentity( $user ) ) ],
-				SpecialOpenIDServer::getLocalIdentity( $user )
+				[ 'href' => ( self::getLocalIdentity( $user ) ) ],
+				self::getLocalIdentity( $user )
 			);
 	}
 

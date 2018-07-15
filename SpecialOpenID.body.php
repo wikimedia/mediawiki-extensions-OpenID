@@ -421,7 +421,7 @@ class SpecialOpenID extends SpecialPage {
 		$openid_urls_registration = [];
 
 		if ( $user instanceof User && $user->getId() != 0 ) {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$res = $dbr->select(
 				[ 'user_openid' ],
 				[ 'uoi_openid', 'uoi_user_registration' ],
@@ -442,7 +442,7 @@ class SpecialOpenID extends SpecialPage {
 	 * @return null|User
 	 */
 	public static function getUserFromUrl( $openid ) {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$id = $dbr->selectField(
 			'user_openid',

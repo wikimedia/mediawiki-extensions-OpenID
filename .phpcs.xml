@@ -11,8 +11,6 @@
 		<exclude name="MediaWiki.Files.ClassMatchesFilename.NotMatch" />
 		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
 		<exclude name="MediaWiki.NamingConventions.ValidGlobalName.wgPrefix" />
-		<exclude name="MediaWiki.Usage.DeprecatedConstantUsage.DB_SLAVE" />
-		<exclude name="MediaWiki.Usage.DirUsage.FunctionFound" />
 		<exclude name="MediaWiki.Usage.ForbiddenFunctions.assert" />
 		<exclude name="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals" />
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgEmailAuthentication" />

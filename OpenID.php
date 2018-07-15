@@ -39,7 +39,7 @@ if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI == true ) {
 
 define( 'MEDIAWIKI_OPENID_VERSION', '4.5.0 20160312' );
 
-$path = dirname( __FILE__ );
+$path = __DIR__;
 set_include_path( implode( PATH_SEPARATOR, [ $path ] ) . PATH_SEPARATOR . get_include_path() );
 
 # CONFIGURATION VARIABLES

@@ -217,7 +217,6 @@ class OpenIDHooks {
 		}
 
 		return $info;
-
 	}
 
 	/**
@@ -463,7 +462,6 @@ class OpenIDHooks {
 		}
 
 		return true;
-
 	}
 
 	/**
@@ -568,7 +566,6 @@ class OpenIDHooks {
 ";
 		}
 		return $ret . "</style>";
-
 	}
 
 	/**

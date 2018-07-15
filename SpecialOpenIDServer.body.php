@@ -281,7 +281,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 
 		return $local_identity;
-
 	}
 
 	/**
@@ -293,7 +292,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				[ 'href' => ( SpecialOpenIDServer::getLocalIdentity( $user ) ) ],
 				SpecialOpenIDServer::getLocalIdentity( $user )
 			);
-
 	}
 
 	# Checks a validation request. $imm means don't run any UI.
@@ -500,7 +498,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 
 		$this->SetUserTrustArray( $user, $trust_array );
-
 	}
 
 	static function GetUserTrustArray( $user ) {

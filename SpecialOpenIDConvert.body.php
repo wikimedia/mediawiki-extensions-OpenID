@@ -176,7 +176,6 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 
 		// If we're OK to here, let the user go log in
 		$this->login( $openid_url, SpecialPage::getTitleFor( 'OpenIDConvert', 'Finish' ), $skipTokenTestBecauseForcedProvider );
-
 	}
 
 	public static function renderProviderIcons( &$inputFormHTML, &$largeButtonsHTML, &$smallButtonsHTML ) {
@@ -250,7 +249,6 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			}
 
 			return;
-
 		}
 
 	function form() {

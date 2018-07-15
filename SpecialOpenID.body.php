@@ -393,7 +393,6 @@ class SpecialOpenID extends SpecialPage {
 
 		// adding a dummy parameter forces a canonical url which we need
 		return $nt->getFullURL( [ 'dummy' => 'x' ], false, PROTO_CANONICAL );
-
 	}
 
 	protected function setupSession() {

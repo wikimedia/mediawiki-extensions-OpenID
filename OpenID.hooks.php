@@ -62,7 +62,7 @@ class OpenIDHooks {
 		return true;
 	}
 
-	/**Hook is called whenever an article is being viewed
+	/** Hook is called whenever an article is being viewed
 	 * @param $article Article
 	 * @param $outputDone
 	 * @param $pcache

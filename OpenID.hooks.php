@@ -405,7 +405,7 @@ class OpenIDHooks {
 
 			if ( empty( $wgUser->mPassword ) && empty( $wgUser->mNewpassword ) ) {
 
- 				$preferences['password'] = [
+				$preferences['password'] = [
 					'section' => 'personal/info',
 					'type' => 'info',
 					'raw' => true,
@@ -458,7 +458,7 @@ class OpenIDHooks {
 			$username = $user->getName();
 			$userID = $user->getID();
 
-  			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_MASTER );
 
 			$dbw->delete( 'user_openid', [ 'uoi_user' => $userID ] );
 			$wgOut->addHTML( "OpenID " . wfMessage( 'usermerge-userdeleted', $username, $userID )->escaped() . "<br />\n" );

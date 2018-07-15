@@ -937,7 +937,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 		switch ( $choice ) {
 		case 'nick':
-		 	if ( $wgOpenIDProposeUsernameFromSREG ) {
+			if ( $wgOpenIDProposeUsernameFromSREG ) {
 				return ( ( array_key_exists( 'nickname', $sreg ) ) ? $sreg['nickname'] : null );
 			}
 			break;
@@ -945,10 +945,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			if ( !$wgOpenIDProposeUsernameFromSREG ) {
 				return;
 			}
-		 	# check the SREG first; only return a value if non-null
+			# check the SREG first; only return a value if non-null
 			$fullname = ( ( array_key_exists( 'fullname', $sreg ) ) ? $sreg['fullname'] : null );
 			if ( !is_null( $fullname ) ) {
-			 	return $fullname;
+				return $fullname;
 			}
 
 			# try AX
@@ -1023,10 +1023,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 * 2. One element in path, like http://profile.typekey.com/EvanProdromou/
 	 *   or http://getopenid.com/evanprodromou
 	 */
-    function toUserNameUrl( $openid ) {
+	function toUserNameUrl( $openid ) {
 		static $bad = [ 'query', 'user', 'password', 'port', 'fragment' ];
 
-	    $parts = parse_url( $openid );
+		$parts = parse_url( $openid );
 
 		# If any of these parts exist, this won't work
 

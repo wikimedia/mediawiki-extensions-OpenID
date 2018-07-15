@@ -63,7 +63,7 @@ class SpecialOpenID extends SpecialPage {
 				$lb = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->newMainLB();
 				$db = new MediaWikiOpenIDDatabaseConnection( $lb->getConnection( DB_MASTER ) );
 
-				switch( $wgDBtype ) {
+				switch ( $wgDBtype ) {
 				case 'mysql':
 					require_once 'Auth/OpenID/MySQLStore.php' ;
 					return new Auth_OpenID_MySQLStore( $db );
@@ -381,7 +381,6 @@ class SpecialOpenID extends SpecialPage {
 	 * @return string
 	 */
 	function scriptUrl( $par = false ) {
-
 		if ( !is_object( $par ) ) {
 			$nt = $this->getPageTitle( $par );
 		} else {
@@ -393,7 +392,7 @@ class SpecialOpenID extends SpecialPage {
 		}
 
 		// adding a dummy parameter forces a canonical url which we need
-		return $nt->getFullURL( [ 'dummy' => 'x'], false, PROTO_CANONICAL );
+		return $nt->getFullURL( [ 'dummy' => 'x' ], false, PROTO_CANONICAL );
 
 	}
 

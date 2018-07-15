@@ -99,11 +99,11 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 						$skipTokenTestBecauseForcedProvider = true;
 						$openid_url = $url;
 					} else {
-						if ( isset ( $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'] ) ) {
+						if ( isset( $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'] ) ) {
 							$skipTokenTestBecauseForcedProvider = true;
 							$openid_url = $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'];
 						} else {
-							wfDebug( "OpenID: Error: wgOpenIDForcedProvider $wgOpenIDForcedProvider defined, but wgOpenIDProviders array has an invalid provider Url. Must not contain a username placeholder!\n");
+							wfDebug( "OpenID: Error: wgOpenIDForcedProvider $wgOpenIDForcedProvider defined, but wgOpenIDProviders array has an invalid provider Url. Must not contain a username placeholder!\n" );
 							$this->showErrorPage( 'openid-error-wrong-force-provider-setting', [ $wgOpenIDForcedProvider ] );
 							return;
 						}
@@ -124,7 +124,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			}
 
 			if ( isset( $openid_url ) && strlen( $openid_url ) > 0 ) {
-				$this->convert( $openid_url, $skipTokenTestBecauseForcedProvider  );
+				$this->convert( $openid_url, $skipTokenTestBecauseForcedProvider );
 			} else {
 				$this->form();
 			}
@@ -142,7 +142,6 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
 			return;
 		}
-
 
 		# Expand Interwiki
 		$openid_url = $this->interwikiExpand( $openid_url );
@@ -182,9 +181,9 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 
 	public static function renderProviderIcons( &$inputFormHTML, &$largeButtonsHTML, &$smallButtonsHTML ) {
 			global $wgOpenIDShowProviderIcons;
-			//The loginFormHTML that each provider generates and the
-			//accompanying openid.js code relies on there being a
-			//hidden input 'openid_url'
+			// The loginFormHTML that each provider generates and the
+			// accompanying openid.js code relies on there being a
+			// hidden input 'openid_url'
 			$inputFormHTML .= Html::element( 'input',
 				[
 					'type' => 'hidden',
@@ -253,7 +252,6 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			return;
 
 		}
-
 
 	function form() {
 		global $wgOut, $wgUser, $wgOpenIDShowProviderIcons;

@@ -40,7 +40,7 @@ if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI == true ) {
 define( 'MEDIAWIKI_OPENID_VERSION', '4.5.0 20160312' );
 
 $path = dirname( __FILE__ );
-set_include_path( implode( PATH_SEPARATOR, array( $path ) ) . PATH_SEPARATOR . get_include_path() );
+set_include_path( implode( PATH_SEPARATOR, [ $path ] ) . PATH_SEPARATOR . get_include_path() );
 
 # CONFIGURATION VARIABLES
 
@@ -64,7 +64,7 @@ $wgOpenIDLoginOnly = false;
 # $wgOpenIDMode = 'consumer';
 
 # if you want to allow Users of this wiki to use their identity as OpenIDs for logins on other sites
-$wgOpenIDMode = array( 'consumer', 'provider' );
+$wgOpenIDMode = [ 'consumer', 'provider' ];
 
 /**
  * If true, users can use their OpenID identity provided by this site A
@@ -98,7 +98,7 @@ $wgOpenIDShowUrlOnUserPage = 'user';
  * These are trust roots that we don't bother asking users whether the trust
  * root is allowed to trust; typically for closely-linked partner sites.
  */
-$wgOpenIDServerForceAllowTrust = array();
+$wgOpenIDServerForceAllowTrust = [];
 
 /**
  * Implicitly trust the e-mail address sent from the OpenID server, and don't
@@ -139,12 +139,12 @@ $wgOpenIDConsumerDenyByDefault = false;
 /**
  * Which partners to allow; regexps here. See above.
  */
-$wgOpenIDConsumerAllow = array();
+$wgOpenIDConsumerAllow = [];
 
 /**
  * Which partners to deny; regexps here. See above.
  */
-$wgOpenIDConsumerDeny = array();
+$wgOpenIDConsumerDeny = [];
 
 /**
  * Force this server to only allow authentication against one server
@@ -206,49 +206,49 @@ $wgOpenIDDefaultProviderName = null;
  * @param $wgOpenIDProviders Array: names and parameters of supported OpenID Providers
  *
  */
-$wgOpenIDProviders = array(
-	'OpenID' => array(
+$wgOpenIDProviders = [
+	'OpenID' => [
 		'large-provider' => true,
 		'openid-url' => '{URL}'
-	),
-	'Google' => array(
+	],
+	'Google' => [
 		'large-provider' => true,
 		'openid-url' => 'https://www.google.com/accounts/o8/id'
-	),
-	'Yahoo' => array(
+	],
+	'Yahoo' => [
 		'large-provider' => true,
 		'openid-url' => 'http://yahoo.com/'
-	),
-	'AOL' => array(
+	],
+	'AOL' => [
 		'large-provider' => true,
 		'openid-url' => 'http://openid.aol.com/{username}'
-	),
-	'MyOpenID' => array(
+	],
+	'MyOpenID' => [
 		'large-provider' => false,
 		'openid-url' => 'http://{username}.myopenid.com/'
-	),
-	'LiveJournal' => array(
+	],
+	'LiveJournal' => [
 		'large-provider' => false,
 		'openid-url' => 'http://{username}.livejournal.com/'
-	),
-	'Blogger' => array(
+	],
+	'Blogger' => [
 		'large-provider' => false,
 		'openid-url' => 'http://{username}.blogspot.com/'
-	),
-	'Flickr' => array(
+	],
+	'Flickr' => [
 		'large-provider' => false,
 		'openid-url' => 'http://flickr.com/photos/{username}/'
-	),
-	'Verisign' => array(
+	],
+	'Verisign' => [
 		'large-provider' => false,
 		'openid-url' => 'https://{username}.pip.verisignlabs.com/',
 		'openid-selection-url' => 'https://pip.verisignlabs.com/'
-	),
-	'ClaimID' => array(
+	],
+	'ClaimID' => [
 		'large-provider' => false,
 		'openid-url' => 'http://claimid.com/{username}'
-	)
-);
+	]
+];
 
 
 /**
@@ -378,15 +378,15 @@ $wgDefaultUserOptions['openid-userinfo-update-on-login-timezone'] = false;
 
 # END CONFIGURATION VARIABLES
 
-$wgExtensionCredits['other'][] = array(
+$wgExtensionCredits['other'][] = [
 	'name' => 'OpenID',
 	'version' => MEDIAWIKI_OPENID_VERSION,
 	'path' => __FILE__,
-	'author' => array( 'Evan Prodromou', 'Sergey Chernyshev', 'Alexandre Emsenhuber', 'Thomas Gries' ),
+	'author' => [ 'Evan Prodromou', 'Sergey Chernyshev', 'Alexandre Emsenhuber', 'Thomas Gries' ],
 	'url' => 'https://www.mediawiki.org/wiki/Extension:OpenID',
 	'descriptionmsg' => 'openid-desc',
 	'license-name' => 'GPL-2.0-or-later',
-);
+];
 
 $dir = $path . '/';
 
@@ -458,30 +458,30 @@ $wgGroupPermissions['*']['openid-create-account-with-openid'] = true;
 $wgGroupPermissions['*']['openid-create-account-without-openid'] = false;
 $wgGroupPermissions['sysop']['openid-create-account-without-openid'] = true;
 
-$myResourceTemplate = array(
+$myResourceTemplate = [
 	'localBasePath' => $path . '/skin',
 	'remoteExtPath' => 'OpenID/skin',
 	'group' => 'ext.openid',
-);
+];
 
-$wgResourceModules['ext.openid'] = $myResourceTemplate + array(
+$wgResourceModules['ext.openid'] = $myResourceTemplate + [
 	'scripts' => 'openid.js',
-	'dependencies' => array(
+	'dependencies' => [
 		'jquery.cookie'
-	)
-);
-$wgResourceModules['ext.openid.plain'] = $myResourceTemplate + array(
+	]
+];
+$wgResourceModules['ext.openid.plain'] = $myResourceTemplate + [
 	'styles' => 'openid-plain.css',
-	'dependencies' => array(
+	'dependencies' => [
 		'ext.openid'
-	)
-);
-$wgResourceModules['ext.openid.icons'] = $myResourceTemplate + array(
+	]
+];
+$wgResourceModules['ext.openid.icons'] = $myResourceTemplate + [
 	'styles' => 'openid.css',
-	'dependencies' => array(
+	'dependencies' => [
 		'ext.openid'
-	)
-);
+	]
+];
 
 class OpenID {
 	/*
@@ -494,7 +494,7 @@ class OpenID {
 		if ( !is_string( $mode )
 			|| is_null( $wgOpenIDMode )
 			|| ( $wgOpenIDMode === false )
-			|| !in_array( $mode, array( 'provider', 'consumer' ) ) ) {
+			|| !in_array( $mode, [ 'provider', 'consumer' ] ) ) {
 			return false;
 		}
 
@@ -563,7 +563,7 @@ class OpenID {
 	 */
 	public static function getOpenIDSmallLogoUrlImageTag() {
 		return Xml::element( 'img',
-			array( 'src' => self::getOpenIDSmallLogoUrl(), 'alt' => 'OpenID' ),
+			[ 'src' => self::getOpenIDSmallLogoUrl(), 'alt' => 'OpenID' ],
 			''
 		);
 	}

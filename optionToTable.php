@@ -43,8 +43,8 @@ class OpenIDOptionToTable extends Maintenance {
 
 		$this->output( "Checking for legacy user_property rows..." );
 		$dbr = wfGetDB( DB_SLAVE );
-		$res = $dbr->select( array( 'user_properties' ), array( 'up_user' ),
-			array( 'up_property' => 'openid_url' ), __METHOD__ );
+		$res = $dbr->select( [ 'user_properties' ], [ 'up_user' ],
+			[ 'up_property' => 'openid_url' ], __METHOD__ );
 		if ( $dbr->numRows( $res ) ) {
 			foreach ( $res as $row ) {
 				$user = User::newFromId( $row->up_user );

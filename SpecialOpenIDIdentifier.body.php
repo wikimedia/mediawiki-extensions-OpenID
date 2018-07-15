@@ -71,12 +71,12 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 			) {
 				$serverTitle = SpecialPage::getTitleFor( 'OpenIDServer' );
 				$serverUrl = $serverTitle->getFullURL( '', false, PROTO_CANONICAL );
-				$wgOut->addLink( array( 'rel' => 'openid.server', 'href' => $serverUrl ) );
-				$wgOut->addLink( array( 'rel' => 'openid2.provider', 'href' => $serverUrl ) );
+				$wgOut->addLink( [ 'rel' => 'openid.server', 'href' => $serverUrl ] );
+				$wgOut->addLink( [ 'rel' => 'openid2.provider', 'href' => $serverUrl ] );
 				if ( $delegate ) {
 					$local_identity = SpecialOpenIDServer::getLocalIdentity( $user );
-					$wgOut->addLink( array( 'rel' => 'openid.delegate', 'href' => $local_identity ) );
-					$wgOut->addLink( array( 'rel' => 'openid2.local_id', 'href' => $local_identity ) );
+					$wgOut->addLink( [ 'rel' => 'openid.delegate', 'href' => $local_identity ] );
+					$wgOut->addLink( [ 'rel' => 'openid2.local_id', 'href' => $local_identity ] );
 				}
 				$rt = SpecialPage::getTitleFor( 'OpenIDXRDS', $user->getName() );
 				$xrdsUrl = $rt->getFullURL( '', false, PROTO_CANONICAL );

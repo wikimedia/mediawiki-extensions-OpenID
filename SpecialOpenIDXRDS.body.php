@@ -52,11 +52,11 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 		}
 
 		// XRDS preamble XML.
-		$xml_template = array(
+		$xml_template = [
 			'<?xml version="1.0" encoding="UTF-8"?' . '>',
 			'<xrds:XRDS xmlns:xrds="xri://$xrds" xmlns:openid="http://openid.net/xmlns/1.0" xmlns="xri://$xrd*($v*2.0)">',
 			'<XRD>',
-		);
+		];
 
 		# Check to see if the parameter is really a user name
 
@@ -91,34 +91,34 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 
 		// Define array of Yadis services to be included in
 		// the XRDS output.
-		$services = array(
-			array(
+		$services = [
+			[
 				'uri' => $server_url,
 				'priority' => '0',
-				'types' => array( 'http://openid.net/signon/1.0',
+				'types' => [ 'http://openid.net/signon/1.0',
 					'http://openid.net/sreg/1.0',
 					'http://specs.openid.net/auth/2.0/signon',
-				),
+				],
 				'delegate' => $user_url
-			),
-		);
+			],
+		];
 
 		// Generate <Service> elements into $service_text.
 		$service_text = "\n";
 		foreach ( $services as $service ) {
 
-			$types = array();
+			$types = [];
 			foreach ( $service['types'] as $type_uri ) {
 				$types[] = '<Type>' . $type_uri . '</Type>';
 			}
 
 			$service_text .= implode( "\n",
-				 array(
+				 [
 					'<Service priority="' . $service['priority'] . '">',
 					implode( "\n", $types ),
 					'<URI>' . $server_url . '</URI>',
 					'</Service>',
-				)
+				]
 			);
 
 		}
@@ -131,10 +131,10 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 		print implode( "\n", $xml_template );
 		print $service_text;
 		print ( "\n" );
-		print implode( "\n", array( 
+		print implode( "\n", [ 
 			"</XRD>",
 			"</xrds:XRDS>"
-			)
+			]
 		);
 	}
 

@@ -98,7 +98,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 							$skipTokenTestBecauseForcedProvider = true;
 							$openid_url = $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'];
 						} else {
-							$this->showErrorPage( 'openid-error-wrong-force-provider-setting', array( $wgOpenIDForcedProvider ) );
+							$this->showErrorPage( 'openid-error-wrong-force-provider-setting', [ $wgOpenIDForcedProvider ] );
 							return;
 						}
 					}
@@ -161,24 +161,24 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		$wgOut->addModules( $wgOpenIDShowProviderIcons ? 'ext.openid.icons' : 'ext.openid.plain' );
 		$wgOut->addHTML(
 			Html::rawElement( 'form',
-				array(
+				[
 					'id' => 'openid_form',
 					'action' => $this->getPageTitle()->getLocalUrl(),
 					'method' => 'post',
 					'onsubmit' => 'openid.update()'
-				),
+				],
 				Xml::fieldset( wfMessage( 'openid-login-or-create-account' )->text() ) .
 				$largeButtonsHTML .
 				Html::rawElement( 'div',
-					array(
+					[
 						'id' => 'openid_provider_selection_error_box',
 						'class' => 'errorbox',
 						'style' => 'display:none'
-					),
+					],
 					wfMessage( 'openid-empty-param-error' )->escaped()
 				) .
 				Html::rawElement( 'div',
-					array( 'id' => 'openid_input_area' ),
+					[ 'id' => 'openid_input_area' ],
 					$inputFormHTML
 				) .
 				$smallButtonsHTML .
@@ -217,16 +217,16 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 		$wgOut->addHTML(
 			Xml::openElement( 'form',
-				array(
+				[
 					'action' => $this->getPageTitle( 'ChooseName' )->getLocalUrl(),
 					'method' => 'POST'
-				)
+				]
 			) .
 			Xml::fieldset( wfMessage( 'openidchooselegend' )->text(),
 				false,
-				array(
+				[
 					'id' => 'mw-openid-choosename'
-				)
+				]
 			) .
 			Xml::openElement( 'table' )
 		);
@@ -244,8 +244,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 
 			# show OpenID Attributes
-			$oidAttributesToAccept = array( 'fullname', 'nickname', 'email', 'language' );
-			$oidAttributes = array();
+			$oidAttributesToAccept = [ 'fullname', 'nickname', 'email', 'language' ];
+			$oidAttributes = [];
 
 			foreach ( $oidAttributesToAccept as $oidAttr ) {
 
@@ -257,20 +257,20 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				if ( array_key_exists( $oidAttr, $sreg ) ) {
 					$checkName = 'wpUpdateUserInfo' . $oidAttr;
 					$oidAttributes[] = Xml::tags( 'li',
-						array(),
+						[],
 						Xml::check( $checkName,
 							false,
-							array(
+							[
 								'id' => $checkName
-							)
+							]
 						) .
 						Xml::tags( 'label',
-							array(
+							[
 								'for' => $checkName
-							),
+							],
 							wfMessage( "openid$oidAttr" )->text() . wfMessage( 'colon-separator' )->escaped() .
 							Xml::element( 'i',
-								array(),
+								[],
 								$sreg[$oidAttr]
 							)
 						)
@@ -283,7 +283,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				$oidAttributesUpdate = "<br />\n" .
 					wfMessage( 'openidupdateuserinfo' )->text() . "\n" .
 					Xml::tags( 'ul',
-						array(),
+						[],
 						implode( "\n", $oidAttributes )
 					);
 			}
@@ -291,29 +291,29 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$wgOut->addHTML(
 				Xml::openElement( 'tr' ) .
 				Xml::tags( 'td',
-					array(
+					[
 						'class' => 'mw-label'
-					),
+					],
 					Xml::radio( 'wpNameChoice',
 						'existing',
 						!$def,
-						array(
+						[
 							'id' => 'wpNameChoiceExisting'
-						)
+						]
 					)
 				) .
 				Xml::tags( 'td',
-					array(
+					[
 						'class' => 'mw-input'
-					),
+					],
 					Xml::label( wfMessage( 'openidchooseexisting' )->text(), 'wpNameChoiceExisting' ) . "<br />" .
 					wfMessage( 'openidchooseusername' )->text() .
 					Xml::input( 'wpExistingName',
 						16,
 						$name,
-						array(
+						[
 							'id' => 'wpExistingName'
-						)
+						]
 					) . " " .
 					wfMessage( 'openidchoosepassword' )->text() .
 					Xml::password( 'wpExistingPassword' ) .
@@ -328,17 +328,17 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				Xml::openElement( 'tr' ) .
 
 				Xml::tags( 'td',
-					array(),
+					[],
 					"&nbsp;"
 				) .
 
 				Xml::tags( 'td',
-					array(),
+					[],
 					Linker::link(
 						SpecialPage::getTitleFor( 'PasswordReset' ),
 						wfMessage( 'passwordreset' )->escaped(),
-						array(),
-						array( 'returnto' => SpecialPage::getTitleFor( 'OpenIDLogin' ) )
+						[],
+						[ 'returnto' => SpecialPage::getTitleFor( 'OpenIDLogin' ) ]
 					)
 				) .
 
@@ -365,21 +365,21 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 					$wgOut->addHTML(
 						Xml::openElement( 'tr' ) .
 						Xml::tags( 'td',
-							array(
+							[
 								'class' => 'mw-label'
-							),
+							],
 							Xml::radio( 'wpNameChoice',
 								'nick',
 								!$def,
-								array(
+								[
 									'id' => 'wpNameChoiceNick'
-								)
+								]
 							)
 						) .
 						Xml::tags( 'td',
-							array(
+							[
 								'class' => 'mw-input'
-							),
+							],
 							Xml::label( wfMessage( 'openidchoosenick', $sreg['nickname'] )->escaped(), 'wpNameChoiceNick' )
 						) .
 						Xml::closeElement( 'tr' )
@@ -401,21 +401,21 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 					$wgOut->addHTML(
 						Xml::openElement( 'tr' ) .
 						Xml::tags( 'td',
-							array(
+							[
 								'class' => 'mw-label'
-							),
+							],
 							Xml::radio( 'wpNameChoice',
 								'full',
 								!$def,
-								array(
+								[
 									'id' => 'wpNameChoiceFull'
-								)
+								]
 							)
 						) .
 						Xml::tags( 'td',
-							array(
+							[
 								'class' => 'mw-input'
-							),
+							],
 							Xml::label( wfMessage( 'openidchoosefull', $fullname )->escaped(), 'wpNameChoiceFull' )
 						) .
 						Xml::closeElement( 'tr' )
@@ -428,21 +428,21 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 					$wgOut->addHTML(
 						Xml::openElement( 'tr' ) .
 						Xml::tags( 'td',
-							array(
+							[
 								'class' => 'mw-label'
-							),
+							],
 							Xml::radio( 'wpNameChoice',
 								'url',
 								!$def,
-								array(
+								[
 									'id' => 'wpNameChoiceUrl'
-								)
+								]
 							)
 						) .
 						Xml::tags( 'td',
-							array(
+							[
 								'class' => 'mw-input'
-							),
+							],
 							Xml::label( wfMessage( 'openidchooseurl', $idname )->text(), 'wpNameChoiceUrl' )
 						) .
 						Xml::closeElement( 'tr' )
@@ -455,21 +455,21 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				$wgOut->addHTML(
 					Xml::openElement( 'tr' ) .
 					Xml::tags( 'td',
-						array(
+						[
 							'class' => 'mw-label'
-						),
+						],
 						Xml::radio( 'wpNameChoice',
 							'auto',
 							!$def,
-							array(
+							[
 								'id' => 'wpNameChoiceAuto'
-							)
+							]
 						)
 					) .
 					Xml::tags( 'td',
-						array(
+						[
 							'class' => 'mw-input'
-						),
+						],
 						Xml::label( wfMessage( 'openidchooseauto', $this->automaticName( $sreg ) )->escaped(), 'wpNameChoiceAuto' )
 					) .
 					Xml::closeElement( 'tr' )
@@ -481,28 +481,28 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 				Xml::openElement( 'tr' ) .
 				Xml::tags( 'td',
-					array(
+					[
 						'class' => 'mw-label'
-					),
+					],
 					Xml::radio( 'wpNameChoice',
 						'manual',
 						!$def,
-						array(
+						[
 							'id' => 'wpNameChoiceManual'
-						)
+						]
 					)
 				) .
 				Xml::tags( 'td',
-					array(
+					[
 						'class' => 'mw-input'
-					),
+					],
 					Xml::label( wfMessage( 'openidchoosemanual' )->text(), 'wpNameChoiceManual' ) . '&#160;' .
 					Xml::input( 'wpNameValue',
 						16,
 						false,
-						array(
+						[
 							'id' => 'wpNameValue'
-						)
+						]
 					)
 				) .
 				Xml::closeElement( 'tr' )
@@ -517,15 +517,15 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		$wgOut->addHTML(
 			Xml::openElement( 'tr' ) .
 			Xml::tags( 'td',
-				array(),
+				[],
 				''
 			) .
 			Xml::tags( 'td',
-				array(
+				[
 					'class' => 'mw-submit'
-				),
-				Xml::submitButton( OpenID::loginOrCreateAccountOrConvertButtonLabel(), array( 'name' => 'wpOK' ) ) .
-				Xml::submitButton( wfMessage( 'cancel' )->text(), array( 'name' => 'wpCancel' ) )
+				],
+				Xml::submitButton( OpenID::loginOrCreateAccountOrConvertButtonLabel(), [ 'name' => 'wpOK' ] ) .
+				Xml::submitButton( wfMessage( 'cancel' )->text(), [ 'name' => 'wpCancel' ] )
 			) .
 			Xml::closeElement( 'tr' ) .
 			Xml::closeElement( 'table' ) .
@@ -577,8 +577,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				return;
 			}
 
-			$force = array();
-			foreach ( array( 'fullname', 'nickname', 'email', 'language' ) as $option ) {
+			$force = [];
+			foreach ( [ 'fullname', 'nickname', 'email', 'language' ] as $option ) {
 				if ( $wgRequest->getCheck( 'wpUpdateUserInfo' . $option ) ) {
 					$force[] = $option;
 				}
@@ -639,7 +639,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		case Auth_OpenID_FAILURE:
 			wfDebug( "OpenID: error message '" . $response->message . "'\n" );
 			$wgOut->showErrorPage( 'openidfailure', 'openidfailuretext',
-				array( ( $response->message ) ? $response->message : '' ) );
+				[ ( $response->message ) ? $response->message : '' ] );
 			break;
 		case Auth_OpenID_SUCCESS:
 			// This means the authentication succeeded.
@@ -654,12 +654,12 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$sreg_resp = Auth_OpenID_SRegResponse::fromSuccessResponse( $response );
 			$sreg = $sreg_resp->contents();
 			if ( $sreg === null ) {
-				$sreg = array();
+				$sreg = [];
 			}
 			$ax_resp = Auth_OpenID_AX_FetchResponse::fromSuccessResponse( $response );
 			$ax = $ax_resp->data;
 			if ( $ax === null ) {
-				$ax = array();
+				$ax = [];
 			}
 			wfRestoreWarnings();
 
@@ -823,7 +823,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 		# Run any hooks; ignore results
 		$inject_html = '';
-		Hooks::run( 'UserLoginComplete', array( &$wgUser, &$inject_html ) );
+		Hooks::run( 'UserLoginComplete', [ &$wgUser, &$inject_html ] );
 
 		# Set a cookie for later check-immediate use
 
@@ -869,7 +869,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$wgUser = $user;
 
 			# new user account: not opened by mail
-			Hooks::run( 'AddNewAccount', array( $user, false ) );
+			Hooks::run( 'AddNewAccount', [ $user, false ] );
 			$user->addNewUserLogEntry();
 
 			# Update site stats
@@ -1023,7 +1023,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 *   or http://getopenid.com/evanprodromou
 	 */
     function toUserNameUrl( $openid ) {
-		static $bad = array( 'query', 'user', 'password', 'port', 'fragment' );
+		static $bad = [ 'query', 'user', 'password', 'port', 'fragment' ];
 
 	    $parts = parse_url( $openid );
 
@@ -1154,15 +1154,15 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 	function fetchValues() {
 		$response = isset( $_SESSION['openid_consumer_response'] ) ? $_SESSION['openid_consumer_response'] : null;
-		$sreg = isset( $_SESSION['openid_consumer_sreg'] ) ? $_SESSION['openid_consumer_sreg'] : array();
-		$ax = isset( $_SESSION['openid_consumer_ax'] ) ? $_SESSION['openid_consumer_ax'] : array();
-		return array( $response, $sreg, $ax );
+		$sreg = isset( $_SESSION['openid_consumer_sreg'] ) ? $_SESSION['openid_consumer_sreg'] : [];
+		$ax = isset( $_SESSION['openid_consumer_ax'] ) ? $_SESSION['openid_consumer_ax'] : [];
+		return [ $response, $sreg, $ax ];
 	}
 
 	function returnTo() {
 		$returnto = isset( $_SESSION['openid_consumer_returnto'] ) ? $_SESSION['openid_consumer_returnto'] : '';
 		$returntoquery = isset( $_SESSION['openid_consumer_returntoquery'] ) ? $_SESSION['openid_consumer_returntoquery'] : '';
-		return array( $returnto, $returntoquery );
+		return [ $returnto, $returntoquery ];
 	}
 
 	function setReturnTo( $returnto, $returntoquery ) {

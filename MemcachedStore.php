@@ -21,7 +21,7 @@ class MediaWikiOpenIDMemcachedStore extends Auth_OpenID_MemcachedStore {
 		$serverAssociations = $this->connection->get( $serverKey );
 
 		if ( !$serverAssociations ) {
-			$serverAssociations = array();
+			$serverAssociations = [];
 		}
 
 		$serverAssociations[$association->issued] = $associationKey;

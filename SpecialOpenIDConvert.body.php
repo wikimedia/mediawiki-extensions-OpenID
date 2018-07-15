@@ -104,7 +104,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 							$openid_url = $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'];
 						} else {
 							wfDebug( "OpenID: Error: wgOpenIDForcedProvider $wgOpenIDForcedProvider defined, but wgOpenIDProviders array has an invalid provider Url. Must not contain a username placeholder!\n");
-							$this->showErrorPage( 'openid-error-wrong-force-provider-setting', array( $wgOpenIDForcedProvider ) );
+							$this->showErrorPage( 'openid-error-wrong-force-provider-setting', [ $wgOpenIDForcedProvider ] );
 							return;
 						}
 					}
@@ -163,13 +163,13 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 				$wgOut->showErrorPage(
 					'openiderror',
 					'openid-convert-already-your-openid-text',
-					array( $openid_url )
+					[ $openid_url ]
 				);
 			} else {
 				$wgOut->showErrorPage(
 					'openiderror',
 					'openid-convert-other-users-openid-text',
-					array( $openid_url )
+					[ $openid_url ]
 				);
 			}
 			return;
@@ -186,11 +186,11 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			//accompanying openid.js code relies on there being a
 			//hidden input 'openid_url'
 			$inputFormHTML .= Html::element( 'input',
-				array(
+				[
 					'type' => 'hidden',
 					'id' => 'openid_url',
 					'name' => 'openid_url'
-				)
+				]
 			);
 
 			$largeButtons = '';
@@ -200,7 +200,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			}
 
 			$largeButtonsHTML = Html::rawElement( 'div',
-				array( 'id' => 'openid_large_providers' ),
+				[ 'id' => 'openid_large_providers' ],
 				$largeButtons
 			);
 
@@ -215,7 +215,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 				}
 
 				$smallButtonsHTML = Html::rawElement( 'div',
-					array( 'id' => 'openid_small_providers_icons' ),
+					[ 'id' => 'openid_small_providers_icons' ],
 					$smallButtons
 				);
 
@@ -233,7 +233,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 						$break = false;
 					}
 					$smallButtons .= Html::rawElement( 'li',
-						array(),
+						[],
 						$provider->getButtonHTML()
 					);
 
@@ -244,7 +244,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 				$smallButtons .= '</ul>';
 
 				$smallButtonsHTML .= Html::rawElement( 'div',
-					array( 'id' => 'openid_small_providers_links' ),
+					[ 'id' => 'openid_small_providers_links' ],
 					$smallButtons
 				);
 
@@ -267,28 +267,28 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 		$wgOut->addModules( $wgOpenIDShowProviderIcons ? 'ext.openid.icons' : 'ext.openid.plain' );
 		$wgOut->addHTML(
 			Html::rawElement( 'form',
-				array(
+				[
 					'id' => 'openid_form',
 					'action' => $this->getPageTitle()->getLocalUrl(),
 					'method' => 'post',
 					'onsubmit' => 'openid.update()'
-				),
+				],
 				Xml::fieldset( wfMessage( 'openidconvertoraddmoreids' )->text() ) .
 				Html::element( 'p',
-					array(),
+					[],
 					wfMessage( 'openidconvertinstructions' )->text()
 				) .
 				$largeButtonsHTML .
 				Html::rawElement( 'div',
-					array(
+					[
 						'id' => 'openid_provider_selection_error_box',
 						'class' => 'errorbox',
 						'style' => 'display:none'
-					),
+					],
 					wfMessage( 'openid-empty-param-error' )->escaped()
 				) .
 				Html::rawElement( 'div',
-					array( 'id' => 'openid_input_area' ),
+					[ 'id' => 'openid_input_area' ],
 					$inputFormHTML
 				) .
 				$smallButtonsHTML .
@@ -335,10 +335,10 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 
 		$wgOut->addHtml(
 			Xml::openElement( 'form',
-				array(
+				[
 					'action' => $this->getPageTitle( 'Delete' )->getLocalUrl(),
 					'method' => 'post'
-				)
+				]
 			) .
 			Xml::submitButton( wfMessage( 'openiddelete-button' )->text() ) .
 			Html::Hidden( 'url', $openid ) .
@@ -372,7 +372,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 		case Auth_OpenID_FAILURE:
 
 			wfDebug( "OpenID: error in convert: '" . $response->message . "'\n" );
-			$wgOut->showErrorPage( 'openidfailure', 'openidfailuretext', array( $response->message ) );
+			$wgOut->showErrorPage( 'openidfailure', 'openidfailuretext', [ $response->message ] );
 			break;
 
 		case Auth_OpenID_SUCCESS:
@@ -401,13 +401,13 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 					$wgOut->showErrorPage(
 						'openiderror', 
 						'openid-convert-already-your-openid-text',
-						array( $openid_url )
+						[ $openid_url ]
 					);
 				} else {
 					$wgOut->showErrorPage(
 						'openiderror',
 						'openid-convert-other-users-openid-text',
-						array( $openid_url )
+						[ $openid_url ]
 					);
 				}
 				return;

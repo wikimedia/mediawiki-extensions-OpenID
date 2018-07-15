@@ -35,7 +35,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	function __construct() {
 		global $wgUser;
 		$listed = !$wgUser->isLoggedIn();
-		parent::__construct( 'OpenIDLogin' , 'openid-login-with-openid', $listed );
+		parent::__construct( 'OpenIDLogin', 'openid-login-with-openid', $listed );
 	}
 
 	/**

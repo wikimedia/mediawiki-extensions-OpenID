@@ -293,7 +293,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 				) .
 				$smallButtonsHTML .
 				Xml::closeElement( 'fieldset' ) .
-				Html::Hidden( 'openidConvertToken' , $wgUser->getEditToken( 'openidConvertToken' ) )
+				Html::Hidden( 'openidConvertToken', $wgUser->getEditToken( 'openidConvertToken' ) )
 			)
 		);
 	}

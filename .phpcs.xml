@@ -17,10 +17,6 @@
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgOpenIDForcedProvider" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 		<exclude name="Squiz.Scope.MethodScope.Missing" />
-		<exclude name="Squiz.WhiteSpace.OperatorSpacing.SpacingAfter" />
-		<exclude name="Squiz.WhiteSpace.ScopeClosingBrace.Indent" />
-		<exclude name="Squiz.WhiteSpace.SemicolonSpacing.Incorrect" />
-		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
 	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc"/>

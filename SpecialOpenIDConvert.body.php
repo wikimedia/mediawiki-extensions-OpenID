@@ -249,7 +249,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			}
 
 			return;
-		}
+	}
 
 	function form() {
 		global $wgOut, $wgUser, $wgOpenIDShowProviderIcons;
@@ -395,7 +395,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			if ( isset( $other ) ) {
 				if ( $other->getId() == $wgUser->getID() ) {
 					$wgOut->showErrorPage(
-						'openiderror', 
+						'openiderror',
 						'openid-convert-already-your-openid-text',
 						[ $openid_url ]
 					);

@@ -87,6 +87,6 @@ class MediaWikiOpenIDMemcachedStore extends Auth_OpenID_MemcachedStore {
 		return $this->connection->add(
 			'openid_nonce_' . sha1( $server_url ) . '_' . sha1( $salt ),
 			1, $Auth_OpenID_SKEW );
-    }
+	}
 
 }

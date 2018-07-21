@@ -30,10 +30,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI == true ) {
-	if ( file_exists(  __DIR__ . '/../../vendor/autoload.php' ) ) {
+	if ( file_exists( __DIR__ . '/../../vendor/autoload.php' ) ) {
 		include_once __DIR__ . '/../../vendor/autoload.php';
 	}
-} elseif ( file_exists(  __DIR__ . '/vendor/autoload.php' ) ) {
+} elseif ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once __DIR__ . '/vendor/autoload.php';
 }
 
@@ -163,7 +163,6 @@ $wgOpenIDConsumerDeny = [];
  */
 $wgOpenIDForcedProvider = null;
 
-
 /**
  * The provider to select by default for a user who never selected a provider before
  *
@@ -174,7 +173,6 @@ $wgOpenIDForcedProvider = null;
  * (string) OpenIdProvider Name: select provider "Name" from the internal $wgOpenIDProviders list
  */
 $wgOpenIDDefaultProviderName = null;
-
 
 /**
  * List of supported OpenID Providers
@@ -249,7 +247,6 @@ $wgOpenIDProviders = [
 		'openid-url' => 'http://claimid.com/{username}'
 	]
 ];
-
 
 /**
  * when creating a new account or associating an existing account with OpenID:
@@ -594,8 +591,6 @@ class OpenID {
 
 		}
 
-
 	}
-
 
 } /* class OpenID */

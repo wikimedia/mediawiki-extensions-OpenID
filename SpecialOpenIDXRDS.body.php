@@ -131,8 +131,7 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 		print implode( "\n", $xml_template );
 		print $service_text;
 		print ( "\n" );
-		print implode( "\n", [ 
-			"</XRD>",
+		print implode( "\n", [ "</XRD>",
 			"</xrds:XRDS>"
 			]
 		);

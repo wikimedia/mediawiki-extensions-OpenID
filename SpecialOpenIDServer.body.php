@@ -84,12 +84,12 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			] );
 
 			$rt = SpecialPage::getTitleFor( 'OpenIDXRDS', $wgOpenIDIdentifierSelect );
-			$xrdsUrl = $rt->getFullURL( '', false, PROTO_CANONICAL  );
+			$xrdsUrl = $rt->getFullURL( '', false, PROTO_CANONICAL );
 
 			$out->addMeta( 'http:X-XRDS-Location', $xrdsUrl );
 			$this->getRequest()->response()->header( 'X-XRDS-Location: ' . $xrdsUrl );
 
-			$out->addWikiMsg( 'openid-server-identity-page-text');
+			$out->addWikiMsg( 'openid-server-identity-page-text' );
 
 			return;
 		}
@@ -229,7 +229,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 	}
 
-
 	/**
 	 * Returns the full URL of the special page; we need to pass it around
 	 * for some requests
@@ -265,7 +264,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		return new Auth_OpenID_Server( $store, $this->serverUrl() );
 	}
 
-
 	# respond with the authenticated local identity OpenID Url. Utility
 
 	/**
@@ -291,14 +289,12 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	 * @return getLocalIdentityLink
 	 */
 	static function getLocalIdentityLink( $user ) {
-
 		return Xml::element( 'a',
 				[ 'href' => ( SpecialOpenIDServer::getLocalIdentity( $user ) ) ],
 				SpecialOpenIDServer::getLocalIdentity( $user )
 			);
 
 	}
-
 
 	# Checks a validation request. $imm means don't run any UI.
 	# Fairly meticulous and step-by step, and uses assertions
@@ -494,7 +490,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function SetUserTrust( &$user, $trust_root, $value = null ) {
-
 		$trust_array = $this->GetUserTrustArray( $user );
 		if ( is_null( $value ) ) {
 			if ( array_key_exists( $trust_root, $trust_array ) ) {
@@ -555,7 +550,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		static $fields = [ 'nickname', 'email', 'fullname', 'language' ];
 		return in_array( $name, $fields );
 	}
-
 
 	function deleteTrustedSite() {
 		global $wgUser, $wgOut, $wgRequest;
@@ -771,7 +765,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			return wfMessage( 'wrongpasswordempty' )->text();
 		}
 
-		assert ( isset( $password ) && strlen( $password ) > 0 );
+		assert( isset( $password ) && strlen( $password ) > 0 );
 
 		$url = $request->identity;
 
@@ -797,7 +791,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function TrustForm( $request, $sreg, $msg = null ) {
-
 		global $wgOut, $wgUser;
 
 		$trust_root = $request->trust_root;
@@ -904,7 +897,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	 * @return null|String
 	 */
 	function UrlToUserName( $url ) {
-
 		global $wgArticlePath, $wgServer;
 
 		# URL must be a string

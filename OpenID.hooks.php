@@ -141,7 +141,7 @@ class OpenIDHooks {
 			$out->addHeadItem( 'openid-loginstyle', self::loginStyle() );
 		}
 
-		if  ( $out->getTitle()->equals( SpecialPage::getTitleFor( 'OpenIDConvert' ) )
+		if ( $out->getTitle()->equals( SpecialPage::getTitleFor( 'OpenIDConvert' ) )
 			|| $out->getTitle()->equals( SpecialPage::getTitleFor( 'OpenIDLogin' ) ) ) {
 				$out->addHeadItem( 'openid-providerstyle', self::providerStyle() );
 		}
@@ -329,7 +329,6 @@ class OpenIDHooks {
 
 		} /* provider mode */
 
-
 		if ( OpenID::isAllowedMode( 'consumer' ) ) {
 
 		// setting up user_properties up_property database key names
@@ -369,7 +368,6 @@ class OpenIDHooks {
 
 		} /* consumer mode */
 
-
 		if ( OpenID::isAllowedMode( 'provider' ) ) {
 
 			$preferences['openid-your-openid'] =
@@ -392,7 +390,6 @@ class OpenIDHooks {
 				];
 
 		} /* provider mode */
-
 
 		if ( $wgAuth->allowPasswordChange() ) {
 
@@ -509,7 +506,7 @@ class OpenIDHooks {
 		case "postgres":
 			return self::PostgreSQLSchemaUpdates( $updater );
 		default:
-			throw new MWException("OpenID does not support {$updater->getDB()->getType()} yet.");
+			throw new MWException( "OpenID does not support {$updater->getDB()->getType()} yet." );
 		}
 	}
 
@@ -547,7 +544,7 @@ class OpenIDHooks {
 	 */
 	public static function PostgreSQLSchemaUpdates( $updater = null ) {
 		$base = __DIR__ . '/patches';
-		foreach (  [
+		foreach ( [
 			[ 'addTable', 'user_openid', $base . '/openid_table.pg.sql', true ],
 			[ 'addPgField', 'user_openid', 'uoi_user_registration', 'TIMESTAMPTZ' ],
 		] as $update ) {

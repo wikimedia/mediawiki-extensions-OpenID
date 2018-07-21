@@ -39,8 +39,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 	 * @return string
 	 */
 	function show( $string, $value ) {
-
-		if  ( $value === null ) {
+		if ( $value === null ) {
 			$value = 'null';
 		} elseif ( is_bool( $value ) ) {
 			$value = wfBoolToStr( $value );
@@ -68,7 +67,6 @@ class SpecialOpenIDDashboard extends SpecialPage {
 	 * @param $par Mixed: parameter passed to the page or null
 	 */
 	function execute( $par ) {
-
 		global $wgOut, $wgUser,
 			$wgOpenIDShowUrlOnUserPage, $wgOpenIDTrustEmailAddress,
 			$wgOpenIDAllowExistingAccountSelection, $wgOpenIDAllowNewAccountname,
@@ -131,7 +129,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 		$out .= $this->show( '$wgOpenIDShowUrlOnUserPage', $wgOpenIDShowUrlOnUserPage );
 		$out .= $this->show( '$wgOpenIDShowProviderIcons', $wgOpenIDShowProviderIcons );
 		$out .= $this->show( wfMessage( 'statistics-users' )->parse(), $totalUsers );
-		$out .= $this->show( wfMessage( 'openid-dashboard-number-openid-users' )->text(), $OpenIDdistinctUsers  );
+		$out .= $this->show( wfMessage( 'openid-dashboard-number-openid-users' )->text(), $OpenIDdistinctUsers );
 		$out .= $this->show( wfMessage( 'openid-dashboard-number-openids-in-database' )->text(), $OpenIDUsers );
 		$out .= $this->show( wfMessage( 'openid-dashboard-number-users-without-openid' )->text(), $totalUsers - $OpenIDdistinctUsers );
 
@@ -145,8 +143,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 		$wgOut->wrapWikiMsg( "<p class='error'>$1</p>", $args );
 	}
 
-
-	function getOpenIDUsers ( $distinctusers = '' ) {
+	function getOpenIDUsers( $distinctusers = '' ) {
 		$distinct = ( $distinctusers == 'distinctusers' ) ? 'COUNT(DISTINCT uoi_user)' : 'COUNT(*)' ;
 
 		$dbr = wfGetDB( DB_REPLICA );

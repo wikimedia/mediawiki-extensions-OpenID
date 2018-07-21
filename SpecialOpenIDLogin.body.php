@@ -95,7 +95,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 						$skipTokenTestBecauseForcedProvider = true;
 						$openid_url = $url;
 					} else {
-						if ( isset ( $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'] ) ) {
+						if ( isset( $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'] ) ) {
 							$skipTokenTestBecauseForcedProvider = true;
 							$openid_url = $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'];
 						} else {
@@ -347,8 +347,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			);
 
 		}
-
-
 
 			$def = true;
 
@@ -730,7 +728,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				$email = $sreg['email'];
 			}
 
-			if ( isset ( $ax['http://axschema.org/contact/email'][0] )
+			if ( isset( $ax['http://axschema.org/contact/email'][0] )
 				 && Sanitizer::validateEmail( $ax['http://axschema.org/contact/email'][0] ) ) {
 				$email = $ax['http://axschema.org/contact/email'][0];
 			}
@@ -990,7 +988,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	}
 
 	function getNameFromEmail( $openid, $sreg, $ax ) {
-
 		# return the part before the @ in the e-mail address;
 		# look first at SREG, then AX
 
@@ -1040,16 +1037,14 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 		# If it's just a host...
 		if ( array_key_exists( 'host', $parts ) &&
-			( !array_key_exists( 'path', $parts ) || strcmp( $parts['path'], '/' ) == 0 ) )
-		{
+			( !array_key_exists( 'path', $parts ) || strcmp( $parts['path'], '/' ) == 0 ) ) {
 			$hostparts = explode( '.', $parts['host'] );
 
 			# Try to catch common idiom of nickname.service.tld
 
 			if ( ( count( $hostparts ) > 2 ) &&
 				( strlen( $hostparts[count( $hostparts ) - 2] ) > 3 ) && # try to skip .co.uk, .com.au
-				( strcmp( $hostparts[0], 'www' ) != 0 ) )
-			{
+				( strcmp( $hostparts[0], 'www' ) != 0 ) ) {
 				return $hostparts[0];
 			} else {
 				# Do the whole hostname

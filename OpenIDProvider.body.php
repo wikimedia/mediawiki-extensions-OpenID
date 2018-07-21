@@ -96,7 +96,6 @@ class OpenIDProvider {
 			]
 		);
 
-
 		if ( strpos( $this->url, '{' ) === false ) {
 			$inputHtml = '';
 		} else {

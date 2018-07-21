@@ -493,7 +493,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 	}
 
-	function SetUserTrust( &$user, $trust_root, $value = NULL ) {
+	function SetUserTrust( &$user, $trust_root, $value = null ) {
 
 		$trust_array = $this->GetUserTrustArray( $user );
 		if ( is_null( $value ) ) {
@@ -569,13 +569,13 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			if ( $trustedSiteToBeDeleted === "*" ) {
 
 				// NULL sets the default value: it removes this key
-				$wgUser->setOption( 'openid_trust', NULL );
+				$wgUser->setOption( 'openid_trust', null );
 				$wgUser->saveSettings();
 				$wgOut->addWikiMsg( 'openid-trusted-sites-delete-all-confirmation-success-text' );
 
 			} else {
 
-				$this->SetUserTrust( $wgUser, $trustedSiteToBeDeleted, NULL );
+				$this->SetUserTrust( $wgUser, $trustedSiteToBeDeleted, null );
 				$wgUser->saveSettings();
 				$wgOut->addWikiMsg( 'openid-trusted-sites-delete-confirmation-success-text', $trustedSiteToBeDeleted );
 

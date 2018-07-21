@@ -24,8 +24,9 @@
  * @ingroup Extensions
  */
 
-if ( !defined( 'MEDIAWIKI' ) )
+if ( !defined( 'MEDIAWIKI' ) ) {
   exit( 1 );
+}
 
 require_once( "Auth/Yadis/XRI.php" );
 

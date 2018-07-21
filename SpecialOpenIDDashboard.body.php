@@ -149,7 +149,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 	function getOpenIDUsers ( $distinctusers = '' ) {
 		$distinct = ( $distinctusers == 'distinctusers' ) ? 'COUNT(DISTINCT uoi_user)' : 'COUNT(*)' ;
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$OpenIDUserCount = (int)$dbr->selectField(
 			'user_openid',
 			$distinct,

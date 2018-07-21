@@ -25,7 +25,7 @@
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
-	$IP = dirname( __FILE__ ) . '/../..';
+	$IP = __DIR__ . '/../..';
 }
 require_once "$IP/maintenance/Maintenance.php" ;
 
@@ -36,13 +36,13 @@ class OpenIDOptionToTable extends Maintenance {
 	}
 
 	public function execute() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		if ( !$dbr->tableExists( 'user_properties' ) ) {
 			$this->error( "The OpenID extension requires at least MediaWiki 1.16.", true );
 		}
 
 		$this->output( "Checking for legacy user_property rows..." );
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( [ 'user_properties' ], [ 'up_user' ],
 			[ 'up_property' => 'openid_url' ], __METHOD__ );
 		if ( $dbr->numRows( $res ) ) {

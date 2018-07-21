@@ -29,7 +29,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 		if ( $wgUser->isAllowed( 'openid-dashboard-admin' ) ) {
 				return wfMessage( 'openid-dashboard-title-admin' )->text();
 		} else {
-				return wfMessage( 'openid-dashboard-title' )->text() ;
+				return wfMessage( 'openid-dashboard-title' )->text();
 		}
 	}
 
@@ -142,7 +142,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 	}
 
 	function getOpenIDUsers( $distinctusers = '' ) {
-		$distinct = ( $distinctusers == 'distinctusers' ) ? 'COUNT(DISTINCT uoi_user)' : 'COUNT(*)' ;
+		$distinct = ( $distinctusers == 'distinctusers' ) ? 'COUNT(DISTINCT uoi_user)' : 'COUNT(*)';
 
 		$dbr = wfGetDB( DB_REPLICA );
 		$OpenIDUserCount = (int)$dbr->selectField(

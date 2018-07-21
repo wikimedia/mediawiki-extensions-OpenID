@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Auth/OpenID/MemcachedStore.php' ;
+require_once 'Auth/OpenID/MemcachedStore.php';
 
 class MediaWikiOpenIDMemcachedStore extends Auth_OpenID_MemcachedStore {
 

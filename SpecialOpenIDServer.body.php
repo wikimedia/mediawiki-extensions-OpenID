@@ -74,14 +74,14 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		if ( $par === $wgOpenIDIdentifierSelect ) {
 
 			$out = $this->getOutput();
-			$out->addLink( array(
+			$out->addLink( [
 				'ref' => 'openid.server',
 				'href' => $this->serverUrl(),
-			) );
-			$out->addLink( array(
+			] );
+			$out->addLink( [
 				'ref' => 'openid2.provider',
 				'href' => $this->serverUrl(),
-			) );
+			] );
 
 			$rt = SpecialPage::getTitleFor( 'OpenIDXRDS', $wgOpenIDIdentifierSelect );
 			$xrdsUrl = $rt->getFullURL( '', false, PROTO_CANONICAL  );
@@ -193,7 +193,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$wgOut->showErrorPage(
 				'openiderror',
 				'openid-error-server-response',
-				array( "", wfEscapeWikiText( $request->toString() ) . "." )
+				[ "", wfEscapeWikiText( $request->toString() ) . "." ]
 			);
 			return;
 		}
@@ -259,7 +259,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		$store = $this->getOpenIDStore(
 			$wgOpenIDServerStoreType,
 			'server',
-			array( 'path' => $wgOpenIDServerStorePath )
+			[ 'path' => $wgOpenIDServerStorePath ]
 		);
 
 		return new Auth_OpenID_Server( $store, $this->serverUrl() );
@@ -293,7 +293,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	static function getLocalIdentityLink( $user ) {
 
 		return Xml::element( 'a',
-				array( 'href' => ( SpecialOpenIDServer::getLocalIdentity( $user ) ) ),
+				[ 'href' => ( SpecialOpenIDServer::getLocalIdentity( $user ) ) ],
 				SpecialOpenIDServer::getLocalIdentity( $user )
 			);
 
@@ -352,10 +352,10 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				# Bank these for later
 				$this->SaveValues( $request, $sreg );
 
-				$query = array(
+				$query = [
 					'wpName' => $otherName,
 					'returnto' => $this->getPageTitle( 'Continue' )->getPrefixedURL(),
-				);
+				];
 				$title = SpecialPage::getTitleFor( 'Userlogin' );
 
 				$url = $title->getFullURL( $query, false, PROTO_CANONICAL );
@@ -475,7 +475,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	# * array -> possibly empty array of allowed profile fields; trust is OK
 
 	function GetUserTrust( $user, $trust_root ) {
-		static $allFields = array( 'nickname', 'fullname', 'email', 'language' );
+		static $allFields = [ 'nickname', 'fullname', 'email', 'language' ];
 		global $wgOpenIDServerForceAllowTrust;
 
 		foreach ( $wgOpenIDServerForceAllowTrust as $force ) {
@@ -509,7 +509,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	static function GetUserTrustArray( $user ) {
-		$trust_array = array();
+		$trust_array = [];
 		$trust_str = FormatJson::decode( $user->getOption( 'openid_trust' ) );
 		if ( strlen( $trust_str ) > 0 ) {
 			$trust_records = explode( "\x1E", $trust_str );
@@ -520,7 +520,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 					$trust_array[$trust_root] = false;
 				} else {
 					$fields = array_map( 'trim', $fields );
-					$fields = array_filter( $fields, array( 'SpecialOpenIDServer', 'ValidField' ) );
+					$fields = array_filter( $fields, [ 'SpecialOpenIDServer', 'ValidField' ] );
 					$trust_array[$trust_root] = $fields;
 				}
 			}
@@ -529,17 +529,17 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function SetUserTrustArray( &$user, $arr ) {
-		$trust_records = array();
+		$trust_records = [];
 		foreach ( $arr as $root => $value ) {
 			if ( $value === false ) {
-				$record = implode( "\x1F", array( $root, 'no' ) );
+				$record = implode( "\x1F", [ $root, 'no' ] );
 			} elseif ( is_array( $value ) ) {
 				if ( count( $value ) == 0 ) {
 					$record = $root;
 				} else {
 					$value = array_map( 'trim', $value );
-					$value = array_filter( $value, array( $this, 'ValidField' ) );
-					$record = implode( "\x1F", array_merge( array( $root ), $value ) );
+					$value = array_filter( $value, [ $this, 'ValidField' ] );
+					$record = implode( "\x1F", array_merge( [ $root ], $value ) );
 				}
 			} else {
 				continue;
@@ -552,7 +552,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 	static function ValidField( $name ) {
 		# FIXME: eventually add timezone
-		static $fields = array( 'nickname', 'email', 'fullname', 'language' );
+		static $fields = [ 'nickname', 'email', 'fullname', 'language' ];
 		return in_array( $name, $fields );
 	}
 
@@ -592,10 +592,10 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		$wgOut->addHtml(
 			Xml::openElement( 'form',
-				array(
+				[
 					'action' => $this->getPageTitle( 'DeleteTrustedSite' )->getLocalUrl(),
 					'method' => 'post'
-				)
+				]
 			) .
 			Xml::submitButton( wfMessage( 'openid-trusted-sites-delete-confirmation-button-text' )->text() ) . "\n" .
 			Html::Hidden( 'url', $trustedSiteToBeDeleted ) . "\n" .
@@ -605,11 +605,11 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function SregFromQuery( $query ) {
-		$sreg = array(
-			'required' => array(),
-			'optional' => array(),
+		$sreg = [
+			'required' => [],
+			'optional' => [],
 			'policy_url' => null
-		);
+		];
 		if ( array_key_exists( 'openid.sreg.required', $query ) ) {
 			$sreg['required'] = explode( ',', $query['openid.sreg.required'] );
 		}
@@ -743,7 +743,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function FetchValues() {
-		return array( $_SESSION['openid_server_request'], $_SESSION['openid_server_sreg'] );
+		return [ $_SESSION['openid_server_request'], $_SESSION['openid_server_sreg'] ];
 	}
 
 	function ClearValues() {
@@ -791,7 +791,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$wgUser = $user;
 			wfSetupSession();
 			$wgUser->SetCookies();
-			Hooks::run( 'UserLoginComplete', array( &$wgUser ) );
+			Hooks::run( 'UserLoginComplete', [ &$wgUser ] );
 			return false;
 		}
 	}
@@ -821,7 +821,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		);
 
 		$fields = array_filter( array_unique( array_merge( $sreg['optional'], $sreg['required'] ) ),
-							   array( $this, 'ValidField' ) );
+							   [ $this, 'ValidField' ] );
 
 		if ( count( $fields ) > 0 ) {
 
@@ -881,9 +881,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$wgUser->saveSettings();
 		} else {
 			$fields = array_filter( array_unique( array_merge( $sreg['optional'], $sreg['required'] ) ),
-				array( $this, 'ValidField' ) );
+				[ $this, 'ValidField' ] );
 
-			$allow = array();
+			$allow = [];
 
 			foreach ( $fields as $field ) {
 				if ( $wgRequest->getCheck( 'wpAllow' . $field ) ) {

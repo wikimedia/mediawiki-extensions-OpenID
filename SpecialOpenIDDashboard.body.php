@@ -49,13 +49,13 @@ class SpecialOpenIDDashboard extends SpecialPage {
 		}
 
 		return Html::rawElement( 'tr',
-			array(),
+			[],
 			Html::rawElement( 'td',
-				array(),
+				[],
 				$string
 			) .
 			Html::rawElement( 'td',
-				array(),
+				[],
 				$value
 			)
 		) . "\n";
@@ -93,10 +93,10 @@ class SpecialOpenIDDashboard extends SpecialPage {
 
 		$wgOut->addHTML(
 			Html::openElement( 'table',
-				array(
+				[
 					'style' => 'width:50%;',
 					'class' => 'mw-openiddashboard-table wikitable'
-				)
+				]
 			)
 		);
 

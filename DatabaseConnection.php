@@ -23,7 +23,7 @@ class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 		return $old;
 	}
 
-	function query( $sql, $params = array() ) {
+	function query( $sql, $params = [] ) {
 		return $this->db->safeQuery( $sql, $params ); // FIXME: Where is safeQuery defined?
 	}
 
@@ -39,7 +39,7 @@ class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 		$this->db->rollback();
 	}
 
-	function getOne( $sql, $params = array() ) {
+	function getOne( $sql, $params = [] ) {
 		$res = $this->query( $sql, $params );
 
 		if ( !$res instanceof ResultWrapper ) {
@@ -58,7 +58,7 @@ class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 		}
 	}
 
-	function getRow( $sql, $params = array() ) {
+	function getRow( $sql, $params = [] ) {
 		$res = $this->query( $sql, $params );
 
 		if ( !$res instanceof ResultWrapper ) {
@@ -73,7 +73,7 @@ class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 		return $row;
 	}
 
-	function getAll( $sql, $params = array() ) {
+	function getAll( $sql, $params = [] ) {
 		$res = $this->query( $sql, $params );
 
 		if ( !$res instanceof ResultWrapper ) {
@@ -83,7 +83,7 @@ class MediaWikiOpenIDDatabaseConnection extends Auth_OpenID_DatabaseConnection {
 			return false;
 		}
 
-		$ret = array();
+		$ret = [];
 		foreach ( $res as $row ) {
 			$ret[] = (array)$row;
 		}

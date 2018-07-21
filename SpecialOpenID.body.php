@@ -148,7 +148,7 @@ class SpecialOpenID extends SpecialPage {
 		$store = $this->getOpenIDStore(
 			$wgOpenIDConsumerStoreType,
 			'consumer',
-			array( 'path' => $wgOpenIDConsumerStorePath )
+			[ 'path' => $wgOpenIDConsumerStorePath ]
 		);
 
 		return new Auth_OpenID_Consumer( $store );
@@ -265,7 +265,7 @@ class SpecialOpenID extends SpecialPage {
 			$wgOut->showErrorPage(
 				'openiderror',
 				'openid-error-no-auth',
-				array( $openid_url )
+				[ $openid_url ]
 			);
 			return;
 		}
@@ -275,7 +275,7 @@ class SpecialOpenID extends SpecialPage {
 			$wgOut->showErrorPage(
 				'openiderror',
 				'openid-error-server-response',
-				array( $openid_url, "{$auth_request->message} (status: {$auth_request->status})." )
+				[ $openid_url, "{$auth_request->message} (status: {$auth_request->status})." ]
 			);
 			return;
 		}
@@ -300,9 +300,9 @@ class SpecialOpenID extends SpecialPage {
 
 		$sreg_request = Auth_OpenID_SRegRequest::build(
 			// Required
-			array(),
+			[],
 			// Optional
-			array( 'nickname', 'email', 'fullname', 'language', 'timezone' )
+			[ 'nickname', 'email', 'fullname', 'language', 'timezone' ]
 		);
 
 		if ( $sreg_request ) {
@@ -347,7 +347,7 @@ class SpecialOpenID extends SpecialPage {
 				$trust_root,
 				$process_url,
 				false,
-				array( 'id' => $form_id )
+				[ 'id' => $form_id ]
 			);
 
 			// Display an error if the form markup couldn't be generated;
@@ -393,7 +393,7 @@ class SpecialOpenID extends SpecialPage {
 		}
 
 		// adding a dummy parameter forces a canonical url which we need
-		return $nt->getFullURL( array( 'dummy' => 'x'), false, PROTO_CANONICAL );
+		return $nt->getFullURL( [ 'dummy' => 'x'], false, PROTO_CANONICAL );
 
 	}
 
@@ -418,14 +418,14 @@ class SpecialOpenID extends SpecialPage {
 	 * @return array return the registered OpenID urls and registration timestamps (if available)
 	 */
 	public static function getUserOpenIDInformation( $user ) {
-		$openid_urls_registration = array();
+		$openid_urls_registration = [];
 
 		if ( $user instanceof User && $user->getId() != 0 ) {
 			$dbr = wfGetDB( DB_SLAVE );
 			$res = $dbr->select(
-				array( 'user_openid' ),
-				array( 'uoi_openid', 'uoi_user_registration' ),
-				array( 'uoi_user' => $user->getId() ),
+				[ 'user_openid' ],
+				[ 'uoi_openid', 'uoi_user_registration' ],
+				[ 'uoi_user' => $user->getId() ],
 				__METHOD__
 			);
 
@@ -447,7 +447,7 @@ class SpecialOpenID extends SpecialPage {
 		$id = $dbr->selectField(
 			'user_openid',
 			'uoi_user',
-			array( 'uoi_openid' => $openid ),
+			[ 'uoi_openid' => $openid ],
 			__METHOD__
 		);
 
@@ -467,11 +467,11 @@ class SpecialOpenID extends SpecialPage {
 
 		$dbw->insert(
 			'user_openid',
-			array(
+			[
 				'uoi_user' => $user->getId(),
 				'uoi_openid' => $url,
 				'uoi_user_registration' => $dbw->timestamp()
-			),
+			],
 			__METHOD__
 		);
 	}
@@ -486,10 +486,10 @@ class SpecialOpenID extends SpecialPage {
 
 		$dbw->delete(
 			'user_openid',
-			array(
+			[
 				'uoi_user' => $user->getId(),
 				'uoi_openid' => $url
-			),
+			],
 			__METHOD__
 		);
 

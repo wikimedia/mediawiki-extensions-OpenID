@@ -78,7 +78,6 @@ class OpenIDProvider {
 				$this->providerName
 			);
 		}
-
 	}
 
 	/**
@@ -166,7 +165,6 @@ class OpenIDProvider {
 		}
 
 		return $ret;
-
 	}
 
 }

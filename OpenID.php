@@ -512,7 +512,6 @@ class OpenID {
 		} else {
 			return false;
 		}
-
 	}
 
 	/*
@@ -538,7 +537,6 @@ class OpenID {
 		}
 
 		return $trust_root;
-
 	}
 
 	/**
@@ -552,7 +550,6 @@ class OpenID {
 		} else {
 			return $wgOpenIDSmallLogoUrl;
 		}
-
 	}
 
 	/**
@@ -590,7 +587,6 @@ class OpenID {
 			return wfMessage( 'openid-provider-selection-button-login-or-create-account' )->text();
 
 		}
-
 	}
 
 } /* class OpenID */

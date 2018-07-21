@@ -58,7 +58,6 @@ class SpecialOpenIDDashboard extends SpecialPage {
 				$value
 			)
 		) . "\n";
-
 	}
 
 	/**
@@ -134,7 +133,6 @@ class SpecialOpenIDDashboard extends SpecialPage {
 		$out .= $this->show( wfMessage( 'openid-dashboard-number-users-without-openid' )->text(), $totalUsers - $OpenIDdistinctUsers );
 
 		$wgOut->addHTML( $out . Html::closeElement( 'table' ) . "\n" );
-
 	}
 
 	function error() {

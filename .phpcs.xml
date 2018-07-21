@@ -16,7 +16,6 @@
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgEmailAuthentication" />
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgOpenIDForcedProvider" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
-		<exclude name="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose" />
 		<exclude name="Squiz.Classes.SelfMemberReference.NotUsed" />
 		<exclude name="Squiz.Scope.MethodScope.Missing" />
 		<exclude name="Squiz.WhiteSpace.OperatorSpacing.SpacingAfter" />

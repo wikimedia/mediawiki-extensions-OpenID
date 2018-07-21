@@ -125,7 +125,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 
 		} /* switch $par */
-
 	}
 
 	/**
@@ -919,7 +918,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		}
 
 		return null;
-
 	}
 
 	/**
@@ -1011,7 +1009,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 
 		}
-
 	}
 
 	/**

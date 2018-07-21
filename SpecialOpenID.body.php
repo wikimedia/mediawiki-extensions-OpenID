@@ -29,10 +29,10 @@ use MediaWiki\MediaWikiServices;
 # FIXME: for login(); figure out better way to share this code
 # between Login and Convert
 
-require_once( "Auth/OpenID/Consumer.php" );
-require_once( "Auth/OpenID/SReg.php" );
-require_once( "Auth/OpenID/AX.php" );
-require_once( "Auth/OpenID/FileStore.php" );
+require_once "Auth/OpenID/Consumer.php" ;
+require_once "Auth/OpenID/SReg.php" ;
+require_once "Auth/OpenID/AX.php" ;
+require_once "Auth/OpenID/FileStore.php" ;
 
 class SpecialOpenID extends SpecialPage {
 	public function doesWrites() {
@@ -57,7 +57,7 @@ class SpecialOpenID extends SpecialPage {
 		case 'db':
 			if ( $wgDBtype == 'sqlite' ) {
 				$db = new MediaWikiOpenIDDatabaseConnection( wfGetDB( DB_MASTER ) );
-				require_once( 'Auth/OpenID/SQLiteStore.php' );
+				require_once 'Auth/OpenID/SQLiteStore.php' ;
 				return new Auth_OpenID_SQLiteStore( $db );
 			} else {
 				$lb = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->newMainLB();
@@ -65,10 +65,10 @@ class SpecialOpenID extends SpecialPage {
 
 				switch( $wgDBtype ) {
 				case 'mysql':
-					require_once( 'Auth/OpenID/MySQLStore.php' );
+					require_once 'Auth/OpenID/MySQLStore.php' ;
 					return new Auth_OpenID_MySQLStore( $db );
 				case 'postgres':
-					require_once( 'Auth/OpenID/PostgreSQLStore.php' );
+					require_once 'Auth/OpenID/PostgreSQLStore.php' ;
 					return new Auth_OpenID_PostgreSQLStore( $db );
 				default:
 					$wgOut->showErrorPage( 'openidconfigerror', 'openidconfigerrortext' );

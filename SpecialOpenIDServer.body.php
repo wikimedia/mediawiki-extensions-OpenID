@@ -28,8 +28,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-require_once( "Auth/OpenID/Server.php" );
-require_once( "Auth/OpenID/Consumer.php" );
+require_once "Auth/OpenID/Server.php" ;
+require_once "Auth/OpenID/Consumer.php" ;
 
 # Special page for the server side of OpenID
 # It has three major flavors:

@@ -37,7 +37,7 @@ class OpenIDProvider {
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isLargeProvider() {
 		return $this->largeOrSmallProvider === 'large';

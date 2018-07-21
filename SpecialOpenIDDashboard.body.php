@@ -5,7 +5,7 @@
  * @ingroup SpecialPage
  * @ingroup Extensions
  * @author Thomas Gries
- * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
+ * @license GPL-2.0-or-later
  * @link http://www.mediawiki.org/wiki/Extension:OpenID Documentation
  *
  */

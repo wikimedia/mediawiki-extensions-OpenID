@@ -101,7 +101,7 @@ class SpecialOpenID extends SpecialPage {
 	 * @return string
 	 */
 	function xriToUrl( $xri ) {
-		return 'http://xri.net/' . SpecialOpenID::xriBase( $xri );
+		return 'http://xri.net/' . self::xriBase( $xri );
 	}
 
 	/**
@@ -111,7 +111,7 @@ class SpecialOpenID extends SpecialPage {
 	static function OpenIDToUrl( $openid ) {
 		/* ID is either an URL already or an i-name */
 		if ( Auth_Yadis_identifierScheme( $openid ) == 'XRI' ) {
-			return SpecialOpenID::xriToUrl( $openid );
+			return self::xriToUrl( $openid );
 		} else {
 			return $openid;
 		}

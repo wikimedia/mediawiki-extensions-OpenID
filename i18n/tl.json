@@ -80,7 +80,7 @@
 	"openid-urls-registration-date-time": "$1",
 	"openid-urls-delete": "Burahin",
 	"openid-add-url": "Magdagdag ng isang bagong OpenID",
-	"openid-login-or-create-account": "Lumagda o lumikha ng isang bagong account",
+	"openid-login-or-create-account": "Mag-login o lumikha ng isang bagong account",
 	"openid-provider-label-openid": "Ipasok ang iyong URL na pang-OpenID",
 	"openid-provider-label-google": "Lumagdang ginagamit ang iyong account na pang-Google",
 	"openid-provider-label-yahoo": "Lumagdang ginagamit ang account mong pang-Yahoo",

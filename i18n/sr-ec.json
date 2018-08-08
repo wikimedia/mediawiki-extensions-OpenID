@@ -5,7 +5,8 @@
 			"Rancher",
 			"Sasa Stefanovic",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"BadDog"
 		]
 	},
 	"openidserver": "OpenID сервер",
@@ -55,5 +56,5 @@
 	"openid-urls-action": "Радња",
 	"openid-urls-registration-date-time": "$1",
 	"openid-urls-delete": "Обриши",
-	"action-openid-login-with-openid": "пријављивање путем OpenID-ја"
+	"action-openid-login-with-openid": "се пријавите путем OpenID-ја"
 }

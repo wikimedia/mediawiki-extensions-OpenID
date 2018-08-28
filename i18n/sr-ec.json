@@ -6,7 +6,8 @@
 			"Sasa Stefanovic",
 			"Михајло Анђелковић",
 			"Сербијана",
-			"BadDog"
+			"BadDog",
+			"Zoranzoki21"
 		]
 	},
 	"openidserver": "OpenID сервер",
@@ -51,7 +52,7 @@
 	"openiddelete-button": "Потврди",
 	"prefs-openid": "OpenID",
 	"prefs-openid-show-openid": "Сакријте своју адресу OpenID-а са корисничке странице ако се с њим пријављујете.",
-	"openid-userinfo-update-on-login-label": "Ажурирај следеће податке OpenID-а сваки пут када се пријавим:",
+	"openid-userinfo-update-on-login-label": "Поље за информацију о корисничком налогу које ће се аутоматски ажурирати од стране OpenID-а при свакој пријави:",
 	"openid-urls-url": "Адреса",
 	"openid-urls-action": "Радња",
 	"openid-urls-registration-date-time": "$1",

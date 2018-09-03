@@ -271,7 +271,7 @@ class SpecialOpenID extends SpecialPage {
 		}
 
 		if ( Auth_OpenID::isFailure( $auth_request ) ) {
-			wfDebug( "OpenID: auth_request failure for {$openid_url}:\n" . print_r( $auth_request, true ) ."\n" );
+			wfDebug( "OpenID: auth_request failure for {$openid_url}:\n" . print_r( $auth_request, true ) . "\n" );
 			$wgOut->showErrorPage(
 				'openiderror',
 				'openid-error-server-response',

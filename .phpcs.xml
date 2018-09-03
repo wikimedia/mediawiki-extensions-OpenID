@@ -16,6 +16,8 @@
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgEmailAuthentication" />
 		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgOpenIDForcedProvider" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
+		<exclude name="Squiz.PHP.NonExecutableCode.ReturnNotRequired" />
+		<exclude name="Squiz.PHP.NonExecutableCode.Unreachable" />
 		<exclude name="Squiz.Scope.MethodScope.Missing" />
 	</rule>
 	<file>.</file>

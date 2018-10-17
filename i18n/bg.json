@@ -57,6 +57,7 @@
 	"openid-urls-action": "Действие",
 	"openid-urls-delete": "Изтриване",
 	"openid-add-url": "Добавяне на нов OpenID към сметката Ви.",
+	"openid-trusted-sites-delete-link-action-text": "Изтриване",
 	"openid-login-or-create-account": "Влизане или създаване на нова сметка",
 	"openid-provider-label-openid": "Въведете своя OpenID адрес",
 	"openid-provider-label-google": "Влизане чрез сметката в Google",

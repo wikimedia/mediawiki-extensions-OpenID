@@ -12,7 +12,8 @@
 			"Str4nd",
 			"Varusmies",
 			"Vililikku",
-			"ZeiP"
+			"ZeiP",
+			"Valtlait"
 		]
 	},
 	"openid-desc": "Kirjaudu wikiin [//openid.net/ OpenID:llä] ja muille OpenID-tuetuille sivustoille wiki-käyttäjätilillä.",
@@ -21,7 +22,7 @@
 	"openidserver": "OpenID-palvelin",
 	"openidxrds": "Yadis-tiedosto",
 	"openidconvert": "OpenID-muunnin",
-	"openiderror": "Todennusvirhe",
+	"openiderror": "OpenID-virhe",
 	"openiderrortext": "Tapahtui virhe OpenID-osoitteen todentamisen aikana.",
 	"openidconfigerror": "OpenID-asetusvirhe",
 	"openidconfigerrortext": "OpenID-varaston määritykset ovat epäkelvolliset tässä wikissä.\nOta yhteyttä [[Special:ListUsers/sysop|ylläpitäjään]].",

@@ -22,5 +22,6 @@
 	"openid-urls-url": "URL",
 	"openid-urls-action": "Kerdış",
 	"openid-urls-delete": "Bestere",
-	"openid-trusted-sites-table-header-column-action": "Kerdış"
+	"openid-trusted-sites-table-header-column-action": "Kerdış",
+	"openid-trusted-sites-delete-link-action-text": "Bestere"
 }

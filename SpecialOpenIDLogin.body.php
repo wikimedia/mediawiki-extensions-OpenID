@@ -618,10 +618,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	function finish() {
 		global $wgOut, $wgUser, $wgOpenIDUseEmailAsNickname;
 
-		wfSuppressWarnings();
+		Wikimedia\suppressWarnings();
 		$consumer = $this->getConsumer();
 		$response = $consumer->complete( $this->scriptUrl( 'Finish' ) );
-		wfRestoreWarnings();
+		Wikimedia\restoreWarnings();
 
 		if ( is_null( $response ) ) {
 			wfDebug( "OpenID: aborting in auth because no response was received\n" );
@@ -641,7 +641,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			break;
 		case Auth_OpenID_SUCCESS:
 			// This means the authentication succeeded.
-			wfSuppressWarnings();
+			Wikimedia\suppressWarnings();
 			$openid = $response->identity_url;
 
 			if ( !$this->canLogin( $openid ) ) {
@@ -659,7 +659,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			if ( $ax === null ) {
 				$ax = [];
 			}
-			wfRestoreWarnings();
+			Wikimedia\restoreWarnings();
 
 			if ( is_null( $openid ) ) {
 				$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );

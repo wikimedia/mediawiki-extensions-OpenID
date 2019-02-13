@@ -245,7 +245,7 @@ class SpecialOpenID extends SpecialPage {
 
 		$trust_root = OpenID::getTrustRoot();
 
-		wfSuppressWarnings();
+		Wikimedia\suppressWarnings();
 
 		$consumer = $this->getConsumer();
 
@@ -373,7 +373,7 @@ class SpecialOpenID extends SpecialPage {
 
 		}
 
-		wfRestoreWarnings();
+		Wikimedia\restoreWarnings();
 	}
 
 	/**

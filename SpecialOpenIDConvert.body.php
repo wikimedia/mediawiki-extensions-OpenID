@@ -346,10 +346,10 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 	function finish() {
 		global $wgUser, $wgOut;
 
-		wfSuppressWarnings();
+		Wikimedia\suppressWarnings();
 		$consumer = $this->getConsumer();
 		$response = $consumer->complete( $this->scriptUrl( 'Finish' ) );
-		wfRestoreWarnings();
+		Wikimedia\restoreWarnings();
 
 		if ( is_null( $response ) ) {
 			wfDebug( "OpenID: aborting in openid converter because the response was missing\n" );

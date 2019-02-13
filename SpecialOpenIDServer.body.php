@@ -67,9 +67,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			return;
 		}
 
-		wfSuppressWarnings();
+		Wikimedia\suppressWarnings();
 		$server = $this->getServer();
-		wfRestoreWarnings();
+		Wikimedia\restoreWarnings();
 
 		if ( $par === $wgOpenIDIdentifierSelect ) {
 
@@ -173,9 +173,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 					$query = $_POST;
 				}
 
-				wfSuppressWarnings();
+				Wikimedia\suppressWarnings();
 				$request = $server->decodeRequest();
-				wfRestoreWarnings();
+				Wikimedia\restoreWarnings();
 
 				$sreg = $this->SregFromQuery( $query );
 				$response = null;
@@ -213,9 +213,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		default:
 		# For all the other parts, just let the libs do it
 
-			wfSuppressWarnings();
+			Wikimedia\suppressWarnings();
 			$response =& $server->handleRequest( $request );
-			wfRestoreWarnings();
+			Wikimedia\restoreWarnings();
 
 		}
 
@@ -444,11 +444,11 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			array_unique( array_merge( $sreg['required'], $sreg['optional'] ) ), $trust
 		);
 
-		wfSuppressWarnings();
+		Wikimedia\suppressWarnings();
 
 		$response = $request->answer( true, $this->serverUrl(), $this->getLocalIdentity( $wgUser ), null );
 
-		wfRestoreWarnings();
+		Wikimedia\restoreWarnings();
 
 		assert( isset( $response ) );
 
@@ -667,9 +667,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		$wgOut->disable();
 
-		wfSuppressWarnings();
+		Wikimedia\suppressWarnings();
 		$wr =& $server->encodeResponse( $response );
-		wfRestoreWarnings();
+		Wikimedia\restoreWarnings();
 
 		assert( !is_null( $wr ) );
 

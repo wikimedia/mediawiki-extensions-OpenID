@@ -486,7 +486,7 @@ class OpenID {
 	 * @return boolean
 	*/
 	static function isAllowedMode( $mode = false ) {
-		global $wgOpenIDMode, $wgOpenIDProviders, $wgOpenIDForcedProvider;
+		global $wgOpenIDMode, $wgOpenIDProviders;
 
 		if ( !is_string( $mode )
 			|| is_null( $wgOpenIDMode )

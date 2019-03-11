@@ -31,7 +31,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 class SpecialOpenIDConvert extends SpecialOpenID {
 
 	function __construct() {
-		global $wgOpenIDForcedProvider;
 		$listed = !OpenID::isForcedProvider();
 		parent::__construct( 'OpenIDConvert', 'openid-converter-access', $listed );
 	}

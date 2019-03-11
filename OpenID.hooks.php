@@ -154,7 +154,7 @@ class OpenIDHooks {
 	 * @return string
 	 */
 	private static function getAssociatedOpenIDsTable( $user ) {
-		global $wgLang, $wgOpenIDForcedProvider;
+		global $wgLang;
 
 		$openid_urls_registration = SpecialOpenID::getUserOpenIDInformation( $user );
 		$delTitle = SpecialPage::getTitleFor( 'OpenIDConvert', 'Delete' );

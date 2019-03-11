@@ -12,8 +12,6 @@
 		<exclude name="MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgAuth" />
 		<exclude name="MediaWiki.Usage.ForbiddenFunctions.assert" />
 		<exclude name="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals" />
-		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgEmailAuthentication" />
-		<exclude name="MediaWiki.VariableAnalysis.UnusedGlobalVariables.UnusedGlobal$wgOpenIDForcedProvider" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 		<exclude name="Squiz.PHP.NonExecutableCode.ReturnNotRequired" />
 		<exclude name="Squiz.PHP.NonExecutableCode.Unreachable" />

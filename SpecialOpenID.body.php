@@ -43,7 +43,6 @@ class SpecialOpenID extends SpecialPage {
 		global $wgOut, $wgMemc, $wgDBtype;
 
 		switch ( $storeType ) {
-
 		case 'file':
 			# Auto-create path if it doesn't exist
 			if ( !is_dir( $options['path'] ) ) {
@@ -226,8 +225,8 @@ class SpecialOpenID extends SpecialPage {
 
 		if ( !$skipTokenTestBecauseForcedProvider
 			&& ( LoginForm::getLoginToken() !== $wgRequest->getVal( 'openidProviderSelectionLoginToken' ) )
-			&& !( $wgUser->matchEditToken( $wgRequest->getVal( 'openidConvertToken' ), 'openidConvertToken' ) ) ) {
-
+			&& !( $wgUser->matchEditToken( $wgRequest->getVal( 'openidConvertToken' ), 'openidConvertToken' ) )
+		) {
 			$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
 			return;
 		}
@@ -330,7 +329,6 @@ class SpecialOpenID extends SpecialPage {
 		$process_url = $this->scriptUrl( $finish_page );
 
 		if ( $auth_request->shouldSendRedirect() ) {
-
 			$redirect_url = $auth_request->redirectURL( $trust_root, $process_url );
 			if ( Auth_OpenID::isFailure( $redirect_url ) ) {
 				displayError( "Could not redirect to server: " . $redirect_url->message );
@@ -338,9 +336,7 @@ class SpecialOpenID extends SpecialPage {
 				# OK, now go
 				$wgOut->redirect( $redirect_url );
 			}
-
 		} else {
-
 			// Generate form markup and render it.
 			$form_id = 'openid_message';
 			$form_html = $auth_request->formMarkup(
@@ -355,7 +351,6 @@ class SpecialOpenID extends SpecialPage {
 			if ( Auth_OpenID::isFailure( $form_html ) ) {
 				displayError( 'Could not redirect to server: ' . $form_html->message );
 			} else {
-
 				$wgOut->addWikiMsg( 'openidautosubmit' );
 				$wgOut->addHTML( $form_html );
 
@@ -370,7 +365,6 @@ class SpecialOpenID extends SpecialPage {
 					});"
 				);
 			}
-
 		}
 
 		Wikimedia\restoreWarnings();

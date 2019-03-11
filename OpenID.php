@@ -159,7 +159,6 @@ $wgOpenIDConsumerDeny = [];
  *                                in case you want to force the use of another mediawiki-provider-server (not this wiki!) as OpenID provider
  *
  * (string) OpenID provider Name: use data for provider "Name" from the internal $wgOpenIDProviders list
- *
  */
 $wgOpenIDForcedProvider = null;
 
@@ -202,7 +201,6 @@ $wgOpenIDDefaultProviderName = null;
  * <ProviderName>_small.png (example Versign_small.png)
  *
  * @param $wgOpenIDProviders Array: names and parameters of supported OpenID Providers
- *
  */
 $wgOpenIDProviders = [
 	'OpenID' => [
@@ -326,7 +324,6 @@ $wgOpenIDCookieExpiration = 365 * 24 * 60 * 60;
 /*
  * The fractional part after /Special:OpenIDServer/
  * when the server shall show the selection (login) form
- *
  */
 $wgOpenIDIdentifierSelect = "id";
 
@@ -361,7 +358,6 @@ $wgOpenIDShowProviderIcons = true;
  *
  * $wgOpenIDIdentifiersURL =
  * str_replace( "$1", "Special:OpenIDIdentifier/{ID}", $wgServer . $wgArticlePath );
- *
  */
 $wgOpenIDIdentifiersURL = "";
 
@@ -526,14 +522,10 @@ class OpenID {
 		global $wgOpenIDTrustRoot;
 
 		if ( !is_null( $wgOpenIDTrustRoot ) ) {
-
 			$trust_root = $wgOpenIDTrustRoot;
-
 		} else {
-
 			global $wgScriptPath, $wgCanonicalServer;
 			$trust_root = $wgCanonicalServer . $wgScriptPath;
-
 		}
 
 		return $trust_root;
@@ -569,11 +561,8 @@ class OpenID {
 		global $wgUser, $wgOut;
 
 		if ( $wgOut->getTitle()->equals( SpecialPage::getTitleFor( 'OpenIDConvert' ) ) ) {
-
 			return wfMessage( 'openid-provider-selection-button-convert' )->text();
-
 		} else {
-
 			if ( $wgUser->isAllowed( 'openid-create-account-with-openid' )
 				&& !$wgUser->isAllowed( 'openid-login-with-openid' ) ) {
 				return wfMessage( 'openid-provider-selection-button-create-account' )->text();
@@ -585,7 +574,6 @@ class OpenID {
 			}
 
 			return wfMessage( 'openid-provider-selection-button-login-or-create-account' )->text();
-
 		}
 	}
 

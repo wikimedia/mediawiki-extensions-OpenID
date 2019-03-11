@@ -16,26 +16,22 @@ class OpenIDHooks {
 		$addOpenIDSpecialPagesList = [];
 
 		if ( OpenID::isAllowedMode( 'consumer' ) ) {
-
 			if ( $wgOpenIDLoginOnly
 				&& !$wgUser->isAllowed( 'openid-create-account-without-openid' )
-				&& $wgUser->isAllowed( 'openid-login-with-openid' ) ) {
-
+				&& $wgUser->isAllowed( 'openid-login-with-openid' )
+			) {
 				$specialPagesList['Userlogin'] = 'SpecialOpenIDLogin';
 
 				# as Special:CreateAccount is an alias for Special:UserLogin/signup
 				# we show our own OpenID page here, too
 
 				$specialPagesList['CreateAccount'] = 'SpecialOpenIDLogin';
-
 			}
-
 		}
 
 		# Special pages for both modes are added at global scope
 
 		if ( OpenID::isAllowedMode( 'provider' ) || OpenID::isAllowedMode( 'consumer' ) ) {
-
 			if ( !$wgUser->isLoggedIn()
 				&& ( $wgUser->isAllowed( 'openid-login-with-openid' )
 					|| $wgUser->isAllowed( 'openid-create-account-with-openid' ) ) ) {
@@ -81,8 +77,8 @@ class OpenIDHooks {
 
 		if ( $nt
 			&& ( $nt->getNamespace() == NS_USER )
-			&& ( strpos( $nt->getText(), '/' ) === false ) ) {
-
+			&& ( strpos( $nt->getText(), '/' ) === false )
+		) {
 			$user = User::newFromName( $nt->getText() );
 
 			if ( $user && ( $user->getID() != 0 ) ) {
@@ -103,8 +99,8 @@ class OpenIDHooks {
 
 		if ( !$wgOpenIDHideOpenIDLoginLink
 			&& ( $wgUser->getID() == 0 )
-			&& OpenID::isAllowedMode( 'consumer' ) ) {
-
+			&& OpenID::isAllowedMode( 'consumer' )
+		) {
 			$sk = $wgOut->getSkin();
 			$returnto = $title->isSpecial( 'Userlogout' ) ? '' : ( 'returnto=' . $title->getPrefixedURL() );
 
@@ -122,7 +118,6 @@ class OpenIDHooks {
 					}
 				}
 			}
-
 		}
 
 		return true;
@@ -162,7 +157,6 @@ class OpenIDHooks {
 		$rows = '';
 
 		foreach ( $openid_urls_registration as $url_reg ) {
-
 			if ( !empty( $url_reg->uoi_user_registration ) ) {
 				$registrationTime = wfMessage(
 					'openid-urls-registration-date-time',
@@ -228,11 +222,9 @@ class OpenIDHooks {
 		$rows = '';
 
 		foreach ( $trusted_sites as $key => $value ) {
-
 			$deleteTrustedSiteTitle = SpecialPage::getTitleFor( 'OpenIDServer', 'DeleteTrustedSite' );
 
 			if ( $key !== "" ) {
-
 				$rows .= Xml::tags( 'tr', [],
 					Xml::tags( 'td',
 						[],
@@ -247,13 +239,10 @@ class OpenIDHooks {
 						)
 					)
 				) . "\n";
-
 			}
-
 		}
 
 		if ( $rows !== "" ) {
-
 			$rows .= Xml::tags( 'tr', [],
 				Xml::tags( 'td',
 					[],
@@ -268,7 +257,6 @@ class OpenIDHooks {
 					)
 				)
 			) . "\n";
-
 		}
 
 		return Xml::tags( 'table', [ 'class' => 'wikitable' ],
@@ -294,9 +282,7 @@ class OpenIDHooks {
 			$wgAuth, $wgUser, $wgLang;
 
 		if ( OpenID::isAllowedMode( 'provider' ) ) {
-
 			switch ( $wgOpenIDShowUrlOnUserPage ) {
-
 			case 'user':
 				$preferences['openid-show-openid'] =
 					[
@@ -323,13 +309,10 @@ class OpenIDHooks {
 						'default' => wfMessage( 'openid-show-openid-url-on-userpage-never' )->text(),
 					];
 				break;
-
 			}
-
 		} /* provider mode */
 
 		if ( OpenID::isAllowedMode( 'consumer' ) ) {
-
 		// setting up user_properties up_property database key names
 		// example 'openid-userinfo-update-on-login-nickname'
 		// FIXME: this could better be saved as a JSON encoded array in a single key
@@ -364,11 +347,9 @@ class OpenIDHooks {
 			[
 				'type' => 'hidden',
 			];
-
 		} /* consumer mode */
 
 		if ( OpenID::isAllowedMode( 'provider' ) ) {
-
 			$preferences['openid-your-openid'] =
 				[
 					'section' => 'openid/openid-local-identity',
@@ -387,11 +368,9 @@ class OpenIDHooks {
 					'default' => self::getTrustTable( $user ),
 					'raw' => true,
 				];
-
 		} /* provider mode */
 
 		if ( $wgAuth->allowPasswordChange() ) {
-
 			$resetlink = Linker::link(
 				SpecialPage::getTitleFor( 'PasswordReset' ),
 				wfMessage( 'passwordreset' )->escaped(),
@@ -400,7 +379,6 @@ class OpenIDHooks {
 			);
 
 			if ( empty( $wgUser->mPassword ) && empty( $wgUser->mNewpassword ) ) {
-
 				$preferences['password'] = [
 					'section' => 'personal/info',
 					'type' => 'info',
@@ -408,9 +386,7 @@ class OpenIDHooks {
 					'default' => $resetlink,
 					'label-message' => 'yourpassword',
 				];
-
 			} else {
-
 				$preferences['resetpassword'] = [
 					'section' => 'personal/info',
 					'type' => 'info',
@@ -418,13 +394,11 @@ class OpenIDHooks {
 					'default' => $resetlink,
 					'label-message' => null,
 				];
-
 			}
 
 			global $wgCookieExpiration;
 
 			if ( $wgCookieExpiration > 0 ) {
-
 				unset( $preferences['rememberpassword'] );
 				$preferences['rememberpassword'] = [
 					'section' => 'personal/info',
@@ -434,9 +408,7 @@ class OpenIDHooks {
 						$wgLang->formatNum( ceil( $wgCookieExpiration / ( 3600 * 24 ) ) )
 						)->escaped(),
 				];
-
 			}
-
 		}
 
 		return true;
@@ -450,7 +422,6 @@ class OpenIDHooks {
 		global $wgOut;
 
 		if ( is_object( $user ) ) {
-
 			$username = $user->getName();
 			$userID = $user->getID();
 
@@ -458,7 +429,6 @@ class OpenIDHooks {
 
 			$dbw->delete( 'user_openid', [ 'uoi_user' => $userID ] );
 			$wgOut->addHTML( "OpenID " . wfMessage( 'usermerge-userdeleted', $username, $userID )->escaped() . "<br />\n" );
-
 		}
 
 		return true;
@@ -483,11 +453,8 @@ class OpenIDHooks {
 
 				$dbw->update( 'user_openid', [ 'uoi_user' => $toUserID ], [ 'uoi_user' => $fromUserID ] );
 				$wgOut->addHTML( "OpenID " . wfMessage( 'usermerge-updating', 'user_openid', $fromUsername, $toUsername )->escaped() . "<br />\n" );
-
 			} else {
-
 				$wgOut->addHTML( wfMessage( 'openid-openids-were-not-merged' )->escaped() . "<br />\n" );
-
 			}
 		}
 		return true;

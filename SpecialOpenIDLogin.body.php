@@ -1125,9 +1125,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		return ( strlen( $axName ) ? $axName : null );
 	}
 
-	# Session stuff
-	# -------------
-
 	function saveValues( $response, $sreg, $ax ) {
 		$this->setupSession();
 

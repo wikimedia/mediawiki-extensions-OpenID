@@ -37,8 +37,9 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 		parent::__construct( 'OpenIDXRDS', '', false );
 	}
 
-	# $par is a user name
-
+	/**
+	 * @param string|null $par A user name
+	 */
 	function execute( $par ) {
 		global $wgOut;
 

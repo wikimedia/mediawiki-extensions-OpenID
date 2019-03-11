@@ -294,13 +294,12 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			);
 	}
 
-	# Checks a validation request. $imm means don't run any UI.
-	# Fairly meticulous and step-by step, and uses assertions
-	# to point out assumptions at each step.
-	#
-	# FIXME: this should probably be broken up into multiple functions for
-	# clarity.
-
+	/**
+	 * Checks a validation request. $imm means don't run any UI. Fairly meticulous and step-by step,
+	 * and uses assertions to point out assumptions at each step.
+	 *
+	 * FIXME: This should probably be broken up into multiple functions for clarity.
+	 */
 	function Check( $server, $request, $sreg, $imm = true ) {
 		global $wgUser, $wgOut, $wgOpenIDAllowServingOpenIDUserAccounts;
 
@@ -462,12 +461,13 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		return $response;
 	}
 
-	# Get the user's configured trust value for a particular trust root.
-	# Returns one of three values:
-	# * NULL -> no stored trust preferences
-	# * false -> stored trust preference is not to trust
-	# * array -> possibly empty array of allowed profile fields; trust is OK
-
+	/**
+	 * Get the user's configured trust value for a particular trust root.
+	 * Returns one of three values:
+	 * * NULL -> no stored trust preferences
+	 * * false -> stored trust preference is not to trust
+	 * * array -> possibly empty array of allowed profile fields; trust is OK
+	 */
 	function GetUserTrust( $user, $trust_root ) {
 		static $allFields = [ 'nickname', 'fullname', 'email', 'language' ];
 		global $wgOpenIDServerForceAllowTrust;

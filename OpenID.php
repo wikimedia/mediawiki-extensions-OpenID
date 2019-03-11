@@ -481,10 +481,10 @@ $wgResourceModules['ext.openid.icons'] = $myResourceTemplate + [
 ];
 
 class OpenID {
-	/*
+	/**
 	 * @param $mode string|array|boolean: mode 'provider'|'consumer'|array('provider','consumer') to be checked if allowed
-	 * @return boolean
-	*/
+	 * @return bool
+	 */
 	static function isAllowedMode( $mode = false ) {
 		global $wgOpenIDMode, $wgOpenIDProviders;
 
@@ -514,9 +514,9 @@ class OpenID {
 		}
 	}
 
-	/*
-	 * @return boolean
-	*/
+	/**
+	 * @return bool
+	 */
 	static function isForcedProvider() {
 		global $wgOpenIDForcedProvider;
 		return is_string( $wgOpenIDForcedProvider );

@@ -132,8 +132,8 @@ class OpenIDProvider {
 	/**
 	 * Get the list of major OpenID providers
 	 *
-	 * @param $largeOrSmallProvider OPTIONAL; when specified as 'large' or 'small' return only those providers
-	 * @return array of OpenIDProvider
+	 * @param string|null $largeOrSmallProvider OPTIONAL; when specified as 'large' or 'small' return only those providers
+	 * @return self[]
 	 */
 	public static function getProviders( $largeOrSmallProvider = null ) {
 		global $wgOpenIDProviders;

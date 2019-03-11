@@ -40,12 +40,17 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 		self::showOpenIDIdentifier( User::newFromId( $par ), false, true );
 	}
 
+	/**
+	 * @param User|false $user
+	 *
+	 * @return bool
+	 */
 	private static function isUser( $user ) {
 		return ( $user ) ? $user->loadFromId() : false;
 	}
 
 	/**
-	 * @param User $user
+	 * @param User|false $user
 	 * @param bool $delegate
 	 * @param bool $showSpecialPageText
 	 */

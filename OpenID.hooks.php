@@ -56,12 +56,14 @@ class OpenIDHooks {
 		}
 	}
 
-	/** Hook is called whenever an article is being viewed
-	 * @param $article Article
-	 * @param $outputDone
-	 * @param $pcache
+	/**
+	 * Hook is called whenever an article is being viewed
+	 *
+	 * @param Article $article
+	 * @param bool $outputDone
+	 * @param bool $pcache
 	 */
-	public static function onArticleViewHeader( &$article, &$outputDone, &$pcache ) {
+	public static function onArticleViewHeader( $article, $outputDone, $pcache ) {
 		$nt = $article->getTitle();
 
 		// If the page being viewed is a user page,
@@ -85,10 +87,10 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $personal_urls array
-	 * @param $title Title
+	 * @param array[] &$personal_urls
+	 * @param Title $title
 	 */
-	public static function onPersonalUrls( &$personal_urls, &$title ) {
+	public static function onPersonalUrls( &$personal_urls, $title ) {
 		global $wgOpenIDHideOpenIDLoginLink, $wgUser, $wgOut, $wgOpenIDLoginOnly;
 
 		if ( !$wgOpenIDHideOpenIDLoginLink
@@ -116,10 +118,10 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $out OutputPage
-	 * @param $sk
+	 * @param OutputPage $out
+	 * @param Skin $sk
 	 */
-	public static function onBeforePageDisplay( $out, &$sk ) {
+	public static function onBeforePageDisplay( $out, $sk ) {
 		global $wgOpenIDHideOpenIDLoginLink, $wgUser;
 
 		# We need to do this *before* PersonalUrls is called
@@ -134,7 +136,7 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $user User
+	 * @param User $user
 	 * @return string
 	 */
 	private static function getAssociatedOpenIDsTable( $user ) {
@@ -203,7 +205,7 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $user User
+	 * @param User $user
 	 * @return string
 	 */
 	private static function getTrustTable( $user ) {
@@ -262,8 +264,8 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $user User
-	 * @param $preferences array
+	 * @param User $user
+	 * @param array[] &$preferences
 	 */
 	public static function onGetPreferences( $user, &$preferences ) {
 		global $wgOpenIDShowUrlOnUserPage, $wgHiddenPrefs,
@@ -401,9 +403,9 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $user User
+	 * @param User $user
 	 */
-	public static function onDeleteAccount( &$user ) {
+	public static function onDeleteAccount( $user ) {
 		global $wgOut;
 
 		if ( is_object( $user ) ) {
@@ -418,10 +420,10 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $fromUserObj User
-	 * @param $toUserObj User
+	 * @param User $fromUserObj
+	 * @param User $toUserObj
 	 */
-	public static function onMergeAccountFromTo( &$fromUserObj, &$toUserObj ) {
+	public static function onMergeAccountFromTo( $fromUserObj, $toUserObj ) {
 		global $wgOut, $wgOpenIDMergeOnAccountMerge;
 
 		if ( is_object( $fromUserObj ) && is_object( $toUserObj ) ) {
@@ -442,9 +444,9 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $updater DatabaseUpdater
+	 * @param DatabaseUpdater $updater
 	 */
-	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
+	public static function onLoadExtensionSchemaUpdates( $updater ) {
 		switch ( $updater->getDB()->getType() ) {
 		case "mysql":
 			self::MySQLSchemaUpdates( $updater );
@@ -458,9 +460,9 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $updater MysqlUpdater
+	 * @param MysqlUpdater $updater
 	 */
-	public static function MySQLSchemaUpdates( $updater = null ) {
+	public static function MySQLSchemaUpdates( $updater ) {
 		// >= 1.17 support
 		$updater->addExtensionTable( 'user_openid',
 			__DIR__ . '/patches/openid_table.sql' );
@@ -483,9 +485,9 @@ class OpenIDHooks {
 	}
 
 	/**
-	 * @param $updater PostgresUpdater
+	 * @param PostgresUpdater $updater
 	 */
-	public static function PostgreSQLSchemaUpdates( $updater = null ) {
+	public static function PostgreSQLSchemaUpdates( $updater ) {
 		$base = __DIR__ . '/patches';
 		foreach ( [
 			[ 'addTable', 'user_openid', $base . '/openid_table.pg.sql', true ],

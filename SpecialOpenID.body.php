@@ -84,7 +84,7 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $xri string
+	 * @param string $xri
 	 * @return string
 	 */
 	function xriBase( $xri ) {
@@ -96,7 +96,7 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $xri string
+	 * @param string $xri
 	 * @return string
 	 */
 	function xriToUrl( $xri ) {
@@ -104,7 +104,7 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $openid string
+	 * @param string $openid
 	 * @return string
 	 */
 	static function OpenIDToUrl( $openid ) {
@@ -117,7 +117,7 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $openid_url string
+	 * @param string $openid_url
 	 * @return String
 	 */
 	function interwikiExpand( $openid_url ) {
@@ -154,7 +154,7 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $openid_url string
+	 * @param string $openid_url
 	 * @return bool
 	 */
 	function canLogin( $openid_url ) {
@@ -197,7 +197,7 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $url string
+	 * @param string $url
 	 * @return bool
 	 */
 	function isLocalUrl( $url ) {
@@ -211,8 +211,9 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $openid_url string
-	 * @param $finish_page
+	 * @param string $openid_url
+	 * @param Title $finish_page
+	 * @param bool $skipTokenTestBecauseForcedProvider
 	 */
 	function login( $openid_url, $finish_page, $skipTokenTestBecauseForcedProvider = false ) {
 		global $wgOut, $wgUser, $wgRequest;
@@ -371,7 +372,7 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $par string|Title|bool
+	 * @param Title|string|false $par
 	 * @return string
 	 */
 	function scriptUrl( $par = false ) {
@@ -396,7 +397,7 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $openid
+	 * @param string $openid
 	 */
 	function loginSetCookie( $openid ) {
 		global $wgRequest, $wgOpenIDCookieExpiration;
@@ -406,8 +407,8 @@ class SpecialOpenID extends SpecialPage {
 	/**
 	 * Find the user with the given openid
 	 *
-	 * @param $user
-	 * @return array return the registered OpenID urls and registration timestamps (if available)
+	 * @param User $user
+	 * @return stdClass[] return the registered OpenID urls and registration timestamps (if available)
 	 */
 	public static function getUserOpenIDInformation( $user ) {
 		$openid_urls_registration = [];
@@ -430,7 +431,7 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $openid string
+	 * @param string $openid
 	 * @return null|User
 	 */
 	public static function getUserFromUrl( $openid ) {
@@ -451,8 +452,8 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $user User
-	 * @param $url string
+	 * @param User $user
+	 * @param string $url
 	 */
 	public static function addUserUrl( $user, $url ) {
 		$dbw = wfGetDB( DB_MASTER );
@@ -469,8 +470,8 @@ class SpecialOpenID extends SpecialPage {
 	}
 
 	/**
-	 * @param $user User
-	 * @param $url string
+	 * @param User $user
+	 * @param string $url
 	 * @return bool
 	 */
 	public static function removeUserUrl( $user, $url ) {

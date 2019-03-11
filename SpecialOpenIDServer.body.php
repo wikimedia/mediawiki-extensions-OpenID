@@ -229,9 +229,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 	}
 
-	# Returns an Auth_OpenID_Server from the libraries. Utility.
-
 	/**
+	 * Returns an Auth_OpenID_Server from the libraries. Utility.
+	 *
 	 * @return Auth_OpenID_Server
 	 */
 	function getServer() {
@@ -250,11 +250,11 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		return new Auth_OpenID_Server( $store, $this->serverUrl() );
 	}
 
-	# respond with the authenticated local identity OpenID Url. Utility
-
 	/**
-	 * @param $user
-	 * @return getLocalIdentity
+	 * Respond with the authenticated local identity OpenID Url. Utility
+	 *
+	 * @param User $user
+	 * @return string
 	 */
 	static function getLocalIdentity( $user ) {
 		global $wgOpenIDIdentifiersURL;
@@ -270,8 +270,8 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	/**
-	 * @param $user
-	 * @return getLocalIdentityLink
+	 * @param User $user
+	 * @return string
 	 */
 	static function getLocalIdentityLink( $user ) {
 		return Xml::element( 'a',
@@ -285,6 +285,12 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	 * and uses assertions to point out assumptions at each step.
 	 *
 	 * FIXME: This should probably be broken up into multiple functions for clarity.
+	 *
+	 * @param Auth_OpenID_Server $server
+	 * @param Auth_OpenID_CheckIDRequest $request
+	 * @param array $sreg
+	 * @param bool $imm
+	 * @return Auth_OpenID_Request|null
 	 */
 	function Check( $server, $request, $sreg, $imm = true ) {
 		global $wgUser, $wgOut, $wgOpenIDAllowServingOpenIDUserAccounts;
@@ -453,6 +459,10 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	 * * NULL -> no stored trust preferences
 	 * * false -> stored trust preference is not to trust
 	 * * array -> possibly empty array of allowed profile fields; trust is OK
+	 *
+	 * @param User $user
+	 * @param string $trust_root
+	 * @return string[]|false|null
 	 */
 	function GetUserTrust( $user, $trust_root ) {
 		static $allFields = [ 'nickname', 'fullname', 'email', 'language' ];
@@ -473,7 +483,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 	}
 
-	function SetUserTrust( &$user, $trust_root, $value = null ) {
+	function SetUserTrust( $user, $trust_root, $value = null ) {
 		$trust_array = $this->GetUserTrustArray( $user );
 		if ( is_null( $value ) ) {
 			if ( array_key_exists( $trust_root, $trust_array ) ) {
@@ -506,7 +516,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		return $trust_array;
 	}
 
-	function SetUserTrustArray( &$user, $arr ) {
+	function SetUserTrustArray( $user, $arr ) {
 		$trust_records = [];
 		foreach ( $arr as $root => $value ) {
 			if ( $value === false ) {
@@ -596,12 +606,12 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	/**
-	 * @param $user User
-	 * @param $field string
-	 * @param $value string
+	 * @param User $user
+	 * @param string $field
+	 * @param string $value
 	 * @return bool
 	 */
-	function SetUserField( &$user, $field, $value ) {
+	function SetUserField( $user, $field, $value ) {
 		switch ( $field ) {
 		case 'fullname':
 			$user->setRealName( $value );
@@ -622,9 +632,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	/**
-	 * @param $user User
-	 * @param $field string
-	 * @return null
+	 * @param User $user
+	 * @param string $field
+	 * @return string|null
 	 */
 	function GetUserField( $user, $field ) {
 		switch ( $field ) {
@@ -641,7 +651,11 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 	}
 
-	function Response( &$server, &$response ) {
+	/**
+	 * @param Auth_OpenID_Server $server
+	 * @param Auth_OpenID_ServerResponse $response
+	 */
+	function Response( $server, $response ) {
 		global $wgOut;
 
 		assert( !is_null( $server ) );
@@ -828,6 +842,12 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		return null;
 	}
 
+	/**
+	 * @param Auth_OpenID_CheckIDRequest $request
+	 * @param array $sreg
+	 *
+	 * @return Auth_OpenID_ServerResponse|null
+	 */
 	function Trust( $request, $sreg ) {
 		global $wgRequest, $wgUser;
 
@@ -870,8 +890,8 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	/**
 	 * Converts an URL /User:Name to a user name, if possible
 	 *
-	 * @param $url string
-	 * @return null|String
+	 * @param string $url
+	 * @return null|string
 	 */
 	function UrlToUserName( $url ) {
 		global $wgArticlePath, $wgServer;
@@ -928,7 +948,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	/**
-	 * @return String
+	 * @return string
 	 */
 	function serverUrl() {
 		return $this->getPageTitle()->getFullURL( '', false, PROTO_CANONICAL );

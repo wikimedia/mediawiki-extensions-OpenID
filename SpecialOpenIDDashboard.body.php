@@ -21,6 +21,8 @@ class SpecialOpenIDDashboard extends SpecialPage {
 	/**
 	 * Different description will be shown on Special:SpecialPage depending on
 	 * whether the user has the 'openiddashboard' right or not.
+	 *
+	 * @return string
 	 */
 	function getDescription() {
 		global $wgUser;
@@ -33,8 +35,8 @@ class SpecialOpenIDDashboard extends SpecialPage {
 	}
 
 	/**
-	 * @param $string string
-	 * @param $value string
+	 * @param string $string
+	 * @param string|bool|null $value
 	 * @return string
 	 */
 	function show( $string, $value ) {
@@ -62,7 +64,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 	/**
 	 * Show the special page
 	 *
-	 * @param $par Mixed: parameter passed to the page or null
+	 * @param string|null $par Parameter passed to the page or null
 	 */
 	function execute( $par ) {
 		global $wgOut, $wgUser,

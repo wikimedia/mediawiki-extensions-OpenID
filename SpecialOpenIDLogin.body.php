@@ -41,7 +41,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	/**
 	 * Entry point
 	 *
-	 * @param $par String or null
+	 * @param string|null $par
 	 */
 	function execute( $par ) {
 		global $wgRequest, $wgUser, $wgOpenIDForcedProvider, $wgOpenIDProviders, $wgOut;
@@ -143,6 +143,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		$smallButtonsHTML = '';
 
 		if ( get_class( $wgOpenIDForcedProvider ) == 'OpenIDProvider' ) {
+			/** @var $wgOpenIDForcedProvider OpenIDProvider */
 			$inputFormHTML .= $wgOpenIDForcedProvider->getLoginFormHTML();
 		} else {
 			SpecialOpenIDConvert::renderProviderIcons( $inputFormHTML, $largeButtonsHTML, $smallButtonsHTML );
@@ -191,10 +192,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 * Displays a form to let the user choose an account to attach with the
 	 * given OpenID
 	 *
-	 * @param $openid String: OpenID url
-	 * @param $sreg Array: options get from OpenID
-	 * @param $ax Array: options get from OpenID
-	 * @param $messagekey String or null: message name to display at the top
+	 * @param string $openid OpenID url
+	 * @param string[] $sreg Options get from OpenID
+	 * @param array[] $ax Options get from OpenID
+	 * @param string|null $messagekey Message name to display at the top
 	 */
 	function chooseNameForm( $openid, $sreg, $ax, $messagekey = null ) {
 		global $wgAuth, $wgOut, $wgOpenIDAllowExistingAccountSelection, $wgHiddenPrefs,
@@ -673,10 +674,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	/**
 	 * Update some user's settings with value get from OpenID
 	 *
-	 * @param $user User object
-	 * @param $sreg Array of options get from OpenID
-	 * @param $ax
-	 * @param $force bool forces update regardless of user preferences
+	 * @param User $user
+	 * @param string[] $sreg Array of options get from OpenID
+	 * @param array[] $ax
+	 * @param bool $force Forces update regardless of user preferences
 	 */
 	function updateUser( $user, $sreg, $ax, $force = false ) {
 		global $wgOut, $wgHiddenPrefs, $wgOpenIDTrustEmailAddress;
@@ -775,7 +776,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	/**
 	 * Display the final "Successful login"
 	 *
-	 * @param $openid String: OpenID url
+	 * @param string $openid OpenID URL
 	 */
 	function displaySuccessLogin( $openid ) {
 		global $wgUser, $wgOut;
@@ -847,10 +848,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	}
 
 	/**
-	 * @param $openid
-	 * @param $sreg
-	 * @param $name
-	 * @param $password
+	 * @param string $openid
+	 * @param string[] $sreg
+	 * @param string $name
+	 * @param string $password
 	 * @return bool|null|User
 	 */
 	function attachUser( $openid, $sreg, $name, $password ) {
@@ -882,12 +883,12 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	}
 
 	/**
-	 * @param $openid
-	 * @param $sreg
-	 * @param $ax
-	 * @param $choice
-	 * @param $nameValue
-	 * @return mixed|null|string
+	 * @param string $openid
+	 * @param string[] $sreg
+	 * @param array[] $ax
+	 * @param string $choice
+	 * @param string $nameValue
+	 * @return string|null
 	 */
 	function getUserName( $openid, $sreg, $ax, $choice, $nameValue ) {
 		global $wgOpenIDAllowAutomaticUsername, $wgOpenIDAllowNewAccountname, $wgOpenIDProposeUsernameFromSREG;
@@ -935,8 +936,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	}
 
 	/**
-	 * @param $openid string
-	 * @return mixed|null
+	 * @param string $openid
+	 * @return string|null
 	 */
 	function toUserName( $openid ) {
 		if ( Auth_Yadis_identifierScheme( $openid ) == 'XRI' ) {
@@ -975,6 +976,9 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 * 1. Plain hostname, like http://evanp.myopenid.com/
 	 * 2. One element in path, like http://profile.typekey.com/EvanProdromou/
 	 *   or http://getopenid.com/evanprodromou
+	 *
+	 * @param string $openid
+	 * @return string|null
 	 */
 	function toUserNameUrl( $openid ) {
 		static $bad = [ 'query', 'user', 'password', 'port', 'fragment' ];
@@ -1020,6 +1024,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		return null;
 	}
 
+	/**
+	 * @param string $xri
+	 * @return string|null
+	 */
 	function toUserNameXri( $xri ) {
 		$base = $this->xriBase( $xri );
 
@@ -1033,6 +1041,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		}
 	}
 
+	/**
+	 * @param string[] $sreg
+	 * @return string|null
+	 */
 	function automaticName( $sreg ) {
 		if ( array_key_exists( 'nickname', $sreg ) && # try auto-generated from nickname
 			strlen( $sreg['nickname'] ) > 0 ) {
@@ -1044,6 +1056,9 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 	/**
 	 * Get an auto-incremented name
+	 *
+	 * @param string $prefix
+	 * @return string|null
 	 */
 	function firstAvailable( $prefix ) {
 		for ( $i = 2; ; $i++ ) { # FIXME: this is the DUMB WAY to do this
@@ -1056,6 +1071,9 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 	/**
 	 * Is this name OK to use as a user name?
+	 *
+	 * @param string $name
+	 * @return bool
 	 */
 	function userNameOK( $name ) {
 		global $wgReservedUsernames;
@@ -1066,8 +1084,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	/**
 	 * Get the full user name (first and last name) or only last or first name
 	 * whatever is available from the ax array (if exists)
-	 * @param $ax
-	 * @return mixed|null|string
+	 * @param array[] $ax
+	 * @return string|null
 	 */
 	function getAXUserName( $ax ) {
 		$axName = '';

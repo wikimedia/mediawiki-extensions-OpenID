@@ -200,7 +200,7 @@ $wgOpenIDDefaultProviderName = null;
  * <ProviderName>_large.png (example Google_large.png)
  * <ProviderName>_small.png (example Versign_small.png)
  *
- * @param $wgOpenIDProviders Array: names and parameters of supported OpenID Providers
+ * @param array[] $wgOpenIDProviders Names and parameters of supported OpenID Providers
  */
 $wgOpenIDProviders = [
 	'OpenID' => [
@@ -478,7 +478,7 @@ $wgResourceModules['ext.openid.icons'] = $myResourceTemplate + [
 
 class OpenID {
 	/**
-	 * @param $mode string|array|boolean: mode 'provider'|'consumer'|array('provider','consumer') to be checked if allowed
+	 * @param string|string[]|false $mode Mode 'provider'|'consumer'|array('provider','consumer') to be checked if allowed
 	 * @return bool
 	 */
 	static function isAllowedMode( $mode = false ) {

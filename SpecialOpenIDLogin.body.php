@@ -767,7 +767,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 		}
 
-		// Language
 		if ( $this->updateOption( 'language', $user, $force ) ) {
 			if ( array_key_exists( 'language', $sreg ) ) {
 				# FIXME: check and make sure the language exists
@@ -1117,7 +1116,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		}
 		if ( isset( $ax['http://axschema.org/namePerson/last'][0] ) ) {
 			if ( strlen( $axName ) ) {
-				$axName = $axName . ' ' . $ax['http://axschema.org/namePerson/last'][0];
+				$axName .= ' ' . $ax['http://axschema.org/namePerson/last'][0];
 			} else {
 				$axName = $ax['http://axschema.org/namePerson/last'][0];
 			}

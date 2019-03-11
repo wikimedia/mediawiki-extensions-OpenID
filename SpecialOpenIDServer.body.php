@@ -826,7 +826,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				$value = $this->GetUserField( $wgUser, $field );
 				$wgOut->addHTML( "</td>" );
 				$wgOut->addHTML( "<td> " . ( ( is_null( $value ) ) ? '' : $value ) . "</td>" );
-				$wgOut->addHTML( "<td>" . ( ( in_array( $field, $sreg['required'] ) ) ? wfMessage( 'openidrequired' )->text() : wfMessage( 'openidoptional' )->text() ) . "</td>" );
+				$wgOut->addHTML( '<td>' . wfMessage( in_array( $field, $sreg['required'] )
+						? 'openidrequired'
+						: 'openidoptional' )->text() . '</td>' );
 				$wgOut->addHTML( "<td><input name='wpAllow{$field}' id='wpAllow{$field}' type='checkbox'" );
 
 				if ( !is_null( $value ) ) {

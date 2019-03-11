@@ -102,7 +102,10 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 							$skipTokenTestBecauseForcedProvider = true;
 							$openid_url = $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-selection-url'];
 						} else {
-							wfDebug( "OpenID: Error: wgOpenIDForcedProvider $wgOpenIDForcedProvider defined, but wgOpenIDProviders array has an invalid provider Url. Must not contain a username placeholder!\n" );
+							wfDebug( 'OpenID: Error: wgOpenIDForcedProvider ' .
+								$wgOpenIDForcedProvider . ' defined, but wgOpenIDProviders array ' .
+								'has an invalid provider Url. Must not contain a username ' .
+								'placeholder!' );
 							$this->showErrorPage( 'openid-error-wrong-force-provider-setting', [ $wgOpenIDForcedProvider ] );
 							return;
 						}

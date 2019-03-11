@@ -562,7 +562,8 @@ class OpenIDHooks {
 		foreach ( OpenIDProvider::getProviders() as $provider ) {
 			$providerName = $provider->providerName();
 			$providerSize = $provider->isLargeProvider() ? 'large' : 'small';
-			$ret .= "#openid_provider_{$providerName}_icon { background-image: url({$wgExtensionAssetsPath}/OpenID/skin/icons/{$providerName}_{$providerSize}.png); }
+			$ret .= "#openid_provider_{$providerName}_icon { background-image: url(" .
+				"{$wgExtensionAssetsPath}/OpenID/skin/icons/{$providerName}_{$providerSize}.png); }
 ";
 		}
 		return $ret . "</style>";

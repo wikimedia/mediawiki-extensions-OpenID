@@ -54,15 +54,12 @@ class OpenIDHooks {
 			$key = 'OpenID' . $sp;
 			$specialPagesList[$key] = 'SpecialOpenID' . $sp;
 		}
-
-		return true;
 	}
 
 	/** Hook is called whenever an article is being viewed
 	 * @param $article Article
 	 * @param $outputDone
 	 * @param $pcache
-	 * @return bool
 	 */
 	public static function onArticleViewHeader( &$article, &$outputDone, &$pcache ) {
 		$nt = $article->getTitle();
@@ -85,14 +82,11 @@ class OpenIDHooks {
 				SpecialOpenIDIdentifier::showOpenIDIdentifier( $user, true, false );
 			}
 		}
-
-		return true;
 	}
 
 	/**
 	 * @param $personal_urls array
 	 * @param $title Title
-	 * @return bool
 	 */
 	public static function onPersonalUrls( &$personal_urls, &$title ) {
 		global $wgOpenIDHideOpenIDLoginLink, $wgUser, $wgOut, $wgOpenIDLoginOnly;
@@ -119,14 +113,11 @@ class OpenIDHooks {
 				}
 			}
 		}
-
-		return true;
 	}
 
 	/**
 	 * @param $out OutputPage
 	 * @param $sk
-	 * @return bool
 	 */
 	public static function onBeforePageDisplay( $out, &$sk ) {
 		global $wgOpenIDHideOpenIDLoginLink, $wgUser;
@@ -140,8 +131,6 @@ class OpenIDHooks {
 			|| $out->getTitle()->equals( SpecialPage::getTitleFor( 'OpenIDLogin' ) ) ) {
 				$out->addHeadItem( 'openid-providerstyle', self::providerStyle() );
 		}
-
-		return true;
 	}
 
 	/**
@@ -275,7 +264,6 @@ class OpenIDHooks {
 	/**
 	 * @param $user User
 	 * @param $preferences array
-	 * @return bool
 	 */
 	public static function onGetPreferences( $user, &$preferences ) {
 		global $wgOpenIDShowUrlOnUserPage, $wgHiddenPrefs,
@@ -410,13 +398,10 @@ class OpenIDHooks {
 				];
 			}
 		}
-
-		return true;
 	}
 
 	/**
 	 * @param $user User
-	 * @return bool
 	 */
 	public static function onDeleteAccount( &$user ) {
 		global $wgOut;
@@ -430,14 +415,11 @@ class OpenIDHooks {
 			$dbw->delete( 'user_openid', [ 'uoi_user' => $userID ] );
 			$wgOut->addHTML( "OpenID " . wfMessage( 'usermerge-userdeleted', $username, $userID )->escaped() . "<br />\n" );
 		}
-
-		return true;
 	}
 
 	/**
 	 * @param $fromUserObj User
 	 * @param $toUserObj User
-	 * @return bool
 	 */
 	public static function onMergeAccountFromTo( &$fromUserObj, &$toUserObj ) {
 		global $wgOut, $wgOpenIDMergeOnAccountMerge;
@@ -457,19 +439,19 @@ class OpenIDHooks {
 				$wgOut->addHTML( wfMessage( 'openid-openids-were-not-merged' )->escaped() . "<br />\n" );
 			}
 		}
-		return true;
 	}
 
 	/**
 	 * @param $updater DatabaseUpdater
-	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater = null ) {
 		switch ( $updater->getDB()->getType() ) {
 		case "mysql":
-			return self::MySQLSchemaUpdates( $updater );
+			self::MySQLSchemaUpdates( $updater );
+			break;
 		case "postgres":
-			return self::PostgreSQLSchemaUpdates( $updater );
+			self::PostgreSQLSchemaUpdates( $updater );
+			break;
 		default:
 			throw new MWException( "OpenID does not support {$updater->getDB()->getType()} yet." );
 		}
@@ -477,7 +459,6 @@ class OpenIDHooks {
 
 	/**
 	 * @param $updater MysqlUpdater
-	 * @return bool
 	 */
 	public static function MySQLSchemaUpdates( $updater = null ) {
 		// >= 1.17 support
@@ -499,13 +480,10 @@ class OpenIDHooks {
 		# uoi_user_registration field was added in OpenID version 0.937
 		$updater->addExtensionField( 'user_openid', 'uoi_user_registration',
 			__DIR__ . '/patches/patch-add_uoi_user_registration.sql' );
-
-		return true;
 	}
 
 	/**
 	 * @param $updater PostgresUpdater
-	 * @return bool
 	 */
 	public static function PostgreSQLSchemaUpdates( $updater = null ) {
 		$base = __DIR__ . '/patches';
@@ -515,8 +493,6 @@ class OpenIDHooks {
 		] as $update ) {
 			$updater->addExtensionUpdate( $update );
 		}
-
-		return true;
 	}
 
 	/**

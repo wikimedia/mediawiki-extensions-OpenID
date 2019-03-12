@@ -82,7 +82,6 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 				$xrdsUrl = $rt->getFullURL( '', false, PROTO_CANONICAL );
 				$wgOut->addMeta( 'http:X-XRDS-Location', $xrdsUrl );
 				header( 'X-XRDS-Location: ' . $xrdsUrl );
-
 			}
 
 			if ( ( $user->getID() === $wgUser->getID() )

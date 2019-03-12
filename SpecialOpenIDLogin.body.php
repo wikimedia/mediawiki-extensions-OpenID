@@ -84,9 +84,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$skipTokenTestBecauseForcedProvider = false;
 
 			if ( OpenID::isForcedProvider() ) {
-
 				if ( array_key_exists( $wgOpenIDForcedProvider, $wgOpenIDProviders ) ) {
-
 					$url = $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-url'];
 
 					// make sure that the associated provider Url does not contain {username} placeholder
@@ -103,19 +101,13 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 							return;
 						}
 					}
-
 				} else {
-
 					// a fully qualified URL is given
 					$skipTokenTestBecauseForcedProvider = true;
 					$openid_url = $wgOpenIDForcedProvider;
-
 				}
-
 			} else {
-
 				$openid_url = $wgRequest->getText( 'openid_url' );
-
 			}
 
 			if ( !is_null( $openid_url ) && strlen( $openid_url ) > 0 ) {
@@ -123,7 +115,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			} else {
 				$this->providerSelectionLoginForm();
 			}
-
 		} /* switch $par */
 	}
 
@@ -248,7 +239,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$oidAttributes = [];
 
 			foreach ( $oidAttributesToAccept as $oidAttr ) {
-
 				if ( ( $oidAttr == 'fullname' )
 					&& ( in_array( 'realname', $wgHiddenPrefs ) ) ) {
 					continue;
@@ -323,7 +313,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			);
 
 		if ( $wgAuth->allowPasswordChange() ) {
-
 			$wgOut->addHTML(
 				Xml::openElement( 'tr' ) .
 
@@ -344,20 +333,17 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 				Xml::closeElement( 'tr' )
 			);
-
 		}
 
 			$def = true;
-
 		} // $wgOpenIDAllowExistingAccountSelection
 
 		# These are only available if the visitor is allowed to create account
 		if ( $wgUser->isAllowed( 'createaccount' )
 			&& $wgUser->isAllowed( 'openid-create-account-with-openid' )
-			&& !$wgUser->isBlockedFromCreateAccount() ) {
-
+			&& !$wgUser->isBlockedFromCreateAccount()
+		) {
 			if ( $wgOpenIDProposeUsernameFromSREG ) {
-
 				# These options won't exist if we can't get them.
 				if ( array_key_exists( 'nickname', $sreg ) && $this->userNameOK( $sreg['nickname'] ) ) {
 					$wgOut->addHTML(
@@ -506,7 +492,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				Xml::closeElement( 'tr' )
 				);
 			}
-
 		} // These are only available if all visitors are allowed to create accounts
 
 		LoginForm::setLoginToken();
@@ -562,14 +547,12 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		$nameValue = $wgRequest->getText( 'wpNameValue' );
 
 		if ( $choice == 'existing' ) {
-
 			$user = $this->attachUser( $openid, $sreg,
 				$wgRequest->getText( 'wpExistingName' ),
 				$wgRequest->getText( 'wpExistingPassword' )
 			);
 
 			if ( is_null( $user ) || !$user ) {
-
 				$this->clearValues();
 				// $this->chooseNameForm( $openid, $sreg, $ax, 'wrongpassword' );
 				return;
@@ -583,9 +566,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 
 			$this->updateUser( $user, $sreg, $ax );
-
 		} else {
-
 			$name = $this->getUserName( $openid, $sreg, $ax, $choice, $nameValue );
 
 			if ( !$name || !$this->userNameOK( $name ) ) {
@@ -594,15 +575,12 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 
 			$user = $this->createUser( $openid, $sreg, $ax, $name );
-
 		}
 
 		if ( is_null( $user ) ) {
-
 			$this->clearValues();
 			$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
 			return;
-
 		}
 
 		$wgUser = $user;
@@ -669,26 +647,19 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$user = self::getUserFromUrl( $openid );
 
 			if ( $user instanceof User ) {
-
 				$this->updateUser( $user, $sreg, $ax ); # update from server
 				$wgUser = $user;
 				$this->displaySuccessLogin( $openid );
-
 			} else {
-
 				// if we are hardcoding nickname, and a valid e-mail address was returned, create a user with this name
 				if ( $wgOpenIDUseEmailAsNickname ) {
-
 					$name = $this->getNameFromEmail( $openid, $sreg, $ax );
 
 					if ( !empty( $name ) && $this->userNameOk( $name ) ) {
-
 						$wgUser = $this->createUser( $openid, $sreg, $ax, $name );
 						$this->displaySuccessLogin( $openid );
 						return;
-
 					}
-
 				}
 
 				$this->saveValues( $openid, $sreg, $ax );
@@ -733,11 +704,9 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 
 			if ( $email ) {
-
 				// send a confirmation mail if email has changed
 
 				if ( $email != $user->getEmail() ) {
-
 					if ( $wgOpenIDTrustEmailAddress ) {
 						$user->setEmail( $email );
 						$user->confirmEmail();
@@ -747,15 +716,14 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 							$wgOut->addWikiMsg( 'mailerror', $result->getMessage() );
 						}
 					}
-
 				}
 			}
 		}
 
 		// Full name
 		if ( !in_array( 'realname', $wgHiddenPrefs )
-			&& ( $this->updateOption( 'fullname', $user, $force ) ) ) {
-
+			&& ( $this->updateOption( 'fullname', $user, $force ) )
+		) {
 			if ( array_key_exists( 'fullname', $sreg ) ) {
 				$user->setRealName( $sreg['fullname'] );
 			}
@@ -764,7 +732,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			if ( $axName !== null ) {
 				$user->setRealName( $axName );
 			}
-
 		}
 
 		// Language
@@ -793,7 +760,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 * keys look like 'openid-userinfo-update-on-login-nickname'
 	 *
 	 * FIXME: options could better be saved as a JSON encoded array in a single key
-	 *
 	 */
 	private function updateOption( $option, User $user, $force ) {
 		$ret = ( $force === true
@@ -894,18 +860,15 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		$user = User::newFromName( $name );
 
 		if ( $user->checkPassword( $password ) ) {
-
 			// de-validate the temporary password
 			// requires MediaWiki core with https://gerrit.wikimedia.org/r/#/c/96029/ merged 2013-11-18
 			$user->setNewPassword( null );
 			self::addUserUrl( $user, $openid );
 
 			return $user;
-
 		}
 
 		if ( $user->checkTemporaryPassword( $password ) ) {
-
 			$wgAuth->updateUser( $user );
 			$user->saveSettings();
 
@@ -914,7 +877,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$reset->execute( null );
 
 			return null;
-
 		}
 
 		return null;
@@ -990,24 +952,22 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		# look first at SREG, then AX
 
 		if ( array_key_exists( 'email', $sreg )
-			&& Sanitizer::validateEmail( $sreg['email'] ) ) {
-
+			&& Sanitizer::validateEmail( $sreg['email'] )
+		) {
 			$addr = explode( "@", $sreg['email'] );
 			if ( $addr ) {
 				return $addr[0];
 			}
-
 		}
 
 		if ( isset( $ax['http://axschema.org/contact/email'][0] )
-			&& Sanitizer::validateEmail( $ax['http://axschema.org/contact/email'][0] ) ) {
-
+			&& Sanitizer::validateEmail( $ax['http://axschema.org/contact/email'][0] )
+		) {
 			$addr = explode( "@", $ax['http://axschema.org/contact/email'][0] );
 
 			if ( $addr ) {
 				return $addr[0];
 			}
-
 		}
 	}
 

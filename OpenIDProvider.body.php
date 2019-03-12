@@ -141,7 +141,6 @@ class OpenIDProvider {
 		$ret = [];
 
 		if ( is_array( $wgOpenIDProviders ) ) {
-
 			foreach ( $wgOpenIDProviders as $providerName => $provider ) {
 				if ( isset( $provider['label'] ) ) {
 					// fixed, non-localized label string
@@ -161,7 +160,6 @@ class OpenIDProvider {
 					$ret[] = $provider;
 				}
 			}
-
 		}
 
 		return $ret;

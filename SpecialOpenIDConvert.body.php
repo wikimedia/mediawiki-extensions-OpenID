@@ -69,7 +69,6 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 		$this->outputHeader();
 
 		switch ( $par ) {
-
 		case 'Finish':
 			$this->finish();
 			break;
@@ -79,16 +78,13 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			break;
 
 		default:
-
 			// if a forced OpenID provider is specified, bypass
 			// the form and any openid_url in the request.
 
 			$skipTokenTestBecauseForcedProvider = false;
 
 			if ( OpenID::isForcedProvider() ) {
-
 				if ( array_key_exists( $wgOpenIDForcedProvider, $wgOpenIDProviders ) ) {
-
 					$url = $wgOpenIDProviders[$wgOpenIDForcedProvider]['openid-url'];
 					wfDebug( "OpenID: wgOpenIDForcedProvider $wgOpenIDForcedProvider defined => $url\n" );
 
@@ -110,19 +106,13 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 							return;
 						}
 					}
-
 				} else {
-
 					// a fully qualified URL is given
 					$skipTokenTestBecauseForcedProvider = true;
 					$openid_url = $wgOpenIDForcedProvider;
-
 				}
-
 			} else {
-
 				$openid_url = $wgRequest->getText( 'openid_url' );
-
 			}
 
 			if ( isset( $openid_url ) && strlen( $openid_url ) > 0 ) {
@@ -130,7 +120,6 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			} else {
 				$this->form();
 			}
-
 		}
 	}
 
@@ -139,8 +128,8 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 
 		if ( !$skipTokenTestBecauseForcedProvider
 			&& ( LoginForm::getLoginToken() !== $wgRequest->getVal( 'openidProviderSelectionLoginToken' ) )
-			&& !( $wgUser->matchEditToken( $wgRequest->getVal( 'openidConvertToken' ), 'openidConvertToken' ) ) ) {
-
+			&& !( $wgUser->matchEditToken( $wgRequest->getVal( 'openidConvertToken' ), 'openidConvertToken' ) )
+		) {
 			$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
 			return;
 		}
@@ -207,7 +196,6 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 			$smallButtonsHTML = '';
 
 			if ( $wgOpenIDShowProviderIcons ) {
-
 				$smallButtons = '';
 				foreach ( OpenIDProvider::getProviders( 'small' ) as $provider ) {
 					$smallButtons .= $provider->getButtonHTML();
@@ -218,9 +206,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 					[ 'id' => 'openid_small_providers_icons' ],
 					$smallButtons
 				);
-
 			} else {
-
 				$smallButtons = '<ul class="openid_small_providers_block">';
 				$smallProviders = OpenIDProvider::getProviders( 'small' );
 
@@ -247,7 +233,6 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 					[ 'id' => 'openid_small_providers_links' ],
 					$smallButtons
 				);
-
 			}
 
 			return;
@@ -322,8 +307,8 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 		}
 
 		if ( $wgRequest->wasPosted()
-			&& $wgUser->matchEditToken( $wgRequest->getVal( 'openidDeleteToken' ), $openid ) ) {
-
+			&& $wgUser->matchEditToken( $wgRequest->getVal( 'openidDeleteToken' ), $openid )
+		) {
 			$ret = self::removeUserUrl( $wgUser, $openid );
 			$wgOut->addWikiMsg( $ret ? 'openiddelete-success' : 'openiddelete-error' );
 			return;
@@ -360,21 +345,17 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 		}
 
 		switch ( $response->status ) {
-
 		case Auth_OpenID_CANCEL:
-
 			// This means the authentication was cancelled.
 			$wgOut->showErrorPage( 'openidcancel', 'openidcanceltext' );
 			break;
 
 		case Auth_OpenID_FAILURE:
-
 			wfDebug( "OpenID: error in convert: '" . $response->message . "'\n" );
 			$wgOut->showErrorPage( 'openidfailure', 'openidfailuretext', [ $response->message ] );
 			break;
 
 		case Auth_OpenID_SUCCESS:
-
 			// This means the authentication succeeded.
 			$openid_url = $response->identity_url;
 

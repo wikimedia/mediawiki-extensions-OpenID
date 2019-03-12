@@ -107,7 +107,6 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 		// Generate <Service> elements into $service_text.
 		$service_text = "\n";
 		foreach ( $services as $service ) {
-
 			$types = [];
 			foreach ( $service['types'] as $type_uri ) {
 				$types[] = '<Type>' . $type_uri . '</Type>';
@@ -121,7 +120,6 @@ class SpecialOpenIDXRDS extends SpecialOpenID {
 					'</Service>',
 				]
 			);
-
 		}
 
 		$wgOut->disable();

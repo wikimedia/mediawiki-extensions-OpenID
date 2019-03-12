@@ -7,7 +7,6 @@
  * @author Thomas Gries
  * @license GPL-2.0-or-later
  * @link http://www.mediawiki.org/wiki/Extension:OpenID Documentation
- *
  */
 class SpecialOpenIDDashboard extends SpecialPage {
 

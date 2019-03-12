@@ -72,7 +72,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		Wikimedia\restoreWarnings();
 
 		if ( $par === $wgOpenIDIdentifierSelect ) {
-
 			$out = $this->getOutput();
 			$out->addLink( [
 				'ref' => 'openid.server',
@@ -95,9 +94,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 
 		switch ( strtolower( $par ) ) {
-
 		case 'continue':
-
 			# case 'Continue' must stay here
 			# because it is followed by case 'Login' when the user is not logged in on this OpenID server wiki
 
@@ -110,7 +107,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			# continue with the next case 'Login'
 
 		case 'login':
-
 			wfDebug( "OpenID: SpecialOpenIDServer/Login. You should not pass this point.\n" );
 			$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
 			return;
@@ -129,7 +125,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			break;
 
 		case 'trust':
-
 			if ( !$wgUser->matchEditToken( $wgRequest->getVal( 'openidTrustFormToken' ), 'openidTrustFormToken' ) ) {
 				$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
 				return;
@@ -152,14 +147,12 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		// when user deletes a trusted site
 
 		case 'deletetrustedsite':
-
 			$this->deleteTrustedSite();
 			return;
 
 			break;
 
 		default:
-
 			if ( strlen( $par ) ) {
 				wfDebug( "OpenID: aborting in user validation because the request was missing. par: '{$par}'\n" );
 				$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
@@ -199,24 +192,19 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 
 		switch ( $request->mode ) {
-
 		case "checkid_setup":
-
 			$response = $this->Check( $server, $request, $sreg, false );
 			break;
 
 		case "checkid_immediate":
-
 			$response = $this->Check( $server, $request, $sreg, true );
 			break;
 
 		default:
 		# For all the other parts, just let the libs do it
-
 			Wikimedia\suppressWarnings();
 			$response =& $server->handleRequest( $request );
 			Wikimedia\restoreWarnings();
-
 		}
 
 		# OpenIDServerCheck returns NULL if some output (like a form)
@@ -337,8 +325,8 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		# then proceed to the login form, fill in the Name
 
 		if ( ( $wgUser->getId() == 0 )
-			|| ( isset( $otherUser ) && ( $otherUser->getId() != $wgUser->getId() ) ) ) {
-
+			|| ( isset( $otherUser ) && ( $otherUser->getId() != $wgUser->getId() ) )
+		) {
 			if ( $imm ) {
 				return $request->answer( false, $this->serverUrl() );
 			} else {
@@ -555,21 +543,17 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		$wgOut->setPageTitle( wfMessage( 'openid-trusted-sites-delete-confirmation-page-title' )->text() );
 
 		if ( $wgRequest->wasPosted()
-			&& $wgUser->matchEditToken( $wgRequest->getVal( 'openidDeleteTrustedSiteToken' ), $trustedSiteToBeDeleted ) ) {
-
+			&& $wgUser->matchEditToken( $wgRequest->getVal( 'openidDeleteTrustedSiteToken' ), $trustedSiteToBeDeleted )
+		) {
 			if ( $trustedSiteToBeDeleted === "*" ) {
-
 				// NULL sets the default value: it removes this key
 				$wgUser->setOption( 'openid_trust', null );
 				$wgUser->saveSettings();
 				$wgOut->addWikiMsg( 'openid-trusted-sites-delete-all-confirmation-success-text' );
-
 			} else {
-
 				$this->SetUserTrust( $wgUser, $trustedSiteToBeDeleted, null );
 				$wgUser->saveSettings();
 				$wgOut->addWikiMsg( 'openid-trusted-sites-delete-confirmation-success-text', $trustedSiteToBeDeleted );
-
 			}
 
 			return;
@@ -814,11 +798,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 							   [ $this, 'ValidField' ] );
 
 		if ( count( $fields ) > 0 ) {
-
 			$wgOut->addHTML( '<table>' );
 
 			foreach ( $fields as $field ) {
-
 				$wgOut->addHTML( "<tr>" );
 				$wgOut->addHTML( "<th><label for='wpAllow{$field}'>" );
 				$wgOut->addHTML( wfMessage( "openid$field" )->text() );
@@ -838,7 +820,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				}
 
 				$wgOut->addHTML( "</tr>" );
-
 			}
 
 			$wgOut->addHTML( '</table>' );

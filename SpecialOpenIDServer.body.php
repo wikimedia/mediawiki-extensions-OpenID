@@ -150,8 +150,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$this->deleteTrustedSite();
 			return;
 
-			break;
-
 		default:
 			if ( strlen( $par ) ) {
 				wfDebug( "OpenID: aborting in user validation because the request was missing. par: '{$par}'\n" );
@@ -806,8 +804,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				$wgOut->addHTML( wfMessage( "openid$field" )->text() );
 				$wgOut->addHTML( "</label></th>" );
 				$value = $this->GetUserField( $wgUser, $field );
-				$wgOut->addHTML( "</td>" );
-				$wgOut->addHTML( "<td> " . ( ( is_null( $value ) ) ? '' : $value ) . "</td>" );
+				$wgOut->addHTML( '<td>' . htmlspecialchars( $value ) . '</td>' );
 				$wgOut->addHTML( '<td>' . wfMessage( in_array( $field, $sreg['required'] )
 						? 'openidrequired'
 						: 'openidoptional' )->text() . '</td>' );
@@ -818,7 +815,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				} else {
 					$wgOut->addHTML( " disabled='disabled' />" );
 				}
-
+				$wgOut->addHTML( '</td>' );
 				$wgOut->addHTML( "</tr>" );
 			}
 

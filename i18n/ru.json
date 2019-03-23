@@ -9,12 +9,13 @@
 			"Lockal",
 			"Okras",
 			"Putnik",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Diralik"
 		]
 	},
 	"openid-desc": "Вход в вики с помощью [//openid.net/ OpenID], а также вход на другие сайты поддерживающие OpenID с помощью учётной записи в вики",
 	"openididentifier": "Идентификатор OpenID",
-	"openidlogin": "Войти / создать учетную запись с OpenID",
+	"openidlogin": "Войти / создать учётную запись с OpenID",
 	"openidserver": "Сервер OpenID",
 	"openid-identifier-page-text-user": "Эта страница — идентификатор пользователя «$1».",
 	"openid-identifier-page-text-different-user": "Эта страница — идентификатор пользователя с ID $1.",
@@ -87,7 +88,7 @@
 	"openiddeleteerroropenidonly": "Вы не можете удалить все свои OpenID, так как вам разрешено входить в систему только с использованием OpenID.\nУ вас не будет возможности войти в систему без OpenID.",
 	"openiddelete-success": "OpenID удалён из Вашей учётной записи.",
 	"openiddelete-error": "Произошла ошибка при удалении OpenID из Вашей учётной записи.",
-	"openid-openids-were-not-merged": "OpenID(s) не были объединены при слиянии учетных записей.",
+	"openid-openids-were-not-merged": "OpenID(s) не были объединены при слиянии учётных записей.",
 	"prefs-openid-show-openid": "Скрывать ваш OpenID на вашей странице участника, если вы вошли с помощью OpenID.",
 	"prefs-openid-userinfo-update-on-login": "Обновление OpenID-информации пользователя",
 	"prefs-openid-associated-openids": "Ваши OpenID для входа на {{SITENAME}}",
@@ -111,7 +112,7 @@
 	"openid-trusted-sites-delete-confirmation-question": "Нажав кнопку «{{int:openid-trusted-sites-delete-confirmation-button-text}}», вы удалите «$1» из списка сайтов, которым доверяете.",
 	"openid-trusted-sites-delete-all-confirmation-question": "Нажав кнопку «{{int:openid-trusted-sites-delete-confirmation-button-text}}», вы удалите из своего профиля все сайты, которым доверяете.",
 	"openid-trusted-sites-delete-confirmation-button-text": "Подтвердить",
-	"openid-trusted-sites-delete-confirmation-success-text": "«$1» был удален из списка сайтов, которым вы доверяете.",
+	"openid-trusted-sites-delete-confirmation-success-text": "«$1» был удалён из списка сайтов, которым вы доверяете.",
 	"openid-trusted-sites-delete-all-confirmation-success-text": "Все сайты, которым вы ранее доверяли, были удалены из вашего пользовательского профиля.",
 	"openid-local-identity": "Ваш OpenID:",
 	"openid-login-or-create-account": "Представиться системе или создать новую учётную запись",

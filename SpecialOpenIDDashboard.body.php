@@ -6,7 +6,7 @@
  * @ingroup Extensions
  * @author Thomas Gries
  * @license GPL-2.0-or-later
- * @link http://www.mediawiki.org/wiki/Extension:OpenID Documentation
+ * @link https://www.mediawiki.org/wiki/Extension:OpenID Documentation
  */
 class SpecialOpenIDDashboard extends SpecialPage {
 
@@ -87,7 +87,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 		$this->setHeaders();
 		$this->outputHeader();
 
-		$wgOut->addWikiMsg( 'openid-dashboard-introduction', 'http://www.mediawiki.org/wiki/Extension:OpenID' );
+		$wgOut->addWikiMsg( 'openid-dashboard-introduction', 'https://www.mediawiki.org/wiki/Extension:OpenID' );
 
 		$wgOut->addHTML(
 			Html::openElement( 'table',

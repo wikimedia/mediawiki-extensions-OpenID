@@ -51,7 +51,7 @@
 	"openidchoosemanual": "Ένα όνομα της επιλογής σας:",
 	"openidchooseexisting": "Ένας υπάρχων λογαριασμός σε αυτό το βίκι",
 	"openidchooseusername": "Όνομα χρήστη:",
-	"openidchoosepassword": "Κωδικός:",
+	"openidchoosepassword": "Συνθηματικό:",
 	"openidconvertinstructions": "Αυτή η φόρμα σας επιτρέπει να αλλάξετε το λογαριασμό χρήστη σας για να χρησιμοποιήσετε ένα ή περισσόττερα URL OpenID",
 	"openidconvertoraddmoreids": "Μετατρέψτε το OpenID ή προσθέστε κι άλλο URL OpenID",
 	"openidconvertsuccess": "Μετατράπηκε στο OpenID",

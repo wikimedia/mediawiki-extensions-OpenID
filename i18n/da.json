@@ -3,7 +3,8 @@
 		"authors": [
 			"Christian List",
 			"Froztbyte",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Saederup92"
 		]
 	},
 	"openidserver": "OpenID-server",
@@ -26,5 +27,6 @@
 	"openid-urls-action": "Handling",
 	"openid-urls-delete": "Slet",
 	"openid-add-url": "Tilføj en ny OpenID til din konto",
+	"openid-trusted-sites-delete-link-action-text": "Slet",
 	"openid-provider-label-aol": "Indtast dit AOL-brugernavn"
 }

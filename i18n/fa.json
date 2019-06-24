@@ -5,7 +5,8 @@
 			"Ebraminio",
 			"Mjbmr",
 			"Omidh",
-			"Reza1615"
+			"Reza1615",
+			"FarsiNevis"
 		]
 	},
 	"openid-desc": "اجازه دادن به ورود کاربران به ویکی با یک [//openid.net/ OpenID].\nاگر این در ویکی فعال شده‌است، آنها همچنین می‌توانند از یوآر‌ال حساب کاربری خود در این ویکی به عنوان حساب کاربری برای ورود به حساب کاربری آگاه وب‌سایت‌های دیگر استفاده کنند.",
@@ -75,7 +76,7 @@
 	"openidlogininstructions": "{{SITENAME}} از [//openid.net/ OpenID] استاندارد برای ورود تنها بین وب‌سایت‌ها پشتیبانی‌ می‌کند.\nایجاد حساب کاربری به شما برای ورود به بسیاری از وب‌سایت‌های مختلف بدون استفاده از رمز عبور مختلف برای هریک اجازه می‌دهد.\n( [//en.wikipedia.org/wiki/OpenID Wikipedia's OpenID article]برای اطلاعات بیشتر مشاهده کنید.)\nبسیاری از [//openid.net/get/ ارائه‌دهندگان ایجاد حساب کاربری]، و شما ممکن است در حال حاضر یک حساب کاربری فعال شده در سرویس دیگری داشته باشید.",
 	"openidlogininstructions-openidloginonly": "{{SITENAME}} ''فقط'' به شما اجازه می‌دهد با حساب کاربری وارد شوید.",
 	"openidlogininstructions-passwordloginallowed": "اگر شما در حال حاضر یک حساب در {{SITENAME}} دارید، شما می‌توانید [[Special:UserLogin|وارد شوید]] به  طور معمول با نام کاربری و رمز عبور.\nبرای استفادهٔ حساب کاربری در آینده،  شما می‌توانید [[Special:OpenIDConvert|تبدیل حساب خود به ایجاد حساب کاربری]] پس از اینکه به طور معمولی وارد شده‌اید.",
-	"openidupdateuserinfo": "به‌ روز رسانی اطلاعات شخصی من:",
+	"openidupdateuserinfo": "روزآمدسازی اطلاعات شخصی من:",
 	"openiddelete": "حذف حساب کاربری",
 	"openiddelete-text": "با کلیک کردن دکمهٔ \"{{int:openiddelete-button}}\"، شما حساب کاربری \"$1\" را از حساب خود حذف خواهید کرد.\nشما دیگر قادر به ورود با این حساب کاربری نخواهید بود.",
 	"openiddelete-button": "تأیید",
@@ -85,7 +86,7 @@
 	"openiddelete-error": "خطایی هنگام حذف حساب کاربری از حساب شما رخ داد.",
 	"openid-openids-were-not-merged": "حساب‌های کاربری هنگام ادغام حساب‌های کاربری، ادغام نشده‌بود.",
 	"prefs-openid-show-openid": "یوآرال حساب کاربری در صفحهٔ کاربری",
-	"prefs-openid-userinfo-update-on-login": "به روز رسانی اطلاعات حساب کاربری کاربر",
+	"prefs-openid-userinfo-update-on-login": "روزآمدسازی اطلاعات حساب کاربری کاربر",
 	"prefs-openid-associated-openids": "حساب کاربری شما برای ورود به {{SITENAME}}",
 	"prefs-openid-trusted-sites": "سایت‌های قابل‌اعتماد",
 	"prefs-openid-local-identity": "حساب کاربری شما برای ورود به سایت‌های دیگر",

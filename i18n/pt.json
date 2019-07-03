@@ -11,7 +11,8 @@
 			"Waldir",
 			"Nemo bis",
 			"Vitorvicentevalente",
-			"Athena in Wonderland"
+			"Athena in Wonderland",
+			"Waldyrious"
 		]
 	},
 	"openid-desc": "Permite que os utilizadores se autentiquem na wiki com um [//openid.net/ OpenID].\nSe esta funcionalidade estiver ativada na wiki, os utilizadores também podem usar o URL da conta nesta wiki como OpenID para se autenticarem noutros sítios que usem o OpenID",

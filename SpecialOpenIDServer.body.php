@@ -156,7 +156,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
 				return;
 			} else {
-				$method = $_SERVER['REQUEST_METHOD'];
+				$method = $this->getRequest()->getMethod();
 				$query = null;
 				if ( $method == 'GET' ) {
 					$query = $_GET;

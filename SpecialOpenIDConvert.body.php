@@ -24,10 +24,6 @@
  * @ingroup Extensions
  */
 
-if ( !defined( 'MEDIAWIKI' ) ) {
-	exit( 1 );
-}
-
 class SpecialOpenIDConvert extends SpecialOpenID {
 
 	function __construct() {

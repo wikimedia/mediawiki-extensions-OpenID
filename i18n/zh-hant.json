@@ -16,14 +16,15 @@
 			"LNDDYL",
 			"Cwlin0416",
 			"A2093064",
-			"Kly"
+			"Kly",
+			"Winston Sung"
 		]
 	},
 	"openid-desc": "使用者可以使用 [//openid.net/ OpenID] 登入此 Wiki。\n若 Wiki 開啟此功能，使用者也可使用其在此 Wiki 的使用者帳號 URL 登入其他支援  OpenID 的網站",
 	"openididentifier": "OpenID 識別碼",
 	"openidlogin": "使用 OpenID 登入 / 建立帳號",
 	"openidserver": "OpenID 伺服器",
-	"openid-identifier-page-text-user": "此頁面是使用者 \"$1\" 的識別碼。",
+	"openid-identifier-page-text-user": "此頁面是使用者「$1」的識別碼。",
 	"openid-identifier-page-text-different-user": "此頁面是使用者 ID \"$1\" 的識別碼。",
 	"openid-identifier-page-text-no-such-local-openid": "這是一個無效的本地 OpenID 識別碼。",
 	"openid-server-identity-page-text": "此頁為 OpenID 伺服器技術頁面，用來開啟 OpenID 認証程序。\n該頁面沒有其他用途。",

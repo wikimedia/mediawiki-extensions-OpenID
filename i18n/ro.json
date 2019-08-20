@@ -7,7 +7,8 @@
 			"Minisarm",
 			"Misterr",
 			"Stelistcristi",
-			"Andrei Stroe"
+			"Andrei Stroe",
+			"Strainu"
 		]
 	},
 	"openid-desc": "Autentificați-vă pe acest wiki folosind un [//openid.net/ OpenID] și conectați-vă la alte site-uri web OpenID cu un cont de utilizator wiki",
@@ -66,6 +67,7 @@
 	"openid-urls-registration": "Data înregistrării",
 	"openid-urls-delete": "Şterge",
 	"openid-add-url": "Adaugați un nou OpenID la contul dumneavoastră",
+	"openid-trusted-sites-delete-confirmation-button-text": "Confirmare",
 	"openid-login-or-create-account": "Autentificați-vă sau creați-vă un nou cont",
 	"openid-provider-label-google": "Autentificare folosind contul Google",
 	"openid-provider-label-yahoo": "Autentificare folosind contul Yahoo",

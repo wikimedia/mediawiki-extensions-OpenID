@@ -32,7 +32,7 @@ require_once "$IP/maintenance/Maintenance.php";
 class OpenIDOptionToTable extends Maintenance {
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Convert user_option-stored urls to the new openID table';
+		$this->addDescription( 'Convert user_option-stored urls to the new openID table' );
 	}
 
 	public function execute() {

@@ -9,7 +9,7 @@
 			"Robin van der Vliet"
 		]
 	},
-	"openid-desc": "Ensaluti la vikion kun [//openid.net/ identigo OpenID], kaj ensaluti aliajn retejon uzantajn OpenID kun vikia uzula konto",
+	"openid-desc": "Lasu uzantojn ensaluti ĉe la vikio per [//openid.net/ OpenID].\nSe ĉi tio estas ŝaltita ĉe la vikio, ili ankaŭ povas uzi sian uzantokontan URL de ĉi tiu vikio kiel OpenID por ensaluti ĉe aliaj OpenID-konsciaj retejoj",
 	"openidlogin": "Ensaluti kun OpenID",
 	"openidserver": "Servilo OpenID",
 	"openidxrds": "dosiero Yadis",
@@ -29,7 +29,7 @@
 	"openidusernameprefix": "OpenID-Uzanto",
 	"openidserverlogininstructions": "Enigu vian pasvorton suben por ensaluti al $3 kiel uzanto $2 (uzulpaĝo $1).",
 	"openidtrustinstructions": "Kontroli se vi volas kunpermesigi datenojn kun $1.",
-	"openidallowtrust": "Rajtigi $1 fidi ĉi tiun uzulan konton.",
+	"openidallowtrust": "Rajtigi $1 fidi ĉi tiun uzanto-konton.",
 	"openidnopolicy": "Retejo ne specifis regularon pri privateco.",
 	"openidpolicy": "Kontroli la <a target=\"_new\" href=\"$1\">regularon pri privateco</a> pri plua informo.",
 	"openidoptional": "Nedeviga",
@@ -49,7 +49,7 @@
 	"openidchooseexisting": "Ekzistanta konto en ĉi tiu vikio",
 	"openidchooseusername": "Uzantnomo:",
 	"openidchoosepassword": "Pasvorto:",
-	"openidconvertinstructions": "Ĉi tiu paĝo permesas al vi ŝanĝi vian uzulan konton por uzi URL-on OpenID aŭ aldoni pliajn OpenID-URL-ojn.",
+	"openidconvertinstructions": "Ĉi tiu paĝo permesas al vi ŝanĝi vian uzanto-konton por uzi URL-on OpenID aŭ aldoni pliajn OpenID-URL-ojn.",
 	"openidconvertoraddmoreids": "Konverti al OpenID aŭ aldoni alian OpenID-URL-on",
 	"openidconvertsuccess": "Sukcese konvertis al OpenID",
 	"openidconvertsuccesstext": "Vi sukcese konvertis vian identigon OpenID al $1.",

@@ -560,7 +560,8 @@ class OpenID {
 	public static function loginOrCreateAccountOrConvertButtonLabel() {
 		global $wgUser, $wgOut;
 
-		if ( $wgOut->getTitle()->equals( SpecialPage::getTitleFor( 'OpenIDConvert' ) ) ) {
+		$title = $wgOut->getTitle();
+		if ( $title && $title->equals( SpecialPage::getTitleFor( 'OpenIDConvert' ) ) ) {
 			return wfMessage( 'openid-provider-selection-button-convert' )->text();
 		} else {
 			if ( $wgUser->isAllowed( 'openid-create-account-with-openid' )

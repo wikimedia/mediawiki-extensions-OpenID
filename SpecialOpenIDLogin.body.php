@@ -137,19 +137,19 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 */
 	function providerSelectionLoginForm() {
 		global $wgOut, $wgOpenIDShowProviderIcons, $wgOpenIDLoginOnly, $wgOpenIDForcedProvider;
+		global $wgRequest;
 
 		$inputFormHTML = '';
 		$largeButtonsHTML = '';
 		$smallButtonsHTML = '';
 
-		if ( get_class( $wgOpenIDForcedProvider ) == 'OpenIDProvider' ) {
+		if ( $wgOpenIDForcedProvider instanceof OpenIDProvider ) {
 			/** @var $wgOpenIDForcedProvider OpenIDProvider */
 			$inputFormHTML .= $wgOpenIDForcedProvider->getLoginFormHTML();
 		} else {
 			SpecialOpenIDConvert::renderProviderIcons( $inputFormHTML, $largeButtonsHTML, $smallButtonsHTML );
 		}
 
-		LoginForm::setLoginToken();
 		$wgOut->addModules( $wgOpenIDShowProviderIcons ? 'ext.openid.icons' : 'ext.openid.plain' );
 		$wgOut->addHTML(
 			Html::rawElement( 'form',
@@ -175,7 +175,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				) .
 				$smallButtonsHTML .
 				Xml::closeElement( 'fieldset' ) .
-				Html::Hidden( 'openidProviderSelectionLoginToken', LoginForm::getLoginToken() )
+				Html::Hidden( 'openidProviderSelectionLoginToken',
+					$wgRequest->getSession()->getToken( '', 'login' )->toString() )
 			)
 		);
 
@@ -201,6 +202,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		global $wgAuth, $wgOut, $wgOpenIDAllowExistingAccountSelection, $wgHiddenPrefs,
 			$wgUser, $wgOpenIDProposeUsernameFromSREG,
 			$wgOpenIDAllowAutomaticUsername, $wgOpenIDAllowNewAccountname;
+		global $wgRequest;
 
 		if ( $messagekey ) {
 			$wgOut->addWikiMsg( $messagekey );
@@ -313,7 +315,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				Xml::closeElement( 'tr' )
 			);
 
-		if ( $wgAuth->allowPasswordChange() ) {
+		if ( method_exists( $wgAuth, 'allowPasswordChange' ) && $wgAuth->allowPasswordChange() ) {
 			$wgOut->addHTML(
 				Xml::openElement( 'tr' ) .
 
@@ -495,8 +497,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 		} // These are only available if all visitors are allowed to create accounts
 
-		LoginForm::setLoginToken();
-
 		# These are always available
 		$wgOut->addHTML(
 			Xml::openElement( 'tr' ) .
@@ -514,7 +514,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			Xml::closeElement( 'tr' ) .
 			Xml::closeElement( 'table' ) .
 			Xml::closeElement( 'fieldset' ) .
-			Html::Hidden( 'openidChooseNameBeforeLoginToken', LoginForm::getLoginToken() ) .
+			Html::Hidden( 'openidChooseNameBeforeLoginToken',
+				$wgRequest->getSession()->getToken( '', 'login' )->toString() ) .
 			Xml::closeElement( 'form' )
 		);
 	}
@@ -525,7 +526,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	function chooseName() {
 		global $wgRequest, $wgUser, $wgOut;
 
-		if ( LoginForm::getLoginToken() != $wgRequest->getVal( 'openidChooseNameBeforeLoginToken' ) ) {
+		$token = $wgRequest->getSession()->getToken( '', 'login' )->toString();
+		if ( $token != $wgRequest->getVal( 'openidChooseNameBeforeLoginToken' ) ) {
 			$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
 			return;
 		}
@@ -714,7 +716,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 					} else {
 						$status = $user->setEmailWithConfirmation( $email );
 						if ( !$status->isOK() ) {
-							$wgOut->addWikiMsg( 'mailerror', $result->getMessage() );
+							$wgOut->addWikiMsg( 'mailerror', $status->getMessage() );
 						}
 					}
 				}
@@ -837,8 +839,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$user->addNewUserLogEntry();
 
 			# Update site stats
-			$ssUpdate = new SiteStatsUpdate( 0, 0, 0, 0, 1 );
-			$ssUpdate->doUpdate();
+			$ssUpdate = SiteStatsUpdate::factory( [ 'users' => 1 ] );
+			DeferredUpdates::addUpdate( $ssUpdate );
 
 			self::addUserUrl( $user, $openid );
 			$this->updateUser( $user, $sreg, $ax, true );

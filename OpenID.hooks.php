@@ -360,7 +360,7 @@ class OpenIDHooks {
 				];
 		} /* provider mode */
 
-		if ( $wgAuth->allowPasswordChange() ) {
+		if ( method_exists( $wgAuth, 'allowPasswordChange' ) && $wgAuth->allowPasswordChange() ) {
 			$resetlink = Linker::link(
 				SpecialPage::getTitleFor( 'PasswordReset' ),
 				wfMessage( 'passwordreset' )->escaped(),

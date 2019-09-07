@@ -24,10 +24,6 @@
  * @ingroup Extensions
  */
 
-if ( !defined( 'MEDIAWIKI' ) ) {
-	exit( 1 );
-}
-
 # Outputs a Yadis (http://yadis.org/) XRDS file, saying that this server
 # supports OpenID and lots of other jazz.
 

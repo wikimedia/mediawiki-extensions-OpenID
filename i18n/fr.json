@@ -15,7 +15,8 @@
 			"Zetud",
 			"Orlodrim",
 			"Wladek92",
-			"Urhixidur"
+			"Urhixidur",
+			"Thibaut120094"
 		]
 	},
 	"openid-desc": "Se connecter au wiki avec [//openid.net/ OpenID] et se connecter à d’autres sites internet OpenID avec un compte utilisateur du wiki.",
@@ -32,10 +33,10 @@
 	"openid-error-openid-consumer-mode-disabled": "Vous ne pouvez vous identifier avec OpenID à ce wiki, car le mode de consommation OpenID a été désactivé.",
 	"openiderrortext": "Une erreur est intervenue pendant la vérification de l’adresse OpenID.",
 	"openid-error-no-auth": "Une erreur de question/réponse d’authentification non spécifiée s’est produite pendant la vérification de l’URL d’OpenID $1.",
-	"openid-error-server-response": "Une erreur s’est produite durant la vérification de l’URL d’OpenID $1.\n\nLa réponse du serveur a été : « $2 »",
+	"openid-error-server-response": "Une erreur s’est produite durant la vérification de l’URL d’OpenID $1.\n\nLa réponse du serveur a été : « $2 »",
 	"openid-error-request-forgery": "Une erreur s'est produite : un jeton non valide a été trouvé.",
-	"openid-error-wrong-force-provider-setting": "Une erreur interne s’est produite : une mauvaise valeur d’URL a été trouvée pour le fournisseur forcé « $1 ».",
-	"openid-error-openid-convert-not-allowed-forced-provider": "Il n’est pas possible d’associer plus d’OpenIDs à votre compte, car vous ne pouvez utiliser que le fournisseur d’OpenID '''forcé''' « $1 » pour les connexions sur ce Wiki.",
+	"openid-error-wrong-force-provider-setting": "Une erreur interne s’est produite : une mauvaise valeur d’URL a été trouvée pour le fournisseur forcé « $1 ».",
+	"openid-error-openid-convert-not-allowed-forced-provider": "Il n’est pas possible d’associer plus d’OpenIDs à votre compte, car vous ne pouvez utiliser que le fournisseur d’OpenID '''forcé''' « $1 » pour les connexions sur ce Wiki.",
 	"openidconfigerror": "Erreur de configuration de OpenID",
 	"openidconfigerrortext": "Le stockage de la configuration OpenID pour ce wiki est incorrecte.\nVeuillez vous mettre en rapport avec un [[Special:ListUsers/sysop|administrateur]] de ce site.",
 	"openidpermission": "Erreur de permission OpenID",

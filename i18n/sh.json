@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"openidlogin": "Prijava / napravi račun sa OpenID",
+	"openidserver": "OpenID server",
+	"openidxrds": "Yadis datoteka",
+	"openidconvert": "OpenID pretvarač",
+	"openiderror": "Greška u OpenID",
+	"openiderrortext": "Desila se greška pri provjeravanju URL adrese OpenID-a.",
+	"openidcancel": "Verifikacija je otkazana"
+}

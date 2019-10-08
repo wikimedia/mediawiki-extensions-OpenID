@@ -19,7 +19,7 @@
 	"openidfailure": "Потвърждението беше неуспешно",
 	"openidfailuretext": "Потвърждението на OpenID URL беше неуспешно. Грешка: „$1“",
 	"openidsuccess": "Потвърждението беше успешно",
-	"openidsuccesstext": "Потвърждението на OpenID URL беше успешно.",
+	"openidsuccesstext": "'''Успешна проверка и влизане като потребител $1'''.\n\nВашето OpenID е $2.\n\nТова и евентуалните бъдещи OpenID-та могат да се управляват от [[Special:Preferences#mw-prefsection-openid|таб OpenID]] на вашите настройки.<br />\nДопълнително, по избор може да се добави парола за сметката към [[Special:Preferences#mw-prefsection-personal|потребителския профил]].",
 	"openidserverlogininstructions": "Въведете паролата си по-долу за да влезете в $3 като потребител $2 (потребителска страница $1 – това е Вашият OpenID URL).",
 	"openidnopolicy": "Сайтът няма уточнена политика за защита на личните данни.",
 	"openidpolicy": "За повече информация вижте политиката за <a target=\"_new\" href=\"$1\">защита на личните данни</a>.",

@@ -51,7 +51,7 @@
 	"openidconvertsuccesstext": "Tu ha convertite tu OpenID a $1.",
 	"openid-convert-already-your-openid-text": "Le OpenID $1 es jam associate a tu conto.",
 	"openid-convert-other-users-openid-text": "$1 es le OpenID de alcuno altere. Non es possibile usar le OpenID de un altere usator.",
-	"openidalreadyloggedin": "Tu es jam authenticate.",
+	"openidalreadyloggedin": "Tu ha jam aperite session.",
 	"openidalreadyloggedintext": "'''Tu es jam authenticate, $1!'''\n\nTu pote gerer (vider, deler, adder altere) OpenIDs in le [[Special:Preferences#mw-prefsection-openid|scheda \"OpenID\"]] de tu preferentias.",
 	"openidnousername": "Nulle nomine de usator specificate.",
 	"openidbadusername": "Mal nomine de usator specificate.",

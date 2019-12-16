@@ -15,7 +15,8 @@
 			"Yfdyh000",
 			"Hudafu",
 			"Mywood",
-			"Impersonator 1"
+			"Impersonator 1",
+			"Xiplus"
 		]
 	},
 	"openid-desc": "让用户可使用一个[//openid.net/ OpenID]来登录到这个wiki。如果启用相关设置，还可以使用他们在此wiki上用户帐号URL作为OpenID来登录到其他接受OpenID的网站。",
@@ -84,7 +85,7 @@
 	"openidloginlabel": "OpenID地址",
 	"openidlogininstructions": "{{SITENAME}}支持用于网站间单点登录的[//openid.net/ OpenID]标准。OpenID可以让您无需使用不同密码登录不同的网站。（详情请见[//zh.wikipedia.org/wiki/OpenID 维基百科OpenID条目]。）[//openid.net/get/ OpenID供应商]很多，您可能已经拥有在其他服务上的启用OpenID的账户。",
 	"openidlogininstructions-openidloginonly": "{{SITENAME}} ''仅''允许用 OpenID 登录。",
-	"openidlogininstructions-passwordloginallowed": "如果您在 {{SITENAME}} 上已经拥有了账号，可以以通常的方式用用户名和密码[[Special:UserLogin|登录]]。\n将来使用 OpenID，您可以在正常登录后[[Special:OpenIDConvert|转换账号为 OpenID]]。",
+	"openidlogininstructions-passwordloginallowed": "如果您在{{SITENAME}}上已经拥有了账号，可以以通常的方式用用户名和密码[[Special:UserLogin|登录]]。\n将来使用 OpenID，您可以在正常登录后[[Special:OpenIDConvert|转换账号为 OpenID]]。",
 	"openidupdateuserinfo": "更新我的个人信息",
 	"openiddelete": "删除OpenID",
 	"openiddelete-text": "通过点击“{{int:openiddelete-button}}”按钮，您将从您的账户中移除OpenID“$1”。您将不再能够使用这个OpenID登录。",

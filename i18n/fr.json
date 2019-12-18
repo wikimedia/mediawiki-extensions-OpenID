@@ -145,7 +145,7 @@
 	"action-openid-dashboard-admin": "accéder au tableau de bord de l’administrateur OpenID",
 	"action-openid-login-with-openid": "Connexion avec OpenID",
 	"action-openid-create-account-with-openid": "Créer un compte avec OpenID",
-	"action-openid-create-account-without-openid": "créer manuellement un compte c'est-à-dire sans OpenID",
+	"action-openid-create-account-without-openid": "créer manuellement un compte c’est-à-dire sans OpenID",
 	"openid-dashboard-title": "Tableau de bord OpenID",
 	"openid-dashboard-title-admin": "Tableau de bord OpenID (administrateur)",
 	"openid-dashboard-introduction": "Les paramètres actuels de l'extension OpenID ([$1 aide])",

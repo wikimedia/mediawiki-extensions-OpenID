@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helix84"
+			"Helix84",
+			"Luky001"
 		]
 	},
 	"openid-desc": "Prihlásenie sa na wiki pomocou [//openid.net/ OpenID] a prihlásenie na iné stránky podporujúce OpenID pomocou používateľského účtu wiki",
@@ -30,14 +31,14 @@
 	"openidoptional": "Voliteľné",
 	"openidrequired": "Požadované",
 	"openidnickname": "Prezývka",
-	"openidfullname": "Plné meno",
+	"openidfullname": "Skutočné meno",
 	"openidemail": "Emailová adresa",
 	"openidlanguage": "Jazyk",
 	"openidtimezone": "Časové pásmo",
-	"openidchooselegend": "Výber používateľského mena",
+	"openidchooselegend": "Výber používateľského mena a účtu",
 	"openidchooseinstructions": "Každý používateľ musí mať prezývku; môžete si vybrať z dolu uvedených možností.",
 	"openidchoosenick": "Vaša prezývka ($1)",
-	"openidchoosefull": "Vaše plné meno ($1)",
+	"openidchoosefull": "Vaše skutočné meno ($1)",
 	"openidchooseurl": "Meno na základe vášho OpenID ($1)",
 	"openidchooseauto": "Automaticky vytvorené meno ($1)",
 	"openidchoosemanual": "Meno, ktoré si vyberiete:",
@@ -46,11 +47,11 @@
 	"openidchoosepassword": "Heslo:",
 	"openidconvertinstructions": "Tento formulár vám umožňuje zmeniť váš učet, aby používal OpenID URL alebo pridať ďalšie OpenID URL.",
 	"openidconvertoraddmoreids": "Previesť na OpenID alebo pridať iný OpenID URL",
-	"openidconvertsuccess": "Úspešne prevedené na OpenID",
-	"openidconvertsuccesstext": "Úspešne ste previedli váš OpenID na $1.",
-	"openid-convert-already-your-openid-text": "To už je váš OpenID.",
-	"openid-convert-other-users-openid-text": "To je OpenID niekoho iného.",
-	"openidalreadyloggedin": "'''Už ste prihlásený, $1!'''\n\nAk chcete na prihlasovanie v budúcnosti využívať OpenID, môžete [[Special:OpenIDConvert|previesť váš účet na OpenID]].",
+	"openidconvertsuccess": "Prevedené na OpenID",
+	"openidconvertsuccesstext": "Previedli ste vaše OpenID na $1.",
+	"openid-convert-already-your-openid-text": "OpenID $1 je už k vášmu účtu priradené.",
+	"openid-convert-other-users-openid-text": "$1 je OpenID niekoho iného. Nemôžete používať OpenID iného používateľa.",
+	"openidalreadyloggedin": "Už ste prihlásení.",
 	"openidnousername": "Nebolo zadané používateľské meno.",
 	"openidbadusername": "Bolo zadané chybné používateľské meno.",
 	"openidautosubmit": "Táto stránka obsahuje formulár, ktorý by mal byť automaticky odoslaný ak máte zapnutý JavaScript.\nAk nie, skúste tlačidlo „Continue“ (Pokračovať).",
@@ -70,7 +71,7 @@
 	"openid-associated-openids-label": "OpenID asociované s vašim účtom:",
 	"openid-urls-action": "Operácia",
 	"openid-urls-delete": "Zmazať",
-	"openid-add-url": "Pridať nový OpenID",
+	"openid-add-url": "Pridať nové OpenID k vašemu účtu",
 	"openid-login-or-create-account": "Prihlásiť sa alebo vytvoriť nový účet",
 	"openid-provider-label-openid": "Zadajte URL svojho OpenID",
 	"openid-provider-label-google": "Prihlásiť sa pomocou účtu Google",

@@ -4,7 +4,8 @@
 			"Amire80",
 			"Rotemliss",
 			"YaronSh",
-			"Guycn2"
+			"Guycn2",
+			"Ghsuvr"
 		]
 	},
 	"openid-desc": "כניסה לחשבון בוויקי באמצעות [//openid.net/ OpenID], והתחברות לאתרים נוספים הפועלים עם OpenID באמצעות חשבון משתמש בוויקי",
@@ -55,8 +56,8 @@
 	"openidchoosepassword": "סיסמה:",
 	"openidconvertinstructions": "טופס זה מאפשר לכם לשנות את חשבון המשתמש שלכם לשימוש בכתובת OpenID או להוסיף כתובות OpenID נוספות",
 	"openidconvertoraddmoreids": "המרה ל־OpenID או הוספת כתובת OpenID נוספת",
-	"openidconvertsuccess": "הומר בהצלחה ל־OpenID",
-	"openidconvertsuccesstext": "המרתם בהצלחה את ה־OpenID שלכם ל־$1.",
+	"openidconvertsuccess": "הומר ל־OpenID",
+	"openidconvertsuccesstext": "המרת את ה־OpenID שלך ל־$1.",
 	"openid-convert-already-your-openid-text": "ה־OpenId בשם $1 כבר משויך לחשבון שלך.",
 	"openid-convert-other-users-openid-text": "$1 הוא כבר OpenID של מישהו אחר.\nאין באפשרותך להשתמש ב־OpenID של משתמש אחר.",
 	"openidalreadyloggedin": "אתם כבר מחוברים לחשבון.",
@@ -75,7 +76,7 @@
 	"openiddelete-button": "אישור",
 	"openiddeleteerrornopassword": "אין באפשרותך למחוק את כל מזהי ה־OpenID שלך כיוון שלחשבון המשתמש שלך אין סיסמה.\nלא תהיה באפשרותך להיכנס ללא OpenID.",
 	"openiddeleteerroropenidonly": "אין באפשרותך למחוק את כל מזהי ה־OpenID שלך כיוון שהרשאת הגישה שלך מותנית ב־OpenID.\nלא תהיה באפשרותך להיכנס ללא OpenID.",
-	"openiddelete-success": "ה־OpenID הוסר בהצלחה מחשבונכם.",
+	"openiddelete-success": "ה־OpenID הוסר בהצלחה מחשבונך.",
 	"openiddelete-error": "ארעה שגיאה בעת הסרת ה־OpenID מחשבונכם.",
 	"openid-openids-were-not-merged": "חשבונות OpenID לא מוזגו כאשר מוזג החשבון.",
 	"prefs-openid-show-openid": "הסתרת כתובת ה־OpenID בדף המשתמש, במקרה של כניסה לחשבון עם OpenID.",

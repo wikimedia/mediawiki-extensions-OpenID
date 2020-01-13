@@ -216,7 +216,7 @@ class SpecialOpenID extends SpecialPage {
 	 * @param bool $skipTokenTestBecauseForcedProvider
 	 */
 	function login( $openid_url, $finish_page, $skipTokenTestBecauseForcedProvider = false ) {
-		global $wgOut, $wgUser, $wgRequest;
+		global $wgOut, $wgRequest;
 
 		// Check whether an login or a convert token is present
 
@@ -226,7 +226,7 @@ class SpecialOpenID extends SpecialPage {
 
 		if ( !$skipTokenTestBecauseForcedProvider
 			&& ( LoginForm::getLoginToken() !== $wgRequest->getVal( 'openidProviderSelectionLoginToken' ) )
-			&& !( $wgUser->matchEditToken( $wgRequest->getVal( 'openidConvertToken' ), 'openidConvertToken' ) )
+			&& !( $this->getUser()->matchEditToken( $wgRequest->getVal( 'openidConvertToken' ), 'openidConvertToken' ) )
 		) {
 			$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
 			return;

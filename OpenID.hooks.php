@@ -122,10 +122,10 @@ class OpenIDHooks {
 	 * @param Skin $sk
 	 */
 	public static function onBeforePageDisplay( $out, $sk ) {
-		global $wgOpenIDHideOpenIDLoginLink, $wgUser;
+		global $wgOpenIDHideOpenIDLoginLink;
 
 		# We need to do this *before* PersonalUrls is called
-		if ( !$wgOpenIDHideOpenIDLoginLink && $wgUser->getID() == 0 ) {
+		if ( !$wgOpenIDHideOpenIDLoginLink && $out->getUser()->getID() == 0 ) {
 			$out->addHeadItem( 'openid-loginstyle', self::loginStyle() );
 		}
 

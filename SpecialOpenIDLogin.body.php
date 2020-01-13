@@ -44,11 +44,11 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 * @param string|null $par
 	 */
 	function execute( $par ) {
-		global $wgRequest, $wgUser, $wgOpenIDForcedProvider, $wgOpenIDProviders, $wgOut;
+		global $wgRequest, $wgOpenIDForcedProvider, $wgOpenIDProviders, $wgOut;
 
 		$this->setHeaders();
 
-		if ( $wgUser->getID() != 0 ) {
+		if ( $this->getUser()->getID() != 0 ) {
 			$this->alreadyLoggedIn();
 			return;
 		}
@@ -122,12 +122,12 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 * Displays an info message saying that the user is already logged-in
 	 */
 	function alreadyLoggedIn() {
-		global $wgUser, $wgOut;
+		global $wgOut;
 
 		$wgOut->setPageTitle( wfMessage( 'openidalreadyloggedin' )->text() );
 		$wgOut->setRobotPolicy( 'noindex,nofollow' );
 		$wgOut->setArticleRelated( false );
-		$wgOut->addWikiMsg( 'openidalreadyloggedintext', $wgUser->getName() );
+		$wgOut->addWikiMsg( 'openidalreadyloggedintext', $this->getUser()->getName() );
 		list( $returnto, $returntoquery ) = $this->returnTo();
 		$wgOut->returnToMain( null, $returnto, $returntoquery );
 	}

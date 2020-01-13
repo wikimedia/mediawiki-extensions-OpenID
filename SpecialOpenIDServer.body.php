@@ -54,7 +54,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function execute( $par ) {
-		global $wgOut, $wgOpenIDIdentifierSelect, $wgRequest, $wgUser;
+		global $wgOut, $wgOpenIDIdentifierSelect, $wgRequest;
 
 		$this->setHeaders();
 
@@ -125,7 +125,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			break;
 
 		case 'trust':
-			if ( !$wgUser->matchEditToken( $wgRequest->getVal( 'openidTrustFormToken' ), 'openidTrustFormToken' ) ) {
+			if ( !$this->getUser()->matchEditToken( $wgRequest->getVal( 'openidTrustFormToken' ), 'openidTrustFormToken' ) ) {
 				$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
 				return;
 			}
@@ -545,22 +545,23 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function deleteTrustedSite() {
-		global $wgUser, $wgOut, $wgRequest;
+		global $wgOut, $wgRequest;
 
 		$trustedSiteToBeDeleted = $wgRequest->getVal( 'url' );
+		$user = $this->getUser();
 		$wgOut->setPageTitle( wfMessage( 'openid-trusted-sites-delete-confirmation-page-title' )->text() );
 
 		if ( $wgRequest->wasPosted()
-			&& $wgUser->matchEditToken( $wgRequest->getVal( 'openidDeleteTrustedSiteToken' ), $trustedSiteToBeDeleted )
+			&& $user->matchEditToken( $wgRequest->getVal( 'openidDeleteTrustedSiteToken' ), $trustedSiteToBeDeleted )
 		) {
 			if ( $trustedSiteToBeDeleted === "*" ) {
 				// NULL sets the default value: it removes this key
-				$wgUser->setOption( 'openid_trust', null );
-				$wgUser->saveSettings();
+				$user->setOption( 'openid_trust', null );
+				$user->saveSettings();
 				$wgOut->addWikiMsg( 'openid-trusted-sites-delete-all-confirmation-success-text' );
 			} else {
-				$this->SetUserTrust( $wgUser, $trustedSiteToBeDeleted, null );
-				$wgUser->saveSettings();
+				$this->SetUserTrust( $user, $trustedSiteToBeDeleted, null );
+				$user->saveSettings();
 				$wgOut->addWikiMsg( 'openid-trusted-sites-delete-confirmation-success-text', $trustedSiteToBeDeleted );
 			}
 
@@ -582,7 +583,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			) .
 			Xml::submitButton( wfMessage( 'openid-trusted-sites-delete-confirmation-button-text' )->text() ) . "\n" .
 			Html::Hidden( 'url', $trustedSiteToBeDeleted ) . "\n" .
-			Html::Hidden( 'openidDeleteTrustedSiteToken', $wgUser->getEditToken( $trustedSiteToBeDeleted ) ) . "\n" .
+			Html::Hidden( 'openidDeleteTrustedSiteToken', $user->getEditToken( $trustedSiteToBeDeleted ) ) . "\n" .
 			Xml::closeElement( 'form' )
 		);
 	}
@@ -682,7 +683,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 	function LoginForm( $request, $msg = null ) {
 	// is this really used by someone ?
-		global $wgOut, $wgUser;
+		global $wgOut;
 
 		wfDebug( "OpenID: SpecialOpenIDServer.body::LoginForm. You should not pass this point.\n" );
 		$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
@@ -703,7 +704,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$wgOut->addHTML( "<p class='error'>{$msg}</p>" );
 		}
 
-		$sk = $wgUser->getSkin();
+		$sk = $this->getUser()->getSkin();
 
 		$wgOut->addHTML( "<p>{$instructions}</p>" .
 			'<form action="' . $sk->makeSpecialUrl( 'OpenIDServer/Login' ) . '" method="POST">' .
@@ -849,7 +850,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	 * @return Auth_OpenID_ServerResponse|null
 	 */
 	function Trust( $request, $sreg ) {
-		global $wgRequest, $wgUser;
+		global $wgRequest;
 
 		assert( isset( $request ) );
 		assert( isset( $sreg ) );
@@ -860,15 +861,16 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 
 		$trust_root = $request->trust_root;
+		$user = $this->getUser();
 
 		assert( isset( $trust_root ) && strlen( $trust_root ) > 0 );
 
 		# If they don't want us to allow trust, save that.
 
 		if ( !$wgRequest->getCheck( 'wpAllowTrust' ) ) {
-			$this->SetUserTrust( $wgUser, $trust_root, false );
+			$this->SetUserTrust( $user, $trust_root, false );
 			# Set'em and sav'em
-			$wgUser->saveSettings();
+			$user->saveSettings();
 		} else {
 			$fields = array_filter( array_unique( array_merge( $sreg['optional'], $sreg['required'] ) ),
 				[ $this, 'ValidField' ] );
@@ -881,9 +883,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				}
 			}
 
-			$this->SetUserTrust( $wgUser, $trust_root, $allow );
+			$this->SetUserTrust( $user, $trust_root, $allow );
 			# Set'em and sav'em
-			$wgUser->saveSettings();
+			$user->saveSettings();
 		}
 	}
 

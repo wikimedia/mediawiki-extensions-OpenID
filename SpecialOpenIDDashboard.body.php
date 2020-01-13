@@ -25,9 +25,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 	 * @return string
 	 */
 	function getDescription() {
-		global $wgUser;
-
-		if ( $wgUser->isAllowed( 'openid-dashboard-admin' ) ) {
+		if ( $this->getUser()->isAllowed( 'openid-dashboard-admin' ) ) {
 				return wfMessage( 'openid-dashboard-title-admin' )->text();
 		} else {
 				return wfMessage( 'openid-dashboard-title' )->text();
@@ -67,7 +65,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 	 * @param string|null $par Parameter passed to the page or null
 	 */
 	function execute( $par ) {
-		global $wgOut, $wgUser,
+		global $wgOut,
 			$wgOpenIDShowUrlOnUserPage, $wgOpenIDTrustEmailAddress,
 			$wgOpenIDAllowExistingAccountSelection, $wgOpenIDAllowNewAccountname,
 			$wgOpenIDUseEmailAsNickname, $wgOpenIDProposeUsernameFromSREG,
@@ -75,7 +73,7 @@ class SpecialOpenIDDashboard extends SpecialPage {
 			$wgOpenIDAllowServingOpenIDUserAccounts, $wgOpenIDShowProviderIcons,
 			$wgOpenIDForcedProvider;
 
-		if ( !$this->userCanExecute( $wgUser ) ) {
+		if ( !$this->userCanExecute( $this->getUser() ) ) {
 			$this->displayRestrictionError();
 			return;
 		}

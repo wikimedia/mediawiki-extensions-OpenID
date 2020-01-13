@@ -293,9 +293,9 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	 * @return Auth_OpenID_Request|null
 	 */
 	function Check( $server, $request, $sreg, $imm = true ) {
-		global $wgUser, $wgOut, $wgOpenIDAllowServingOpenIDUserAccounts;
+		global $wgOut, $wgOpenIDAllowServingOpenIDUserAccounts;
 
-		assert( isset( $wgUser ) && isset( $wgOut ) );
+		assert( isset( $wgOut ) );
 		assert( isset( $server ) );
 		assert( isset( $request ) );
 		assert( isset( $sreg ) );
@@ -304,10 +304,11 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		# Is the passed identity URL a user page?
 
 		$url = $request->identity;
+		$user = $this->getUser();
 
 		assert( isset( $url ) && strlen( $url ) > 0 );
 
-		# by default, use the $wgUser if s/he is logged-in on this OpenID-Server-Wiki
+		# by default, use the $user if s/he is logged-in on this OpenID-Server-Wiki
 
 		# check, if there is an expressed request for a distinct OpenID-Server-Username
 		# from the received OpenID Url /User:Name
@@ -328,8 +329,8 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		# if there is an expressed request for /User:Name and if this is not the current user
 		# then proceed to the login form, fill in the Name
 
-		if ( ( $wgUser->getId() == 0 )
-			|| ( isset( $otherUser ) && ( $otherUser->getId() != $wgUser->getId() ) )
+		if ( ( $user->getId() == 0 )
+			|| ( isset( $otherUser ) && ( $otherUser->getId() != $user->getId() ) )
 		) {
 			if ( $imm ) {
 				return $request->answer( false, $this->serverUrl() );
@@ -349,11 +350,11 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			}
 		}
 
-		assert( $wgUser->getId() != 0 );
+		assert( $user->getId() != 0 );
 
 		# Is the user an OpenID user?
 
-		if ( !$wgOpenIDAllowServingOpenIDUserAccounts && $this->getUserOpenIDInformation( $wgUser ) ) {
+		if ( !$wgOpenIDAllowServingOpenIDUserAccounts && $this->getUserOpenIDInformation( $user ) ) {
 			return $request->answer( false, $this->serverUrl() );
 		}
 
@@ -364,7 +365,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		if ( array_key_exists( 'required', $sreg ) ) {
 			$notFound = false;
 			foreach ( $sreg['required'] as $reqfield ) {
-				if ( $this->GetUserField( $wgUser, $reqfield ) === null ) {
+				if ( $this->GetUserField( $user, $reqfield ) === null ) {
 					$notFound = true;
 					break;
 				}
@@ -381,7 +382,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		assert( isset( $trust_root ) && is_string( $trust_root ) && strlen( $trust_root ) > 0 );
 
-		$trust = $this->GetUserTrust( $wgUser, $trust_root );
+		$trust = $this->GetUserTrust( $user, $trust_root );
 
 		# Is there a trust record?
 
@@ -414,7 +415,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$notFound = false;
 			foreach ( $sreg['required'] as $reqfield ) {
 				if ( !in_array( $reqfield, $trust ) ||
-					$this->GetUserField( $wgUser, $reqfield ) === null ) {
+					$this->GetUserField( $user, $reqfield ) === null ) {
 					$notFound = true;
 					break;
 				}
@@ -437,14 +438,14 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		Wikimedia\suppressWarnings();
 
-		$response = $request->answer( true, $this->serverUrl(), $this->getLocalIdentity( $wgUser ), null );
+		$response = $request->answer( true, $this->serverUrl(), $this->getLocalIdentity( $user ), null );
 
 		Wikimedia\restoreWarnings();
 
 		assert( isset( $response ) );
 
 		foreach ( $response_fields as $field ) {
-			$value = $this->GetUserField( $wgUser, $field );
+			$value = $this->GetUserField( $user, $field );
 			if ( $value !== null ) {
 				$response->addField( 'sreg', $field, $value );
 			}
@@ -785,9 +786,10 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function TrustForm( $request, $sreg, $msg = null ) {
-		global $wgOut, $wgUser;
+		global $wgOut;
 
 		$trust_root = $request->trust_root;
+		$user = $this->getUser();
 
 		$instructions = wfMessage( 'openidtrustinstructions', $trust_root )->text();
 		$allow = wfMessage( 'openidallowtrust', $trust_root )->text();
@@ -818,7 +820,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				$wgOut->addHTML( "<th><label for='wpAllow{$field}'>" );
 				$wgOut->addHTML( wfMessage( "openid$field" )->text() );
 				$wgOut->addHTML( "</label></th>" );
-				$value = $this->GetUserField( $wgUser, $field );
+				$value = $this->GetUserField( $user, $field );
 				$wgOut->addHTML( '<td>' . htmlspecialchars( $value ) . '</td>' );
 				$wgOut->addHTML( '<td>' . wfMessage( in_array( $field, $sreg['required'] )
 						? 'openidrequired'
@@ -837,7 +839,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$wgOut->addHTML( '</table>' );
 		}
 		$wgOut->addHTML( "<input type='submit' name='wpOK' value='{$ok}' /> <input type='submit' name='wpCancel' value='{$cancel}' />" .
-			Html::Hidden( 'openidTrustFormToken', $wgUser->getEditToken( 'openidTrustFormToken' ) ) . "\n" .
+			Html::Hidden( 'openidTrustFormToken', $user->getEditToken( 'openidTrustFormToken' ) ) . "\n" .
 			"</form>"
 		);
 		return null;

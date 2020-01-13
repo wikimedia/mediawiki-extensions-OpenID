@@ -200,7 +200,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 */
 	function chooseNameForm( $openid, $sreg, $ax, $messagekey = null ) {
 		global $wgAuth, $wgOut, $wgOpenIDAllowExistingAccountSelection, $wgHiddenPrefs,
-			$wgUser, $wgOpenIDProposeUsernameFromSREG,
+			$wgOpenIDProposeUsernameFromSREG,
 			$wgOpenIDAllowAutomaticUsername, $wgOpenIDAllowNewAccountname;
 		global $wgRequest;
 
@@ -341,10 +341,11 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$def = true;
 		} // $wgOpenIDAllowExistingAccountSelection
 
+		$user = $this->getUser();
 		# These are only available if the visitor is allowed to create account
-		if ( $wgUser->isAllowed( 'createaccount' )
-			&& $wgUser->isAllowed( 'openid-create-account-with-openid' )
-			&& !$wgUser->isBlockedFromCreateAccount()
+		if ( $user->isAllowed( 'createaccount' )
+			&& $user->isAllowed( 'openid-create-account-with-openid' )
+			&& !$user->isBlockedFromCreateAccount()
 		) {
 			if ( $wgOpenIDProposeUsernameFromSREG ) {
 				# These options won't exist if we can't get them.

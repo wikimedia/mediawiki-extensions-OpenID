@@ -339,7 +339,7 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 		$response = $consumer->complete( $this->scriptUrl( 'Finish' ) );
 		Wikimedia\restoreWarnings();
 
-		if ( is_null( $response ) ) {
+		if ( $response === null ) {
 			wfDebug( "OpenID: aborting in openid converter because the response was missing\n" );
 			$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
 			return;

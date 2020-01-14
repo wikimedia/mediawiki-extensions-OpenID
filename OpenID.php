@@ -485,7 +485,7 @@ class OpenID {
 		global $wgOpenIDMode, $wgOpenIDProviders;
 
 		if ( !is_string( $mode )
-			|| is_null( $wgOpenIDMode )
+			|| $wgOpenIDMode === null
 			|| ( $wgOpenIDMode === false )
 			|| !in_array( $mode, [ 'provider', 'consumer' ] ) ) {
 			return false;
@@ -521,7 +521,7 @@ class OpenID {
 	static function getTrustRoot() {
 		global $wgOpenIDTrustRoot;
 
-		if ( !is_null( $wgOpenIDTrustRoot ) ) {
+		if ( $wgOpenIDTrustRoot !== null ) {
 			$trust_root = $wgOpenIDTrustRoot;
 		} else {
 			global $wgScriptPath, $wgCanonicalServer;

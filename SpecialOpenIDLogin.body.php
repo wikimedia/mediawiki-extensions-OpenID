@@ -110,7 +110,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				$openid_url = $wgRequest->getText( 'openid_url' );
 			}
 
-			if ( !is_null( $openid_url ) && strlen( $openid_url ) > 0 ) {
+			if ( $openid_url !== null && strlen( $openid_url ) > 0 ) {
 				$this->login( $openid_url, $this->getPageTitle( 'Finish' ), $skipTokenTestBecauseForcedProvider );
 			} else {
 				$this->providerSelectionLoginForm();
@@ -533,7 +533,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		}
 
 		list( $openid, $sreg, $ax ) = $this->fetchValues();
-		if ( is_null( $openid ) ) {
+		if ( $openid === null ) {
 			$this->clearValues();
 			# No messing around, here
 			$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
@@ -555,7 +555,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 				$wgRequest->getText( 'wpExistingPassword' )
 			);
 
-			if ( is_null( $user ) || !$user ) {
+			if ( $user === null || !$user ) {
 				$this->clearValues();
 				// $this->chooseNameForm( $openid, $sreg, $ax, 'wrongpassword' );
 				return;
@@ -580,7 +580,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$user = $this->createUser( $openid, $sreg, $ax, $name );
 		}
 
-		if ( is_null( $user ) ) {
+		if ( $user === null ) {
 			$this->clearValues();
 			$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
 			return;
@@ -604,7 +604,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 		$response = $consumer->complete( $this->scriptUrl( 'Finish' ) );
 		Wikimedia\restoreWarnings();
 
-		if ( is_null( $response ) ) {
+		if ( $response === null ) {
 			wfDebug( "OpenID: aborting in auth because no response was received\n" );
 			$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
 			return;
@@ -642,7 +642,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 			Wikimedia\restoreWarnings();
 
-			if ( is_null( $openid ) ) {
+			if ( $openid === null ) {
 				$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
 				return;
 			}
@@ -762,6 +762,10 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 * keys look like 'openid-userinfo-update-on-login-nickname'
 	 *
 	 * FIXME: options could better be saved as a JSON encoded array in a single key
+	 * @param string $option
+	 * @param User $user
+	 * @param bool|array $force
+	 * @return bool
 	 */
 	private function updateOption( $option, User $user, $force ) {
 		$ret = ( $force === true
@@ -907,7 +911,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			}
 			# check the SREG first; only return a value if non-null
 			$fullname = ( ( array_key_exists( 'fullname', $sreg ) ) ? $sreg['fullname'] : null );
-			if ( !is_null( $fullname ) ) {
+			if ( $fullname !== null ) {
 				return $fullname;
 			}
 

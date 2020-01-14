@@ -124,7 +124,7 @@ class SpecialOpenID extends SpecialPage {
 		# try to make it into a title object
 		$nt = Title::newFromText( $openid_url );
 		# If it's got an iw, return that
-		if ( !is_null( $nt ) && !is_null( $nt->getInterwiki() )
+		if ( $nt !== null && $nt->getInterwiki() !== null
 			&& strlen( $nt->getInterwiki() ) > 0 ) {
 			return $nt->getFullUrl( '', false, PROTO_CANONICAL );
 		} else {
@@ -284,7 +284,7 @@ class SpecialOpenID extends SpecialPage {
 
 		$endpoint = $auth_request->endpoint;
 
-		if ( !is_null( $endpoint ) ) {
+		if ( $endpoint !== null ) {
 			# Check if the URL is allowed
 
 			if ( isset( $endpoint->identity_url ) && !$this->canLogin( $endpoint->identity_url ) ) {

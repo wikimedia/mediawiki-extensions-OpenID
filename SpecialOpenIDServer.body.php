@@ -364,7 +364,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		if ( array_key_exists( 'required', $sreg ) ) {
 			$notFound = false;
 			foreach ( $sreg['required'] as $reqfield ) {
-				if ( is_null( $this->GetUserField( $wgUser, $reqfield ) ) ) {
+				if ( $this->GetUserField( $wgUser, $reqfield ) === null ) {
 					$notFound = true;
 					break;
 				}
@@ -385,7 +385,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		# Is there a trust record?
 
-		if ( is_null( $trust ) ) {
+		if ( $trust === null ) {
 			if ( $imm ) {
 				return $request->answer( false, $this->serverUrl() );
 			} else {
@@ -396,7 +396,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			}
 		}
 
-		assert( !is_null( $trust ) );
+		assert( $trust !== null );
 
 		# Is the trust record _not_ to allow trust?
 		# NB: exactly equal
@@ -414,7 +414,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$notFound = false;
 			foreach ( $sreg['required'] as $reqfield ) {
 				if ( !in_array( $reqfield, $trust ) ||
-					is_null( $this->GetUserField( $wgUser, $reqfield ) ) ) {
+					$this->GetUserField( $wgUser, $reqfield ) === null ) {
 					$notFound = true;
 					break;
 				}
@@ -445,7 +445,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		foreach ( $response_fields as $field ) {
 			$value = $this->GetUserField( $wgUser, $field );
-			if ( !is_null( $value ) ) {
+			if ( $value !== null ) {
 				$response->addField( 'sreg', $field, $value );
 			}
 		}
@@ -485,7 +485,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 	function SetUserTrust( $user, $trust_root, $value = null ) {
 		$trust_array = $this->GetUserTrustArray( $user );
-		if ( is_null( $value ) ) {
+		if ( $value === null ) {
 			if ( array_key_exists( $trust_root, $trust_array ) ) {
 				unset( $trust_array[$trust_root] );
 			}
@@ -659,8 +659,8 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	function Response( $server, $response ) {
 		global $wgOut;
 
-		assert( !is_null( $server ) );
-		assert( !is_null( $response ) );
+		assert( $server !== null );
+		assert( $response !== null );
 
 		$wgOut->disable();
 
@@ -668,7 +668,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		$wr =& $server->encodeResponse( $response );
 		Wikimedia\restoreWarnings();
 
-		assert( !is_null( $wr ) );
+		assert( $wr !== null );
 
 		header( "Status: " . $wr->code );
 
@@ -700,7 +700,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		$ok = wfMessage( 'ok' )->text();
 		$cancel = wfMessage( 'cancel' )->text();
 
-		if ( !is_null( $msg ) ) {
+		if ( $msg !== null ) {
 			$wgOut->addHTML( "<p class='error'>{$msg}</p>" );
 		}
 
@@ -825,7 +825,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 						: 'openidoptional' )->text() . '</td>' );
 				$wgOut->addHTML( "<td><input name='wpAllow{$field}' id='wpAllow{$field}' type='checkbox'" );
 
-				if ( !is_null( $value ) ) {
+				if ( $value !== null ) {
 					$wgOut->addHTML( " value='on' checked='checked' />" );
 				} else {
 					$wgOut->addHTML( " disabled='disabled' />" );
@@ -941,7 +941,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		} else {
 			$titletext = urldecode( $matches[1] );
 			$nt = Title::newFromText( $titletext );
-			if ( is_null( $nt ) || $nt->getNamespace() != NS_USER ) {
+			if ( $nt === null || $nt->getNamespace() != NS_USER ) {
 				return null;
 			} else {
 				return $nt->getText();

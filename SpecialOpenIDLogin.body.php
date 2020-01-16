@@ -33,9 +33,7 @@ require_once "Auth/Yadis/XRI.php";
 class SpecialOpenIDLogin extends SpecialOpenID {
 
 	function __construct() {
-		global $wgUser;
-		$listed = !$wgUser->isLoggedIn();
-		parent::__construct( 'OpenIDLogin', 'openid-login-with-openid', $listed );
+		parent::__construct( 'OpenIDLogin', 'openid-login-with-openid' );
 	}
 
 	/**
@@ -810,14 +808,15 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	}
 
 	function createUser( $openid, $sreg, $ax, $name ) {
-		global $wgUser, $wgAuth;
+		global $wgAuth;
 
-		# Check permissions of the creating $wgUser
-		if ( !$wgUser->isAllowed( 'createaccount' )
-			|| !$wgUser->isAllowed( 'openid-create-account-with-openid' ) ) {
+		$creator = $this->getUser();
+		# Check permissions of the creating user
+		if ( !$creator->isAllowed( 'createaccount' )
+			|| !$creator->isAllowed( 'openid-create-account-with-openid' ) ) {
 			wfDebug( "OpenID: User is not allowed to create an account.\n" );
 			return null;
-		} elseif ( $wgUser->isBlockedFromCreateAccount() ) {
+		} elseif ( $creator->isBlockedFromCreateAccount() ) {
 			wfDebug( "OpenID: User is blocked.\n" );
 			return null;
 		}
@@ -837,6 +836,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			$wgAuth->initUser( $user );
 			$wgAuth->updateUser( $user );
 
+			global $wgUser;
 			$wgUser = $user;
 
 			# new user account: not opened by mail
@@ -1147,5 +1147,9 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 	protected function getGroupName() {
 		return 'openid';
+	}
+
+	public function isListed() {
+		return !$this->getUser()->isLoggedIn();
 	}
 }

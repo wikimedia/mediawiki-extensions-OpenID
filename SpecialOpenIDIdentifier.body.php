@@ -37,7 +37,7 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 			return;
 		}
 
-		self::showOpenIDIdentifier( User::newFromId( $par ), false, true );
+		self::showOpenIDIdentifier( $this->getUser(), User::newFromId( $par ), false, true );
 	}
 
 	/**
@@ -50,12 +50,18 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 	}
 
 	/**
+	 * @param User $viewer
 	 * @param User|false $user
 	 * @param bool $delegate
 	 * @param bool $showSpecialPageText
 	 */
-	public static function showOpenIDIdentifier( $user, $delegate = false, $showSpecialPageText = false ) {
-		global $wgOut, $wgUser, $wgOpenIDShowUrlOnUserPage, $wgOpenIDAllowServingOpenIDUserAccounts;
+	public static function showOpenIDIdentifier(
+		User $viewer,
+		$user,
+		$delegate = false,
+		$showSpecialPageText = false
+	) {
+		global $wgOut, $wgOpenIDShowUrlOnUserPage, $wgOpenIDAllowServingOpenIDUserAccounts;
 
 		// show the own OpenID Url as a subtitle on the user page
 		// but only for the user when visiting their own page
@@ -89,18 +95,18 @@ class SpecialOpenIDIdentifier extends unlistedSpecialPage {
 				header( 'X-XRDS-Location: ' . $xrdsUrl );
 			}
 
-			if ( ( $user->getID() === $wgUser->getID() )
+			if ( ( $user->getID() === $viewer->getID() )
 				&& ( $user->getID() != 0 )
 				&& ( $wgOpenIDShowUrlOnUserPage === 'always'
-					|| ( ( $wgOpenIDShowUrlOnUserPage === 'user' ) && $wgUser->getOption( 'openid-show-openid' ) ) )
+					|| ( ( $wgOpenIDShowUrlOnUserPage === 'user' ) && $viewer->getOption( 'openid-show-openid' ) ) )
 			) {
 				$wgOut->setSubtitle( "<span class='subpages'>" .
 					OpenID::getOpenIDSmallLogoUrlImageTag() .
-					SpecialOpenIDServer::getLocalIdentityLink( $wgUser ) .
+					SpecialOpenIDServer::getLocalIdentityLink( $viewer ) .
 					"</span>" );
 
 				if ( $showSpecialPageText ) {
-					$wgOut->addWikiMsg( 'openid-identifier-page-text-user', $wgUser->getName() );
+					$wgOut->addWikiMsg( 'openid-identifier-page-text-user', $viewer->getName() );
 				}
 			} elseif ( $showSpecialPageText ) {
 				$wgOut->addWikiMsg( 'openid-identifier-page-text-different-user', $user->getID() );

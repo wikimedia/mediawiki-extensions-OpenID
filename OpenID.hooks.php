@@ -81,7 +81,8 @@ class OpenIDHooks {
 			$user = User::newFromName( $nt->getText() );
 
 			if ( $user && ( $user->getID() != 0 ) ) {
-				SpecialOpenIDIdentifier::showOpenIDIdentifier( $user, true, false );
+				$viewer = $article->getContext()->getUser();
+				SpecialOpenIDIdentifier::showOpenIDIdentifier( $viewer, $user, true, false );
 			}
 		}
 	}

@@ -92,7 +92,7 @@
 	"openid-associated-openids-label": "OpenID поврзани со вашата сметка:",
 	"openid-urls-url": "URL",
 	"openid-urls-action": "Дејство",
-	"openid-urls-registration": "Време на регистрација",
+	"openid-urls-registration": "Време на зачленување",
 	"openid-urls-delete": "Избриши",
 	"openid-add-url": "Додај нов OpenID кон сметката",
 	"openid-trusted-sites-label": "Мрежните места на коишто им верувате и кајшто го имате користено вашиот OpenID за најава:",

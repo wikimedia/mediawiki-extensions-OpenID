@@ -57,7 +57,7 @@
 	"openid-convert-other-users-openid-text": "Tio estas OpenID de alia persono.",
 	"openidalreadyloggedin": "'''Vi jam ensalutis, $1!'''\n\nSe vi volas utiligi OpenID por ensaluti estontece, vi povas [[Special:OpenIDConvert|konverti vian konton por uzi OpenID]].",
 	"openidnousername": "Neniu salutnomo estis donita.",
-	"openidbadusername": "Fuŝa salutnomo donita.",
+	"openidbadusername": "Fuŝa uzantnomo donita.",
 	"openidautosubmit": "Ĉi tiu paĝo inkluzivas kamparo kiu estos aŭtomate enigita se vi havas JavaScript-on ŝaltan.\nSe ne, klaku la butonon \"Continue\" (Daŭri).",
 	"openidclientonlytext": "Vi ne povas uzi kontojn de ĉi tiu vikio kiel OpenID-ojn en alia retejo.",
 	"openidloginlabel": "URL-o OpenID",

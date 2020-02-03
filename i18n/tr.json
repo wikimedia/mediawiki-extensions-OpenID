@@ -94,6 +94,7 @@
 	"openid-show-openid-url-on-userpage-never": "OpenID'niz hiçbir zaman kullanıcı sayfanızda gösterilmez.",
 	"openid-userinfo-update-on-login-label": "Her giriş yaptığınızda OpenID persona'dan otomatik olarak güncellenecek kullanıcı profili bilgi alanları:",
 	"openid-associated-openids-label": "Hesabınızla ilişkili OpenID'ler:",
+	"openid-urls-url": "URL",
 	"openid-urls-action": "Eylem",
 	"openid-urls-registration": "Kayıt zamanı",
 	"openid-urls-delete": "Sil",

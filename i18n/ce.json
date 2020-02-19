@@ -15,5 +15,6 @@
 	"openid-urls-action": "Дийраш",
 	"openid-urls-delete": "ДӀаяккха",
 	"openid-add-url": "ТӀетоха керла OpenID",
-	"openid-trusted-sites-delete-confirmation-page-title": "Тешаме сайташ дӀаяхар"
+	"openid-trusted-sites-delete-confirmation-page-title": "Тешаме сайташ дӀаяхар",
+	"openid-trusted-sites-delete-confirmation-button-text": "Бакъдан"
 }

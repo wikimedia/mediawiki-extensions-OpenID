@@ -14,7 +14,7 @@
 	"openiderror": "OpenID Feeler",
 	"openiderrortext": "Beim Iwwerpréifen vun der OpenID URL ass e Feeler geschitt.",
 	"openidconfigerror": "OpenId-Konfiguratiounsfeeler",
-	"openidconfigerrortext": "D'OpenID-Späicherastellung fir dës Wiki ass falsch.\nKontaktéiert w.e.g. een [[Special:ListUsers/sysop|Administrateur]].",
+	"openidconfigerrortext": "D'OpenID-Späicherastellung fir dës Wiki ass falsch.\nKontaktéiert wgl. een [[Special:ListUsers/sysop|Administrateur]].",
 	"openidpermission": "OpenID-Autorisatiounsfeeler",
 	"openidpermissiontext": "D'OpeniD déi Dir uginn hutt ass net erlaabt fir sech op dëse Server anzeloggen.",
 	"openidcancel": "Iwwerpréifung ofgebrach",

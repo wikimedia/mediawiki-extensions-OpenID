@@ -76,6 +76,6 @@
 	"openid-provider-label-openid": "Enigi vian OpenID-URL-on",
 	"openid-provider-label-google": "Ensaluti per via Google-konto",
 	"openid-provider-label-yahoo": "Ensaluti per via Yahoo-konto",
-	"openid-provider-label-aol": "Enigi vian AOL-salutnomon",
-	"openid-provider-label-other-username": "Enigi vian salutnomon de $1"
+	"openid-provider-label-aol": "Enigi vian AOL-uzantnomon",
+	"openid-provider-label-other-username": "Enigi vian uzantnomon de $1"
 }

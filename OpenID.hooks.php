@@ -8,17 +8,19 @@
 class OpenIDHooks {
 
 	public static function onSpecialPage_initList( &$specialPagesList ) {
-		global $wgOpenIDLoginOnly, $wgUser;
+		global $wgOpenIDLoginOnly;
 
 		# redirect all special login pages to our own OpenID login pages
 		# but only for entitled users
 
 		$addOpenIDSpecialPagesList = [];
 
+		$user = RequestContext::getMain()->getUser(); // No context
+
 		if ( OpenID::isAllowedMode( 'consumer' ) ) {
 			if ( $wgOpenIDLoginOnly
-				&& !$wgUser->isAllowed( 'openid-create-account-without-openid' )
-				&& $wgUser->isAllowed( 'openid-login-with-openid' )
+				&& !$user->isAllowed( 'openid-create-account-without-openid' )
+				&& $user->isAllowed( 'openid-login-with-openid' )
 			) {
 				$specialPagesList['Userlogin'] = 'SpecialOpenIDLogin';
 
@@ -32,9 +34,9 @@ class OpenIDHooks {
 		# Special pages for both modes are added at global scope
 
 		if ( OpenID::isAllowedMode( 'provider' ) || OpenID::isAllowedMode( 'consumer' ) ) {
-			if ( !$wgUser->isLoggedIn()
-				&& ( $wgUser->isAllowed( 'openid-login-with-openid' )
-					|| $wgUser->isAllowed( 'openid-create-account-with-openid' ) ) ) {
+			if ( !$user->isLoggedIn()
+				&& ( $user->isAllowed( 'openid-login-with-openid' )
+					|| $user->isAllowed( 'openid-create-account-with-openid' ) ) ) {
 				$addOpenIDSpecialPagesList[] = 'Login';
 			}
 
@@ -90,12 +92,13 @@ class OpenIDHooks {
 	/**
 	 * @param array[] &$personal_urls
 	 * @param Title $title
+	 * @param SkinTemplate $skin
 	 */
-	public static function onPersonalUrls( &$personal_urls, $title ) {
-		global $wgOpenIDHideOpenIDLoginLink, $wgUser, $wgOut, $wgOpenIDLoginOnly;
+	public static function onPersonalUrls( &$personal_urls, $title, SkinTemplate $skin ) {
+		global $wgOpenIDHideOpenIDLoginLink, $wgOut, $wgOpenIDLoginOnly;
 
 		if ( !$wgOpenIDHideOpenIDLoginLink
-			&& ( $wgUser->getID() == 0 )
+			&& ( $skin->getUser()->getID() == 0 )
 			&& OpenID::isAllowedMode( 'consumer' )
 		) {
 			$sk = $wgOut->getSkin();

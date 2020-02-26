@@ -558,19 +558,20 @@ class OpenID {
 	 * @return string
 	 */
 	public static function loginOrCreateAccountOrConvertButtonLabel() {
-		global $wgUser, $wgOut;
+		global $wgOut;
 
 		$title = $wgOut->getTitle();
+		$user = RequestContext::getMain()->getUser(); // No context
 		if ( $title && $title->equals( SpecialPage::getTitleFor( 'OpenIDConvert' ) ) ) {
 			return wfMessage( 'openid-provider-selection-button-convert' )->text();
 		} else {
-			if ( $wgUser->isAllowed( 'openid-create-account-with-openid' )
-				&& !$wgUser->isAllowed( 'openid-login-with-openid' ) ) {
+			if ( $user->isAllowed( 'openid-create-account-with-openid' )
+				&& !$user->isAllowed( 'openid-login-with-openid' ) ) {
 				return wfMessage( 'openid-provider-selection-button-create-account' )->text();
 			}
 
-			if ( !$wgUser->isAllowed( 'openid-create-account-with-openid' )
-				&& $wgUser->isAllowed( 'openid-login-with-openid' ) ) {
+			if ( !$user->isAllowed( 'openid-create-account-with-openid' )
+				&& $user->isAllowed( 'openid-login-with-openid' ) ) {
 				return wfMessage( 'openid-provider-selection-button-login' )->text();
 			}
 

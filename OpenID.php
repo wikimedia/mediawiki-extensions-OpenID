@@ -390,14 +390,14 @@ $wgAutoloadClasses['OpenID'] = $dir . 'includes/OpenID.php';
 $wgAutoloadClasses['OpenIDHooks'] = $dir . 'includes/OpenIDHooks.php';
 
 # Autoload common parent with utility methods
-$wgAutoloadClasses['SpecialOpenID'] = $dir . 'SpecialOpenID.body.php';
-$wgAutoloadClasses['SpecialOpenIDIdentifier'] = $dir . 'SpecialOpenIDIdentifier.body.php';
+$wgAutoloadClasses['SpecialOpenID'] = $dir . 'includes/specials/SpecialOpenID.php';
+$wgAutoloadClasses['SpecialOpenIDIdentifier'] = $dir . 'includes/specials/SpecialOpenIDIdentifier.php';
 
-$wgAutoloadClasses['SpecialOpenIDLogin'] = $dir . 'SpecialOpenIDLogin.body.php';
-$wgAutoloadClasses['SpecialOpenIDConvert'] = $dir . 'SpecialOpenIDConvert.body.php';
-$wgAutoloadClasses['SpecialOpenIDServer'] = $dir . 'SpecialOpenIDServer.body.php';
-$wgAutoloadClasses['SpecialOpenIDXRDS'] = $dir . 'SpecialOpenIDXRDS.body.php';
-$wgAutoloadClasses['SpecialOpenIDDashboard'] = $dir . 'SpecialOpenIDDashboard.body.php';
+$wgAutoloadClasses['SpecialOpenIDLogin'] = $dir . 'includes/specials/SpecialOpenIDLogin.php';
+$wgAutoloadClasses['SpecialOpenIDConvert'] = $dir . 'includes/specials/SpecialOpenIDConvert.php';
+$wgAutoloadClasses['SpecialOpenIDServer'] = $dir . 'includes/specials/SpecialOpenIDServer.php';
+$wgAutoloadClasses['SpecialOpenIDXRDS'] = $dir . 'includes/specials/SpecialOpenIDXRDS.php';
+$wgAutoloadClasses['SpecialOpenIDDashboard'] = $dir . 'includes/specials/SpecialOpenIDDashboard.php';
 
 # UI class
 $wgAutoloadClasses['OpenIDProvider'] = $dir . 'OpenIDProvider.body.php';

@@ -469,7 +469,7 @@ class OpenIDHooks {
 	public static function MySQLSchemaUpdates( $updater ) {
 		// >= 1.17 support
 		$updater->addExtensionTable( 'user_openid',
-			__DIR__ . '/patches/openid_table.sql' );
+			__DIR__ . '/../patches/openid_table.sql' );
 
 		# when updating an older OpenID version
 		# make the index non unique (remove unique index uoi_user, add new index user_openid_user)
@@ -478,21 +478,21 @@ class OpenIDHooks {
 
 		if ( $info && !$info->isMultipleKey() ) {
 			$updater->addExtensionUpdate( [ 'dropIndex', 'user_openid', 'uoi_user',
-				__DIR__ . '/patches/patch-drop_non_multiple_key_index_uoi_user.sql', true ] );
+				__DIR__ . '/patches/../patch-drop_non_multiple_key_index_uoi_user.sql', true ] );
 			$updater->addExtensionIndex( 'user_openid', 'user_openid_user',
-				__DIR__ . '/patches/patch-add_multiple_key_index_user_openid_user.sql' );
+				__DIR__ . '/patches/../patch-add_multiple_key_index_user_openid_user.sql' );
 		}
 
 		# uoi_user_registration field was added in OpenID version 0.937
 		$updater->addExtensionField( 'user_openid', 'uoi_user_registration',
-			__DIR__ . '/patches/patch-add_uoi_user_registration.sql' );
+			__DIR__ . '/patches/../patch-add_uoi_user_registration.sql' );
 	}
 
 	/**
 	 * @param PostgresUpdater $updater
 	 */
 	public static function PostgreSQLSchemaUpdates( $updater ) {
-		$base = __DIR__ . '/patches';
+		$base = __DIR__ . '/../patches';
 		foreach ( [
 			[ 'addTable', 'user_openid', $base . '/openid_table.pg.sql', true ],
 			[ 'addPgField', 'user_openid', 'uoi_user_registration', 'TIMESTAMPTZ' ],

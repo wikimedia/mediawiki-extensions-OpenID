@@ -387,7 +387,7 @@ $wgMessagesDirs['OpenID'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['OpenIDAlias'] = $dir . 'OpenID.alias.php';
 
 $wgAutoloadClasses['OpenID'] = $dir . 'includes/OpenID.php';
-$wgAutoloadClasses['OpenIDHooks'] = $dir . 'OpenID.hooks.php';
+$wgAutoloadClasses['OpenIDHooks'] = $dir . 'includes/OpenIDHooks.php';
 
 # Autoload common parent with utility methods
 $wgAutoloadClasses['SpecialOpenID'] = $dir . 'SpecialOpenID.body.php';

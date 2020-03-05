@@ -400,7 +400,7 @@ $wgAutoloadClasses['SpecialOpenIDXRDS'] = $dir . 'includes/specials/SpecialOpenI
 $wgAutoloadClasses['SpecialOpenIDDashboard'] = $dir . 'includes/specials/SpecialOpenIDDashboard.php';
 
 # UI class
-$wgAutoloadClasses['OpenIDProvider'] = $dir . 'OpenIDProvider.body.php';
+$wgAutoloadClasses['OpenIDProvider'] = $dir . 'includes/OpenIDProvider.php';
 
 $wgAutoloadClasses['MediaWikiOpenIDDatabaseConnection'] = $dir . 'DatabaseConnection.php';
 $wgAutoloadClasses['MediaWikiOpenIDMemcachedStore'] = $dir . 'MemcachedStore.php';

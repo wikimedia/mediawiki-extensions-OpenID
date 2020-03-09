@@ -43,7 +43,7 @@
 	"openidsuccess": "Перевірка пройшла успішно",
 	"openidsuccesstext": "'''Успішна перевірка і вхід в систему як користувач $1'''.\n\nВаш OpenID — $2 .\n\nЦим та іншими можливими OpenID можна керувати на [[Special:Preferences#mw-prefsection-openid|вкладці OpenID]] у Ваших налаштуваннях.<br />\nНеобов'язковий пароль облікового запису можна додати у Вашому [[Special:Preferences#mw-prefsection-personal|профілі користувача]].",
 	"openidusernameprefix": "Користувач OpenID",
-	"openidserverlogininstructions": "$3 запитує введення Вашого паролю до сторінки користувача $2 $1 (це Ваш OpenID URL)",
+	"openidserverlogininstructions": "$3 запитує введення Вашого пароля до сторінки користувача $2 $1 (це Ваш OpenID URL)",
 	"openidtrustinstructions": "Відзначте, якщо ви хочете надати доступ до даних для $1.",
 	"openidallowtrust": "Дозволити $1 довіряти цьому акаунту.",
 	"openidnopolicy": "Сайт не вказав політику конфіденційності.",

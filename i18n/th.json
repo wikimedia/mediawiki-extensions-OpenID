@@ -2,9 +2,26 @@
 	"@metadata": {
 		"authors": [
 			"Passawuth",
-			"Ans"
+			"Ans",
+			"Aefgh39622"
 		]
 	},
+	"openidserver": "เซิร์ฟเวอร์ OpenID",
+	"openidxrds": "ไฟล์ Yadis",
+	"openidusernameprefix": "OpenIDUser",
+	"openidrequired": "จำเป็น",
+	"openidnickname": "ชื่อเล่น",
 	"openidemail": "อีเมล",
-	"openidtimezone": "เขตเวลา"
+	"openidlanguage": "ภาษา",
+	"openidtimezone": "เขตเวลา",
+	"openidchooseinstructions": "ผู้ใช้ทั้งหมดต้องมีชื่อเล่น\nคุณสามารถเลือกได้จากตัวเลือกที่อยู่ด้านล่าง",
+	"openidchooseusername": "ชื่อผู้ใช้:",
+	"openidchoosepassword": "รหัสผ่าน:",
+	"openidnousername": "ไม่ได้ระบุชื่อผู้ใช้ใด",
+	"openidbadusername": "ระบุชื่อผู้ใช้ไม่ถูกต้อง",
+	"openidloginlabel": "URL ของ OpenID",
+	"openiddelete": "ลบ OpenID",
+	"openiddelete-button": "ยืนยัน",
+	"openid-urls-action": "การกระทำ",
+	"openid-urls-delete": "ลบ"
 }

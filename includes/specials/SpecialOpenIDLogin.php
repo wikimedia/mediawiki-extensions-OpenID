@@ -866,7 +866,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 
 		$user = User::newFromName( $name );
 
-		if ( $user->checkPassword( $password ) ) {
+		if ( $this->checkPassword( $password ) ) {
 			// de-validate the temporary password
 			// requires MediaWiki core with https://gerrit.wikimedia.org/r/#/c/96029/ merged 2013-11-18
 			$user->setNewPassword( null );
@@ -875,7 +875,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			return $user;
 		}
 
-		if ( $user->checkTemporaryPassword( $password ) ) {
+		if ( $this->checkPassword( $password ) ) {
 			$wgAuth->updateUser( $user );
 			$user->saveSettings();
 

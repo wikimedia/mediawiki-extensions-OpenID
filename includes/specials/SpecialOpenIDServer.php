@@ -721,9 +721,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	}
 
 	function SaveValues( $request, $sreg ) {
-		if ( session_id() == '' ) {
-			wfSetupSession();
-		}
+		$this->getRequest()->getSession()->persist();
 
 		$_SESSION['openid_server_request'] = $request;
 		$_SESSION['openid_server_sreg'] = $sreg;
@@ -778,7 +776,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			return wfMessage( 'wrongpassword' )->text();
 		} else {
 			$wgUser = $user;
-			wfSetupSession();
+			$wgRequest->getSession()->persist();
 			$wgUser->SetCookies();
 			Hooks::run( 'UserLoginComplete', [ &$wgUser ] );
 			return false;

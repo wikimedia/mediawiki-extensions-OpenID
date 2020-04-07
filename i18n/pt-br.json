@@ -2,13 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Danielsouzat",
+			"Eduardo Addad de Oliveira",
 			"Eduardo.mps",
 			"Hamilton Abreu",
 			"Luckas",
-			"ZehRique",
-			"555",
 			"TheEduGobi",
-			"Eduardo Addad de Oliveira"
+			"ZehRique",
+			555
 		]
 	},
 	"openid-desc": "Autentique-se no wiki com um [//openid.net/ OpenID], e autentique-se em outros sítios que usem OpenID com uma conta de usuário wiki",

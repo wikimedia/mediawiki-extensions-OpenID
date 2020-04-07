@@ -2,10 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Baonguyen21022003",
+			"Dinhxuanduyet",
 			"Minh Nguyen",
-			"Vinhtantran",
 			"Trần Nguyễn Minh Huy",
-			"Dinhxuanduyet"
+			"Vinhtantran"
 		]
 	},
 	"openid-desc": "Đăng nhập vào wiki dùng [//openid.net/ OpenID] và đăng nhập vào các website nhận OpenID dùng tài khoản wiki",

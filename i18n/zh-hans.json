@@ -3,20 +3,20 @@
 		"authors": [
 			"Anakmalaysia",
 			"Gaoxuewei",
+			"Hudafu",
 			"Hzy980512",
+			"Impersonator 1",
 			"Kuailong",
 			"Liangent",
 			"Liuxinyu970226",
+			"Mywood",
 			"Onecountry",
 			"Qiyue2001",
 			"Wrightbus",
 			"Xiaomingyan",
+			"Xiplus",
 			"Yanmiao liu",
-			"Yfdyh000",
-			"Hudafu",
-			"Mywood",
-			"Impersonator 1",
-			"Xiplus"
+			"Yfdyh000"
 		]
 	},
 	"openid-desc": "让用户可使用一个[//openid.net/ OpenID]来登录到这个wiki。如果启用相关设置，还可以使用他们在此wiki上用户帐号URL作为OpenID来登录到其他接受OpenID的网站。",

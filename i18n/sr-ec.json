@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"BadDog",
 			"Milicevic01",
 			"Rancher",
 			"Sasa Stefanovic",
+			"Zoranzoki21",
 			"Михајло Анђелковић",
-			"Сербијана",
-			"BadDog",
-			"Zoranzoki21"
+			"Сербијана"
 		]
 	},
 	"openidserver": "OpenID сервер",

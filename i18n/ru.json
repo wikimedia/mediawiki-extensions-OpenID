@@ -3,14 +3,14 @@
 		"authors": [
 			"Adata80",
 			"Aleksandrit",
+			"Diralik",
 			"Ferrer",
 			"Ignatus",
 			"Kaganer",
 			"Lockal",
 			"Okras",
 			"Putnik",
-			"Александр Сигачёв",
-			"Diralik"
+			"Александр Сигачёв"
 		]
 	},
 	"openid-desc": "Вход в вики с помощью [//openid.net/ OpenID], а также вход на другие сайты поддерживающие OpenID с помощью учётной записи в вики",

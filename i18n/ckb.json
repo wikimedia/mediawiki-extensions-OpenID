@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"openiddelete-button": "پشتدار بکەرەوە",
 	"openid-urls-delete": "سڕینەوە"
 }

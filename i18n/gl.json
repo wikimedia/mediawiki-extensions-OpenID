@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Elisardojm",
 			"Fitoschido",
-			"Toliño",
-			"Elisardojm"
+			"Toliño"
 		]
 	},
 	"openid-desc": "Acceder ao sistema do wiki cun [//openid.net/ OpenID] e acceder a outras páxinas web OpenID cunha conta de usuario dun wiki",

@@ -8,16 +8,16 @@
 			"Drini",
 			"Fitoschido",
 			"Imre",
+			"Indiralena",
 			"Larjona",
+			"Macofe",
+			"Matiia",
 			"McDutchie",
+			"Ryo567",
 			"Sanbec",
 			"Translationista",
 			"Vivaelcelta",
-			"XalD",
-			"Macofe",
-			"Ryo567",
-			"Matiia",
-			"Indiralena"
+			"XalD"
 		]
 	},
 	"openid-desc": "Permite a los usuarios iniciar sesión en el wiki con un [//openid.net/ OpenID]. Si esto está activado en el wiki, también pueden utilizar su URL de cuenta de usuario de este wiki como OpenID para iniciar sesión en otros sitios web que utilicen OpenID",

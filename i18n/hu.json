@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Csega",
 			"Dani",
 			"Dj",
 			"Glanthor Reviol",
-			"Tgr",
 			"Misibacsi",
-			"Csega",
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Tgr"
 		]
 	},
 	"openid-desc": "Bejelentkezés [//openid.net/ OpenID] azonosítóval, és más OpenID-kompatibilis weboldalak használata a wikis azonosítóval",

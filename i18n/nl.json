@@ -2,14 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Konovalov",
+			"Mar(c)",
 			"McDutchie",
 			"Rcdeboer",
+			"Robin van der Vliet",
+			"Robin0van0der0vliet",
 			"SPQRobin",
 			"Siebrand",
-			"Tjcool007",
-			"Robin0van0der0vliet",
-			"Robin van der Vliet",
-			"Mar(c)"
+			"Tjcool007"
 		]
 	},
 	"openid-desc": "Aanmelden bij de wiki met een [//openid.net/ OpenID] en aanmelden bij andere websites die OpenID ondersteunen met een wikigebruiker",

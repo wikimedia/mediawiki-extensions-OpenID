@@ -5,8 +5,8 @@
 			"Aurora",
 			"Aviator",
 			"Diagramma Della Verita",
-			"Pizza1016",
-			"Jeluang Terluang"
+			"Jeluang Terluang",
+			"Pizza1016"
 		]
 	},
 	"openid-desc": "Membolehkan pengguna untuk log masuk ke dalam wiki dengan [//openid.net/ OpenID]. Jika dihidupkan pada wiki, pengguna juga obleh menggunakan URL akaun penggunanya di wiki ini sebagai OpenID untuk log masuk ke dalam tapak web lain yang sedia OpenID",

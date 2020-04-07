@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alan ffm",
 			"BeginaFelicysym",
 			"Chrumps",
 			"Herr Kriss",
 			"Maikking",
 			"Matma Rex",
-			"Sp5uhe",
-			"Alan ffm"
+			"Sp5uhe"
 		]
 	},
 	"openid-desc": "Logowanie się do wiki z użyciem [//openid.net/ OpenID], oraz logowanie się do innych witryn używających OpenID z użyciem konta użytkownika z wiki",

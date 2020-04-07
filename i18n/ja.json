@@ -1,16 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"2nd-player",
 			"Aotake",
 			"Fievarsty",
 			"Fryed-peach",
 			"Hosiryuhosi",
+			"Rxy",
 			"Schu",
 			"Shirayuki",
 			"Whym",
-			"青子守歌",
-			"Rxy",
-			"2nd-player"
+			"青子守歌"
 		]
 	},
 	"openid-desc": "[//openid.net/ OpenID] でウィキにログインできるようにする。\nこれをウィキで有効にすると、ウィキの利用者アカウントの URL を OpenID として他の OpenID 対応サイトにもログインできる",

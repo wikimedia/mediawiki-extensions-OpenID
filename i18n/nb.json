@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nghtwlkr",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Nghtwlkr"
 		]
 	},
 	"openid-desc": "Logg inn på wikien med en [//openid.net/ OpenID] og logg inn på andre sider som bruker OpenID med kontoen herfra",

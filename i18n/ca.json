@@ -3,11 +3,11 @@
 		"authors": [
 			"Alvaro Vidal-Abarca",
 			"Fitoschido",
+			"Jaumeortola",
 			"Paucabot",
 			"SMP",
 			"Solde",
-			"Toniher",
-			"Jaumeortola"
+			"Toniher"
 		]
 	},
 	"openid-desc": "Inicieu una sessió al wiki amb un [//openid.net/ OpenID], i inicieu una sessió a qualsevol lloc web compatible amb OpenID amb el vostre compte wiki",

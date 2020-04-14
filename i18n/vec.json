@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Candalua"
+			"Candalua",
+			"Fierodelveneto"
 		]
 	},
 	"openid-desc": "Entra con [//openid.net/ OpenID] in te la wiki, e entra in tei altri siti web che dòpara OpenID co' na utensa wiki",
@@ -15,7 +16,7 @@
 	"openidconfigerrortext": "La configurassion de la memorixassion de OpenID par sta wiki no la xe mia valida.\nPar piaser consulta un [[Special:ListUsers/sysop|aministrador]].",
 	"openidpermission": "Eròr in tei parmessi OpenID",
 	"openidpermissiontext": "A l'OpenID che ti gà fornìo no xe mia parmesso de entrar su sto server.",
-	"openidcancel": "Verifica anulà",
+	"openidcancel": "Verifega descançełada",
 	"openidcanceltext": "La verifica de l'URL OpenID le stà scancelà.",
 	"openidfailure": "Verifica mia riussìa",
 	"openidfailuretext": "La verifica de l'URL OpenID la xe 'ndà mal. El messajo de eròr el xe: \"$1\"",

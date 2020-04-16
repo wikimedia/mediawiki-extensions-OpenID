@@ -41,7 +41,7 @@
 	"openidchooseauto": "Un nome generà automaticamente ($1)",
 	"openidchoosemanual": "Un nome a sielta tua:",
 	"openidchooseexisting": "Na utensa esistente su sta wiki:",
-	"openidchoosepassword": "Password:",
+	"openidchoosepassword": "Ciave:",
 	"openidconvertinstructions": "Sto modulo el te parmete de canbiar la to utensa par doparar un URL OpenID o zontar altri URL OpenID.",
 	"openidconvertsuccess": "Convertìo con successo a OpenID",
 	"openidconvertsuccesstext": "El to OpenID el xe stà convertìo a $1.",

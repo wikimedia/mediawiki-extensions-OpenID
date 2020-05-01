@@ -255,7 +255,7 @@ class SpecialOpenID extends SpecialPage {
 		}
 
 		# Make sure the user has a session!
-		$this->setupSession();
+		$this->getRequest()->getSession()->persist();
 
 		$auth_request = $consumer->begin( $openid_url );
 
@@ -388,12 +388,6 @@ class SpecialOpenID extends SpecialPage {
 
 		// adding a dummy parameter forces a canonical url which we need
 		return $nt->getFullURL( [ 'dummy' => 'x' ], false, PROTO_CANONICAL );
-	}
-
-	protected function setupSession() {
-		if ( session_id() == '' ) {
-			wfSetupSession();
-		}
 	}
 
 	/**

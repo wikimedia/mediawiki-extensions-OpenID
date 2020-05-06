@@ -93,7 +93,7 @@
 	"openid-show-openid-url-on-userpage-user": "نمایش یو‌آر‌ال حساب کاربری شما بر روی صفحهٔ کاربریتان.",
 	"openid-show-openid-url-on-userpage-always": "حساب کاربری شما همیشه در صفحهٔ کاربری شما هنگامی که از آن بازدید می‌کنید، نشان داده می‌شود.",
 	"openid-show-openid-url-on-userpage-never": "حساب کاربری شما هرگز بر روی صفحه کاربریتان نشان داده نشده‌است.",
-	"openid-userinfo-update-on-login-label": "زمینه‌های اطلاعات مشخصات کاربر که به طور خودکار از حساب کاربری شخصی هر زمان که وارد می‌شوید، به روز رسانی خواهد شد:",
+	"openid-userinfo-update-on-login-label": "زمینه‌های اطلاعات مشخصات کاربر که به‌طور خودکار از حساب کاربری شخصی هر زمان که وارد می‌شوید، روزآمد خواهد شد:",
 	"openid-associated-openids-label": "حساب‌های کاربری با حساب شما مرتبط شده:",
 	"openid-urls-url": "نشانی اینترنتی",
 	"openid-urls-action": "اقدام",

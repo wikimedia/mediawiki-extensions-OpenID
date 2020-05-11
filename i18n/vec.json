@@ -50,7 +50,7 @@
 	"openidalreadyloggedin": "'''Te sì xà entrà, $1!'''\n\nSe ti vol doparar OpenID par entrar in futuro, te pol [[Special:OpenIDConvert|convertir la to utensa par doparar OpenID]].",
 	"openidnousername": "Nissun nome utente indicà.",
 	"openidbadusername": "El nome utente indicà no'l xe mia valido.",
-	"openidautosubmit": "Sta pàxena la include un modulo che'l dovarìa èssar invià automaticamente se ti gà JavaScript ativà.\nSe no, próa a strucar el boton \"Continue\" (Continua).",
+	"openidautosubmit": "Sta pàjina ła include on modulo che el garia da èsar invià automadegamente se ti gà JavaScript ativà.\nSe no, próa a strucar el boton \"Continue\" (Sèvita).",
 	"openidclientonlytext": "No te podi doparar le utense de sta wiki come OpenID su de un altro sito.",
 	"openidloginlabel": "URL OpenID",
 	"openidlogininstructions": "{{SITENAME}} el suporta el standard [//openid.net/ OpenID] par el login unico sui siti web.\nOpenID el te permete de registrarte in molti siti web sensa doparar na password difarente par ognuno.\n(Lèzi la [//en.wikipedia.org/wiki/OpenID voce de Wikipedia su l'OpenID] par savérghene piassè.)\n\nSe te ghè zà un account su {{SITENAME}}, te podi far el [[Special:UserLogin|login]] col to nome utente e la to password come al solito.\nPar doparar OpenID in futuro, te podi [[Special:OpenIDConvert|convertir el to account a OpenID]] dopo che te ghè fato normalmente el login.\n\nGhe xe molti [//openid.net/get/ Provider OpenID], e te podaressi verghe zà un account abilità a l'OpenID su un altro servissio.",

@@ -24,6 +24,8 @@
  * @ingroup Extensions
  */
 
+use MediaWiki\Auth\AuthenticationRequest;
+use MediaWiki\Auth\AuthManager;
 use MediaWiki\MediaWikiServices;
 
 # FIXME: for login(); figure out better way to share this code
@@ -481,5 +483,27 @@ class SpecialOpenID extends SpecialPage {
 		);
 
 		return (bool)$dbw->affectedRows();
+	}
+
+	/**
+	 * @param string $password
+	 * @return bool
+	 */
+	protected function checkPassword( $password ) {
+		$manager = AuthManager::singleton();
+		$requests = AuthenticationRequest::loadRequestsFromSubmission(
+			$manager->getAuthenticationRequests( AuthManager::ACTION_LOGIN ),
+			[
+				'username' => $this->getUser()->getName(),
+				'password' => $password,
+			]
+		);
+
+		$result = $manager->beginAuthentication( $requests, 'null:' );
+
+		if ( $result->status == AuthenticationResponse::PASS ) {
+			return true;
+		}
+		return false;
 	}
 }

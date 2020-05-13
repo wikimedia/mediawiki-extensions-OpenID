@@ -772,7 +772,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		assert( isset( $user ) );
 
-		if ( !$user->checkPassword( $password ) ) {
+		if ( !$this->checkPassword( $password ) ) {
 			return wfMessage( 'wrongpassword' )->text();
 		} else {
 			$wgUser = $user;

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Meursault2004",
+			"N219",
 			"NoiX180"
 		]
 	},
@@ -22,5 +23,5 @@
 	"openidchoosefull": "Jeneng asliné panjenengan ($1)",
 	"openidchooseauto": "Jeneng ($1) sing digawé sacara otomatis",
 	"openidchoosemanual": "Jeneng miturut pilihan panjenengan:",
-	"openidchoosepassword": "Tembung wadi:"
+	"openidchoosepassword": "Tembung sandi:"
 }

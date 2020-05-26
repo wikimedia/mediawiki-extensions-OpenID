@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"Meursault2004",
 			"N219",
 			"NoiX180"
@@ -11,7 +12,7 @@
 	"openidcancel": "Vérifikasi dibatalaké",
 	"openidfailure": "Vérifikasi gagal",
 	"openidtrustinstructions": "Mangga dipriksa yèn panjenengan péngin mbagi data karo $1.",
-	"openidallowtrust": "Marengaké $1 percaya karo rékening panganggo iki.",
+	"openidallowtrust": "Marengaké $1 percaya karo rékening naraguna iki.",
 	"openidnopolicy": "Situs iki durung spésifikasi kawicaksanan privasi.",
 	"openidoptional": "Opsional",
 	"openidrequired": "Dibutuhaké",
@@ -19,7 +20,7 @@
 	"openidfullname": "Jeneng asli",
 	"openidemail": "Alamat layang-èl",
 	"openidlanguage": "Basa",
-	"openidchooseinstructions": "Kabèh panganggo prelu jeneng sesinglon;\npanjenengan bisa milih salah siji saka opsi ing ngisor iki.",
+	"openidchooseinstructions": "Kabèh naraguna prelu jeneng sesinglon;\npanjenengan bisa milih salah siji saka opsi ing ngisor iki.",
 	"openidchoosefull": "Jeneng asliné panjenengan ($1)",
 	"openidchooseauto": "Jeneng ($1) sing digawé sacara otomatis",
 	"openidchoosemanual": "Jeneng miturut pilihan panjenengan:",

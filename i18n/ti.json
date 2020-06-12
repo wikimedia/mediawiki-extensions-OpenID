@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joanmp17"
+		]
+	},
+	"openidoptional": "ኣማራጽያዊ",
+	"openidlanguage": "ቋንቋ",
+	"openidchooseusername": "ሽም ተጠቃሚ፦",
+	"openiddelete-button": "ኣረጋግጽ",
+	"openid-urls-delete": "ሰርዝ",
+	"openid-trusted-sites-delete-link-action-text": "ሰርዝ",
+	"openid-trusted-sites-delete-confirmation-button-text": "ኣረጋግጽ"
+}

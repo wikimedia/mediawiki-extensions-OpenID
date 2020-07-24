@@ -65,7 +65,7 @@
 	"openidconvertsuccesstext": "OpenID'nizi $1'e dönüştürdünüz.",
 	"openid-convert-already-your-openid-text": "OpenID $1 zaten hesabınızla ilişkilendirilmiş.",
 	"openid-convert-other-users-openid-text": "$1, başkasının OpenID'sidir.\nBaşka bir kullanıcının OpenID'sini kullanamazsınız.",
-	"openidalreadyloggedin": "Zaten giriş yaptınız.",
+	"openidalreadyloggedin": "Zaten oturum açtınız.",
 	"openidalreadyloggedintext": "'''Zaten giriş yaptınız, $1!'''\n\nTercihlerinizi [[Special:Preferences#mw-prefsection-openid|OpenID sekmesi]] içinden OpenID'leri yönetebilir (görüntüleyebilir, silebilir, daha fazla ekleyebilirsiniz).",
 	"openidnousername": "Herhangi bir kullanıcı adı belirtilmedi.",
 	"openidbadusername": "Kötü bir kullanıcı adı belirtildi.",

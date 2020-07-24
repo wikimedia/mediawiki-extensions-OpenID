@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"01miki10",
 			"Centerlink",
 			"Cimon Avaro",
 			"Crt",
@@ -55,7 +56,7 @@
 	"openidchooseauto": "Automaattisesti luotu nimi ($1)",
 	"openidchoosemanual": "Omavalintainen nimi",
 	"openidchooseexisting": "Olemassa oleva tunnus tässä wikissä",
-	"openidchooseusername": "Käyttäjätunnus:",
+	"openidchooseusername": "Käyttäjänimi:",
 	"openidchoosepassword": "Salasana",
 	"openidconvertinstructions": "Tällä lomakkeella voit muuttaa käyttäjätilisi käyttämään OpenID-osoitetta tai lisätä OpenID-osoitteita.",
 	"openidconvertoraddmoreids": "Siirry OpenID:hen tai lisää uusi OpenID-osoite.",
@@ -64,8 +65,8 @@
 	"openid-convert-already-your-openid-text": "Tämä on jo OpenID:si.",
 	"openid-convert-other-users-openid-text": "$1 on jonkun muun OpenID. Et voi käyttää toisen käyttäjän OpenID:tä.",
 	"openidalreadyloggedin": "Olet jo kirjautuneena sisään.",
-	"openidnousername": "Käyttäjätunnus puuttuu.",
-	"openidbadusername": "Käyttäjätunnus on virheellinen.",
+	"openidnousername": "Käyttäjänimi puuttuu.",
+	"openidbadusername": "Käyttäjänimi on virheellinen.",
 	"openidautosubmit": "Tämä sivu sisältää lomakkeen, joka lähettää itse itsensä, jos JavaScript käytössä.\nMuussa tapauksessa valitse <code>Continue</code> (Jatka).",
 	"openidclientonlytext": "Et voi käyttää tämän wikin käyttäjätunnuksia OpenID-tunnuksina muilla sivustoilla.",
 	"openidloginlabel": "OpenID-URL",
@@ -93,5 +94,5 @@
 	"openid-provider-label-google": "Kirjaudu sisään käyttämällä Google-tunnuksiasi",
 	"openid-provider-label-yahoo": "Kirjaudu sisään käyttämällä Yahoo-tunnuksiasi",
 	"openid-provider-label-aol": "Anna AOL-käyttäjänimesi",
-	"openid-provider-label-other-username": "Anna $1-käyttäjätunnuksesi"
+	"openid-provider-label-other-username": "Anna $1-käyttäjänimesi"
 }

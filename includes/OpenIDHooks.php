@@ -15,13 +15,8 @@ class OpenIDHooks {
 
 		$addOpenIDSpecialPagesList = [];
 
-		$user = RequestContext::getMain()->getUser(); // No context
-
 		if ( OpenID::isAllowedMode( 'consumer' ) ) {
-			if ( $wgOpenIDLoginOnly
-				&& !$user->isAllowed( 'openid-create-account-without-openid' )
-				&& $user->isAllowed( 'openid-login-with-openid' )
-			) {
+			if ( $wgOpenIDLoginOnly	) {
 				$specialPagesList['Userlogin'] = 'SpecialOpenIDLogin';
 
 				# as Special:CreateAccount is an alias for Special:UserLogin/signup
@@ -34,12 +29,7 @@ class OpenIDHooks {
 		# Special pages for both modes are added at global scope
 
 		if ( OpenID::isAllowedMode( 'provider' ) || OpenID::isAllowedMode( 'consumer' ) ) {
-			if ( !$user->isLoggedIn()
-				&& ( $user->isAllowed( 'openid-login-with-openid' )
-					|| $user->isAllowed( 'openid-create-account-with-openid' ) ) ) {
-				$addOpenIDSpecialPagesList[] = 'Login';
-			}
-
+			$addOpenIDSpecialPagesList[] = 'Login';
 			$addOpenIDSpecialPagesList[] = 'Convert';
 			$addOpenIDSpecialPagesList[] = 'Dashboard';
 		}

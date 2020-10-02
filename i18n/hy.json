@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kareyac",
 			"M hamlet"
 		]
 	},
 	"openiderror": "OpenID սխալ",
+	"openid-urls-action": "Գործողություն",
+	"openid-trusted-sites-table-header-column-action": "Գործողություն",
 	"openid-provider-selection-button-login-or-create-account": "Մուտք գործել / ստեղծել հաշիվ OpenID֊ի միջոցով",
 	"openid-provider-selection-button-login": "Մուտք գործել OpenID֊ի միջոցով",
 	"openid-provider-selection-button-create-account": "Ստեղծել հաշիվ OpenID֊ի միջոցով",

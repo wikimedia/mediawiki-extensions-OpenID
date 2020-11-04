@@ -120,7 +120,7 @@ class SpecialOpenID extends SpecialPage {
 
 	/**
 	 * @param string $openid_url
-	 * @return String
+	 * @return string
 	 */
 	function interwikiExpand( $openid_url ) {
 		# try to make it into a title object

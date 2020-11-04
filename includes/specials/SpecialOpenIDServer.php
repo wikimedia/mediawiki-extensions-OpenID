@@ -218,7 +218,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 	/**
 	 * Returns the full URL of the special page; we need to pass it around
 	 * for some requests
-	 * @return null|String
+	 * @return null|string
 	 */
 	function Url() {
 		$nt = SpecialPage::getTitleFor( 'OpenIDServer' );

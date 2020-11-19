@@ -4,6 +4,7 @@
 			"BaRaN6161 TURK",
 			"Hedda",
 			"Joseph",
+			"MuratTheTurkish",
 			"Sayginer",
 			"Suelnur"
 		]
@@ -72,7 +73,7 @@
 	"openidautosubmit": "Bu sayfa, JavaScript etkin ise otomatik olarak gönderilmesi gereken bir form içeriyor.\nEğer değilse, \"Continue\" (Devam) düğmesini deneyin.",
 	"openidclientonlytext": "Bu vikideki hesapları başka sitelerde OpenID olarak kullanamazsınız.",
 	"openidloginlabel": "OpenID URLsi",
-	"openidlogininstructions": "{{SITENAME}}, web siteleri arasında tek oturum açma için [//openid.net/ OpenID] standardını desteklemektedir.\nOpenID, her biri için farklı bir şifre kullanmadan birçok farklı web sitesinde oturum açmanıza izin verir.\n(Daha fazla bilgi için [//tr.wikipedia.org/wiki/OpenID Vikipedi'nin OpenID makalesine] bakın.)\nBirçok [//openid.net/get/ OpenID sağlayıcısı] vardır ve başka bir hizmette zaten OpenID etkin bir hesabınız olabilir.",
+	"openidlogininstructions": "{{SITENAME}}, web siteleri arasında tek oturum açma için [//openid.net/ OpenID] standardını desteklemektedir.\nOpenID, her biri için farklı bir parola kullanmadan birçok farklı web sitesinde oturum açmanıza izin verir.\n(Daha fazla bilgi için [//tr.wikipedia.org/wiki/OpenID Vikipedi'nin OpenID maddesine] bakın.)\nBirçok [//openid.net/get/ OpenID sağlayıcısı] vardır ve başka bir hizmette zaten OpenID etkin bir hesabınız olabilir.",
 	"openidlogininstructions-openidloginonly": "{{SITENAME}} ''yalnızca'' OpenID ile giriş yapmanıza olanak tanır.",
 	"openidlogininstructions-passwordloginallowed": "{{SITENAME}} üzerinde zaten bir hesabınız varsa, her zamanki gibi kullanıcı adınız ve şifrenizle [[Special:UserLogin|giriş]] yapabilirsiniz.\nİleride OpenID'yi kullanmak için, normal şekilde giriş yaptıktan sonra [[Special:OpenIDConvert|hesabınızı OpenID'ye dönüştürebilirsiniz]].",
 	"openidupdateuserinfo": "Kişisel bilgimlerimi güncelle:",

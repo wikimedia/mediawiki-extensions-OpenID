@@ -21,7 +21,7 @@
 	"openid-identifier-page-text-user": "Ця сторінка є ідентифікатором користувача \"$1\".",
 	"openid-identifier-page-text-different-user": "Ця сторінка є ідентифікатором ID користувача $1.",
 	"openid-identifier-page-text-no-such-local-openid": "Це неприпустимий локальний ідентифікатор OpenID.",
-	"openid-server-identity-page-text": "Це технічна сторінка сервера OpenID, призначена для запуску OpenID-аутентифікації. Сторінка не має іншої мети.",
+	"openid-server-identity-page-text": "Це технічна сторінка сервера OpenID, призначена для запуску OpenID-автентифікації.\nСторінка не має іншої мети.",
 	"openidxrds": "Файл Yadis",
 	"openidconvert": "Перетворювач OpenID",
 	"openiderror": "Помилка OpenID",

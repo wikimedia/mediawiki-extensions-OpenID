@@ -231,8 +231,6 @@ class SpecialOpenIDConvert extends SpecialOpenID {
 					$smallButtons
 				);
 			}
-
-			return;
 	}
 
 	function form() {

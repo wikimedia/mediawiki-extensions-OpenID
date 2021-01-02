@@ -111,19 +111,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
 			return;
 
-			list( $request, $sreg ) = $this->FetchValues();
-			$result = $this->serverLogin( $request );
-			if ( $result ) {
-				if ( is_string( $result ) ) {
-					$this->LoginForm( $request, $result );
-					return;
-				} else {
-					$this->Response( $server, $result );
-					return;
-				}
-			}
-			break;
-
 		case 'trust':
 			if ( !$this->getUser()->matchEditToken( $wgRequest->getVal( 'openidTrustFormToken' ), 'openidTrustFormToken' ) ) {
 				$wgOut->showErrorPage( 'openiderror', 'openid-error-request-forgery' );
@@ -678,8 +665,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 		}
 
 		print $wr->body;
-
-		return;
 	}
 
 	function LoginForm( $request, $msg = null ) {
@@ -688,36 +673,6 @@ class SpecialOpenIDServer extends SpecialOpenID {
 
 		wfDebug( "OpenID: SpecialOpenIDServer::LoginForm. You should not pass this point.\n" );
 		$wgOut->showErrorPage( 'openiderror', 'openiderrortext' );
-		return;
-
-		$url = $request->identity;
-		$name = $this->UrlToUserName( $url );
-		$trust_root = $request->trust_root;
-
-		$instructions = wfMessage( 'openidserverlogininstructions', $url, $name, $trust_root )->text();
-
-		$username = wfMessage( 'yourname' )->text();
-		$password = wfMessage( 'yourpassword' )->text();
-		$ok = wfMessage( 'ok' )->text();
-		$cancel = wfMessage( 'cancel' )->text();
-
-		if ( $msg !== null ) {
-			$wgOut->addHTML( "<p class='error'>{$msg}</p>" );
-		}
-
-		$sk = $this->getUser()->getSkin();
-
-		$wgOut->addHTML( "<p>{$instructions}</p>" .
-			'<form action="' . $sk->makeSpecialUrl( 'OpenIDServer/Login' ) . '" method="POST">' .
-			'<table>' .
-			"<tr><td><label for='username'>{$username}</label></td>" .
-			'    <td><span id="username">' . htmlspecialchars( $name ) . '</span></td></tr>' .
-			"<tr><td><label for='password'>{$password}</label></td>" .
-			'    <td><input type="password" name="wpPassword" size="32" value="" /></td></tr>' .
-			"<tr><td colspan='2'><input type='submit' name='wpOK' value='{$ok}' /> <input type='submit' name='wpCancel' value='{$cancel}' /></td></tr>" .
-			'</table>' .
-			'</form>'
-		);
 	}
 
 	function SaveValues( $request, $sreg ) {

@@ -4,6 +4,7 @@
 			"EugeneZelenko",
 			"Jim-by",
 			"Red Winged Duck",
+			"Renessaince",
 			"Wizardist",
 			"Zedlik"
 		]
@@ -80,6 +81,7 @@
 	"openid-urls-registration": "Час рэгістрацыі",
 	"openid-urls-delete": "Выдаліць",
 	"openid-add-url": "Дадаць новы OpenID да вашага рахунку",
+	"openid-trusted-sites-delete-confirmation-button-text": "Пацьвердзіць",
 	"openid-login-or-create-account": "Увайсьці альбо стварыць новы рахунак",
 	"openid-provider-label-openid": "Увядзіце Ваш адрас OpenID",
 	"openid-provider-label-google": "Увайсьці з дапамогай Вашага рахунку ў Google",

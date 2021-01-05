@@ -20,14 +20,14 @@
  * @ingroup Extensions
  */
 class OpenIDProvider {
-	/**
-	 * Properties about this provider
-	 * @var string providerName
-	 * @var string small|large largeOrSmallProvider
-	 * @var string labeltext
-	 * @var string OpenID url;
-	 */
-	protected $providerName, $largeOrSmallProvider, $label, $url;
+	/** @var string the provider name */
+	protected $providerName;
+	/** @var string word small or large */
+	protected $largeOrSmallProvider;
+	/** @var string label text */
+	protected $label;
+	/** @var string OpenID url */
+	protected $url;
 
 	public function __construct( $providerName, $largeOrSmallProvider, $label, $url ) {
 		$this->providerName = $providerName;

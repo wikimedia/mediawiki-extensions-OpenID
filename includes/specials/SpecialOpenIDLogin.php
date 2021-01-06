@@ -1084,8 +1084,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	 */
 	function userNameOK( $name ) {
 		global $wgReservedUsernames;
-		return ( 0 == User::idFromName( $name ) &&
-				!in_array( $name, $wgReservedUsernames ) );
+		return User::idFromName( $name ) == 0
+			&& !in_array( $name, $wgReservedUsernames );
 	}
 
 	/**

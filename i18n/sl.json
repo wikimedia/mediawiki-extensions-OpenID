@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
 	"openid-desc": "Prijavite se v wiki z [//openid.net/ OpenID] in prijavite se v druge spletne strani s podporo OpenID z uporabniškim računom wiki",
@@ -26,7 +27,7 @@
 	"openidtrustinstructions": "Označite, če želite deliti podatke s $1.",
 	"openidallowtrust": "Dovoli $1, da zaupa temu uporabniškemuu računu.",
 	"openidnopolicy": "Stran ni določila pravilnika o zasebnosti.",
-	"openidpolicy": "Preverite <a target=\"_new\" href=\"$1\">politiko zasebnosti</a> za več informacij.",
+	"openidpolicy": "Za več informacij glejte <a target=\"_new\" href=\"$1\">pravilnik o zasebnosti</a>.",
 	"openidoptional": "Izbirno",
 	"openidrequired": "Zahtevano",
 	"openidnickname": "Vzdevek",

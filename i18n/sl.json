@@ -5,7 +5,7 @@
 			"Eleassar"
 		]
 	},
-	"openid-desc": "Prijavite se v wiki z [//openid.net/ OpenID] in prijavite se v druge spletne strani s podporo OpenID z uporabniškim računom wiki",
+	"openid-desc": "Omogočite uporabnikom prijavo v wiki z [//openid.net/ OpenID].\nČe je v vašem wikiju to omogočeno, lahko kot OpenID za prijavo na drugih spletiščih s podprto možnostjo OpenID uporabijo tudi URL svojega računa v tem wikiju.",
 	"openidlogin": "Prijavite se / ustvarite račun z OpenID",
 	"openidserver": "Strežnik OpenID",
 	"openidxrds": "Datoteka Yadis",
@@ -52,7 +52,7 @@
 	"openid-convert-already-your-openid-text": "OpenID $1 je že povezan z vašim računom.",
 	"openid-convert-other-users-openid-text": "$1 je OpenID nekoga drugega. Ne morete uporabiti OpenID drugega uporabnika.",
 	"openidalreadyloggedin": "Ste že prijavljeni.",
-	"openidalreadyloggedintext": "'''$1, ste že prijavljeni!'''\n\nOpenID-je lahko upravljate (si jih ogledate, izbrišete in drugo) na [[Special:Preferences#mw-prefsection-openid|zavihku OpenID]] v vaših nastavitvah.",
+	"openidalreadyloggedintext": "'''$1, ste že prijavljeni!'''\n\nOpenID-je lahko upravljate (si jih ogledate, izbrišete in drugo) na [[Special:Preferences#mw-prefsection-openid|zavihku OpenID]] v svojih nastavitvah.",
 	"openidnousername": "Uporabniško ime ni določeno.",
 	"openidbadusername": "Določeno je neustrezno uporabniško ime.",
 	"openidautosubmit": "Ta stran vsebuje obrazec, ki bi se moral potrditi samodejno, če imate omogočen JavaScript.\nČe ne, poskusite klikniti na gumb »Continue« (Nadaljuj).",

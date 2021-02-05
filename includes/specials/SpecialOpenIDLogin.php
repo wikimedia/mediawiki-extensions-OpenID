@@ -908,7 +908,7 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			break;
 		case 'full':
 			if ( !$wgOpenIDProposeUsernameFromSREG ) {
-				return;
+				return null;
 			}
 			# check the SREG first; only return a value if non-null
 			$fullname = ( ( array_key_exists( 'fullname', $sreg ) ) ? $sreg['fullname'] : null );

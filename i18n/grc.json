@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Crazymadlover",
-			"Omnipaedista"
+			"Omnipaedista",
+			"PastelKos"
 		]
 	},
 	"openidoptional": "Προαιρετικόν",
 	"openidrequired": "Ἀπαιτούμενον",
 	"openidnickname": "Ψευδώνυμον",
-	"openidfullname": "Πλῆρες ὄνομα",
+	"openidfullname": "Ἀληθὲς ὄνομα",
 	"openidemail": "Ἡλεκτρονικὴ διεύθυνσις",
 	"openidlanguage": "Γλῶττα",
 	"openidtimezone": "Χρονικὴ ζώνη:",

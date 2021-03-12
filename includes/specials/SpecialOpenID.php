@@ -490,7 +490,12 @@ class SpecialOpenID extends SpecialPage {
 	 * @return bool
 	 */
 	protected function checkPassword( $password ) {
-		$manager = AuthManager::singleton();
+		if ( method_exists( MediaWikiServices::class, 'getAuthManager' ) ) {
+			// MediaWiki 1.35+
+			$manager = MediaWikiServices::getInstance()->getAuthManager();
+		} else {
+			$manager = AuthManager::singleton();
+		}
 		$requests = AuthenticationRequest::loadRequestsFromSubmission(
 			$manager->getAuthenticationRequests( AuthManager::ACTION_LOGIN ),
 			[

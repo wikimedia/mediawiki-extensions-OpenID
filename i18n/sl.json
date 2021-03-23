@@ -5,7 +5,7 @@
 			"Eleassar"
 		]
 	},
-	"openid-desc": "Omogočite uporabnikom prijavo v wiki z [//openid.net/ OpenID].\nČe je v vašem wikiju to omogočeno, lahko kot OpenID za prijavo na drugih spletiščih s podprto možnostjo OpenID uporabijo tudi URL svojega računa v tem wikiju.",
+	"openid-desc": "Omogočite uporabnikom prijavo v viki z [//openid.net/ OpenID].\nČe je v vašem vikiju to omogočeno, lahko kot OpenID za prijavo na drugih spletnih mestih s podprto možnostjo OpenID uporabijo tudi URL svojega računa v tem vikiju.",
 	"openidlogin": "Prijavite se / ustvarite račun z OpenID",
 	"openidserver": "Strežnik OpenID",
 	"openidxrds": "Datoteka Yadis",

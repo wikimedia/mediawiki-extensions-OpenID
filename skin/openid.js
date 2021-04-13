@@ -62,5 +62,5 @@
 
 		};
 
-	$( document ).ready( openid.init );
+	$( openid.init );
 }( jQuery, mediaWiki ) );

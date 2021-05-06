@@ -98,7 +98,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			# case 'Continue' must stay here
 			# because it is followed by case 'Login' when the user is not logged in on this OpenID server wiki
 
-			if ( $this->getUser()->isLoggedIn() ) {
+			if ( $this->getUser()->isRegistered() ) {
 				list( $request, $sreg ) = $this->FetchValues();
 				break;
 			}

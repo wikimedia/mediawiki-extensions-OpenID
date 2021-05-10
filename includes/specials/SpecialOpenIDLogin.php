@@ -1150,6 +1150,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 	}
 
 	public function isListed() {
-		return !$this->getUser()->isLoggedIn();
+		return !$this->getUser()->isRegistered();
 	}
 }

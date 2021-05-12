@@ -71,7 +71,6 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			break;
 
 		default: # Main entry point
-
 			if ( $wgRequest->getText( 'returnto' ) ) {
 				$this->setReturnTo( $wgRequest->getText( 'returnto' ), $wgRequest->getVal( 'returntoquery' ) );
 			}
@@ -937,9 +936,8 @@ class SpecialOpenIDLogin extends SpecialOpenID {
 			if ( $wgOpenIDAllowNewAccountname ) {
 				return $nameValue;
 			}
-		 default:
-			return null;
 		}
+		return null;
 	}
 
 	/**

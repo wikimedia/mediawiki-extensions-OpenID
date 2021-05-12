@@ -186,7 +186,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 			break;
 
 		default:
-		# For all the other parts, just let the libs do it
+			# For all the other parts, just let the libs do it
 			Wikimedia\suppressWarnings();
 			$response =& $server->handleRequest( $request );
 			Wikimedia\restoreWarnings();
@@ -612,7 +612,7 @@ class SpecialOpenIDServer extends SpecialOpenID {
 				$user->setEmail( "" );
 			}
 			return true;
-		 case 'language':
+		case 'language':
 			$user->setOption( 'language', $value );
 			return true;
 		default:

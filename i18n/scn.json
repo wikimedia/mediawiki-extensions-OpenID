@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Melos",
 			"Pippinu",
 			"Santu",
@@ -42,6 +43,7 @@
 	"openidchooseauto": "Nu nomu giniràtusi sulu ($1)",
 	"openidchoosemanual": "Nu nomu scigghiutu di tia:",
 	"openidchooseexisting": "Nu cuntu ca già c'è nta sta wiki",
+	"openidchooseusername": "Nomu utenti:",
 	"openidchoosepassword": "Password:",
 	"openidconvertinstructions": "Stu mòdulu ti cunzenti di canciari lu tò cuntu p'adupirari n'URL OpenID o puru p'agghiùnciri àutri URL OpenID",
 	"openidconvertsuccess": "Canciatu cu successu a OpenID",

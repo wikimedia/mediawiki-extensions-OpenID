@@ -59,6 +59,7 @@
 	"openidlogininstructions": "{{SITENAME}} supporta lu standard [//openid.net/ OpenID] pâ trasuta unificata nta tanti siti.\nL'OpenID cunzenti di tràsiri nta tanti siti diffirenti senza bisognu d'adupirari na palora d'òrdini nova p'ogni situ.\n(Talìa [//scn.wikipedia.org/wiki/OpenID l'artìculu di Wikipedia supra a l'OpenID] pi sapìrinni cchiossai.)\nCi sunnu tanti [//openid.net/get/ furnitura d'OpenID], e pò puru èssiri chi già hai un cuntu attivu pi l'OpenID nta quarchi n'àutru sirvizziu.",
 	"prefs-openid-show-openid": "Ammuccia lu tò OpenID supr'a tò pàggina utenti, si fai lu login cu OpenID.",
 	"openid-urls-action": "Azzioni",
+	"openid-trusted-sites-table-header-column-action": "Azzioni",
 	"openid-provider-label-google": "Accedi utilizzannu lu tò account Google",
 	"openid-provider-label-aol": "Nserisci lu tò screenname AOL",
 	"openid-provider-label-other-username": "Nserisci lu tò $1 nnomu utenti"

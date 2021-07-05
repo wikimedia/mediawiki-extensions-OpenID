@@ -75,7 +75,7 @@
 	"openid-urls-url": "URL",
 	"openid-urls-action": "Aktioun",
 	"openid-urls-delete": "Läschen",
-	"openid-add-url": "Eng nei OpenID bei Äre Benotzerkont dobäisetzen",
+	"openid-add-url": "Eng nei OpenID bei Äre Benotzerkont derbäisetzen",
 	"openid-trusted-sites-label": "Sitten deenen Dir traut an op deenen Dir OpenID benotzt hutt fir Iech anzeloggen:",
 	"openid-trusted-sites-table-header-column-url": "Sitten, deenen Dir traut",
 	"openid-trusted-sites-table-header-column-action": "Aktioun",
